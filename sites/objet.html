@@ -1,0 +1,891 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>오브제 인테리어 스튜디오 | 분당·판교 아파트 리모델링</title>
+<meta name="description" content="분당·판교 아파트 리모델링 전문 오브제 인테리어 스튜디오. 24·32·45평 패키지, 주차별 공정표, 자재 등급 비교, 무료 실측 상담.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300;1,400&family=Noto+Serif+KR:wght@300;400&family=Inter+Tight:wght@200;300;500;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f3f0ea; --paper2:#e9e4db; --white:#fbfaf7; --walnut:#6b4429; --walnut-l:#a07a5c; --ink:#141312; --gray:#76716a; --line:#cfc8bc; --line-d:#2c2a27;
+  --lat:"Inter Tight","Noto Sans KR","Noto Sans CJK KR",sans-serif;
+  --kr:"Noto Sans KR","Noto Sans CJK KR",sans-serif;
+  --serif:"Cormorant Garamond","Noto Serif KR","Noto Serif CJK KR",serif; --skr:"Noto Serif KR","Noto Serif CJK KR",serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{overflow-x:clip}
+body{background:var(--paper);color:var(--ink);font-family:var(--kr);font-weight:400;font-size:16px;line-height:1.75;overflow-x:hidden;word-break:keep-all;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit;color:inherit}
+.w{max-width:1360px;margin:0 auto;padding:0 48px}
+.lab{font-family:var(--lat);font-size:12px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--gray);display:flex;gap:14px;align-items:center}
+.lab b{color:var(--walnut);font-weight:700}
+h1,h2,h3{font-weight:700;letter-spacing:-.04em;line-height:1.2}
+h2{font-size:clamp(34px,4.4vw,64px);font-weight:300;letter-spacing:-.05em;line-height:1.15}
+h2 strong{font-weight:700}
+.btn{display:inline-flex;align-items:center;gap:18px;height:58px;padding:0 28px;font-size:15px;font-weight:500;border:1px solid var(--ink);transition:background .3s,color .3s;cursor:pointer;background:none;white-space:nowrap}
+.btn i{display:block;width:28px;height:1px;background:currentColor;position:relative;transition:width .3s}
+.btn i::after{content:"";position:absolute;right:0;top:-4px;width:9px;height:9px;border-top:1px solid currentColor;border-right:1px solid currentColor;transform:rotate(45deg)}
+.btn:hover i{width:40px}
+.btn.k{background:var(--ink);color:var(--paper)}
+.btn.k:hover{background:var(--walnut);border-color:var(--walnut)}
+.btn.o:hover{background:var(--ink);color:var(--paper)}
+
+/* scroll reveal — attribute based to avoid class collisions */
+[data-rv]{opacity:0;transform:translateY(30px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+[data-rv].obj-seen{opacity:1;transform:none}
+
+/* header */
+.hd{position:fixed;inset:0 0 auto;z-index:60;transition:background .4s,border-color .4s;border-bottom:1px solid transparent}
+.hd .w{display:flex;align-items:center;height:84px;gap:40px;transition:height .4s}
+.hd.is-sc{background:rgba(243,240,234,.94);backdrop-filter:blur(10px);border-color:var(--line)}
+.hd.is-sc .w{height:66px}
+.logo{display:flex;align-items:center;gap:12px;font-family:var(--lat);font-weight:700;font-size:21px;letter-spacing:.32em}
+.logo svg{width:30px;height:30px}
+.logo small{font-family:var(--kr);font-weight:400;font-size:11px;letter-spacing:.1em;color:var(--gray);border-left:1px solid var(--line);padding-left:12px}
+.hd nav{margin-left:auto}
+.hd nav ul{display:flex;gap:34px;list-style:none;font-size:14.5px}
+.hd nav a{position:relative;padding:6px 0}
+.hd nav a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--ink);transition:width .3s}
+.hd nav a:hover::after{width:100%}
+.hd .btn{height:44px;padding:0 20px;font-size:14px;gap:12px}
+.hd .btn i{width:18px}
+.burger{display:none;width:44px;height:44px;border:1px solid var(--ink);background:none;cursor:pointer;margin-left:auto}
+.burger span{display:block;width:18px;height:1px;background:var(--ink);margin:5px auto}
+
+/* hero — pinned window → full bleed */
+.hero{position:relative;height:300vh;padding:0}
+.hs{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+.hmeta{position:absolute;left:48px;right:48px;top:104px;display:flex;justify-content:space-between;border-top:1px solid var(--ink);padding-top:14px;z-index:3}
+.hh{position:absolute;left:48px;top:170px;z-index:3;font-size:clamp(40px,4vw,60px);font-weight:300;letter-spacing:-.06em;line-height:1.08}
+.hh strong{font-weight:700}
+.hh em{font-style:normal;color:var(--walnut)}
+.hside{position:absolute;right:48px;top:178px;width:330px;z-index:3}
+.hside p{color:var(--gray);font-size:15px;margin-bottom:24px}
+.hside .ctas{display:flex;flex-direction:column;gap:10px}
+.hside .ctas .btn{justify-content:space-between}
+.win{position:absolute;inset:0;z-index:2;clip-path:inset(24vh 37vw 26vh 37vw);transform:rotate(-5deg);will-change:clip-path,transform}
+.win img{width:100%;height:100%;object-fit:cover;object-position:50% 60%;scale:1.35}
+.win .tag{position:absolute;left:48px;bottom:40px;background:var(--paper);padding:20px 26px;display:grid;grid-template-columns:auto auto;gap:4px 28px;font-size:13px;opacity:0}
+.win .tag dt{color:var(--gray);font-family:var(--lat);letter-spacing:.12em;font-size:11px;text-transform:uppercase}
+.win .tag dd{font-weight:500}
+.wm{position:absolute;left:0;right:0;bottom:0;z-index:1;text-align:center;font-family:var(--lat);font-weight:700;font-size:25.5vw;line-height:.74;letter-spacing:-.04em;color:var(--ink);white-space:nowrap;transform:translateY(8%)}
+.hcue{position:absolute;right:48px;bottom:30px;z-index:3;font-family:var(--lat);font-size:11px;letter-spacing:.2em;color:var(--paper);mix-blend-mode:difference}
+.trust{display:flex;flex-wrap:wrap;gap:0;border-bottom:1px solid var(--line)}
+.trust li{list-style:none;flex:1 1 0;padding:24px 0 24px 22px;border-left:1px solid var(--line);font-size:14px;color:var(--gray);display:flex;gap:12px;align-items:center}
+.trust li:first-child{border-left:0;padding-left:0}
+.trust li b{font-family:var(--lat);font-weight:500;color:var(--ink);font-size:13px}
+
+/* manifesto */
+.mf{padding:150px 0 130px}
+.mf .w{display:grid;grid-template-columns:3fr 9fr;gap:40px;align-items:start}
+.mf .lab{margin-top:18px}
+.mf p.big{font-family:var(--skr);font-weight:300;font-size:clamp(28px,3.3vw,50px);line-height:1.5;letter-spacing:-.04em}
+.mf p.big i{font-family:var(--serif);font-style:italic;font-weight:300;font-size:1.18em;letter-spacing:-.01em;color:var(--walnut)}
+
+/* marquee */
+.mqs{padding:30px 0 120px;overflow:hidden}
+.mq.m1{font-family:var(--lat);font-weight:200;font-size:clamp(70px,11vw,170px);line-height:1.05;letter-spacing:-.05em;text-transform:uppercase}
+.mq.m1 i{font-family:var(--serif);font-style:italic;font-weight:300;text-transform:none;color:var(--walnut);letter-spacing:-.02em}
+.mq.m2{margin-top:14px;font-family:var(--lat);font-weight:500;font-size:13px;letter-spacing:.32em;color:var(--gray);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:14px 0}
+
+section{padding:150px 0;position:relative}
+
+/* problem */
+.pb .grid{display:grid;grid-template-columns:5fr 7fr;gap:80px}
+.pb h2{margin-top:26px}
+.pb ol{list-style:none;border-top:1px solid var(--ink)}
+.pb li{display:grid;grid-template-columns:90px 1fr;padding:34px 0;border-bottom:1px solid var(--line);transition:padding .35s}
+.pb li:hover{padding-left:14px}
+.pb li .n{font-family:var(--lat);font-weight:200;font-size:44px;line-height:1;color:var(--walnut-l)}
+.pb li h3{font-size:21px;font-weight:500;letter-spacing:-.03em;margin-bottom:6px}
+.pb li p{color:var(--gray);font-size:15px}
+.pb .ans{margin-top:44px;font-size:19px;font-weight:500}
+.pb .ans u{text-decoration:none;border-bottom:2px solid var(--walnut)}
+
+/* services — horizontal pin before → after */
+.sv{background:var(--white);padding:0}
+.sv .hp-stick{gap:34px;padding-top:60px}
+.hp-stick>.w{width:100%}
+.sv .top{display:flex;justify-content:space-between;align-items:end;gap:40px}
+.sv .top h2{margin-top:18px;font-size:clamp(32px,3.6vw,54px)}
+.sv .top .r{display:flex;flex-direction:column;align-items:flex-end;gap:16px;max-width:420px;text-align:right}
+.sv .top .r p{color:var(--gray);font-size:15px}
+.cnt{font-family:var(--lat);font-size:12px;letter-spacing:.2em;color:var(--gray);width:220px}
+.cnt b{font-weight:300;font-size:38px;letter-spacing:-.04em;color:var(--ink);margin-left:8px}
+.cnt .hp-bar{margin-top:10px}
+.sv .hp-track{gap:36px;padding:0 48px;align-items:flex-start}
+.sc{flex:none;width:calc(48vh * .8);display:flex;flex-direction:column}
+.sc.wide{width:calc(48vh * 1.45)}
+.sc .ph{height:48vh;overflow:hidden;background:var(--paper2);position:relative}
+.sc .ph img{width:100%;height:100%;object-fit:cover;scale:1.12;transition:scale 1.2s cubic-bezier(.2,.7,.2,1)}
+.sc:hover .ph img{scale:1.2}
+.sc .ba{position:absolute;left:14px;top:14px;font-family:var(--lat);font-size:11px;font-weight:700;letter-spacing:.2em;padding:6px 10px;background:var(--paper)}
+.sc .ba.af{background:var(--ink);color:var(--paper)}
+.sc .tx{display:grid;grid-template-columns:44px 1fr;padding-top:16px;border-top:1px solid var(--ink);margin-top:16px}
+.sc .tx .n{font-family:var(--lat);font-size:13px;color:var(--walnut);font-weight:500;padding-top:4px}
+.sc h3{font-size:21px;font-weight:500;letter-spacing:-.04em}
+.sc p{color:var(--gray);font-size:14px;margin-top:4px;line-height:1.65}
+.sc .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.sc .chips span{font-size:12px;border:1px solid var(--line);padding:2px 10px}
+.sv .arrow{flex:none;align-self:center;font-family:var(--serif);font-style:italic;font-weight:300;font-size:64px;color:var(--walnut);padding:0 10px;margin-top:-10vh}
+
+/* timeline */
+.tl{padding:0}
+.tlpin{height:260vh;position:relative}
+.tlstick{position:sticky;top:0;height:100vh;height:100svh;display:flex;flex-direction:column;justify-content:center;padding-top:50px}
+.tlstick>.w{width:100%}
+.tl .head{display:grid;grid-template-columns:5fr 4fr 3fr;gap:60px;align-items:end;margin-bottom:40px}
+.wk{font-family:var(--lat);font-size:12px;letter-spacing:.2em;color:var(--gray);text-align:right;text-transform:uppercase}
+.wk b{display:block;font-weight:200;font-size:clamp(70px,7vw,112px);line-height:.9;letter-spacing:-.05em;color:var(--ink)}
+.wk b small{font-size:.32em;color:var(--gray);letter-spacing:0}
+.wk span{display:block;margin-top:10px;font-family:var(--kr);letter-spacing:0;text-transform:none;font-size:13.5px;color:var(--ink)}
+.gantt{position:relative}
+.gantt .now{position:absolute;top:0;bottom:0;left:0;width:1px;background:var(--walnut);z-index:2;pointer-events:none;opacity:0}
+.gantt .now::before{content:"";position:absolute;top:-5px;left:-5px;width:11px;height:11px;border-radius:50%;background:var(--walnut)}
+.gantt.scrub .now{opacity:1}
+.gantt.scrub .bar{transition:none;transform:none!important}
+.gantt.scrub .g-row:not(.wk){min-height:70px}
+.tl .head p{color:var(--gray)}
+.tl .head h2{margin-top:22px;font-size:clamp(34px,3.8vw,56px)}
+.tl .head p{font-size:15px}
+.gantt{border-top:1px solid var(--ink);font-size:14px}
+.g-row{display:grid;grid-template-columns:220px repeat(6,1fr);border-bottom:1px solid var(--line);min-height:84px;align-items:center;position:relative}
+.g-row.wk{min-height:46px;font-family:var(--lat);font-size:12px;letter-spacing:.14em;color:var(--gray);text-transform:uppercase}
+.g-row.wk div{border-left:1px solid var(--line);padding-left:12px;align-self:stretch;display:flex;align-items:center}
+.g-row .nm{display:flex;flex-direction:column;padding-right:20px}
+.g-row .nm b{font-size:17px;font-weight:500;letter-spacing:-.03em}
+.g-row .nm b em{font-style:normal;font-family:var(--lat);font-size:12px;color:var(--walnut);margin-right:10px;font-weight:500}
+.g-row .nm span{font-size:13px;color:var(--gray)}
+.g-row .bar{height:30px;background:var(--ink);color:var(--paper);font-size:12.5px;display:flex;align-items:center;padding:0 12px;white-space:nowrap;overflow:hidden;transform-origin:left;transform:scaleX(0);transition:transform 1.1s cubic-bezier(.2,.7,.2,1)}
+.g-row .bar.wal{background:var(--walnut)}
+.gantt.obj-seen .bar{transform:scaleX(1)}
+.g-row:nth-child(3) .bar{transition-delay:.15s}.g-row:nth-child(4) .bar{transition-delay:.3s}.g-row:nth-child(5) .bar{transition-delay:.45s}.g-row:nth-child(6) .bar{transition-delay:.6s}
+.g-row .gl{position:absolute;inset:0 0 0 220px;display:grid;grid-template-columns:repeat(6,1fr);pointer-events:none}
+.g-row .gl i{border-left:1px solid var(--line)}
+.swipe{display:none;font-size:12px;color:var(--gray);margin:0 0 10px;font-family:var(--lat);letter-spacing:.08em}
+.tl .note{display:flex;justify-content:space-between;gap:20px;margin-top:22px;font-size:13.5px;color:var(--gray);flex-wrap:wrap}
+
+/* facts */
+.fx{background:var(--ink);color:var(--paper);padding:110px 0}
+.fx .grid{display:grid;grid-template-columns:repeat(5,1fr)}
+.fx .it{border-left:1px solid var(--line-d);padding:0 28px}
+.fx .it:first-child{border-left:0;padding-left:0}
+.fx .k{font-family:var(--lat);font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:#9b958c}
+.fx .v{font-family:var(--lat);font-weight:200;font-size:clamp(40px,4vw,60px);letter-spacing:-.04em;line-height:1.1;margin:18px 0 8px}
+.fx .v span{font:inherit}
+.fx .v small{font-family:var(--kr);font-size:16px;font-weight:400;margin-left:4px;letter-spacing:0}
+.fx .d{font-size:14px;color:#aaa49a}
+
+/* packages */
+.pk .head{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:60px;flex-wrap:wrap}
+.pk .head h2{margin-top:22px}
+.pk .head p{max-width:420px;color:var(--gray)}
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ink);border-left:1px solid var(--line)}
+.pc{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:40px 36px 36px;display:flex;flex-direction:column;transition:background .35s}
+.pc:hover{background:var(--white)}
+.pc .py{display:flex;align-items:baseline;justify-content:space-between}
+.pc .py b{font-family:var(--lat);font-weight:200;font-size:88px;letter-spacing:-.06em;line-height:1}
+.pc .py b small{font-family:var(--kr);font-size:20px;font-weight:500;letter-spacing:-.02em;margin-left:4px}
+.pc .py span{font-size:13px;color:var(--gray)}
+.pc .ty{font-size:15px;color:var(--gray);margin:18px 0 28px;min-height:52px}
+.pc .pr{border-top:1px solid var(--line);padding-top:24px;display:flex;align-items:baseline;gap:6px}
+.pc .pr b{font-family:var(--lat);font-weight:500;font-size:40px;letter-spacing:-.04em}
+.pc .pr span{font-size:15px}
+.pc .pr em{font-style:normal;font-size:13px;color:var(--gray);margin-left:auto}
+.pc ul{list-style:none;margin:24px 0 30px;font-size:14.5px;flex:1}
+.pc li{padding:9px 0;border-bottom:1px dashed var(--line);display:flex;justify-content:space-between;gap:10px}
+.pc li span:last-child{color:var(--gray)}
+.pc .btn{justify-content:space-between}
+.pc.hl{background:var(--ink);color:var(--paper)}
+.pc.hl .py span,.pc.hl .ty,.pc.hl .pr em,.pc.hl li span:last-child{color:#aaa49a}
+.pc.hl .pr,.pc.hl li{border-color:#3a3733}
+.pc.hl .btn{border-color:var(--paper);background:var(--paper);color:var(--ink)}
+.pc.hl .btn:hover{background:var(--walnut);border-color:var(--walnut);color:var(--paper)}
+.pk .fine{margin-top:20px;font-size:13px;color:var(--gray)}
+
+/* checklist */
+.ck{background:var(--white)}
+.ck .grid{display:grid;grid-template-columns:4fr 8fr;gap:80px}
+.ck h2{margin:22px 0 22px}
+.ck .l p{color:var(--gray);margin-bottom:28px}
+.ck .key{display:flex;gap:22px;font-size:13.5px;color:var(--gray)}
+.ck .key span{display:flex;gap:8px;align-items:center}
+.dot{width:12px;height:12px;border:1px solid var(--ink);display:inline-block;flex:none}
+.dot.f{background:var(--ink)}
+.dot.h{background:linear-gradient(135deg,var(--ink) 50%,transparent 50%)}
+.cktable{width:100%;border-collapse:collapse;font-size:15px}
+.cktable th{font-family:var(--lat);font-weight:500;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gray);text-align:left;padding:0 0 14px;border-bottom:1px solid var(--ink)}
+.cktable th:not(:first-child),.cktable td:not(:first-child){text-align:center;width:90px}
+.cktable td{padding:17px 0;border-bottom:1px solid var(--line)}
+.cktable td:first-child b{font-weight:500;display:block}
+.cktable td:first-child span{font-size:13px;color:var(--gray)}
+.cktable tr:hover td{background:var(--paper)}
+.cktable .grp td{padding:26px 0 10px;font-family:var(--lat);font-size:12px;letter-spacing:.18em;color:var(--walnut);font-weight:700;border-bottom:1px solid var(--line);background:none!important}
+
+/* materials */
+.mt .head{display:grid;grid-template-columns:5fr 7fr;gap:80px;align-items:end;margin-bottom:56px}
+.mt .head p{color:var(--gray)}
+.mt .head h2{margin-top:22px}
+.mtwrap{display:grid;grid-template-columns:5fr 7fr;gap:0;border-top:1px solid var(--ink)}
+.mtwrap .ph{position:relative;overflow:hidden}
+.mtwrap .ph img{width:100%;height:100%;object-fit:cover;object-position:40% 55%}
+.mtwrap .ph[data-clip] img{scale:1.2}
+.mtwrap .ph figcaption{position:absolute;left:20px;bottom:20px;background:var(--paper);font-size:12.5px;padding:8px 14px}
+.mtab{width:100%;border-collapse:collapse;font-size:14.5px}
+.mtab th,.mtab td{padding:18px 20px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.mtab thead th{padding:26px 20px 18px;font-weight:500;font-size:17px;letter-spacing:-.03em;border-bottom:1px solid var(--ink)}
+.mtab thead th small{display:block;font-family:var(--lat);font-weight:500;font-size:11px;letter-spacing:.18em;color:var(--gray);margin-bottom:4px}
+.mtab thead th.sig{background:var(--ink);color:var(--paper)}
+.mtab thead th.sig small{color:var(--walnut-l)}
+.mtab tbody th{font-weight:500;color:var(--gray);font-size:13.5px;width:110px}
+.mtab td.sig{background:var(--white)}
+.mtab tr.pr td{font-family:var(--lat);font-weight:500;font-size:16px}
+
+/* faq */
+.fq .grid{display:grid;grid-template-columns:4fr 8fr;gap:80px}
+.fq h2{margin-top:22px}
+.fq .l p{color:var(--gray);margin-top:22px}
+.fq details{border-bottom:1px solid var(--line)}
+.fq details:first-child{border-top:1px solid var(--ink)}
+.fq summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:60px 1fr 30px;align-items:center;padding:28px 0;font-size:18px;font-weight:500;letter-spacing:-.03em}
+.fq summary::-webkit-details-marker{display:none}
+.fq summary .n{font-family:var(--lat);font-size:13px;color:var(--walnut)}
+.fq summary .pm{position:relative;width:18px;height:18px;justify-self:end}
+.fq summary .pm::before,.fq summary .pm::after{content:"";position:absolute;left:0;top:50%;width:18px;height:1px;background:var(--ink);transition:transform .3s}
+.fq summary .pm::after{transform:rotate(90deg)}
+.fq details[open] summary .pm::after{transform:rotate(0)}
+.fq details p{padding:0 30px 30px 60px;color:var(--gray);font-size:15px}
+
+/* form */
+.ct{background:var(--ink);color:var(--paper)}
+.ct .grid{display:grid;grid-template-columns:5fr 7fr;gap:90px}
+.ct .lab{color:#9b958c}
+.ct h2{margin:22px 0 26px}
+.ct .l p{color:#aaa49a}
+.ct .info{margin-top:44px;border-top:1px solid var(--line-d)}
+.ct .info div{display:grid;grid-template-columns:110px 1fr;padding:16px 0;border-bottom:1px solid var(--line-d);font-size:14.5px}
+.ct .info dt{color:#9b958c}
+.fm{display:grid;grid-template-columns:1fr 1fr;gap:0 28px}
+.fm .f{display:flex;flex-direction:column;margin-bottom:26px}
+.fm .f.full{grid-column:1/-1}
+.fm label{font-size:13px;color:#aaa49a;margin-bottom:8px}
+.fm label i{font-style:normal;color:var(--walnut-l)}
+.fm input,.fm select,.fm textarea{color-scheme:dark;background:transparent;border:0;border-bottom:1px solid #4a4640;padding:10px 0 12px;font-size:17px;color:var(--paper);border-radius:0;outline:none;transition:border-color .3s;width:100%}
+.fm select option{color:var(--ink)}
+.fm input:focus,.fm select:focus,.fm textarea:focus{border-color:var(--paper)}
+.fm input::placeholder,.fm textarea::placeholder{color:#5f5a53}
+.fm textarea{resize:vertical;min-height:90px}
+.seg{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid #4a4640}
+.seg label{margin:0;cursor:pointer;color:var(--paper);font-size:15px}
+.seg input{position:absolute;opacity:0;width:1px;height:1px}
+.seg span{display:block;text-align:center;padding:14px 0;border-left:1px solid #4a4640;transition:background .25s}
+.seg label:first-child span{border-left:0}
+.seg input:checked+span{background:var(--paper);color:var(--ink)}
+.seg input:focus-visible+span{outline:2px solid var(--walnut-l);outline-offset:-2px}
+.agree{grid-column:1/-1;display:flex;gap:10px;align-items:center;font-size:13.5px;color:#aaa49a;margin-bottom:30px}
+.agree input{width:18px;height:18px;accent-color:var(--walnut)}
+.fm .btn{grid-column:1/-1;justify-content:space-between;border-color:var(--paper);background:var(--paper);color:var(--ink);height:66px;font-size:16px}
+.fm .btn:hover{background:var(--walnut);border-color:var(--walnut);color:var(--paper)}
+.msg{grid-column:1/-1;margin-top:18px;font-size:14.5px;min-height:24px;color:var(--walnut-l)}
+
+/* footer */
+.ft{background:var(--ink);color:#9b958c;padding:0 0 40px;font-size:13px}
+.ft .big{font-family:var(--lat);font-weight:700;font-size:clamp(70px,17vw,260px);letter-spacing:.06em;line-height:1;color:var(--paper);border-top:1px solid var(--line-d);padding-top:60px;white-space:nowrap;overflow:hidden}
+.ft .row{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-top:56px;padding-top:30px;border-top:1px solid var(--line-d)}
+.ft h4{color:var(--paper);font-weight:500;font-size:14px;margin-bottom:10px}
+.ft p{line-height:1.9}
+.ft .copy{margin-top:46px;color:#6b665f;font-size:12px}
+
+@media(max-width:1100px){
+  .hd nav{display:none}
+  .burger{display:block}
+  .hd .btn{display:none}
+  .hd.open nav{display:block;position:absolute;top:100%;left:0;right:0;background:var(--paper);border-bottom:1px solid var(--line)}
+  .hd.open nav ul{flex-direction:column;gap:0;padding:10px 48px 24px}
+  .hd.open nav a{display:block;padding:14px 0;border-bottom:1px solid var(--line)}
+  .fx .grid{grid-template-columns:repeat(3,1fr);gap:40px 0}
+  .fx .it:nth-child(4){border-left:0;padding-left:0}
+}
+@media(max-width:860px){
+  .w{padding:0 20px}
+  section{padding:96px 0}
+  .hero{height:auto;padding:96px 0 0}
+  .hs{position:relative;height:auto;overflow:visible;display:flex;flex-direction:column;padding:0 20px}
+  .hmeta,.hh,.hside,.win,.wm{position:relative;inset:auto;left:auto;right:auto;top:auto;bottom:auto}
+  .hmeta{font-size:10px;margin-bottom:28px}.hmeta span:nth-child(2){display:none}
+  .hh{font-size:clamp(40px,11.4vw,58px)}
+  .hside{width:auto;margin-top:24px}
+  .win{order:5;height:62vh;margin:40px -20px 0;clip-path:none;transform:none}
+  .win img{scale:1}
+  .win .tag{opacity:1;left:16px;right:16px;bottom:16px;padding:14px 16px;gap:2px 16px}
+  .wm{order:6;font-size:31vw;line-height:.8;margin:18px 0 0;transform:none;text-align:left}
+  .hcue{display:none}
+  .mf{padding:96px 0 80px}
+  .mf .w{grid-template-columns:1fr;gap:24px}
+  .mf p.big{font-size:25px}
+  .mqs{padding:10px 0 80px}
+  .sv{padding:96px 0}
+  .sv .hp-stick{padding-top:0;gap:30px}
+  .sv .top{flex-direction:column;align-items:start}
+  .sv .top .r{align-items:flex-start;text-align:left}
+  .cnt{width:100%}
+  .sv .hp-track{padding:0 20px;gap:16px;scroll-padding:0 20px}
+  .sc,.sc.wide{width:78vw}
+  .sc .ph{height:96vw}
+  .sv .arrow{display:none}
+  .tlpin{height:auto}
+  .tlstick{position:static;height:auto;padding:96px 0}
+  .tl .head{grid-template-columns:1fr;gap:20px}
+  .wk{text-align:left}
+  .trust{flex-direction:column}
+  .trust li{border-left:0;padding:14px 0;border-top:1px solid var(--line)}
+  .trust li:first-child{border-top:0}
+  .pb .grid,.tl .head,.ck .grid,.mt .head,.fq .grid,.ct .grid{grid-template-columns:1fr;gap:40px}
+  .pb li{grid-template-columns:62px 1fr;padding:26px 0}
+  .pb li .n{font-size:34px}
+  .sv .top{flex-direction:column;align-items:start;margin-bottom:44px}
+    .swipe{display:block}
+  .gantt{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .g-row{grid-template-columns:132px repeat(6,62px);min-width:504px;min-height:74px}
+  .g-row .gl{left:132px;grid-template-columns:repeat(6,62px)}
+  .g-row .nm b{font-size:15px}
+  .g-row .nm b em{display:none}
+  .g-row .nm span{font-size:12px}
+  .g-row .bar{font-size:0;padding:0}
+  .g-row.wk div{padding-left:6px;font-size:10px;letter-spacing:.06em}
+  .fx{padding:80px 0}
+  .fx .grid{grid-template-columns:1fr 1fr;gap:40px 0}
+  .fx .it{padding:0 0 0 18px}
+  .fx .it:nth-child(odd){border-left:0;padding-left:0}
+  .fx .it:nth-child(4){border-left:1px solid var(--line-d);padding-left:18px}
+  .fx .it:last-child{grid-column:1/-1}
+  .pgrid{grid-template-columns:1fr}
+  .pc{padding:32px 22px}
+  .pc .py b{font-size:72px}
+  .cktable{font-size:14px}
+  .cktable th:not(:first-child),.cktable td:not(:first-child){width:46px}
+  .cktable th{font-size:10.5px;letter-spacing:.06em}
+  .mtwrap{grid-template-columns:1fr}
+  .mtwrap .ph{aspect-ratio:4/3}
+  .mtscroll{overflow-x:auto}
+  .mtab{min-width:560px;font-size:13.5px}
+  .mtab th,.mtab td{padding:14px 12px}
+  .fq summary{grid-template-columns:44px 1fr 24px;font-size:16px;padding:22px 0}
+  .fq details p{padding:0 0 24px 44px}
+  .fm{grid-template-columns:1fr}
+  .seg span{padding:12px 0;font-size:14px}
+  .ft .row{grid-template-columns:1fr;gap:26px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}[data-rv]{opacity:1;transform:none}}
+html.rm .hero{height:auto}html.rm .hs{position:relative}html.rm .win{clip-path:none;transform:none}html.rm .tlpin{height:auto}html.rm .tlstick{position:static;height:auto}
+:root{--cur-bg:#6b4429;--cur-fg:#fbfaf7;--cur-font:"Inter Tight",sans-serif;--hp-line:#cfc8bc;--hp-fill:#141312}
+/* ===== FX core ===== */
+.cur{position:fixed;left:0;top:0;width:0;height:0;pointer-events:none;z-index:999}
+.cur i{position:absolute;left:-46px;top:-46px;width:92px;height:92px;border-radius:50%;background:var(--cur-bg);color:var(--cur-fg);display:grid;place-items:center;font:700 11px/1 var(--cur-font,sans-serif);letter-spacing:.18em;transform:scale(.13);transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.cur i b{opacity:0;transition:opacity .25s;font-weight:700}
+.cur.link i{transform:scale(.4);opacity:.5}
+.cur.big i{transform:scale(1)}
+.cur.big i b{opacity:1}
+[data-tm] .ln{display:block;overflow:hidden;padding-bottom:.1em;margin-bottom:-.1em}
+[data-tm] .ln>span{display:inline-block;transform:translateY(112%);transition:transform 1.1s cubic-bezier(.2,.8,.2,1)}
+[data-tm].fx-in .ln>span{transform:none}
+[data-words] .wd{opacity:.14}
+[data-clip]{clip-path:inset(14% 9% 14% 9%);transition:clip-path 1.5s cubic-bezier(.7,0,.2,1)}
+[data-clip].fx-in{clip-path:inset(0 0 0 0)}
+[data-clip] img{scale:1.28;transition:scale 1.8s cubic-bezier(.2,.7,.2,1)}
+[data-clip].fx-in img{scale:1.12}
+.mq{overflow:hidden;white-space:nowrap;user-select:none}
+.mq-t{display:inline-flex;will-change:transform}
+.mq-t>*{flex:none;padding-right:.35em}
+.hp{position:relative}
+.hp-stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
+.hp-track{display:flex;width:max-content;will-change:transform}
+.hp-bar{height:2px;background:var(--hp-line);position:relative;overflow:hidden}
+.hp-bar i{position:absolute;inset:0;background:var(--hp-fill);transform-origin:left;transform:scaleX(0)}
+@media (max-width:860px){
+  .hp{height:auto!important}
+  .hp-stick{position:static;height:auto;overflow:visible}
+  .hp-track{width:auto;overflow-x:auto;scroll-snap-type:x mandatory;transform:none!important;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .hp-track::-webkit-scrollbar{display:none}
+  .hp-track>*{scroll-snap-align:start}
+}
+html.rm .hp{height:auto!important}
+html.rm .hp-stick{position:static;height:auto}
+html.rm .hp-track{width:auto;overflow-x:auto;transform:none!important}
+html.rm [data-tm] .ln>span,html.rm [data-words] .wd{transform:none;opacity:1}
+html.rm [data-clip]{clip-path:none}
+html.rm [data-clip] img{scale:1.05}
+html.rm{scroll-behavior:auto}
+
+</style>
+<meta name="robots" content="noindex,nofollow"></head>
+<body>
+
+<header class="hd" id="hd">
+  <div class="w">
+    <a href="#top" class="logo" aria-label="오브제 인테리어 스튜디오 홈">
+      <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2" y="2" width="28" height="28"/><path d="M13 2v17h17M13 19v11"/><circle cx="22" cy="10" r="3.2" fill="#6b4429" stroke="none"/></svg>
+      OBJET<small>인테리어 스튜디오</small>
+    </a>
+    <nav aria-label="주요 메뉴"><ul>
+      <li><a href="#service">시공 분야</a></li>
+      <li><a href="#process">공정 일정</a></li>
+      <li><a href="#package">평형별 패키지</a></li>
+      <li><a href="#material">자재 등급</a></li>
+      <li><a href="#faq">자주 묻는 질문</a></li>
+    </ul></nav>
+    <a href="#contact" class="btn k">무료 실측 상담 <i></i></a>
+    <button class="burger" id="burger" aria-label="메뉴 열기" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero" id="hero">
+  <div class="hs">
+    <div class="hmeta lab"><span><b>OBJET</b> Interior Studio</span><span>Apartment Remodeling — Bundang · Pangyo</span><span>Est. Seongnam</span></div>
+    <h1 class="hh" data-tm>벽 하나를 옮기면<br><strong>사는 방식이</strong><br><em><strong>바뀝니다.</strong></em></h1>
+    <div class="hside" data-rv>
+      <p>분당·판교 아파트만 설계하고 시공하는 리모델링 스튜디오. 단지별 도면과 구조를 먼저 읽고, 철거 첫날부터 입주 청소까지 하나의 공정표로 책임집니다.</p>
+      <div class="ctas">
+        <a href="#contact" class="btn k">무료 실측 상담 신청 <i></i></a>
+        <a href="#package" class="btn o">평형별 패키지 가격 보기 <i></i></a>
+      </div>
+    </div>
+    <div class="wm" aria-hidden="true">OBJET</div>
+    <figure class="win">
+      <img src="img/p8.jpg" alt="월넛 붙박이 서가와 간접조명이 있는 리모델링된 아파트 거실, 창밖으로 도심 전경">
+      <dl class="tag"><dt>Space</dt><dd>거실 · 월넛 서가 · 우물천장 간접조명</dd><dt>Type</dt><dd>32평형 전체 리모델링</dd></dl>
+    </figure>
+    <span class="hcue">SCROLL TO ENTER ↓</span>
+  </div>
+</section>
+<div class="w">
+  <ul class="trust">
+    <li><b>01</b>실측·상담 비용 0원</li>
+    <li><b>02</b>착공 전 주차별 공정표 확정</li>
+    <li><b>03</b>자재 등급·단가 전부 공개 견적</li>
+    <li><b>04</b>준공 후 2년 무상 A/S</li>
+  </ul>
+</div>
+
+<section class="mf" aria-label="오브제의 설계 철학">
+  <div class="w">
+    <p class="lab"><b>00</b> Manifesto</p>
+    <p class="big" data-words>우리는 마감재를 고르기 전에, 그 집에서 보낼 <i>a single day</i>를 먼저 그립니다. 아침 햇살이 닿는 자리, 퇴근 후 불을 켜는 순서, 아이가 자라며 바뀔 방 하나까지. 그래서 오브제의 설계는 벽이 아니라 <i>the way you live</i>에서 시작합니다.</p>
+  </div>
+</section>
+
+<section class="pb">
+  <div class="w grid">
+    <div data-rv>
+      <p class="lab"><b>01</b> Before you start</p>
+      <h2 data-tm>리모델링,<br><strong>이런 걱정부터</strong><br>드시죠.</h2>
+    </div>
+    <div data-rv>
+      <ol>
+        <li><span class="n">01</span><div><h3>견적서에 "일식"만 적혀 있어요</h3><p>무엇이 포함되고 빠졌는지 알 수 없는 견적은 공사 중 추가 비용으로 돌아옵니다.</p></div></li>
+        <li><span class="n">02</span><div><h3>공사 기간이 자꾸 늘어나요</h3><p>이사 날짜는 정해져 있는데, 현장 사정이라는 말만 반복되는 일정 지연.</p></div></li>
+        <li><span class="n">03</span><div><h3>우리 단지 구조를 잘 모르는 업체</h3><p>철거해 보니 내력벽, 설비 배관 위치가 달라 설계를 다시 하는 경우가 생깁니다.</p></div></li>
+        <li><span class="n">04</span><div><h3>자재 등급, 뭐가 다른지 모르겠어요</h3><p>같은 '원목마루'라도 두께와 수종에 따라 체감 품질이 크게 다릅니다.</p></div></li>
+      </ol>
+      <p class="ans">오브제는 <u>항목별 공개 견적 · 주차별 공정표 · 단지별 도면 아카이브</u>로 답합니다.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sv hp" id="service" data-hp>
+  <div class="hp-stick">
+    <div class="w">
+      <div class="top">
+        <div><p class="lab"><b>02</b> Services · Before → After</p><h2 data-tm><strong>구조부터 수납까지,</strong><br>한 팀이 끝까지.</h2></div>
+        <div class="r"><p>설계 실장과 현장 소장이 한 프로젝트를 처음부터 끝까지 맡습니다. 부분 시공도 전체 리모델링과 같은 기준으로 진행합니다.</p>
+          <div class="cnt">SLIDE<b data-hc>01</b> / 06<div class="hp-bar"><i></i></div></div></div>
+      </div>
+    </div>
+    <div class="hp-track">
+      <article class="sc" data-sl data-cursor="VIEW">
+        <div class="ph"><img src="img/p32.jpg" alt="철거된 현장에서 레이저 거리측정기로 벽을 실측하는 설계 실장" loading="lazy"><span class="ba">BEFORE</span></div>
+        <div class="tx"><span class="n">01</span><div><h3>실측 · 구조 확인</h3><p>단지 도면을 미리 검토하고 60분간 현장 실측. 내력벽과 배관 위치부터 확인합니다.</p><div class="chips"><span>실측 60분</span><span>도면 PDF 제공</span></div></div></div>
+      </article>
+      <article class="sc" data-sl data-cursor="VIEW">
+        <div class="ph"><img src="img/p27.jpg" alt="오크 무늬목, 테라조, 패브릭과 황동 손잡이 샘플이 놓인 자재 보드" loading="lazy"><span class="ba">BEFORE</span></div>
+        <div class="tx"><span class="n">02</span><div><h3>자재 · 마감 선정</h3><p>쇼룸에서 마루·상판·하드웨어 샘플을 직접 만져보고 등급별 단가를 비교합니다.</p><div class="chips"><span>샘플 보드</span><span>등급별 단가</span></div></div></div>
+      </article>
+      <span class="arrow" aria-hidden="true">→</span>
+      <article class="sc wide" data-sl data-cursor="VIEW">
+        <div class="ph"><img src="img/p8.jpg" alt="창이 큰 거실과 월넛 가구" style="object-position:62% 55%" loading="lazy"><span class="ba af">AFTER</span></div>
+        <div class="tx"><span class="n">A</span><div><h3>전체 리모델링</h3><p>확장·평면 변경부터 설비, 전기, 마감까지. 구조 검토 후 가능한 평면안을 2가지 이상 제안합니다.</p><div class="chips"><span>평면 변경</span><span>발코니 확장</span><span>천장 간접조명</span></div></div></div>
+      </article>
+      <article class="sc" data-sl data-cursor="VIEW">
+        <div class="ph"><img src="img/p9.jpg" alt="오크 수납장과 테라조 상판 아일랜드가 있는 주방" loading="lazy"><span class="ba af">AFTER</span></div>
+        <div class="tx"><span class="n">B</span><div><h3>주방 리뉴얼</h3><p>동선 중심의 아일랜드 설계, 상판·하드웨어 선택까지.</p><div class="chips"><span>아일랜드</span><span>테라조 상판</span></div></div></div>
+      </article>
+      <article class="sc" data-sl data-cursor="VIEW">
+        <div class="ph"><img src="img/p25.jpg" alt="월넛 루버 헤드보드 벽과 간접조명이 있는 침실" loading="lazy"><span class="ba af">AFTER</span></div>
+        <div class="tx"><span class="n">C</span><div><h3>붙박이 가구 · 수납</h3><p>서가, 헤드보드 벽, 현관장, 드레스룸을 공간 치수에 맞춰 제작합니다.</p><div class="chips"><span>월넛 서가</span><span>현관 수납</span></div></div></div>
+      </article>
+      <article class="sc" data-sl data-cursor="VIEW">
+        <div class="ph"><img src="img/p26.jpg" alt="원형 거울과 원목 세면대로 리뉴얼한 욕실" loading="lazy"><span class="ba af">AFTER</span></div>
+        <div class="tx"><span class="n">D</span><div><h3>부분 시공 · 마감 교체</h3><p>도장, 마루, 조명, 도어 교체 등 거주 중 진행 가능한 범위로 기간을 최소화합니다.</p><div class="chips"><span>거주 중 시공</span><span>마루 교체</span><span>도장</span></div></div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="tl" id="process">
+ <div class="tlpin" id="tlpin">
+  <div class="tlstick">
+  <div class="w">
+    <div class="head" data-rv>
+      <div><p class="lab"><b>03</b> Process · 32평 기준</p><h2 data-tm><strong>6주,</strong><br>공정은 주 단위로.</h2></div>
+      <p>착공 전 공정표를 확정하고 매주 금요일 현장 사진과 다음 주 일정을 보내드립니다. 관리사무소 공사 신고와 이웃 세대 동의서 접수도 스튜디오가 대행합니다.</p>
+      <p class="wk">Now on site<b id="wkn">W01<small> / 06</small></b><span id="wkt">철거 · 폐기물 반출</span></p>
+    </div>
+    <p class="swipe">← 옆으로 밀어서 전체 일정 보기</p>
+    <div class="gantt" id="gantt" data-rv role="table" aria-label="32평 기준 주차별 공정표"><span class="now" aria-hidden="true"></span>
+      <div class="g-row wk" role="row"><span role="columnheader">공정</span><div>Week 1</div><div>Week 2</div><div>Week 3</div><div>Week 4</div><div>Week 5</div><div>Week 6</div></div>
+      <div class="g-row" role="row"><div class="gl"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="nm"><b><em>01</em>철거</b><span>기존 마감·주방·욕실 해체</span></div><div class="bar" style="grid-column:2/3">철거 · 폐기물 반출</div></div>
+      <div class="g-row" role="row"><div class="gl"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="nm"><b><em>02</em>설비</b><span>배관·전기·방수·창호</span></div><div class="bar wal" style="grid-column:3/4">설비 · 방수 48h 담수</div></div>
+      <div class="g-row" role="row"><div class="gl"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="nm"><b><em>03</em>목공</b><span>천장·가벽·몰딩·문틀</span></div><div class="bar" style="grid-column:4/6">목공 · 천장 간접조명 박스 · 붙박이 프레임</div></div>
+      <div class="g-row" role="row"><div class="gl"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="nm"><b><em>04</em>도장</b><span>퍼티 3회·도장·필름</span></div><div class="bar wal" style="grid-column:6/7">도장 · 필름</div></div>
+      <div class="g-row" role="row"><div class="gl"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="nm"><b><em>05</em>마감</b><span>마루·타일·가구·조명</span></div><div class="bar" style="grid-column:7/8">마감 · 입주청소</div></div>
+    </div>
+    <div class="note"><span>※ 24평 약 5주 · 45평 약 7~8주. 확장·구조 변경 시 1주 추가될 수 있습니다.</span><span>공사 시간 평일 09:00–17:00 / 토요일 소음 작업 없음</span></div>
+  </div>
+  </div>
+ </div>
+</section>
+
+<section class="mqs" aria-hidden="true">
+  <div class="mq m1" data-mq="1.4"><div class="mq-t"><span>A wall moved, <i>a life changed</i> — </span><span>A wall moved, <i>a life changed</i> — </span></div></div>
+  <div class="mq m2" data-mq="-.8"><div class="mq-t"><span>MEASURE · DESIGN · DEMOLISH · BUILD · FINISH · LIVE · </span><span>MEASURE · DESIGN · DEMOLISH · BUILD · FINISH · LIVE · </span></div></div>
+</section>
+
+<section class="fx" aria-label="스튜디오 안내">
+  <div class="w grid">
+    <div class="it" data-rv><p class="k">Area</p><p class="v"><span data-count="3">3</span><small>개 권역</small></p><p class="d">분당 · 판교 · 수지 아파트</p></div>
+    <div class="it" data-rv><p class="k">Site visit</p><p class="v"><span data-count="60">60</span><small>분</small></p><p class="d">실측 · 구조 확인 소요 시간</p></div>
+    <div class="it" data-rv><p class="k">Duration</p><p class="v"><span data-count="6">6</span><small>주</small></p><p class="d">32평 전체 리모델링 기준</p></div>
+    <div class="it" data-rv><p class="k">Hours</p><p class="v">10–19</p><p class="d">평일 상담 · 토요일 예약제</p></div>
+    <div class="it" data-rv><p class="k">Warranty</p><p class="v"><span data-count="2">2</span><small>년</small></p><p class="d">준공일 기준 무상 A/S</p></div>
+  </div>
+</section>
+
+<section class="pk" id="package">
+  <div class="w">
+    <div class="head" data-rv>
+      <div><p class="lab"><b>04</b> Packages</p><h2 data-tm><strong>평형별 패키지</strong><br>가격을 먼저 공개합니다.</h2></div>
+      <p>스탠다드 자재 기준 전체 리모델링 시작가입니다. 실측 후 확장 여부와 자재 등급에 따라 항목별 견적서를 드립니다.</p>
+    </div>
+    <div class="pgrid">
+      <article class="pc" data-rv>
+        <div class="py"><b>24<small>평</small></b><span>전용 59㎡</span></div>
+        <p class="ty">방 3 · 욕실 1~2. 신혼·첫 집을 위한 밝고 넓어 보이는 마감.</p>
+        <div class="pr"><b>3,900</b><span>만원~</span><em>약 5주</em></div>
+        <ul><li><span>철거 · 설비 · 전기</span><span>포함</span></li><li><span>욕실 1개소</span><span>포함</span></li><li><span>주방 (일자형)</span><span>포함</span></li><li><span>강마루 · 도장</span><span>포함</span></li><li><span>현관 중문</span><span>옵션</span></li></ul>
+        <a href="#contact" class="btn o" data-py="24">24평 실측 상담 <i></i></a>
+      </article>
+      <article class="pc hl" data-rv>
+        <div class="py"><b>32<small>평</small></b><span>전용 84㎡</span></div>
+        <p class="ty">가장 많이 의뢰하시는 평형. 거실 서가와 아일랜드 주방 포함 구성.</p>
+        <div class="pr"><b>5,200</b><span>만원~</span><em>약 6주</em></div>
+        <ul><li><span>철거 · 설비 · 전기</span><span>포함</span></li><li><span>욕실 2개소</span><span>포함</span></li><li><span>주방 (아일랜드)</span><span>포함</span></li><li><span>천장 간접조명</span><span>포함</span></li><li><span>거실 붙박이 서가</span><span>포함</span></li></ul>
+        <a href="#contact" class="btn" data-py="32">32평 실측 상담 <i></i></a>
+      </article>
+      <article class="pc" data-rv>
+        <div class="py"><b>45<small>평</small></b><span>전용 114㎡</span></div>
+        <p class="ty">평면 변경과 드레스룸, 서재 등 공간 재구성이 필요한 대형 평형.</p>
+        <div class="pr"><b>7,400</b><span>만원~</span><em>약 7~8주</em></div>
+        <ul><li><span>철거 · 설비 · 전기</span><span>포함</span></li><li><span>욕실 2개소 + 파우더</span><span>포함</span></li><li><span>주방 + 다용도실</span><span>포함</span></li><li><span>드레스룸 · 서재 제작</span><span>포함</span></li><li><span>평면 변경 설계</span><span>포함</span></li></ul>
+        <a href="#contact" class="btn o" data-py="45">45평 실측 상담 <i></i></a>
+      </article>
+    </div>
+    <p class="fine">※ 부가세 별도 · 발코니 확장, 시스템 에어컨, 가전은 별도 견적 · 구축 단지의 경우 배관 상태에 따라 설비 비용이 달라질 수 있습니다.</p>
+  </div>
+</section>
+
+<section class="ck">
+  <div class="w grid">
+    <div class="l" data-rv>
+      <p class="lab"><b>05</b> Scope checklist</p>
+      <h2 data-tm><strong>시공 범위</strong><br>체크리스트</h2>
+      <p>패키지에 무엇이 들어가는지 항목 단위로 확인하세요. 상담 시 이 표를 기준으로 가감 견적을 작성합니다.</p>
+      <div class="key"><span><i class="dot f"></i>기본 포함</span><span><i class="dot h"></i>선택 옵션</span><span><i class="dot"></i>미포함</span></div>
+    </div>
+    <div data-rv>
+      <table class="cktable">
+        <thead><tr><th>항목</th><th>24평</th><th>32평</th><th>45평</th></tr></thead>
+        <tbody>
+          <tr class="grp"><td colspan="4">STRUCTURE</td></tr>
+          <tr><td><b>철거 · 폐기물 처리</b><span>기존 마감재 전체 해체</span></td><td><i class="dot f"></i></td><td><i class="dot f"></i></td><td><i class="dot f"></i></td></tr>
+          <tr><td><b>급배수 · 난방 배관</b><span>노후 배관 교체, 분배기</span></td><td><i class="dot h"></i></td><td><i class="dot f"></i></td><td><i class="dot f"></i></td></tr>
+          <tr><td><b>전기 · 조명 배선</b><span>콘센트 증설, 조명 회로 분리</span></td><td><i class="dot f"></i></td><td><i class="dot f"></i></td><td><i class="dot f"></i></td></tr>
+          <tr><td><b>평면 변경 · 가벽</b><span>구조 검토 후 진행</span></td><td><i class="dot"></i></td><td><i class="dot h"></i></td><td><i class="dot f"></i></td></tr>
+          <tr class="grp"><td colspan="4">FINISH</td></tr>
+          <tr><td><b>천장 간접조명</b><span>거실 우물천장 라인</span></td><td><i class="dot h"></i></td><td><i class="dot f"></i></td><td><i class="dot f"></i></td></tr>
+          <tr><td><b>바닥재</b><span>강마루 / 원목마루</span></td><td><i class="dot f"></i></td><td><i class="dot f"></i></td><td><i class="dot f"></i></td></tr>
+          <tr><td><b>욕실 리모델링</b><span>방수 · 타일 · 도기 · 수전</span></td><td><i class="dot f"></i></td><td><i class="dot f"></i></td><td><i class="dot f"></i></td></tr>
+          <tr class="grp"><td colspan="4">FURNITURE</td></tr>
+          <tr><td><b>주방 가구</b><span>상판 · 하드웨어 포함</span></td><td><i class="dot f"></i></td><td><i class="dot f"></i></td><td><i class="dot f"></i></td></tr>
+          <tr><td><b>붙박이 서가 · 현관장</b><span>치수 맞춤 제작</span></td><td><i class="dot h"></i></td><td><i class="dot f"></i></td><td><i class="dot f"></i></td></tr>
+          <tr><td><b>드레스룸 시스템</b><span>선반 · 행거 · 서랍</span></td><td><i class="dot"></i></td><td><i class="dot h"></i></td><td><i class="dot f"></i></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="mt" id="material">
+  <div class="w">
+    <div class="head" data-rv>
+      <div><p class="lab"><b>06</b> Material grade</p><h2 data-tm><strong>자재 등급</strong><br>비교표</h2></div>
+      <p>같은 평면이라도 손에 닿는 자재가 집의 인상을 바꿉니다. 세 가지 등급의 실제 사용 자재를 쇼룸에서 직접 만져보고 고르실 수 있습니다.</p>
+    </div>
+    <div class="mtwrap" data-rv>
+      <figure class="ph" data-clip data-cursor="VIEW"><img src="img/p9.jpg" alt="오크 주방 가구와 테라조 상판, 원목 마루 바닥" data-par=".07" loading="lazy"><figcaption>프리미엄 · 오크 무늬목 + 테라조 상판</figcaption></figure>
+      <div class="mtscroll"><p class="swipe" style="margin:16px 0 0">← 옆으로 밀어서 시그니처 등급 보기</p>
+        <table class="mtab">
+          <thead><tr><th></th><th><small>STANDARD</small>스탠다드</th><th><small>PREMIUM</small>프리미엄</th><th class="sig"><small>SIGNATURE</small>시그니처</th></tr></thead>
+          <tbody>
+            <tr><th>바닥</th><td>강마루 7.5T</td><td>원목마루 2mm 오크</td><td class="sig">원목마루 3mm 헤링본</td></tr>
+            <tr><th>벽 · 천장</th><td>친환경 수성 도장</td><td>도장 + 부분 필름</td><td class="sig">특수 도장 · 미장</td></tr>
+            <tr><th>주방 상판</th><td>인조대리석</td><td>테라조 · 엔지니어드 스톤</td><td class="sig">포세린 세라믹</td></tr>
+            <tr><th>가구 도어</th><td>PET 무광</td><td>오크 무늬목</td><td class="sig">월넛 원목 · 무지주 선반</td></tr>
+            <tr><th>욕실</th><td>국산 도기 · 300각 타일</td><td>수입 도기 · 600각 타일</td><td class="sig">벽걸이 도기 · 대형 포세린</td></tr>
+            <tr><th>조명</th><td>LED 매입등</td><td>간접조명 + 디밍</td><td class="sig">조명 설계 · 스마트 제어</td></tr>
+            <tr class="pr"><th>추가 비용</th><td>기준가</td><td>+ 평당 45만원</td><td class="sig">+ 평당 95만원</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="fq" id="faq">
+  <div class="w grid">
+    <div class="l" data-rv>
+      <p class="lab"><b>07</b> FAQ</p>
+      <h2 data-tm><strong>자주 묻는</strong><br>질문</h2>
+      <p>더 궁금한 점은 상담 신청 시 남겨주시면 실측 전 미리 답변드립니다.</p>
+    </div>
+    <div data-rv>
+      <details open><summary><span class="n">Q1</span>실측 상담은 정말 무료인가요?<span class="pm"></span></summary><p>네. 분당·판교·수지 지역 아파트는 실측과 1차 평면 제안까지 비용이 없습니다. 계약 여부와 관계없이 실측 도면을 PDF로 드립니다.</p></details>
+      <details><summary><span class="n">Q2</span>거주 중에도 공사가 가능한가요?<span class="pm"></span></summary><p>도장, 마루, 조명 교체 등 부분 시공은 거주 중 진행할 수 있습니다. 전체 리모델링은 철거와 설비 공정 특성상 비어 있는 상태에서만 진행합니다.</p></details>
+      <details><summary><span class="n">Q3</span>견적 외 추가 비용이 생길 수 있나요?<span class="pm"></span></summary><p>계약 견적서는 항목·수량·단가 단위로 작성되며, 고객이 요청한 변경 외 추가 청구는 하지 않습니다. 철거 후 발견되는 배관 누수 등은 사진과 함께 사전 승인을 받은 뒤 진행합니다.</p></details>
+      <details><summary><span class="n">Q4</span>관리사무소 신고와 이웃 동의는 누가 하나요?<span class="pm"></span></summary><p>공사 신고, 엘리베이터 보양, 동의서 접수는 모두 스튜디오가 대행합니다. 착공 1주 전 해당 라인 세대에 일정 안내문을 배부합니다.</p></details>
+      <details><summary><span class="n">Q5</span>결제는 어떻게 나눠서 하나요?<span class="pm"></span></summary><p>계약 10% · 착공 30% · 목공 완료 30% · 준공 후 잔금 30%로 공정에 맞춰 나눠 결제합니다.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="ct" id="contact">
+  <div class="w grid">
+    <div class="l" data-rv>
+      <p class="lab"><b>08</b> Free site visit</p>
+      <h2 data-tm><strong>무료 실측</strong><br>상담 신청</h2>
+      <p>아파트명과 평형을 남겨주시면 해당 단지 도면을 미리 검토한 뒤, 24시간 안에 실측 가능 일정을 연락드립니다.</p>
+      <dl class="info">
+        <div><dt>쇼룸</dt><dd>경기도 성남시 분당구 판교로 000, 1층</dd></div>
+        <div><dt>상담 시간</dt><dd>평일 10:00–19:00 · 토요일 예약제</dd></div>
+        <div><dt>전화</dt><dd>031-000-0000</dd></div>
+      </dl>
+    </div>
+    <form class="fm" id="objForm" novalidate data-rv>
+      <div class="f full"><label for="apt">아파트명 · 동 <i>*</i></label><input id="apt" name="apt" required placeholder="예) 판교 봇들마을 0단지 000동"></div>
+      <div class="f full"><label>평형 <i>*</i></label>
+        <div class="seg" role="radiogroup" aria-label="평형">
+          <label><input type="radio" name="py" value="24평" required><span>24평</span></label>
+          <label><input type="radio" name="py" value="32평" checked><span>32평</span></label>
+          <label><input type="radio" name="py" value="45평"><span>45평</span></label>
+          <label><input type="radio" name="py" value="기타"><span>기타</span></label>
+        </div>
+      </div>
+      <div class="f"><label for="when">희망 착공 시기 <i>*</i></label><input id="when" name="when" type="month" required></div>
+      <div class="f"><label for="kind">시공 범위</label><select id="kind" name="kind"><option>전체 리모델링</option><option>주방 · 욕실 부분</option><option>마감 교체 (도장 · 마루)</option><option>아직 모르겠어요</option></select></div>
+      <div class="f"><label for="nm">성함 <i>*</i></label><input id="nm" name="nm" required autocomplete="name" placeholder="홍길동"></div>
+      <div class="f"><label for="tel">연락처 <i>*</i></label><input id="tel" name="tel" type="tel" required autocomplete="tel" pattern="[0-9\-\s]{9,14}" placeholder="010-0000-0000"></div>
+      <div class="f full"><label for="memo">요청 사항</label><textarea id="memo" name="memo" placeholder="확장 여부, 이사 날짜, 꼭 바꾸고 싶은 공간 등"></textarea></div>
+      <label class="agree"><input type="checkbox" required id="agr"> 상담을 위한 개인정보 수집·이용에 동의합니다. (필수)</label>
+      <button class="btn" type="submit">실측 상담 신청하기 <i></i></button>
+      <p class="msg" id="msg" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="ft">
+  <div class="w">
+    <div class="big" aria-hidden="true" data-tm>OBJET</div>
+    <div class="row">
+      <div><h4>오브제 인테리어 스튜디오</h4><p>경기도 성남시 분당구 판교로 000, 1층<br>대표 000 · 사업자등록번호 000-00-00000 · 실내건축공사업 면허 제0000-000호<br>통신판매업신고 제0000-경기성남-0000호</p></div>
+      <div><h4>Contact</h4><p>031-000-0000<br>hello@objet-studio.kr</p></div>
+      <div><h4>Showroom</h4><p>평일 10:00–19:00<br>토요일 예약제 · 일요일 휴무</p></div>
+    </div>
+    <p class="copy">© 2026 오브제 인테리어 스튜디오. 본 사이트는 ATZ MACH 제작 시안입니다.</p>
+  </div>
+</footer>
+
+<script>
+/* ===== FX core: lerp smooth scroll + scroll scenes (vanilla, no deps) ===== */
+const FX=(()=>{
+  const d=document,root=d.documentElement;
+  const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const FINE=matchMedia('(hover:hover) and (pointer:fine)').matches;
+  if(RM)root.classList.add('rm');
+  const cl=(v,a=0,b=1)=>v<a?a:v>b?b:v;
+  const mob=()=>innerWidth<=860;
+  const scenes=[],sizers=[];
+  const maxY=()=>root.scrollHeight-innerHeight;
+  // lerp smooth scroll (desktop wheel only; keyboard/touch stay native)
+  let cur=scrollY,tgt=scrollY,lerping=false,lastY=scrollY,vel=0;
+  if(FINE&&!RM){
+    root.style.scrollBehavior='auto';
+    addEventListener('wheel',e=>{
+      if(e.ctrlKey||Math.abs(e.deltaX)>Math.abs(e.deltaY))return;
+      e.preventDefault();if(!lerping)cur=tgt=scrollY;
+      tgt=cl(tgt+e.deltaY*(e.deltaMode===1?40:1),0,maxY());lerping=true;
+    },{passive:false});
+    d.addEventListener('click',e=>{
+      const a=e.target.closest('a[href^="#"]');if(!a)return;
+      const h=a.getAttribute('href'),el=h.length>1?d.querySelector(h):null;
+      if(h.length>1&&!el)return;e.preventDefault();
+      if(!lerping)cur=scrollY;tgt=el?cl(el.getBoundingClientRect().top+scrollY-60,0,maxY()):0;lerping=true;
+    });
+    addEventListener('scroll',()=>{if(lerping&&Math.abs(scrollY-cur)>3){lerping=false}},{passive:true});
+  }
+  // IO: reveal once
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('fx-in');io.unobserve(e.target);e.target.dispatchEvent(new Event('fxin'))}}),{rootMargin:'0px 0px -10% 0px'});
+  // title line mask
+  d.querySelectorAll('[data-tm]').forEach(el=>{
+    el.innerHTML=el.innerHTML.split(/<br\s*\/?>/i).map((s,i)=>`<span class="ln"><span style="transition-delay:${(i*.1).toFixed(2)}s">${s.trim()}</span></span>`).join('');
+    io.observe(el);
+  });
+  d.querySelectorAll('[data-clip],[data-io]').forEach(el=>io.observe(el));
+  // word-by-word scroll reveal
+  d.querySelectorAll('[data-words]').forEach(el=>{
+    const words=[];
+    const walk=n=>[...n.childNodes].forEach(c=>{
+      if(c.nodeType===3){const f=d.createDocumentFragment();
+        c.textContent.split(/(\s+)/).forEach(w=>{if(!w)return;if(/^\s+$/.test(w))f.append(w);else{const s=d.createElement('span');s.className='wd';s.textContent=w;words.push(s);f.append(s)}});
+        c.replaceWith(f)}
+      else if(c.nodeType===1)walk(c)});
+    walk(el);if(RM)return;let last=-1;
+    scenes.push(()=>{const r=el.getBoundingClientRect();if(r.bottom<-100||r.top>innerHeight+100)return;
+      const n=cl((innerHeight*.9-r.top)/(r.height+innerHeight*.35))*words.length*1.1,k=Math.round(n*8);
+      if(k===last)return;last=k;words.forEach((w,i)=>w.style.opacity=(.14+.86*cl(n-i)).toFixed(3))});
+  });
+  // counters
+  d.querySelectorAll('[data-count]').forEach(el=>{
+    const to=+el.dataset.count,pad=(el.dataset.pad||'').length;
+    const fmt=v=>String(Math.round(v)).padStart(pad,'0');
+    if(RM){el.textContent=fmt(to);return}
+    el.textContent=fmt(0);io.observe(el);
+    el.addEventListener('fxin',()=>{const t0=performance.now();const f=t=>{const p=cl((t-t0)/1400);el.textContent=fmt(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f)};requestAnimationFrame(f)});
+  });
+  // parallax (individual `translate` prop so it never fights transforms/scale)
+  if(!RM)d.querySelectorAll('[data-par]').forEach(el=>{const f=+el.dataset.par;
+    scenes.push(()=>{const r=el.getBoundingClientRect();if(r.bottom<-200||r.top>innerHeight+200)return;
+      const o=cl((r.top+r.height/2-innerHeight/2)*f,-r.height*.08,r.height*.08);el.style.translate=`0 ${o.toFixed(1)}px`})});
+  // marquee — speed & direction follow scroll velocity
+  d.querySelectorAll('[data-mq]').forEach(el=>{
+    const t=el.querySelector('.mq-t');t.innerHTML+=t.innerHTML;if(RM)return;
+    const base=+el.dataset.mq;let x=0,dir=1;
+    scenes.push((y,v,dt)=>{const r=el.getBoundingClientRect();if(r.bottom<0||r.top>innerHeight)return;
+      if(v>.4)dir=1;else if(v<-.4)dir=-1;const w=t.scrollWidth/2;
+      x-=(base+Math.min(Math.abs(v)*.9,40))*dir*dt/16;if(x<-w)x+=w;if(x>0)x-=w;
+      t.style.transform=`translate3d(${x.toFixed(1)}px,0,0) skewX(${cl(-v*.25,-10,10).toFixed(2)}deg)`});
+  });
+  // horizontal pinned slider
+  d.querySelectorAll('[data-hp]').forEach(el=>{
+    const tr=el.querySelector('.hp-track'),sl=[...tr.querySelectorAll('[data-sl]')],cnt=el.querySelector('[data-hc]'),bar=el.querySelector('.hp-bar i');
+    let dist=0,on=false,lastI=-1;
+    const setI=i=>{if(i===lastI||!cnt)return;lastI=i;cnt.textContent=String(i+1).padStart(2,'0')};
+    const nearest=()=>{let b=0,bd=1e9;sl.forEach((s,i)=>{const r=s.getBoundingClientRect(),dd=Math.abs(r.left+r.width/2-innerWidth/2);if(dd<bd){bd=dd;b=i}});return b};
+    sizers.push(()=>{on=!RM&&!mob();tr.style.transform='';if(!on){el.style.height='';return}
+      dist=Math.max(0,tr.scrollWidth-innerWidth);el.style.height=(innerHeight+dist)+'px'});
+    tr.addEventListener('scroll',()=>{if(!on){setI(nearest());if(bar)bar.style.transform=`scaleX(${cl(tr.scrollLeft/(tr.scrollWidth-tr.clientWidth||1))})`}},{passive:true});
+    scenes.push(()=>{if(!on)return;const r=el.getBoundingClientRect();if(r.bottom<0||r.top>innerHeight)return;
+      const p=cl(-r.top/(r.height-innerHeight||1));tr.style.transform=`translate3d(${(-p*dist).toFixed(1)}px,0,0)`;
+      if(bar)bar.style.transform=`scaleX(${p.toFixed(4)})`;setI(nearest())});
+  });
+  // custom cursor
+  if(FINE&&!RM){
+    const c=d.createElement('div');c.className='cur';c.setAttribute('aria-hidden','true');c.innerHTML='<i><b>VIEW</b></i>';d.body.append(c);
+    let mx=-200,my=-200,cx=-200,cy=-200;const lb=c.querySelector('b');
+    addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY},{passive:true});
+    d.addEventListener('mouseover',e=>{const t=e.target.closest('[data-cursor]');c.classList.toggle('big',!!t);if(t)lb.textContent=t.dataset.cursor||'VIEW';
+      c.classList.toggle('link',!t&&!!e.target.closest('a,button,summary,label,select'))});
+    scenes.push(()=>{cx+=(mx-cx)*.22;cy+=(my-cy)*.22;c.style.transform=`translate3d(${cx.toFixed(1)}px,${cy.toFixed(1)}px,0)`});
+  }
+  // loop
+  let lt=performance.now();
+  const tick=t=>{const dt=Math.min(64,t-lt);lt=t;
+    if(lerping){cur+=(tgt-cur)*.1;if(Math.abs(tgt-cur)<.5){cur=tgt;lerping=false}scrollTo(0,cur)}
+    const y=scrollY;vel=vel*.8+(y-lastY)*.2;lastY=y;
+    for(const s of scenes)s(y,vel,dt);requestAnimationFrame(tick)};
+  const size=()=>sizers.forEach(f=>f());
+  addEventListener('resize',size);addEventListener('load',size);
+  return{scenes,sizers,cl,mob,RM,FINE,size,start(){size();requestAnimationFrame(tick)}};
+})();
+
+/* hero: framed window scales to full bleed, wordmark pushed down */
+(()=>{const {cl,mob,RM}=FX,hero=document.getElementById('hero'),win=hero.querySelector('.win'),img=win.querySelector('img'),tag=win.querySelector('.tag'),wm=hero.querySelector('.wm'),txt=[hero.querySelector('.hh'),hero.querySelector('.hside'),hero.querySelector('.hmeta')],cue=hero.querySelector('.hcue');
+  const ease=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;let was=false;
+  FX.scenes.push(()=>{if(RM||mob()){if(was){[win,img,tag,wm,cue,...txt].forEach(e=>{e.style.cssText=''});was=false}return}was=true;
+    const r=hero.getBoundingClientRect();if(r.bottom<0)return;const p=cl(-r.top/(r.height-innerHeight)),e=ease(cl(p/.72));
+    const iy=(1-e),t=24*iy,b=26*iy,x=37*iy;
+    win.style.clipPath=`inset(${t.toFixed(2)}vh ${x.toFixed(2)}vw ${b.toFixed(2)}vh ${x.toFixed(2)}vw)`;
+    win.style.transform=`rotate(${(-5*iy).toFixed(2)}deg)`;img.style.scale=(1+.35*iy).toFixed(3);
+    tag.style.opacity=cl((p-.74)/.14).toFixed(3);tag.style.transform=`translateY(${(20*(1-cl((p-.74)/.14))).toFixed(1)}px)`;
+    wm.style.transform=`translateY(${(8+p*90).toFixed(2)}%)`;wm.style.opacity=cl(1-p*1.5).toFixed(3);
+    txt.forEach((el,i)=>{el.style.opacity=cl(1-p*3.2).toFixed(3);el.style.translate=`0 ${(-p*(160+i*60)).toFixed(1)}px`});
+    cue.style.opacity=cl(1-p*5).toFixed(3);
+  });
+})();
+/* timeline: sticky week scrub */
+(()=>{const {cl,mob,RM}=FX,pin=document.getElementById('tlpin'),g=document.getElementById('gantt'),now=g.querySelector('.now'),wkn=document.getElementById('wkn'),wkt=document.getElementById('wkt');
+  const bars=[...g.querySelectorAll('.bar')].map(b=>{const [a,c]=b.style.gridColumn.split('/').map(n=>parseInt(n)-2);return{b,a,c,t:b.textContent}});
+  let on=false,lw=-1;
+  FX.sizers.push(()=>{on=!RM&&!mob();g.classList.toggle('scrub',on);if(!on){bars.forEach(o=>o.b.style.clipPath='');pin.style.height=''}else pin.style.height=''});
+  FX.scenes.push(()=>{if(!on)return;const r=pin.getBoundingClientRect();if(r.bottom<0||r.top>innerHeight)return;
+    const p=cl(-r.top/(r.height-innerHeight)),wk=p*6.0001;
+    bars.forEach(o=>{o.b.style.clipPath=`inset(0 ${(100-100*cl((wk-o.a)/(o.c-o.a))).toFixed(2)}% 0 0)`});
+    const gw=g.clientWidth-220;now.style.transform=`translateX(${(220+gw*cl(wk/6)).toFixed(1)}px)`;
+    const w=Math.min(5,Math.floor(wk));if(w!==lw){lw=w;wkn.innerHTML='W0'+(w+1)+'<small> / 06</small>';const cur=bars.find(o=>w>=o.a&&w<o.c);wkt.textContent=cur?cur.t:''}
+  });
+})();
+FX.start();
+const hd=document.getElementById('hd');
+const onScroll=()=>hd.classList.toggle("is-sc",scrollY>40);onScroll();addEventListener('scroll',onScroll,{passive:true});
+const bg=document.getElementById('burger');
+bg.onclick=()=>{const o=hd.classList.toggle('open');bg.setAttribute('aria-expanded',o)};
+hd.querySelectorAll('nav a').forEach(a=>a.onclick=()=>{hd.classList.remove('open');bg.setAttribute('aria-expanded',false)});
+const rv=document.querySelectorAll('[data-rv]');
+if('IntersectionObserver' in window){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('obj-seen');io.unobserve(e.target)}}),{threshold:0,rootMargin:'0px 0px -8% 0px'});
+  rv.forEach(el=>io.observe(el));
+}else rv.forEach(el=>el.classList.add('obj-seen'));
+// 패키지 버튼 → 폼 평형 자동 선택
+document.querySelectorAll('[data-py]').forEach(b=>b.addEventListener('click',()=>{const r=document.querySelector('input[name=py][value="'+b.dataset.py+'평"]');if(r)r.checked=true}));
+const wh=document.getElementById('when');wh.min=new Date().toISOString().slice(0,7);
+document.getElementById('objForm').onsubmit=e=>{
+  e.preventDefault();const f=e.target,m=document.getElementById('msg');
+  if(!f.checkValidity()){m.textContent='아파트명, 평형, 희망 시기, 성함, 연락처와 개인정보 동의를 확인해 주세요.';f.reportValidity();return}
+  const py=f.querySelector('[name=py]:checked').value,[y,mo]=wh.value.split('-');
+  m.textContent=document.getElementById('nm').value+'님, '+document.getElementById('apt').value+' '+py+' ('+y+'년 '+Number(mo)+'월 착공 희망) 실측 상담이 접수되었습니다. 24시간 안에 연락드리겠습니다.';
+  f.reset();
+};
+</script>
+<style id="qa52-objet-css">/* T19 */h1,h2,h3{text-wrap:balance}/* M05 동의 체크 줄 44px */label:has(>input[type=checkbox]){min-height:44px}.nm b em,summary .n{letter-spacing:0}@media(max-width:860px){.hmeta{font-size:11px}.g-row.wk div{font-size:11px}}.ft .copy{color:#948d83}.wm{overflow-x:clip}@media(max-width:400px){.hd .w{gap:12px}.burger{flex:none}}</style><script id="qa52-objet-js">(function(){var b=document.getElementById('burger');if(!b)return;
+function open(){return !!document.querySelector('nav.open,.open nav')}
+var was=false;function sync(){var o=open();if(o===was)return;was=o;
+ document.documentElement.style.overflow=o?'hidden':'';b.setAttribute('aria-expanded',o?'true':'false')}
+var mo=new MutationObserver(sync);[].concat([].slice.call(document.querySelectorAll('nav')),[b.closest('header')]).forEach(function(e){e&&mo.observe(e,{attributes:true,attributeFilter:['class']})});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&open()){b.click();b.focus()}})})();</script></body>
+</html>

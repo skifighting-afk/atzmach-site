@@ -1,0 +1,808 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>한빛정밀 | 경기 화성 CNC 정밀가공 · 자동차·반도체 부품</title>
+<meta name="description" content="경기 화성 CNC 정밀가공 전문 한빛정밀. 5축 MCT·CNC 선반 기반 자동차·반도체 장비 부품 시제품부터 양산까지. 도면 첨부 견적 요청.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --white:#ffffff; --bg:#f3f5f7; --steel:#d5dbe1; --steel2:#9aa5b1; --grey:#5b6672; --ink:#0f1720; --ink2:#1b2530;
+  --blue:#0057ff; --blue-d:#0043c4; --blue-l:#e8efff; --line:#dfe4e9;
+  --sans:"Noto Sans KR","Noto Sans CJK KR",sans-serif;
+  --mono:"IBM Plex Mono","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--white);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.65;overflow-x:hidden;word-break:keep-all;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1280px;margin:0 auto;padding:0 40px}
+h1,h2,h3{font-weight:900;letter-spacing:-.035em;line-height:1.25}
+h2{font-size:clamp(30px,3.3vw,46px)}
+.code{font-family:var(--mono);font-size:12.5px;font-weight:500;letter-spacing:.08em;color:var(--blue);text-transform:uppercase;display:flex;align-items:center;gap:10px}
+.code::before{content:"";width:10px;height:10px;background:var(--blue)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;height:56px;padding:0 28px;font-family:var(--sans);font-weight:700;font-size:15px;border:1.5px solid var(--ink);transition:.25s;cursor:pointer;border-radius:0}
+.btn.blue{background:var(--blue);border-color:var(--blue);color:#fff}
+.btn.blue:hover{background:var(--blue-d);border-color:var(--blue-d)}
+.btn.out{background:transparent;color:var(--ink)}
+.btn.out:hover{background:var(--ink);color:#fff}
+.btn.outw{border-color:rgba(255,255,255,.55);color:#fff}
+.btn.outw:hover{background:#fff;color:var(--ink)}
+.btn .ar{transition:transform .25s}
+.btn:hover .ar{transform:translateX(4px)}
+
+/* header */
+header{position:fixed;top:0;left:0;right:0;z-index:50;transition:.3s;border-bottom:1px solid rgba(255,255,255,.18)}
+header .bar{display:flex;align-items:center;justify-content:space-between;height:78px;transition:height .3s}
+header.on{background:#fff;border-color:var(--line);box-shadow:0 2px 18px rgba(15,23,32,.06)}
+header.on .bar{height:64px}
+.logo{display:flex;align-items:center;gap:12px;color:#fff;transition:color .3s}
+header.on .logo,footer .logo{color:var(--ink)}
+.logo svg{width:36px;height:36px;flex:none}
+.logo b{font-weight:900;font-size:21px;letter-spacing:-.04em}
+.logo small{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.14em;font-weight:500;opacity:.7;margin-top:-2px}
+nav ul{display:flex;gap:0;list-style:none;font-size:15px;font-weight:500}
+nav a{display:block;padding:0 20px;height:78px;line-height:78px;color:#fff;position:relative;transition:.3s}
+header.on nav a{color:var(--ink);height:64px;line-height:64px}
+nav a::after{content:"";position:absolute;left:20px;right:20px;bottom:0;height:3px;background:var(--blue);transform:scaleX(0);transition:transform .25s}
+nav a:hover::after{transform:scaleX(1)}
+header .btn{height:44px;padding:0 20px;font-size:14px}
+.burger{display:none;width:44px;height:44px;border:1.5px solid rgba(255,255,255,.6);background:transparent;cursor:pointer}
+header.on .burger{border-color:var(--ink)}
+.burger i{display:block;width:18px;height:2px;background:#fff;margin:4px auto}
+header.on .burger i{background:var(--ink)}
+
+/* hero */
+.hero{position:relative;min-height:min(100vh,860px);display:flex;align-items:flex-end;color:#fff;overflow:hidden;background:var(--ink)}
+.hero>img{position:absolute;inset:0;z-index:0;width:100%;height:100%;object-fit:cover;object-position:45% 50%;transform:scale(1.1);animation:zoom 14s ease-out forwards}
+@keyframes zoom{to{transform:scale(1)}}
+.hero::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(15,23,32,.55) 0%,rgba(15,23,32,.25) 35%,rgba(15,23,32,.88) 100%),linear-gradient(90deg,rgba(15,23,32,.85) 0%,rgba(15,23,32,.55) 45%,rgba(15,23,32,.1) 80%)}
+.hero .hin{position:relative;z-index:2;width:100%;padding-top:170px}
+.hero .code{color:#9fbcff}.hero .code::before{background:#9fbcff}
+.hero h1{font-size:clamp(42px,5.4vw,80px);margin:22px 0 20px;max-width:900px}
+.hero h1 span{color:#6f9bff}
+.hero .sub{font-size:18px;color:#d3dae2;max-width:620px}
+.hero .ctas{display:flex;gap:12px;margin:38px 0 0;flex-wrap:wrap}
+.hstrip{margin-top:70px;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(255,255,255,.22)}
+.hstrip div{padding:22px 24px 30px 0;border-right:1px solid rgba(255,255,255,.14)}
+.hstrip div+div{padding-left:24px}
+.hstrip div:last-child{border-right:0}
+.hstrip .k{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;color:#9aa8b8}
+.hstrip .v{font-size:17px;font-weight:700;margin-top:4px}
+
+section{padding:120px 0}
+.shead{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;margin-bottom:56px}
+.shead h2{margin-top:16px}
+.shead p{color:var(--grey);font-size:16.5px;max-width:520px}
+
+/* problem */
+.pain{background:var(--bg)}
+.pgrid{display:grid;grid-template-columns:repeat(4,1fr);border-top:2px solid var(--ink)}
+.pi{padding:34px 28px 38px 0;border-right:1px solid var(--steel)}
+.pi+.pi{padding-left:28px}
+.pi:last-child{border-right:0}
+.pi .no{font-family:var(--mono);font-size:13px;color:var(--steel2)}
+.pi h3{font-size:20px;margin:14px 0 10px}
+.pi p{font-size:15px;color:var(--grey)}
+.pain .ans{margin-top:44px;background:var(--ink);color:#fff;padding:28px 34px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.pain .ans p{font-size:19px;font-weight:700;letter-spacing:-.02em}
+.pain .ans p span{color:#6f9bff}
+
+/* capability */
+.cap .layout{display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:start}
+.cap .layout>*,.sg>*,.quote .grid>*{min-width:0}
+.cap .pic{position:relative}
+.cap .pic img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.cap .pic .lbl{position:absolute;left:0;bottom:0;background:var(--blue);color:#fff;font-family:var(--mono);font-size:12px;padding:10px 16px;letter-spacing:.06em}
+.svc{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--line);border-left:1px solid var(--line);margin-top:24px}
+.svc div{padding:22px 22px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);transition:background .25s}
+.svc div:hover{background:var(--blue-l)}
+.svc h3{font-size:17px;margin-bottom:4px}
+.svc p{font-size:14px;color:var(--grey)}
+.tbl{overflow-x:auto;border-top:2px solid var(--ink)}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th,td{padding:15px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+thead th{font-size:12.5px;font-weight:700;color:var(--grey);background:var(--bg);white-space:nowrap}
+tbody th{font-weight:700;white-space:nowrap}
+td.m,th.m{font-family:var(--mono);font-size:13.5px}
+td .tag{display:inline-block;font-family:var(--mono);font-size:11.5px;background:var(--blue-l);color:var(--blue-d);padding:1px 7px;margin:2px 4px 0 0}
+tbody tr{transition:background .2s}
+tbody tr:hover{background:#fafbfc}
+.tnote{font-size:13px;color:var(--grey);margin-top:12px}
+
+/* spec */
+.spec{background:var(--ink);color:#e6ebf0}
+.spec .shead p{color:#9aa8b8}
+.spec h2{color:#fff}
+.spec .code{color:#6f9bff}.spec .code::before{background:#6f9bff}
+.sg{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.sbox h3{font-size:18px;color:#fff;margin-bottom:14px;display:flex;justify-content:space-between;align-items:baseline}
+.sbox h3 small{font-family:var(--mono);font-size:12px;font-weight:500;color:#7f8c9a}
+.spec .tbl{border-top-color:#6f9bff}
+.spec th,.spec td{border-bottom-color:#26323e}
+.spec thead th{background:#16202a;color:#9aa8b8}
+.spec tbody tr:hover{background:#16202a}
+.spec td{color:#c9d2db}
+.spec td b{color:#fff;font-family:var(--mono);font-weight:600}
+.bar-t{display:block;height:4px;background:#26323e;margin-top:8px;position:relative;max-width:140px}
+.bar-t i{position:absolute;left:0;top:0;bottom:0;background:#6f9bff;width:0;transition:width 1.4s cubic-bezier(.2,.7,.2,1)}
+.in .bar-t i{width:var(--w)}
+
+/* quality */
+.qa .grid{display:grid;grid-template-columns:1fr 1.2fr;gap:70px;align-items:start}
+.badges{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line);margin-top:34px}
+.bd{padding:24px 18px;border-right:1px solid var(--line);text-align:center}
+.bd:last-child{border-right:0}
+.bd .s{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;width:84px;height:84px;border:2px solid var(--ink);border-radius:50%;font-family:var(--mono);font-weight:600;font-size:13px;line-height:1.1}
+.bd .s b{font-size:18px;font-family:var(--sans);font-weight:900}
+.bd p{font-size:13px;color:var(--grey);margin-top:12px}
+.qlist{display:grid;gap:0;border-top:2px solid var(--ink)}
+.ql{display:grid;grid-template-columns:150px 1fr;gap:24px;padding:22px 0;border-bottom:1px solid var(--line)}
+.ql dt{font-weight:700}
+.ql dt small{display:block;font-family:var(--mono);font-size:11.5px;color:var(--blue);font-weight:500;letter-spacing:.06em}
+.ql dd{color:var(--grey);font-size:15px}
+
+/* industry */
+.ind{background:var(--bg)}
+.igrid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.ic{background:#fff;border:1px solid var(--line);display:flex;flex-direction:column;transition:.3s}
+.ic:hover{border-color:var(--blue);transform:translateY(-4px);box-shadow:0 16px 30px rgba(0,87,255,.08)}
+.ic .ph{aspect-ratio:4/3;overflow:hidden;background:var(--steel)}
+.ic .ph img{width:100%;height:100%;object-fit:cover;transform:scale(var(--s,1));transition:transform .8s}
+.ic:hover .ph img{transform:scale(calc(var(--s,1)*1.06))}
+.ic .tx{padding:22px 22px 24px}
+.ic .tx .code{font-size:11px}
+.ic h3{font-size:19px;margin:10px 0 8px}
+.ic p{font-size:14px;color:var(--grey)}
+.ic ul{list-style:none;margin-top:14px;display:flex;flex-wrap:wrap;gap:6px}
+.ic li{font-size:12px;border:1px solid var(--steel);padding:2px 8px;color:var(--ink2)}
+
+/* process */
+.flow{display:grid;grid-template-columns:repeat(5,1fr);position:relative;counter-reset:s}
+.flow::before{content:"";position:absolute;left:0;right:0;top:27px;height:2px;background:var(--line)}
+.fs{position:relative;padding-right:24px}
+.fs .dot{position:relative;width:56px;height:56px;background:#fff;border:2px solid var(--ink);display:grid;place-items:center;font-family:var(--mono);font-weight:600;font-size:15px;transition:.3s}
+.fs:hover .dot{background:var(--blue);border-color:var(--blue);color:#fff}
+.fs .t{font-family:var(--mono);font-size:12px;color:var(--blue);margin:24px 0 6px}
+.fs h3{font-size:19px;margin-bottom:8px}
+.fs p{font-size:14.5px;color:var(--grey)}
+
+/* facts */
+.facts{padding:0 0 120px}
+.fgrid{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line)}
+.fc{padding:34px 30px;border-right:1px solid var(--line)}
+.fc:last-child{border-right:0}
+.fc .k{font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;color:var(--grey)}
+.fc .v{font-size:44px;font-weight:900;letter-spacing:-.04em;line-height:1.1;margin:10px 0 6px}
+.fc .v small{font-size:17px;font-weight:700;margin-left:3px;color:var(--blue)}
+.fc .d{font-size:14px;color:var(--grey)}
+
+/* faq */
+.faq .grid{display:grid;grid-template-columns:1fr 1.7fr;gap:70px}
+.faq h2{margin-top:16px}
+.faq .side p{color:var(--grey);margin-top:16px}
+details{border-bottom:1px solid var(--line)}
+details:first-child{border-top:2px solid var(--ink)}
+summary{list-style:none;cursor:pointer;padding:24px 60px 24px 0;font-weight:700;font-size:17.5px;position:relative;display:flex;gap:18px}
+summary::before{content:"Q";font-family:var(--mono);color:var(--blue);font-weight:600}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"";position:absolute;right:8px;top:50%;width:16px;height:16px;transform:translateY(-50%);background:linear-gradient(var(--ink),var(--ink)) center/16px 2px no-repeat,linear-gradient(var(--ink),var(--ink)) center/2px 16px no-repeat;transition:.25s}
+details[open] summary::after{background:linear-gradient(var(--blue),var(--blue)) center/16px 2px no-repeat;transform:translateY(-50%) rotate(180deg)}
+details p{padding:0 40px 26px 34px;color:var(--grey);font-size:15px}
+
+/* quote form */
+.quote{background:var(--ink);color:#e6ebf0}
+.quote .grid{display:grid;grid-template-columns:.8fr 1.4fr;gap:70px}
+.quote h2{color:#fff;margin:16px 0 20px}
+.quote .code{color:#6f9bff}.quote .code::before{background:#6f9bff}
+.quote .lead{color:#9aa8b8}
+.contact{margin-top:40px;border-top:1px solid #26323e}
+.contact div{display:flex;justify-content:space-between;gap:16px;padding:16px 0;border-bottom:1px solid #26323e;font-size:15px}
+.contact span{color:#7f8c9a;font-family:var(--mono);font-size:12.5px;letter-spacing:.06em}
+form{background:#fff;color:var(--ink);padding:48px 48px 44px}
+form .ft{display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid var(--ink);padding-bottom:14px;margin-bottom:28px;gap:10px;flex-wrap:wrap}
+form .ft b{font-size:22px;font-weight:900;letter-spacing:-.03em}
+form .ft span{font-family:var(--mono);font-size:12px;color:var(--grey)}
+.fr{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.fr3{grid-template-columns:1fr 1fr 1fr}
+.fi{margin-bottom:18px;display:flex;flex-direction:column;min-width:0}
+.fi>label,.fi>.lb{font-size:13px;font-weight:700;margin-bottom:7px}
+.fi>label i,.fi>.lb i{color:var(--blue);font-style:normal}
+.fi input,.fi select,.fi textarea{font:inherit;font-size:15px;height:50px;border:1px solid var(--steel);background:#fff;padding:0 14px;color:var(--ink);outline:none;border-radius:0;transition:.2s;width:100%;-webkit-appearance:none;appearance:none}
+.fi textarea{height:110px;padding:12px 14px;resize:vertical}
+.fi select{background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%230f1720' stroke-width='1.6'/%3E%3C/svg%3E") right 14px center no-repeat}
+.fi input:focus,.fi select:focus,.fi textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(0,87,255,.12)}
+.drop{position:relative;border:1.5px dashed var(--steel2);background:var(--bg);padding:24px 20px;display:flex;align-items:center;gap:18px;transition:.2s;cursor:pointer}
+.drop:hover,.drop.over{border-color:var(--blue);background:var(--blue-l)}
+.drop input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+.drop svg{width:36px;height:36px;flex:none;color:var(--blue)}
+.drop b{display:block;font-size:15px}
+.drop small{font-size:12.5px;color:var(--grey)}
+.drop:focus-within{outline:2px solid var(--blue);outline-offset:2px}
+.files{font-family:var(--mono);font-size:12.5px;color:var(--blue-d);margin-top:8px;word-break:break-all}
+.agree{display:flex;gap:10px;align-items:center;font-size:13.5px;color:var(--grey);margin:4px 0 22px}
+.agree input{width:18px;height:18px;accent-color:var(--blue)}
+form .btn{width:100%}
+.done{display:none;margin-top:14px;font-size:14.5px;background:var(--blue-l);color:var(--blue-d);padding:14px 16px;border-left:3px solid var(--blue)}
+
+/* footer */
+footer{padding:64px 0 36px;background:#fff}
+footer .top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.4fr;gap:40px;padding-bottom:40px;border-bottom:1px solid var(--line)}
+footer .top>div:first-child p{margin-top:16px;color:var(--grey);font-size:14.5px;max-width:300px}
+footer h5{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;font-weight:600;color:var(--blue);margin-bottom:14px}
+footer li{list-style:none;font-size:14.5px;margin-bottom:7px}
+footer .info{padding-top:24px;font-size:12.5px;color:var(--grey);line-height:1.9}
+footer .copy{font-size:11.5px;color:var(--steel2);margin-top:14px}
+
+.rv{opacity:0;transform:translateY(24px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+
+@media (max-width:1080px){
+  nav,header .bar>.btn{display:none}
+  .burger{display:block}
+  nav.open{display:block;position:fixed;top:64px;left:0;right:0;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 20px 30px rgba(15,23,32,.08)}
+  nav.open ul{flex-direction:column}
+  nav.open a{color:var(--ink);height:auto;line-height:1.5;padding:16px 24px;border-top:1px solid var(--line)}
+  nav.open a::after{display:none}
+  .shead,.cap .layout,.sg,.qa .grid,.faq .grid,.quote .grid{grid-template-columns:1fr}
+  .shead{gap:18px}
+  .pgrid{grid-template-columns:1fr 1fr}.pi:nth-child(2){border-right:0}.pi:nth-child(3){padding-left:0}.pi:nth-child(-n+2){border-bottom:1px solid var(--steel)}
+  .igrid{grid-template-columns:1fr 1fr}
+  .flow{grid-template-columns:1fr;gap:0}.flow::before{left:27px;right:auto;top:0;bottom:0;width:2px;height:auto}
+  .fs{display:grid;grid-template-columns:56px 1fr;gap:0 22px;padding:0 0 30px}.fs .dot{grid-row:1/4}.fs .t{margin:4px 0 2px}
+  .fgrid{grid-template-columns:1fr 1fr}.fc:nth-child(2){border-right:0}.fc:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .hstrip{grid-template-columns:1fr 1fr}.hstrip div:nth-child(2){border-right:0}.hstrip div:nth-child(3){padding-left:0}
+  footer .top{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  .wrap{padding:0 18px}
+  header .bar{height:64px}
+  nav a{height:64px;line-height:64px}
+  .logo b{font-size:19px}.logo svg{width:32px;height:32px}
+  .hero{min-height:0}
+  .hero>img{object-position:52% 50%}
+  .hero .hin{padding-top:120px}
+  .hero h1{font-size:36px}
+  .hero .sub{font-size:16px}
+  .hero .ctas .btn{flex:1 1 100%}
+  .hstrip{margin-top:46px}
+  .hstrip div{padding:16px 12px 20px 0}.hstrip div+div{padding-left:12px}.hstrip div:nth-child(3){padding-left:0}
+  .hstrip .v{font-size:15px}
+  section{padding:84px 0}
+  .shead{margin-bottom:36px}
+  .pgrid{grid-template-columns:1fr}.pi,.pi+.pi{padding:26px 0;border-right:0;border-bottom:1px solid var(--steel)}
+  .pain .ans{padding:24px 22px}.pain .ans p{font-size:17px}.pain .ans .btn{width:100%}
+  .svc{grid-template-columns:1fr}
+  table{font-size:13.5px}
+  th,td{padding:12px 10px}
+  .eq table{min-width:640px}
+  .spec table{min-width:520px}
+  .badges{grid-template-columns:1fr 1fr 1fr}.bd{padding:18px 6px}.bd .s{width:64px;height:64px;font-size:11px}.bd .s b{font-size:14px}.bd p{font-size:11.5px}
+  .ql{grid-template-columns:1fr;gap:4px}
+  .igrid{grid-template-columns:1fr}
+  .facts{padding-bottom:84px}
+  .fc{padding:24px 18px}.fc .v{font-size:32px}
+  summary{font-size:16px;padding-right:44px;gap:12px}
+  details p{padding:0 0 22px 26px}
+  form{padding:30px 20px}
+  .fr,.fr3{grid-template-columns:1fr;gap:0}
+  .drop{padding:20px 16px;gap:14px}
+  footer .top{gap:30px}footer .top>div:first-child{grid-column:1/-1}
+}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.hero>img{animation:none;transform:none}.bar-t i{transition:none}}
+
+/* ===== FX layer ===== */
+html{scroll-behavior:auto}
+.mh .ln{display:block;overflow:hidden;padding-bottom:.06em;margin-bottom:-.06em}
+.mh .ln>span{display:inline-block}
+.mo .mh .ln>span{transform:translate3d(0,110%,0);transition:transform 1s cubic-bezier(.2,.75,.15,1)}
+.mo .mh .ln:nth-child(2)>span{transition-delay:.08s}
+.mo .mh.in .ln>span{transform:none}
+.mk{overflow:hidden;position:relative}
+.mo .mk{clip-path:inset(0 100% 0 0);transition:clip-path 1.2s cubic-bezier(.75,0,.2,1)}
+.mo .mk.in{clip-path:inset(0 0 0 0)}
+.mo [data-par]{transform:scale(1.15)}
+.cur{position:fixed;left:0;top:0;z-index:999;pointer-events:none;mix-blend-mode:normal}
+.cur span{position:absolute;left:-44px;top:-44px;width:88px;height:88px;background:var(--blue);color:transparent;display:grid;place-items:center;font:600 11px/1 var(--mono);letter-spacing:.16em;transform:scale(.12) rotate(45deg);transition:transform .45s cubic-bezier(.2,.8,.2,1),color .2s}
+.cur.big span{transform:scale(1);color:#fff}
+
+/* hero B — pinned, scrubbed zoom */
+.hero{display:block;min-height:0;padding:0;background:var(--ink);overflow:visible}
+.hero::before{display:none}
+.hstick{position:relative;display:flex;flex-direction:column;overflow:hidden;background:var(--ink)}
+.hframe{position:relative;order:2;margin:34px 18px 0;aspect-ratio:4/5;overflow:hidden}
+.hframe img{width:100%;height:100%;object-fit:cover;object-position:50% 45%}
+@media (min-width:761px){.hframe{aspect-ratio:16/8;margin:40px 40px 0}.hstats{margin:0 40px;grid-template-columns:repeat(4,1fr)}.hcopy{padding:140px 40px 0}}
+.hshade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,23,32,.25),rgba(15,23,32,.85));opacity:0;pointer-events:none}
+.hcopy{order:1;position:relative;z-index:3;padding:120px 18px 0}
+.hcopy .micro{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:22px;font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:#9aa8b8}
+.hcopy .micro span::before{content:"■ ";color:#6f9bff;font-size:9px}
+.hstats{order:3;position:relative;z-index:3;display:grid;grid-template-columns:1fr 1fr;border-top:1px solid rgba(255,255,255,.18);margin:0 18px}
+.hstats .code{grid-column:1/-1;color:#9fbcff;padding:18px 0 4px}.hstats .code::before{background:#9fbcff}
+.hstats div{padding:16px 0 20px;border-bottom:1px solid rgba(255,255,255,.12)}
+.hstats b{display:block;font-family:var(--mono);font-weight:600;font-size:40px;line-height:1.1;color:#fff;letter-spacing:-.03em}
+.hstats b small{font-size:.42em;color:#6f9bff;margin-left:4px;letter-spacing:0}
+.hstats span{font-size:13.5px;color:#9aa8b8}
+.hstats b span{font-size:inherit;color:inherit}
+.hword{order:4;position:relative;z-index:2;font-weight:900;font-size:15.5vw;line-height:.8;letter-spacing:-.06em;white-space:nowrap;color:#e6ebf0;padding:30px 0 0 10px;margin-bottom:-.06em}
+.hword i{font-style:normal;color:transparent;-webkit-text-stroke:1px rgba(230,235,240,.4)}
+.fx .hero{height:280vh}
+.fx .hstick{position:sticky;top:0;height:100vh;height:100svh;display:block}
+.fx .hframe{position:absolute;inset:0;margin:0;aspect-ratio:auto;clip-path:inset(17vh 11vw 15vh 59vw round 6px);transform-origin:74% 50%;will-change:clip-path,transform}
+.fx .hframe img{transform:scale(1.05);will-change:transform}
+.fx .hcopy{position:absolute;left:0;right:0;top:50%;transform:translateY(-55%);padding:0}
+.fx .hcopy .in{max-width:min(50vw,720px)}
+.fx .hero h1{font-size:clamp(38px,4vw,62px)}
+.fx .hstats{position:absolute;left:0;right:0;bottom:12vh;margin:0 auto;max-width:1280px;padding:0 40px;grid-template-columns:repeat(4,1fr);border:0;opacity:0}
+.fx .hstats div{border-bottom:0;border-top:1px solid rgba(255,255,255,.3);padding:18px 24px 0 0}
+.fx .hstats b{font-size:clamp(48px,5.4vw,84px)}
+.fx .hword{position:absolute;left:0;right:0;bottom:0;font-size:10.4vw;padding:0 0 0 1.2vw;will-change:transform}
+.hscroll{display:none}
+.fx .hscroll{display:flex;position:absolute;z-index:3;right:40px;top:50%;writing-mode:vertical-rl;font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:#7f8c9a;gap:12px;align-items:center}
+.fx .hscroll::after{content:"";width:1px;height:60px;background:linear-gradient(#7f8c9a,transparent)}
+/* mission word reveal */
+.mission{padding:150px 0 130px}
+.mission .big{font-weight:700;font-size:clamp(26px,3.3vw,48px);line-height:1.45;letter-spacing:-.035em;margin-top:26px;max-width:1120px}
+.mission .big .w{display:inline-block}
+.mission .big em{font-style:normal;color:var(--blue);font-family:var(--mono);font-weight:600;letter-spacing:-.02em}
+.mission .sig{display:flex;gap:40px;margin-top:56px;font-family:var(--mono);font-size:12.5px;color:var(--grey);letter-spacing:.06em;flex-wrap:wrap}
+.mission .sig b{color:var(--ink);font-weight:600}
+/* marquee */
+.mq{overflow:hidden;background:var(--blue);color:#fff;padding:18px 0}
+.mq-in{display:flex;width:max-content;font-family:var(--mono);font-weight:600;font-size:clamp(44px,7.4vw,118px);line-height:1;letter-spacing:-.04em;white-space:nowrap;will-change:transform}
+.mq-in span:nth-child(even){color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.85)}
+/* horizontal process slider */
+.eqs{background:var(--ink);color:#e6ebf0;padding:110px 0 90px}
+.eqs .code{color:#6f9bff}.eqs .code::before{background:#6f9bff}
+.eqs h2{color:#fff}
+.eqs .shead{margin-bottom:40px}
+.hs-meta{display:flex;align-items:center;gap:18px;justify-content:flex-end;font-family:var(--mono);font-size:12.5px;letter-spacing:.1em;color:#7f8c9a}
+.hs-meta b{color:#fff;font-size:15px}
+.hs-bar{display:block;height:2px;background:#26323e;width:180px;position:relative;overflow:hidden}
+.hs-bar i{position:absolute;inset:0;background:#6f9bff;transform-origin:0 50%;transform:scaleX(0)}
+.hs-track{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 18px 10px;scrollbar-width:none}
+.hs-track::-webkit-scrollbar{display:none}
+.sl{flex:0 0 86vw;scroll-snap-align:start;display:grid;grid-template-columns:1fr;background:#16202a;border:1px solid #26323e}
+.sl .ph{aspect-ratio:4/3;overflow:hidden}
+.sl .ph img{width:100%;height:100%;object-fit:cover}
+.sl .tx{padding:26px 24px 28px;display:flex;flex-direction:column}
+.sl .no{font-family:var(--mono);font-size:12px;color:#6f9bff;letter-spacing:.12em}
+.sl h3{font-size:26px;color:#fff;margin:10px 0 10px}
+.sl p{color:#9aa8b8;font-size:15px}
+.sl dl{margin-top:auto;padding-top:22px;display:grid;grid-template-columns:auto 1fr;gap:0 18px;font-size:14px}
+.sl dt,.sl dd{padding:10px 0;border-top:1px solid #26323e}
+.sl dt{font-family:var(--mono);font-size:11.5px;color:#7f8c9a;letter-spacing:.08em;padding-top:12px}
+.sl dd{color:#fff;font-family:var(--mono)}
+.fx .eqs{padding:0}
+.fx .eqs .hs-stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:flex;flex-direction:column;justify-content:center;padding-top:64px}
+.fx .eqs .hs-track{overflow:visible;width:max-content;padding:0 max(40px,calc((100vw - 1200px)/2));gap:28px;will-change:transform}
+.fx .sl{flex:0 0 min(1040px,74vw);height:min(560px,calc(100vh - 290px));grid-template-columns:1.2fr 1fr}
+.fx .sl .ph{aspect-ratio:auto;height:100%}
+.fx .sl .tx{padding:40px 40px 36px}
+.fx .sl h3{font-size:32px}
+/* sticky steps */
+.sst{display:grid;grid-template-columns:.9fr 1.1fr;gap:80px;align-items:start}
+.sst-panel{position:sticky;top:110px;border-top:2px solid var(--ink);padding-top:26px}
+.sst-big{font-family:var(--mono);font-weight:600;font-size:clamp(120px,14vw,210px);line-height:.85;letter-spacing:-.06em;color:var(--ink)}
+.sst-big small{font-size:.2em;color:var(--steel2);letter-spacing:0;margin-left:10px}
+.gauge{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin:30px 0 22px}
+.gauge i{height:6px;background:var(--line);position:relative;overflow:hidden}
+.gauge i::after{content:"";position:absolute;inset:0;background:var(--blue);transform:scaleX(0);transform-origin:0 50%;transition:transform .5s}
+.sst[data-a="0"] .gauge i:nth-child(-n+1)::after,.sst[data-a="1"] .gauge i:nth-child(-n+2)::after,.sst[data-a="2"] .gauge i:nth-child(-n+3)::after,.sst[data-a="3"] .gauge i:nth-child(-n+4)::after,.sst[data-a="4"] .gauge i::after{transform:none}
+.sst-lbl{position:relative;height:60px}
+.sst-lbl p{position:absolute;inset:0;font-size:17px;font-weight:700;opacity:0;transform:translateY(10px);transition:.4s}
+.sst-lbl p small{display:block;font-family:var(--mono);font-size:12px;color:var(--blue);font-weight:500}
+.sst-lbl p.on{opacity:1;transform:none}
+.slist{list-style:none;border-top:2px solid var(--ink)}
+.slist .fs{min-height:52vh;display:grid;grid-template-columns:56px 1fr;gap:0 26px;align-content:center;padding:40px 0;border-bottom:1px solid var(--line);opacity:.6;transition:opacity .5s}
+.slist .fs.on{opacity:1}
+.slist .fs.on .dot{background:var(--blue);border-color:var(--blue);color:#fff}
+.slist .fs .dot{grid-row:1/4}
+.slist .fs .t{margin:4px 0 4px}
+.slist .fs h3{font-size:24px}
+.slist .fs p{font-size:16px;max-width:460px}
+@media (max-width:760px){
+  .mission{padding:96px 0 84px}
+  .mission .sig{gap:14px 28px;margin-top:36px}
+  .eqs{padding:84px 0 70px}
+  .hs-meta{justify-content:flex-start}
+  .sst{grid-template-columns:1fr;gap:0}
+  .sst-panel{display:none}
+  .slist .fs{min-height:0;opacity:1;padding:28px 0;gap:0 18px}
+  .slist .fs h3{font-size:20px}
+}
+</style>
+<meta name="robots" content="noindex,nofollow"></head>
+<body>
+
+<header id="hd">
+  <div class="wrap bar">
+    <a href="#" class="logo" aria-label="한빛정밀 홈">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" fill="#0057ff"/><path d="M9 29V11h5v7h12v-7h5v18h-5v-7H14v7z" fill="#fff"/></svg>
+      <span><b>한빛정밀</b><small>HANBIT PRECISION</small></span>
+    </a>
+    <nav id="nav"><ul>
+      <li><a href="#cap">가공 역량</a></li>
+      <li><a href="#spec">공차·소재</a></li>
+      <li><a href="#qa">품질 관리</a></li>
+      <li><a href="#ind">산업군</a></li>
+      <li><a href="#flow">납품 프로세스</a></li>
+    </ul></nav>
+    <a href="#quote" class="btn blue">견적 요청 <span class="ar">→</span></a>
+    <button class="burger" id="burger" aria-label="메뉴 열기"><i></i><i></i><i></i></button>
+  </div>
+</header>
+
+<section class="hero" id="top" data-pin="hero">
+  <div class="hstick">
+    <div class="hframe" id="hframe" data-cursor="5-AXIS">
+      <img src="img/p22.jpg" alt="한빛정밀 가공동의 5축 머시닝센터가 절삭유를 분사하며 알루미늄 블록을 가공하는 모습">
+      <div class="hshade" id="hshade"></div>
+    </div>
+    <div class="hcopy" id="hcopy"><div class="wrap"><div class="in">
+      <p class="code">CNC Precision Machining · Hwaseong, Gyeonggi</p>
+      <h1>도면 그대로,<br><span>±0.005mm</span>까지 깎습니다</h1>
+      <p class="sub">자동차 파워트레인부터 반도체 장비 부품까지. 5축 MCT와 복합 CNC 선반으로 시제품 1개부터 월 단위 양산까지 대응합니다.</p>
+      <div class="ctas">
+        <a href="#quote" class="btn blue">도면 보내고 견적 받기 <span class="ar">→</span></a>
+        <a href="#cap" class="btn outw">설비 리스트 보기</a>
+      </div>
+      <div class="micro"><span>NDA 도면 보안 서약</span><span>전수 성적서 발행</span><span>시제품 1EA부터</span></div>
+    </div></div></div>
+    <div class="hstats scrub" id="hstats">
+      <p class="code">Factory in numbers</p>
+      <div><b><span data-count="5">5</span><small>µm</small></b><span>정밀 공차 ±0.005mm</span></div>
+      <div><b><span data-count="31">31</span><small>대</small></b><span>가공·연삭·측정 설비</span></div>
+      <div><b><span data-count="2">2</span><small>영업일</small></b><span>도면 접수 후 견적 회신</span></div>
+      <div><b><span data-count="1">1</span><small>EA</small></b><span>시제품 최소 주문</span></div>
+    </div>
+    <p class="hword" id="hword" aria-hidden="true">HANBIT <i>PRECISION</i></p>
+    <p class="hscroll" aria-hidden="true">SCROLL</p>
+  </div>
+</section>
+
+<section class="mission" id="mission">
+  <div class="wrap">
+    <p class="code rv">01 — Mission</p>
+    <p class="big" data-words>우리는 도면 위의 숫자를 약속으로 읽습니다. <em>0.005mm</em>의 오차도 다음 공정에서는 큰 문제가 되기에, 측정할 수 없는 것은 출하하지 않습니다. 시제품 한 개부터 양산 로트까지, 한 명의 엔지니어가 끝까지 책임집니다.</p>
+    <div class="sig rv"><span><b>HANBIT PRECISION</b> · 경기 화성</span><span>5-AXIS · TURNING · GRINDING · CMM</span><span>ISO 9001 / 14001 · IATF 16949</span></div>
+  </div>
+</section>
+
+<div class="mq" data-mq aria-hidden="true"><div class="mq-in"><span>±0.005MM — 5-AXIS — CNC TURNING — CMM INSPECTED —&nbsp;</span><span>±0.005MM — 5-AXIS — CNC TURNING — CMM INSPECTED —&nbsp;</span><span>±0.005MM — 5-AXIS — CNC TURNING — CMM INSPECTED —&nbsp;</span><span>±0.005MM — 5-AXIS — CNC TURNING — CMM INSPECTED —&nbsp;</span></div></div>
+
+<section class="pain">
+  <div class="wrap">
+    <div class="shead"><div><p class="code rv">02 — Problem</p><h2 class="rv d1">가공 협력사 교체를<br>고민하고 계신가요?</h2></div><p class="rv d2">구매·개발 담당자들이 협력사를 바꾸는 이유는 대개 비슷합니다. 한빛정밀은 그 지점부터 다시 설계했습니다.</p></div>
+    <div class="pgrid">
+      <div class="pi rv"><p class="no">ISSUE 01</p><h3>견적이 일주일 넘게 걸린다</h3><p>도면 검토가 밀려 개발 일정 전체가 늦어집니다.</p></div>
+      <div class="pi rv d1"><p class="no">ISSUE 02</p><h3>시제품과 양산 품질이 다르다</h3><p>샘플은 통과했는데 양산 로트에서 치수 편차가 생깁니다.</p></div>
+      <div class="pi rv d2"><p class="no">ISSUE 03</p><h3>성적서가 형식적이다</h3><p>측정 데이터 없이 합격 도장만 찍힌 서류가 옵니다.</p></div>
+      <div class="pi rv d3"><p class="no">ISSUE 04</p><h3>소량·급행은 받지 않는다</h3><p>긴급 설변이나 10개 미만 주문은 뒤로 밀립니다.</p></div>
+    </div>
+    <div class="ans rv"><p>한빛정밀은 <span>담당 엔지니어 1:1 배정</span>으로 견적부터 출하까지 한 사람이 책임집니다.</p><a href="#flow" class="btn blue">납품 프로세스 보기 <span class="ar">→</span></a></div>
+  </div>
+</section>
+
+<section class="eqs" id="line" data-hs>
+  <div class="hs-stick">
+  <div class="wrap">
+    <div class="shead"><div><p class="code rv">03 — Process Line</p><h2 class="rv d1">설비가 곧 공정입니다</h2></div><div><p class="rv d2" style="color:#9aa8b8">소재 입고부터 출하까지 다섯 개의 라인. 한 공장 안에서 끝나기 때문에 공정 사이의 오차가 쌓이지 않습니다.</p><div class="hs-meta" aria-hidden="true" style="margin-top:22px"><span>SLIDE <b class="hs-i">01</b> / 05</span><span class="hs-bar"><i></i></span></div></div></div>
+  </div>
+    <div class="hs-track">
+      <article class="sl"><div class="ph mk" data-cursor="VIEW"><img src="img/p22.jpg" alt="한빛정밀 공정 — 5축 동시 가공" style="object-position:50% 50%" loading="lazy"></div><div class="tx"><p class="no">PROCESS 01 / 05 · 5-AXIS MILLING</p><h3>5축 동시 가공</h3><p>복잡 형상 하우징·매니폴드를 1회 셋업으로. 기준면을 옮기지 않으니 위치 공차가 흔들리지 않습니다.</p><dl><dt>STROKE</dt><dd>X650 · Y520 · Z475</dd><dt>AXIS</dt><dd>B±110° / C360°</dd><dt>UNITS</dt><dd>4대</dd></dl></div></article>
+      <article class="sl"><div class="ph mk" data-cursor="VIEW"><img src="img/p24.jpg" alt="한빛정밀 공정 — 샤프트·부싱 선삭" style="object-position:50% 50%" loading="lazy"></div><div class="tx"><p class="no">PROCESS 02 / 05 · CNC TURNING</p><h3>샤프트·부싱 선삭</h3><p>CNC 선반 10대와 Y축 복합 선반 3대. 바피더로 야간 무인 양산까지 이어갑니다.</p><dl><dt>RANGE</dt><dd>Ø8 – Ø350</dd><dt>BAR FEED</dt><dd>Ø65</dd><dt>UNITS</dt><dd>선반 10 · 복합 3</dd></dl></div></article>
+      <article class="sl"><div class="ph mk" data-cursor="VIEW"><img src="img/p7.jpg" alt="한빛정밀 공정 — 정밀 연삭 · 후처리" style="object-position:62% 46%" loading="lazy"></div><div class="tx"><p class="no">PROCESS 03 / 05 · GRINDING &amp; FINISH</p><h3>정밀 연삭 · 후처리</h3><p>원통·평면 연삭으로 Ra 0.2 수준 마감. 아노다이징·열처리·도금은 협력사와 일괄 관리합니다.</p><dl><dt>RANGE</dt><dd>Ø5 – Ø200 · L500</dd><dt>ROUGHNESS</dt><dd>Ra 0.2</dd><dt>UNITS</dt><dd>2대</dd></dl></div></article>
+      <article class="sl"><div class="ph mk" data-cursor="VIEW"><img src="img/p22.jpg" alt="한빛정밀 공정 — 정밀 가공 · 출하 전 확인" style="object-position:50% 40%" loading="lazy"></div><div class="tx"><p class="no">PROCESS 04 / 05 · CMM INSPECTION</p><h3>3차원 측정 · 출하 검사</h3><p>도면 전 치수를 CMM으로 실측하고, 측정값이 담긴 성적서를 모든 로트에 동봉합니다.</p><dl><dt>VOLUME</dt><dd>700 × 1000 × 600</dd><dt>MPE</dt><dd>1.9 + L/300 µm</dd><dt>UNITS</dt><dd>2대</dd></dl></div></article>
+      <article class="sl"><div class="ph mk" data-cursor="VIEW"><img src="img/p24.jpg" alt="한빛정밀 공정 — 세척 · 포장 · 납품" style="object-position:40% 50%" loading="lazy"></div><div class="tx"><p class="no">PROCESS 05 / 05 · CLEAN PACK &amp; SHIP</p><h3>세척 · 포장 · 납품</h3><p>세척·건조 후 클린 진공 포장. 반도체 장비 부품은 파티클 유입까지 관리해 출하합니다.</p><dl><dt>PACK</dt><dd>클린 비닐 진공</dd><dt>TRACE</dt><dd>로트 이력 5년 보관</dd><dt>DELIVERY</dt><dd>직납 · 택배</dd></dl></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="cap" id="cap">
+  <div class="wrap">
+    <div class="shead"><div><p class="code rv">04 — Capability</p><h2 class="rv d1">가공 역량과 보유 설비</h2></div><p class="rv d2">밀링·선삭·복합 가공을 한 공장 안에서 끝냅니다. 공정 간 이동이 없으니 기준면이 흔들리지 않습니다.</p></div>
+    <div class="layout">
+      <div class="rv">
+        <div class="pic"><div class="mk" data-cursor="VIEW"><img data-par=".07" src="img/p7.jpg" alt="한빛정밀에서 가공한 알루미늄 하우징, 헬리컬 기어, 링크 암, 부싱 등 정밀 부품" loading="lazy"></div><span class="lbl">AL6061 · SCM440 · SUS304 MACHINED PARTS</span></div>
+        <div class="svc">
+          <div><h3>5축 동시 가공</h3><p>복잡 형상 하우징·임펠러를 1회 셋업으로</p></div>
+          <div><h3>복합 선삭</h3><p>Y축·밀링 기능으로 선삭 후 2차 가공 최소화</p></div>
+          <div><h3>정밀 연삭</h3><p>원통·평면 연삭으로 Ra 0.2 수준 마감</p></div>
+          <div><h3>후처리 연계</h3><p>아노다이징·열처리·도금 협력사 일괄 관리</p></div>
+        </div>
+      </div>
+      <div class="rv d1 eq">
+        <div class="tbl">
+          <table>
+            <thead><tr><th>설비</th><th>사양</th><th>대수</th><th>주요 용도</th></tr></thead>
+            <tbody>
+              <tr><th>5축 MCT</th><td class="m">X650 · Y520 · Z475<br>B±110° / C360°</td><td class="m">4</td><td>하우징, 매니폴드<span class="tag">5AX</span></td></tr>
+              <tr><th>수직 MCT</th><td class="m">X1,050 · Y560 · Z510<br>12,000rpm</td><td class="m">8</td><td>브래킷, 플레이트</td></tr>
+              <tr><th>수평 MCT</th><td class="m">팔레트 500×500<br>APC 2-팔레트</td><td class="m">2</td><td>양산 블록 가공</td></tr>
+              <tr><th>CNC 선반</th><td class="m">Ø8 – Ø350<br>바피더 Ø65</td><td class="m">10</td><td>샤프트, 부싱, 핀</td></tr>
+              <tr><th>복합 선반</th><td class="m">Y축 · 서브스핀들<br>밀링 회전공구</td><td class="m">3</td><td>기어 블랭크, 커넥터</td></tr>
+              <tr><th>원통 연삭기</th><td class="m">Ø5 – Ø200<br>L 500</td><td class="m">2</td><td>정밀 샤프트</td></tr>
+              <tr><th>3차원 측정기</th><td class="m">CMM 700×1000×600<br>MPE 1.9+L/300µm</td><td class="m">2</td><td>출하 검사<span class="tag">QC</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="tnote">※ 설비 구성은 공정 상황에 따라 변경될 수 있습니다. 상세 설비 목록은 회사소개서로 요청해 주세요.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="spec" id="spec">
+  <div class="wrap">
+    <div class="shead"><div><p class="code rv">05 — Tolerance &amp; Material</p><h2 class="rv d1">공차와 소재 스펙</h2></div><p class="rv d2">아래는 일반 가공 조건 기준이며, 형상과 소재에 따라 달라집니다. 도면을 주시면 가능 여부를 정확히 회신드립니다.</p></div>
+    <div class="sg">
+      <div class="sbox rv">
+        <h3>가공 공차 <small>UNIT: mm / µm</small></h3>
+        <div class="tbl"><table>
+          <thead><tr><th>항목</th><th>표준</th><th>정밀 (협의)</th></tr></thead>
+          <tbody>
+            <tr><td>선형 치수</td><td><b>±0.01</b></td><td><b>±0.005</b><span class="bar-t"><i style="--w:92%"></i></span></td></tr>
+            <tr><td>내경 (H7 기준)</td><td><b>IT7</b></td><td><b>IT6</b><span class="bar-t"><i style="--w:85%"></i></span></td></tr>
+            <tr><td>평면도</td><td><b>0.01</b></td><td><b>0.005</b><span class="bar-t"><i style="--w:88%"></i></span></td></tr>
+            <tr><td>진원도 (선삭/연삭)</td><td><b>0.005</b></td><td><b>0.002</b><span class="bar-t"><i style="--w:95%"></i></span></td></tr>
+            <tr><td>표면 거칠기</td><td><b>Ra 0.8</b></td><td><b>Ra 0.2</b><span class="bar-t"><i style="--w:90%"></i></span></td></tr>
+          </tbody>
+        </table></div>
+      </div>
+      <div class="sbox rv d1">
+        <h3>가공 소재 <small>MAX SIZE: 650 × 520 × 475</small></h3>
+        <div class="tbl"><table>
+          <thead><tr><th>분류</th><th>대표 재질</th><th>적용 예</th></tr></thead>
+          <tbody>
+            <tr><td>알루미늄</td><td><b>AL6061 · 7075 · 5052</b></td><td>하우징, 지그, 진공 블록</td></tr>
+            <tr><td>탄소·합금강</td><td><b>S45C · SCM440 · SKD11</b></td><td>샤프트, 기어, 금형 부품</td></tr>
+            <tr><td>스테인리스</td><td><b>SUS304 · 316L · 630</b></td><td>반도체 배관 피팅, 클램프</td></tr>
+            <tr><td>특수 합금</td><td><b>Ti Gr.5 · Inconel 718</b></td><td>고온·내식 부품 (협의)</td></tr>
+            <tr><td>엔지니어링 플라스틱</td><td><b>PEEK · MC · POM · PTFE</b></td><td>절연 부품, 웨이퍼 가이드</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="qa" id="qa">
+  <div class="wrap grid">
+    <div>
+      <p class="code rv">06 — Quality</p>
+      <h2 class="rv d1" style="margin-top:16px">측정할 수 없으면<br>출하하지 않습니다</h2>
+      <p class="rv d2" style="color:var(--grey);margin-top:18px">국제 표준 품질경영 체계에 맞춰 수입 검사부터 출하 검사까지 전 과정을 기록합니다. 모든 납품 로트에는 실측 데이터가 담긴 성적서가 함께 나갑니다.</p>
+      <div class="badges rv d3">
+        <div class="bd"><span class="s"><b>ISO</b>9001</span><p>품질경영시스템</p></div>
+        <div class="bd"><span class="s"><b>ISO</b>14001</span><p>환경경영시스템</p></div>
+        <div class="bd"><span class="s"><b>IATF</b>16949</span><p>자동차 품질 대응</p></div>
+      </div>
+    </div>
+    <dl class="qlist rv d1">
+      <div class="ql"><dt><small>INCOMING</small>수입 검사</dt><dd>소재 밀시트 확인과 경도·성분 샘플 검사로 원자재 이력을 관리합니다.</dd></div>
+      <div class="ql"><dt><small>IN-PROCESS</small>공정 검사</dt><dd>초품·중품·종품 측정과 기내 프로브 보정으로 로트 내 편차를 잡습니다.</dd></div>
+      <div class="ql"><dt><small>FINAL</small>출하 검사</dt><dd>CMM·윤곽 측정기·조도계로 도면 전 치수를 측정해 성적서를 발행합니다.</dd></div>
+      <div class="ql"><dt><small>TRACEABILITY</small>이력 관리</dt><dd>로트 번호별 소재·설비·작업자·측정값을 5년간 보관합니다.</dd></div>
+      <div class="ql"><dt><small>CLEAN PACK</small>반도체 포장</dt><dd>세척·건조 후 클린 비닐 진공 포장으로 파티클 유입을 막습니다.</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="ind" id="ind">
+  <div class="wrap">
+    <div class="shead"><div><p class="code rv">07 — Industries</p><h2 class="rv d1">함께하는 산업군</h2></div><p class="rv d2">요구 공차와 검사 기준이 까다로운 분야일수록 한빛정밀의 공정 관리가 빛을 발합니다.</p></div>
+    <div class="igrid">
+      <article class="ic rv"><div class="ph mk" data-cursor="VIEW"><img src="img/p7.jpg" alt="알루미늄 링크 암 부품" style="--s:2.1;object-position:22% 65%;transform-origin:22% 65%" loading="lazy"></div><div class="tx"><p class="code">AUTOMOTIVE</p><h3>자동차 · 전장</h3><p>섀시·파워트레인·EV 열관리 부품의 시제품과 양산.</p><ul><li>링크 암</li><li>밸브 바디</li><li>모터 하우징</li></ul></div></article>
+      <article class="ic rv d1"><div class="ph mk" data-cursor="VIEW"><img src="img/p7.jpg" alt="정밀 가공된 매니폴드 블록" style="--s:2.4;object-position:84% 46%;transform-origin:84% 46%" loading="lazy"></div><div class="tx"><p class="code">SEMICONDUCTOR</p><h3>반도체 장비</h3><p>진공 챔버·가스 라인·웨이퍼 핸들링 부품의 청정 가공.</p><ul><li>매니폴드</li><li>클램프</li><li>PEEK 가이드</li></ul></div></article>
+      <article class="ic rv d2"><div class="ph mk" data-cursor="VIEW"><img src="img/p7.jpg" alt="헬리컬 기어" style="--s:2.3;object-position:62% 46%;transform-origin:62% 46%" loading="lazy"></div><div class="tx"><p class="code">ROBOTICS</p><h3>로봇 · 자동화</h3><p>감속기·액추에이터용 기어 블랭크와 정밀 샤프트.</p><ul><li>기어</li><li>샤프트</li><li>베어링 하우징</li></ul></div></article>
+      <article class="ic rv d3"><div class="ph mk" data-cursor="VIEW"><img src="img/p24.jpg" alt="공장 내 머시닝센터 조작반" style="--s:2;object-position:38% 40%;transform-origin:38% 40%" loading="lazy"></div><div class="tx"><p class="code">INDUSTRIAL</p><h3>산업기계 · 지그</h3><p>생산 라인용 지그·픽스처와 설비 교체 부품.</p><ul><li>검사 지그</li><li>픽스처</li><li>플레이트</li></ul></div></article>
+    </div>
+  </div>
+</section>
+
+<section id="flow">
+  <div class="wrap">
+    <div class="shead"><div><p class="code rv">08 — Delivery</p><h2 class="rv d1">견적부터 납품까지 5단계</h2></div><p class="rv d2">담당 엔지니어 한 명이 전 과정을 관리하고, 단계마다 진행 상황을 공유합니다.</p></div>
+    <div class="sst" data-steps>
+      <div class="sst-panel" aria-hidden="true">
+        <p class="code">Step</p>
+        <p class="sst-big"><span class="sst-n">01</span><small>/ 05</small></p>
+        <div class="gauge"><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="sst-lbl"><p data-show><small>D+0 – 2</small>도면 검토 · 견적</p><p data-show><small>D+3</small>공정 설계 · 발주 확정</p><p data-show><small>D+5 – 10</small>초품 가공 · 승인</p><p data-show><small>협의</small>양산 · 공정 검사</p><p data-show><small>출하</small>출하 검사 · 납품</p></div>
+      </div>
+      <ol class="slist">
+        <li class="fs" data-step><span class="dot">01</span><p class="t">D+0 – 2</p><h3>도면 검토 · 견적</h3><p>2D/3D 도면 기준 가공성·공차 검토 후 단가와 납기 회신.</p></li>
+        <li class="fs" data-step><span class="dot">02</span><p class="t">D+3</p><h3>공정 설계 · 발주 확정</h3><p>공정표·검사 기준서 작성, 소재 수배와 일정 확정.</p></li>
+        <li class="fs" data-step><span class="dot">03</span><p class="t">D+5 – 10</p><h3>초품 가공 · 승인</h3><p>초도품 전 치수 측정 후 성적서와 함께 고객 승인 요청.</p></li>
+        <li class="fs" data-step><span class="dot">04</span><p class="t">협의</p><h3>양산 · 공정 검사</h3><p>승인 조건으로 양산, 로트별 공정 검사 데이터 기록.</p></li>
+        <li class="fs" data-step><span class="dot">05</span><p class="t">출하</p><h3>출하 검사 · 납품</h3><p>최종 검사, 세척·포장 후 성적서 동봉 직납 또는 택배.</p></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="facts">
+  <div class="wrap">
+    <div class="fgrid rv">
+      <div class="fc"><p class="k">LOCATION</p><p class="v"><span data-count="25">25</span><small>분</small></p><p class="d">경기 화성 · 동탄IC에서 차량</p></div>
+      <div class="fc"><p class="k">OPERATION</p><p class="v"><span data-count="2">2</span><small>교대</small></p><p class="d">평일 주·야간 가동</p></div>
+      <div class="fc"><p class="k">QUOTE</p><p class="v"><span data-count="2">2</span><small>영업일</small></p><p class="d">도면 접수 후 견적 회신</p></div>
+      <div class="fc"><p class="k">MACHINES</p><p class="v"><span data-count="31">31</span><small>대</small></p><p class="d">가공·연삭·측정 설비</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="faq" style="padding-top:0">
+  <div class="wrap grid">
+    <div class="side"><p class="code rv">09 — FAQ</p><h2 class="rv d1">자주 묻는 질문</h2><p class="rv d2">도면 보안, 소량 주문, 납기 관련 문의를 정리했습니다.</p></div>
+    <div class="rv d1">
+      <details open><summary>도면 보안은 어떻게 관리하나요?</summary><p>요청 시 견적 단계부터 비밀유지계약(NDA)을 체결합니다. 도면은 접근 권한이 제한된 내부 서버에만 저장하며, 프로젝트 종료 후 요청에 따라 폐기합니다.</p></details>
+      <details><summary>시제품 1–2개도 주문할 수 있나요?</summary><p>가능합니다. 개발 단계 시제품은 별도 셋업 라인에서 진행하며, 양산 전환 시 동일 공정 조건을 그대로 이어갑니다.</p></details>
+      <details><summary>어떤 도면 파일 형식을 받나요?</summary><p>PDF·DWG·DXF(2D)와 STEP·IGES·X_T(3D)를 받습니다. 3D 모델과 공차가 기입된 2D 도면을 함께 주시면 가장 정확한 견적이 가능합니다.</p></details>
+      <details><summary>열처리·표면처리까지 맡길 수 있나요?</summary><p>아노다이징, 무전해 니켈, 침탄·고주파 열처리 등 협력사와 일괄 진행하며, 후처리 후 치수 재검사까지 포함해 납품합니다.</p></details>
+      <details><summary>긴급 납기 대응이 가능한가요?</summary><p>설비 가동 상황에 따라 급행 라인을 배정합니다. 견적 요청 시 희망 납기를 적어 주시면 가능 여부를 먼저 회신드립니다.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="quote" id="quote">
+  <div class="wrap grid">
+    <div>
+      <p class="code rv">10 — Request a Quote</p>
+      <h2 class="rv d1">도면을 보내주시면<br>2영업일 안에 회신합니다</h2>
+      <p class="lead rv d2">수량, 소재, 희망 납기를 함께 적어 주시면 더 정확한 단가를 드릴 수 있습니다. 첨부 파일은 견적 목적으로만 사용됩니다.</p>
+      <div class="contact rv d3">
+        <div><span>TEL</span>031-000-0000</div>
+        <div><span>FAX</span>031-000-0001</div>
+        <div><span>EMAIL</span>sales@hanbit-precision.co.kr</div>
+        <div><span>HOURS</span>평일 08:30 – 17:30</div>
+      </div>
+    </div>
+    <form id="qf" class="rv d1" novalidate>
+      <div class="ft"><b>견적 요청서</b><span>RFQ FORM</span></div>
+      <div class="fr">
+        <div class="fi"><label for="co">회사명 <i>*</i></label><input id="co" required autocomplete="organization" placeholder="(주)회사명"></div>
+        <div class="fi"><label for="nm">담당자 / 부서 <i>*</i></label><input id="nm" required autocomplete="name" placeholder="홍길동 / 구매팀"></div>
+      </div>
+      <div class="fr">
+        <div class="fi"><label for="ph">연락처 <i>*</i></label><input id="ph" type="tel" required autocomplete="tel" placeholder="010-0000-0000" pattern="[0-9\-\s]{9,14}"></div>
+        <div class="fi"><label for="em">이메일 <i>*</i></label><input id="em" type="email" required autocomplete="email" placeholder="name@company.com"></div>
+      </div>
+      <div class="fr fr3">
+        <div class="fi"><label for="ind2">산업군</label><select id="ind2"><option>자동차 · 전장</option><option>반도체 장비</option><option>로봇 · 자동화</option><option>산업기계 · 지그</option><option>기타</option></select></div>
+        <div class="fi"><label for="mat">소재</label><select id="mat"><option>알루미늄</option><option>탄소·합금강</option><option>스테인리스</option><option>특수 합금</option><option>엔지니어링 플라스틱</option><option>미정 · 협의</option></select></div>
+        <div class="fi"><label for="qty">수량 <i>*</i></label><input id="qty" type="number" min="1" required placeholder="예: 50" inputmode="numeric"></div>
+      </div>
+      <div class="fi"><label for="due">희망 납기</label><input id="due" type="date"></div>
+      <div class="fi"><span class="lb">도면 첨부 <i>*</i></span>
+        <label class="drop" id="drop">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8z"/><path d="M14 3v5h5M12 18v-6M9 14.5l3-3 3 3"/></svg>
+          <span><b>도면 파일을 끌어오거나 클릭해 선택</b><small>PDF · DWG · DXF · STEP · IGES · X_T · ZIP / 파일당 30MB, 최대 5개</small></span>
+          <input type="file" id="fl" name="drawing" multiple required accept=".pdf,.dwg,.dxf,.step,.stp,.igs,.iges,.x_t,.zip">
+        </label>
+        <p class="files" id="files"></p>
+      </div>
+      <div class="fi"><label for="ms">요청사항</label><textarea id="ms" placeholder="공차 중점 부위, 후처리(아노다이징·열처리 등), 검사 성적서 요구사항을 적어 주세요."></textarea></div>
+      <label class="agree"><input type="checkbox" required> 개인정보 수집·이용 및 도면 비밀유지에 동의합니다 (필수)</label>
+      <button class="btn blue" type="submit">견적 요청 보내기 <span class="ar">→</span></button>
+      <p class="done" id="done" role="status"></p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="top">
+      <div><a href="#" class="logo"><svg viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" fill="#0057ff"/><path d="M9 29V11h5v7h12v-7h5v18h-5v-7H14v7z" fill="#fff"/></svg><span><b>한빛정밀</b><small>HANBIT PRECISION</small></span></a><p>경기 화성의 CNC 정밀가공 전문 기업. 자동차·반도체 장비 부품을 도면 그대로 만듭니다.</p></div>
+      <div><h5>COMPANY</h5><ul><li><a href="#cap">가공 역량</a></li><li><a href="#qa">품질 관리</a></li><li><a href="#ind">산업군</a></li></ul></div>
+      <div><h5>SUPPORT</h5><ul><li><a href="#quote">견적 요청</a></li><li><a href="#flow">납품 프로세스</a></li><li>회사소개서 요청</li></ul></div>
+      <div><h5>CONTACT</h5><ul><li>T. 031-000-0000 / F. 031-000-0001</li><li>sales@hanbit-precision.co.kr</li><li>경기도 화성시 00면 00로 000</li></ul></div>
+    </div>
+    <div class="info">
+      (주)한빛정밀 · 대표이사 이00 · 사업자등록번호 000-00-00000<br>
+      경기도 화성시 00면 00로 000 (공장동 A·B) · 대표전화 031-000-0000
+      <p class="copy">© 2026 한빛정밀. 본 사이트는 ATZ MACH 제작 시안입니다.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+const hd=document.getElementById('hd');
+const heroEl=document.querySelector('.hero');
+const onScroll=()=>hd.classList.toggle('on',scrollY>(document.documentElement.classList.contains('fx')?heroEl.offsetHeight-80:40));
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+const nav=document.getElementById('nav');
+document.getElementById('burger').onclick=()=>{nav.classList.toggle('open');hd.classList.add('on')};
+nav.querySelectorAll('a').forEach(a=>a.onclick=()=>nav.classList.remove('open'));
+
+const fl=document.getElementById('fl'),drop=document.getElementById('drop'),out=document.getElementById('files');
+const MAX=30*1024*1024;
+fl.onchange=()=>{
+  const fs=[...fl.files];
+  if(fs.length>5||fs.some(f=>f.size>MAX)){fl.value='';out.textContent='파일은 최대 5개, 파일당 30MB까지 첨부할 수 있습니다.';return}
+  out.textContent=fs.map(f=>f.name+' ('+(f.size/1048576).toFixed(1)+'MB)').join(' · ');
+};
+['dragenter','dragover'].forEach(t=>drop.addEventListener(t,()=>drop.classList.add('over')));
+['dragleave','drop'].forEach(t=>drop.addEventListener(t,()=>drop.classList.remove('over')));
+document.getElementById('due').min=new Date().toISOString().slice(0,10);
+document.getElementById('qf').onsubmit=e=>{
+  e.preventDefault();const f=e.target,d=document.getElementById('done');d.style.display='block';
+  if(!f.checkValidity()){d.textContent='필수 항목(*)과 도면 첨부, 동의 여부를 확인해 주세요.';f.reportValidity();return}
+  d.textContent=document.getElementById('co').value+' 견적 요청이 접수되었습니다. 담당 엔지니어가 2영업일 내 회신드립니다.';f.reset();out.textContent='';
+};
+// FX engine (vanilla): lerp smooth scroll, sticky pins, horizontal pin slider, marquee, word reveal, parallax, steps, cursor, counters
+function fxInit(HD){
+const R=document.documentElement,RM=matchMedia('(prefers-reduced-motion: reduce)').matches,FINE=matchMedia('(hover:hover) and (pointer:fine)').matches;
+const cl=(v,a=0,b=1)=>v<a?a:v>b?b:v,$$=(s,r=document)=>[...r.querySelectorAll(s)];
+let W=innerWidth,H=innerHeight;
+if(!RM)R.classList.add('mo');
+$$('h2').forEach(h=>{h.classList.remove('rv','d1','d2','d3');h.classList.add('mh');h.innerHTML=h.innerHTML.split(/<br\s*\/?>/i).map(s=>'<span class="ln"><span>'+s+'</span></span>').join('')});
+$$('[data-words]').forEach(p=>{[...p.childNodes].forEach(n=>{if(n.nodeType===3){const f=document.createDocumentFragment();n.textContent.split(/(\s+)/).forEach(s=>{if(!s)return;if(!s.trim())f.append(s);else{const e=document.createElement('span');e.className='w';e.textContent=s;f.append(e)}});n.replaceWith(f)}else if(n.nodeType===1)n.classList.add('w')});p._w=$$('.w',p)});
+const count=el=>{if(RM||el._done||(el.closest('.scrub')&&R.classList.contains('fx')))return;el._done=1;const to=parseFloat(el.dataset.count),dc=(el.dataset.count.split('.')[1]||'').length,t0=performance.now();const st=t=>{const k=cl((t-t0)/1400),e=1-Math.pow(1-k,3);el.textContent=(to*e).toFixed(dc);if(k<1)requestAnimationFrame(st)};requestAnimationFrame(st)};
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const t=e.target;t.classList.add('in');if(t._mk)t._mk.classList.add('in');if(t.dataset.count!=null)count(t);io.unobserve(e.target)}),{threshold:.15});
+$$('.rv,.mh,[data-count]').forEach(e=>io.observe(e));$$('.mk').forEach(e=>{const w=e.parentElement;w._mk=e;io.observe(w)});
+const hs=$$('[data-hs]'),pins=$$('[data-pin]'),mqs=$$('[data-mq]'),pars=$$('[data-par]'),words=$$('[data-words]'),steps=$$('[data-steps]');
+const fxOn=()=>R.classList.contains('fx');
+function layout(){W=innerWidth;H=innerHeight;R.classList.toggle('fx',!RM&&W>760);
+  hs.forEach(s=>{const t=s.querySelector('.hs-track');t.style.transform='';if(fxOn()){s._d=Math.max(0,t.scrollWidth-W);s.style.height=(s._d+H)+'px'}else{s._d=0;s.style.height=''}});
+  mqs.forEach(m=>{m._in=m.firstElementChild;m._half=m._in.scrollWidth/2;m._x=m._x||0});
+  if(HD.layout)HD.layout(W,H);
+}
+// smooth wheel scroll (desktop only); keyboard/anchors/scrollbar stay native and resync
+let cur=scrollY,tgt=cur;const sm=FINE&&!RM;
+if(sm){addEventListener('wheel',e=>{if(e.ctrlKey||Math.abs(e.deltaX)>Math.abs(e.deltaY)||e.target.closest('textarea,select'))return;e.preventDefault();tgt=cl(tgt+e.deltaY*(e.deltaMode===1?40:e.deltaMode===2?H:1),0,R.scrollHeight-H)},{passive:false});
+  addEventListener('scroll',()=>{if(Math.abs(scrollY-cur)>3)cur=tgt=scrollY},{passive:true})}
+// cursor
+let C=null,mx=-200,my=-200,cx=-200,cy=-200;
+if(FINE&&!RM){C=document.createElement('div');C.className='cur';C.setAttribute('aria-hidden','true');C.innerHTML='<span>VIEW</span>';document.body.append(C);
+  addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY},{passive:true});
+  document.addEventListener('mouseover',e=>{const t=e.target.closest('[data-cursor]');C.classList.toggle('big',!!t);if(t)C.firstChild.textContent=t.dataset.cursor||'VIEW'})}
+let lastY=scrollY,lt=performance.now(),dir=1;
+function frame(t){const dt=RM?0:Math.min(.05,(t-lt)/1000);lt=t;
+  if(sm&&Math.abs(tgt-cur)>.4){cur+=(tgt-cur)*.1;scrollTo({top:cur,behavior:'instant'})}
+  const y=scrollY,v=y-lastY;lastY=y;if(Math.abs(v)>.5)dir=v>0?1:-1;const fx=fxOn();
+  if(fx)hs.forEach(s=>{const r=s.getBoundingClientRect();if(r.bottom<0||r.top>H)return;const p=s._d?cl(-r.top/s._d):0,tr=s.querySelector('.hs-track'),n=tr.children.length;tr.style.transform=`translate3d(${-p*s._d}px,0,0)`;const i=s.querySelector('.hs-i');if(i)i.textContent=String(Math.round(p*(n-1))+1).padStart(2,'0');const b=s.querySelector('.hs-bar i');if(b)b.style.transform=`scaleX(${p})`});
+  pins.forEach(el=>{const f=HD[el.dataset.pin];if(!f)return;const r=el.getBoundingClientRect();if(r.bottom<-50||r.top>H+50)return;f(cl(-r.top/Math.max(1,fx?r.height-H:H)),dt,fx,W,H)});
+  if(!RM){
+    mqs.forEach(m=>{const r=m.getBoundingClientRect();if(r.bottom<0||r.top>H||!m._half)return;m._x-=(70*dt+Math.abs(v)*.6)*dir*(+m.dataset.mq||1);const h=m._half;while(m._x<=-h)m._x+=h;while(m._x>0)m._x-=h;m._in.style.transform=`translate3d(${m._x}px,0,0)`});
+    pars.forEach(e=>{const r=e.parentElement.getBoundingClientRect();if(r.bottom<0||r.top>H)return;e.style.transform=`translate3d(0,${((r.top+r.height/2)-H/2)*-(+e.dataset.par||.1)}px,0) scale(1.15)`});
+    words.forEach(p=>{const r=p.getBoundingClientRect();if(r.bottom<-100||r.top>H+100)return;const q=cl((H*.9-r.top)/(H*.7)),N=p._w.length;p._w.forEach((w,i)=>{const o=Math.round((.12+.88*cl(q*(N+2)-i))*100)/100;if(w._o!==o){w._o=o;w.style.opacity=o}})});
+  }
+  steps.forEach(c=>{const its=c._its||(c._its=$$('[data-step]',c));let a=0;its.forEach((e,i)=>{if(e.getBoundingClientRect().top<H*.55)a=i});if(c._a===a)return;c._a=a;its.forEach((e,i)=>e.classList.toggle('on',i===a));$$('[data-show]',c).forEach((e,i)=>e.classList.toggle('on',i===a));const n=c.querySelector('.sst-n');if(n)n.textContent=String(a+1).padStart(2,'0');c.dataset.a=a});
+  if(C){cx+=(mx-cx)*.2;cy+=(my-cy)*.2;C.style.transform=`translate3d(${cx}px,${cy}px,0)`}
+  requestAnimationFrame(frame)}
+layout();addEventListener('resize',layout);addEventListener('load',layout);if(document.fonts)document.fonts.ready.then(layout);
+requestAnimationFrame(frame);
+}
+
+// hero B: pinned, card clip expands to full bleed, image zooms, wordmark pushed down, stats count on scroll
+(()=>{
+const fr=document.getElementById('hframe'),im=fr.querySelector('img'),sh=document.getElementById('hshade'),cp=document.getElementById('hcopy'),wd=document.getElementById('hword'),stt=document.getElementById('hstats'),nums=[...stt.querySelectorAll('[data-count]')];
+const cl=(v,a=0,b=1)=>v<a?a:v>b?b:v,ez=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;let was=false;
+fxInit({hero(p,dt,fx,W,H){
+  if(!fx){if(was){[fr,im,sh,cp,wd,stt].forEach(e=>{e.style.cssText=''});nums.forEach(n=>n.textContent=n.dataset.count);was=false}return}
+  was=true;const e=ez(cl(p/.62)),k=1-e;
+  fr.style.clipPath=`inset(${H*.17*k}px ${W*.11*k}px ${H*.15*k}px ${W*.59*k}px round ${6*k}px)`;
+  fr.style.transform=`rotate(${-4*k}deg)`;
+  im.style.transform=`scale(${1.05+p*.4})`;
+  sh.style.opacity=e*.9;
+  cp.style.opacity=1-cl(p/.26);cp.style.transform=`translate3d(0,calc(-55% - ${p*160}px),0)`;cp.style.visibility=p>.27?'hidden':'';
+  wd.style.transform=`translate3d(0,${e*115}%,0)`;
+  const q=cl((p-.58)/.22);stt.style.opacity=q;stt.style.transform=`translate3d(0,${(1-q)*50}px,0)`;
+  const c=cl((p-.58)/.22);nums.forEach(n=>{const v=Math.round(+n.dataset.count*c);if(n._v!==v){n._v=v;n.textContent=v}});
+}});
+})();
+</script>
+<style id="qa52-hanbit-css">/* T19 */h1,h2,h3{text-wrap:balance}/* M05 동의 체크 줄 44px */label:has(>input[type=checkbox]){min-height:44px}footer a:not([class]){display:inline-block;padding-block:15px;margin-block:-15px}/* M09 */@media(max-width:1024px){input:not([type=checkbox]):not([type=radio]):not([type=range]):not([type=file]),select,textarea{font-size:16px!important}}footer .copy{color:#5f6b78}.sbox h3 small{letter-spacing:0}a.logo small{font-size:11px}</style><script id="qa52-hanbit-js">(function(){var b=document.getElementById('burger');if(!b)return;
+function open(){return !!document.querySelector('nav.open,.open nav')}
+var was=false;function sync(){var o=open();if(o===was)return;was=o;
+ document.documentElement.style.overflow=o?'hidden':'';b.setAttribute('aria-expanded',o?'true':'false')}
+var mo=new MutationObserver(sync);[].concat([].slice.call(document.querySelectorAll('nav')),[b.closest('header')]).forEach(function(e){e&&mo.observe(e,{attributes:true,attributeFilter:['class']})});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&open()){b.click();b.focus()}})})();</script></body>
+</html>

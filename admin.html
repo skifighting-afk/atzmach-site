@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>견적 검토 콘솔</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@1,62..125,100..900&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&display=swap">
+<style>
+:root{--ink:#070620;--ink2:#0c0a2a;--ink3:#131039;--ink4:#1c1850;--rule:#2b2766;--text:#f3f1ff;--mute:#a19dd0;--sig:#ff5ccf;--soft:rgba(255,92,207,.12);--warn:#ffd23f;--bad:#ff2e4d;--ok:#4ff0b0;--grad:linear-gradient(90deg,#ff5ccf,#7a6bff);--fb:"Archivo","Arial Black",system-ui,sans-serif;--fs:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;--fm:"IBM Plex Mono",ui-monospace,monospace;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ink);color:var(--text);font:400 15px/1.55 var(--fs);overflow-x:hidden}
+a{color:inherit}button,input,textarea,select{font:inherit;color:inherit}button{cursor:pointer}button:disabled{opacity:.45;cursor:not-allowed}
+:focus-visible{outline:2px solid var(--sig);outline-offset:2px}
+.num{font-family:var(--fm);font-variant-numeric:tabular-nums}.dim{color:var(--mute)}
+.mono{font:600 .7rem var(--fm);letter-spacing:.1em;text-transform:uppercase}
+.top{position:sticky;top:0;z-index:20;background:rgba(7,6,32,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--rule)}
+.top .in{display:flex;align-items:center;gap:14px;height:58px;padding:0 clamp(16px,3vw,32px)}
+.logo{text-decoration:none;font:italic 900 1.15rem/1 var(--fb)}.logo b{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.logo small{font:600 .6rem var(--fm);letter-spacing:.25em;color:var(--sig);font-style:normal;margin-left:6px}
+.sp{flex:1}
+.nc{display:flex;gap:6px;flex-wrap:wrap}
+.nc span{font:600 .7rem var(--fm);border:1px dashed var(--warn);color:var(--warn);padding:4px 8px;border-radius:6px;white-space:nowrap}
+.back{font-size:.85rem;color:var(--mute);text-decoration:none;border:1px solid var(--rule);padding:6px 11px;border-radius:8px;white-space:nowrap}
+.lay{display:grid;grid-template-columns:340px 1fr;min-height:calc(100vh - 58px)}
+aside{border-right:1px solid var(--rule);padding:16px;position:sticky;top:58px;height:calc(100vh - 58px);overflow:auto}
+main{padding:22px clamp(16px,3vw,32px) 80px;min-width:0}
+.fl{display:flex;gap:4px;flex-wrap:wrap;margin:10px 0}
+.fl button{border:1px solid var(--rule);background:var(--ink2);border-radius:999px;padding:4px 10px;font-size:.78rem}
+.fl button.on{border-color:var(--sig);background:var(--soft)}
+.li{display:block;width:100%;text-align:left;background:none;border:1px solid transparent;border-radius:10px;padding:10px 12px;margin-bottom:4px}
+.li:hover{background:var(--ink3)}.li.on{border-color:var(--sig);background:var(--soft)}
+.li b{display:block;overflow-wrap:anywhere}.li small{color:var(--mute);font-size:.78rem}
+.sb{font:600 .68rem var(--fm);padding:2px 7px;border-radius:5px;background:var(--ink4);white-space:nowrap}
+.sb.need_info{background:rgba(255,210,63,.18);color:var(--warn)}.sb.dev_submitted,.sb.reviewing{background:rgba(255,92,207,.18);color:var(--sig)}.sb.quote_ready{background:rgba(79,240,176,.15);color:var(--ok)}
+h1{font:900 clamp(1.6rem,3vw,2.4rem)/1.1 var(--fs);letter-spacing:-.03em;margin:4px 0 6px;overflow-wrap:anywhere}
+h2{font:800 1.15rem var(--fs);margin:0 0 12px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+h2 i{font:700 .7rem var(--fm);color:var(--sig);font-style:normal}
+.card{background:rgba(19,16,57,.7);border:1px solid var(--rule);border-radius:14px;padding:18px;margin-top:16px}
+.g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.g4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.kv{display:grid;grid-template-columns:140px 1fr;gap:5px 12px;margin:0}.kv dt{color:var(--mute);font-size:.85rem}.kv dd{margin:0;overflow-wrap:anywhere}
+.unk{background:rgba(255,210,63,.15);color:var(--warn);padding:1px 6px;border-radius:4px;font-weight:600}
+label{display:block;font-size:.78rem;color:var(--mute);margin:8px 0 4px}
+.i{width:100%;background:var(--ink2);border:1px solid var(--rule);border-radius:8px;padding:8px 10px;font-size:.9rem;min-width:0}
+textarea.i{min-height:64px;resize:vertical}
+.i:focus{border-color:var(--sig);outline:none}
+.btn{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--rule);background:var(--ink3);border-radius:8px;padding:8px 13px;font-weight:600;font-size:.88rem;text-decoration:none}
+.btn:hover:not(:disabled){border-color:var(--sig)}.btn.pri{background:var(--grad);border:0;color:#fff}.btn.sm{padding:4px 9px;font-size:.78rem}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.tbl{width:100%;border-collapse:collapse;font-size:.85rem}.tbl th,.tbl td{padding:7px 6px;border-bottom:1px solid var(--rule);text-align:left;vertical-align:top}.tbl th{font:600 .68rem var(--fm);color:var(--mute)}
+.tblw{overflow-x:auto}
+.req{border:1px solid var(--rule);border-radius:10px;padding:12px;margin-bottom:8px;display:grid;grid-template-columns:1fr 170px;gap:10px}
+.tag{font:600 .66rem var(--fm);padding:3px 6px;border-radius:4px;border:1px solid currentColor;white-space:nowrap}
+.note{border-left:3px solid var(--warn);background:rgba(255,210,63,.07);padding:9px 12px;border-radius:0 8px 8px 0;font-size:.85rem;color:#f4e6b0;margin:8px 0}
+.tot{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;background:var(--ink2);border-radius:10px;padding:12px;margin-top:8px}.tot b{font:700 1.05rem var(--fm);display:block}
+.kk{white-space:pre-line;background:#fff;color:#191919;border-radius:10px;padding:12px;font-size:.88rem}
+.gate{display:grid;place-items:center;min-height:70vh;text-align:center;padding:20px}
+.gate h1{font-size:clamp(2rem,6vw,3.6rem)}
+.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:var(--ink4);border:1px solid var(--sig);padding:10px 16px;border-radius:10px;z-index:99;max-width:calc(100% - 32px)}
+.mback{display:none}
+@media (max-width:900px){.lay{grid-template-columns:1fr}aside{position:static;height:auto;border-right:0;border-bottom:1px solid var(--rule)}.lay.det aside{display:none}.lay:not(.det) main{display:none}.mback{display:inline-flex}.g2,.g3,.g4,.tot{grid-template-columns:1fr}.req{grid-template-columns:1fr}.kv{grid-template-columns:1fr}.nc{display:none}}
+</style>
+<meta name="robots" content="noindex,nofollow"></head>
+<body>
+<header class="top"><div class="in"><a class="logo" href="index.html">ATZ <b>MACH</b><small>ADMIN</small></a><span class="sp"></span>
+<div class="nc" title="연결 안 된 서비스"><span>카카오 발송 API · 미연결</span><span>PG 결제 · 미연결</span></div><a class="back" href="stats.html">방문 통계</a><a class="back" href="portal.html">고객 화면</a><a class="back" href="index.html">홈</a></div></header>
+<div id="app"><div class="gate"><p class="dim">불러오는 중…</p></div></div>
+<div id="toast" class="toast" hidden></div>
+<script>
+"use strict";
+const $=s=>document.querySelector(s);
+const esc=v=>String(v==null?"":v).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const A=v=>Array.isArray(v)?v:[];
+const won=n=>(typeof n==="number"&&isFinite(n))?Math.round(n).toLocaleString("ko-KR")+"원":"—";
+const dt=s=>{const d=new Date(s);return isNaN(d)?"—":d.toLocaleString("ko-KR",{month:"numeric",day:"numeric",hour:"2-digit",minute:"2-digit"})};
+const now=()=>new Date().toISOString();
+const clone=o=>JSON.parse(JSON.stringify(o==null?null:o));
+function toast(m){const t=$("#toast");t.textContent=m;t.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(()=>t.hidden=true,3000)}
+const STATUS={submitted:"접수",plan_ready:"기획서·1차 견적",draft_requested:"시안 요청",preparing:"준비 중",draft_ready:"시안 전달",dev_submitted:"디벨롭 접수",reviewing:"검토 중",need_info:"추가 확인 필요",quote_ready:"견적 전달",consulting:"상담",confirmed:"확정",paid_deposit:"계약금 입금",building:"제작",qa:"검수",handover:"인수",operating:"운영"};
+const FILTERS=[["all","전체"],["new","신규·준비",["new","submitted","plan_ready","draft_requested","preparing","draft_pending","research_pending","draft_ready"]],["dev","검토 필요",["dev_submitted","reviewing","need_info"]],["quote","견적·상담",["quote_ready","consulting","confirmed"]],["build","제작·인수",["paid_deposit","building","qa","handover","operating"]]];
+const KINDS={add_task:"추가 업무",change_screen:"바꿀 화면",rule:"운영 규칙",permission:"권한",integration:"외부 도구",migration:"기존 데이터",design:"디자인",schedule:"일정",explain:"설명 요청"};
+const RST=[["received","접수"],["reviewing","검토 중"],["need_info","추가 확인 필요"],["in_quote","견적 반영"],["later","추후 확장 제안"]];
+const PST={kickoff:"착수",screens:"화면 완성",functions:"기능 연결",data:"데이터·연동 검증",customer_qa:"고객 검수",handover:"인수·운영"};
+const KKT={received:"접수",draft:"시안",dev_received:"디벨롭 접수",quote:"견적",milestone:"제작",handover:"인수"};
+const S={db:null,leads:[],sel:null,f:"all",q:"",busy:false,qd:null,kk:null};
+const feats=l=>{const f=A(l.plan?.features).filter(x=>x&&x.name);return f.length?f:A(l.answers?.wants).map(w=>({name:typeof w==="string"?w:w?.name})).filter(x=>x.name)};
+function kkText(type,l){const co=l.company||"고객사",f=feats(l),a=f[0]?.name||"핵심 업무",b=f[1]?.name||a,dr=A(l.devRequests?.items)[0]?.text||"요청하신 내용",st=A(l.production?.stages).find(s=>s.state==="doing");
+ return {received:`${co}의 기획 요청이 접수됐습니다.\n선택하신 ${a}를 중심으로 기획서와 1차 시안을 준비합니다.\n아래에서 준비 상황과 전달 예정 시간을 확인하실 수 있습니다.`,
+ draft:`${co}의 기획서와 1차 시안이 준비됐습니다.\n${a}부터 ${b}까지 이어지는 구성을 담았습니다.\n화면을 확인하고 추가하거나 바꾸고 싶은 내용을 남겨주세요.\n요청을 검토한 뒤 정식 견적서를 보내드립니다.`,
+ dev_received:`${co}의 디벨롭 요청을 접수했습니다.\n${dr}을 포함해 구축 범위와 연결 조건을 검토합니다.\n정식 견적 준비 일정은 아래에서 확인하실 수 있습니다.`,
+ quote:`${co}의 정식 견적서가 준비됐습니다.\n요청하신 ${dr}과 구축·운영 범위를 반영했습니다.\n초기 구축비, 월 운영비, 제작 일정과 최종 인수 항목을 함께 확인해주세요.`,
+ milestone:`${co}의 ${a}이 연결됐습니다.\n입력부터 처리·승인까지 직접 확인하실 수 있습니다.\n이번에는 ${A(st?.checks)[0]||"승인 기준"}을 확인해주세요.\n다음 단계는 ${st?.next||"다음 작업"}입니다.`,
+ handover:`${co}의 운영 준비가 완료됐습니다.\n합의한 기능의 검수와 계정 전달을 마쳤습니다.\n프로그램 접속, 직원 초대, 교육 자료와 운영 비용을 아래에서 확인하실 수 있습니다.`}[type]}
+const sel=()=>S.leads.find(x=>x._id===S.sel)||null;
+async function save(patch,msg){const l=sel();if(!l||!S.db||S.busy)return false;S.busy=true;try{await S.db.doc("leads/"+l._id).update(patch);toast(msg||"저장했습니다");return true}catch(e){toast("저장 실패: "+(e?.message||""));return false}finally{S.busy=false}}
+
+/* ---- quote helpers ---- */
+const lines=v=>String(v||"").split("\n").map(x=>x.trim()).filter(Boolean);
+const NUM=v=>{const n=Number(String(v).replace(/[^\d.-]/g,""));return isFinite(n)?n:0};
+function blankQuote(l){const f=feats(l);return{v:1,date:now(),validUntil:new Date(Date.now()+14*864e5).toISOString(),sample:true,purpose:"",items:f.slice(0,4).map(x=>({area:x.name,desc:"",ai:"",approval:""})),users:l.intake?.users??"",branches:l.intake?.branches??"",roles:["대표","관리자","직원"],integrations:A(l.intake?.integrations),migration:l.intake?.migration?.size||"",excluded:[],later:[],schedule:{days:7,startCond:"확정 범위 + 필요 자료·접근 권한이 준비된 날 착수"},prep:[],acceptance:[],revisions:"",education:"",freeFix:"",build:{supply:0,vat:0,total:0},pay:[],monthly:{fixed:0,ai:{estimate:0,unitNote:"",cap:0,overage:""},external:[]},handoverItems:["운영 주소","계정·권한","데이터 내보내기","교육 자료"],ownership:"",reflects:[],options:[]}}
+
+/* ---- render ---- */
+function render(){
+ const ae=document.activeElement;if(ae&&/INPUT|TEXTAREA|SELECT/.test(ae.tagName)&&$("#app").contains(ae)&&render.soft){render.pend=1;return}render.pend=0;
+ const fl=FILTERS.find(f=>f[0]===S.f);
+ const list=S.leads.filter(l=>(!fl[2]||fl[2].includes(l.status||"new"))&&(!S.q||`${l.company} ${l.phone} ${l.planNo}`.includes(S.q)));
+ const l=sel();
+ $("#app").innerHTML=`<div class="lay ${l?"det":""}"><aside><div class="mono" style="color:var(--sig)">관리자 검토 · ${S.leads.length}건</div><input class="i" id="q" placeholder="회사명·번호 검색" value="${esc(S.q)}" style="margin-top:8px">
+ <div class="fl">${FILTERS.map(f=>`<button class="${S.f===f[0]?"on":""}" data-f="${f[0]}">${f[1]} <span class="num">${f[2]?S.leads.filter(l=>f[2].includes(l.status||"new")).length:S.leads.length}</span></button>`).join("")}</div>
+ ${list.map(x=>`<button class="li ${x._id===S.sel?"on":""}" data-sel="${esc(x._id)}"><span class="row" style="justify-content:space-between"><b>${esc(x.company||"(회사명 없음)")}</b><span class="sb ${esc(x.status)}">${esc(STATUS[x.status]||x.status||"신규")}</span></span><small>${esc(x.industry||"")} · ${esc(x.planNo||"")} ${x.devRequests?.no?"· "+esc(x.devRequests.no):""}</small></button>`).join("")||'<p class="dim">해당 리드가 없습니다.</p>'}</aside>
+ <main>${l?detail(l):'<p class="dim">왼쪽에서 리드를 고르세요.</p>'}</main></div>`;
+}
+document.addEventListener("focusout",()=>setTimeout(()=>{if(render.pend)render()},0));render.soft=1;
+
+function detail(l){
+ const i=l.intake||{},unk=A(i.unknown),UK={branches:"org",hq:"org",depts:"org",revenueBand:"revenue"},U=k=>unk.includes(k)||unk.includes(UK[k])?'<span class="unk">아직 모름</span>':"";const UL={employees:"직원 수",users:"실사용자 수",org:"본사·지점·부서 구성",revenue:"매출·운영 규모",tools:"현재 도구",integrations:"연결할 프로그램",migration:"옮길 기존 데이터",startWhen:"도입 시기"};
+ const dr=l.devRequests,rv=l.review||{},qs=A(l.quotes).slice().sort((a,b)=>b.v-a.v);
+ const q=S.qd;
+ const wants=A(l.wants).length?A(l.wants):A(l.answers?.wants).map(w=>typeof w==="string"?w:w?.name).filter(Boolean);
+ return `<button class="btn sm mback" data-sel="">← 목록</button><div class="mono dim" style="margin-top:8px">${esc(l.planNo||"")} · ${esc(l._id)}</div><h1>${esc(l.company||"(회사명 없음)")}</h1>
+ <div class="row"><span class="sb ${esc(l.status)}">${esc(STATUS[l.status]||l.status||"신규")}</span><span class="dim">${esc(l.industry||"")} · ${esc(l.phone||"번호 없음")}</span>
+ <label style="margin:0">상태 변경</label><select class="i" id="st" style="width:auto">${Object.entries(STATUS).map(([k,v])=>`<option value="${k}" ${l.status===k?"selected":""}>${v}</option>`).join("")}</select><button class="btn sm" data-act="status">적용</button></div>
+ ${l.freeText||l.draftJob||A(l.versions).length?`<div class="note">${l.freeText?`<b>고객 설명</b> ${esc(l.freeText)}<br>`:""}${A(l.versions).length?`<b>기획서 버전</b> v${A(l.versions).map(v=>esc(v.v)+(v.mode==="ai"?"(Claude)":"(기본)")+" "+(v.quote?.total||0).toLocaleString()+"원").join(" · v")}<br>`:""}${l.draftJob?`<b>1차 시안 작업</b> v${esc(l.draftJob.planVersion)} · ${esc(l.draftJob.state)}${l.draftJob.error?" · "+esc(l.draftJob.error):""}${l.draftHtml?" · 시안 HTML 있음":""}`:""}</div>`:""}
+ <p class="note">실제 검토 전에는 '검토 완료'를 표시하지 마세요. 가격은 자동 산출하지 않습니다 — 견적 금액은 모두 직접 입력합니다.</p>
+
+ <div class="card"><h2><i>01</i>회사 정보 · intake <span class="dim" style="font-weight:400;font-size:.8rem">노란 표시 = 고객이 '아직 모르겠어요' 선택</span></h2>
+ <dl class="kv"><dt>직원 / 실사용자</dt><dd>${esc(i.employees??l.answers?.employees??"—")} ${U("employees")} / ${esc(i.users??"—")} ${U("users")}</dd><dt>본사·지점·부서</dt><dd>${esc(i.hq??"—")} · ${esc(i.branches??l.answers?.stores??"—")} ${U("branches")} · ${esc(i.depts??"—")} ${U("depts")}</dd><dt>매출·규모</dt><dd>${esc(i.revenueBand??"—")} ${U("revenueBand")} ${esc(i.scaleNote||"")}</dd><dt>현재 도구</dt><dd>${esc(A(i.tools).join(", ")||"—")} ${U("tools")}</dd><dt>연결할 프로그램</dt><dd>${esc(A(i.integrations).join(", ")||"—")} ${U("integrations")}</dd><dt>데이터 이관</dt><dd>${esc(i.migration?.size||"—")} ${esc(i.migration?.note||"")} ${U("migration")}</dd><dt>도입 시기</dt><dd>${esc(i.startWhen||"—")} ${U("startWhen")}</dd><dt>미확인 항목</dt><dd>${unk.length?unk.map(x=>`<span class="unk">${esc(UL[x]||x)}</span>`).join(" "):"없음"}</dd></dl></div>
+
+ <div class="g2"><div class="card"><h2><i>02</i>기획서·시안 버전</h2><dl class="kv"><dt>기획서</dt><dd>${esc(l.plan?.no||l.planNo||"—")}</dd><dt>1차 시안</dt><dd>${l.draft?.url?`<a href="${esc(l.draft.url)}" target="_blank" rel="noopener">v${esc(l.draft.version||1)} 열기</a>`:"—"}</dd><dt>이해 확인</dt><dd>${l.understanding?.confirmed?"고객 확인함":l.understanding?.edits?`수정 요청: ${esc(l.understanding.edits)}`:"미확인"}</dd><dt>업무 흐름</dt><dd>${A(l.plan?.flows).map(f=>esc(f.name)+({m:"(필수)",l:"(연결)",x:"(확장)"}[f.group]||"")).join(", ")||"—"}</dd><dt>추가 확인</dt><dd>${A(l.plan?.toConfirm).map(x=>`<span class="${x.src==="unknown"?"unk":""}">${esc(x.label)}</span>`).join(", ")||"—"}</dd><dt>견적 버전</dt><dd>${qs.map(x=>"v"+x.v+(x.sample?"(샘플)":"")).join(", ")||"—"}</dd></dl>
+ <label>시안 링크 · 버전</label><div class="row"><input class="i" id="durl" value="${esc(l.draft?.url||"")}" placeholder="https://claude.ai/..." style="flex:1"><button class="btn sm" data-act="draft">저장</button></div></div>
+ <div class="card"><h2><i>03</i>최초 선택 · 유입</h2><div class="row">${wants.map(w=>`<span class="tag">${esc(w)}</span>`).join("")||"—"}</div>${l.answers?.note?`<p>${esc(l.answers.note)}</p>`:""}<p class="dim" style="margin:8px 0 0">${l.fromCase?`포트폴리오/데모에서 유입: ${esc(l.fromCase.company||l.fromCase.id)} (${esc(l.fromCase.who||"")})`:"직접 유입"}</p></div></div>
+
+ <div class="card"><h2><i>04</i>디벨롭 요청 ${dr?.no?`<span class="tag">${esc(dr.no)}</span><span class="dim" style="font-size:.8rem;font-weight:400">${dt(dr.submittedAt)}</span>`:""}</h2>
+ ${dr?A(dr.items).map((x,ix)=>`<div class="req"><div><span class="tag" style="color:var(--sig)">${esc(KINDS[x.kind]||x.kind)}</span>${x.via==="kakao"?` <span class="tag">카톡 옮김${x.confirmed?" · 고객 확인":""}</span>`:""} ${x.screen?`<span class="dim">[${esc(x.screen)}]</span>`:""} ${x.choice?esc(x.choice):""}<p style="margin:6px 0">${esc(x.text)}</p><input class="i" data-reply="${ix}" value="${esc(x.reply||"")}" placeholder="고객에게 보일 답변 (선택)"></div><div><label style="margin-top:0">상태</label><select class="i" data-rst="${ix}">${RST.map(r=>`<option value="${r[0]}" ${x.state===r[0]?"selected":""}>${r[1]}</option>`).join("")}</select></div></div>`).join("")+(A(dr.extras).length?`<p class="dim">이어서 남긴 내용</p><ul>${A(dr.extras).map(x=>`<li>${esc(x.text)} <span class="dim">${dt(x.at)}</span></li>`).join("")}</ul>`:"")+`<button class="btn pri" data-act="reqs">요청 상태·답변 저장</button>`:'<p class="dim">아직 디벨롭 요청이 없습니다.</p>'}
+ <label>카톡 대화로 받은 요청 옮겨 적기 (고객 페이지에서 확인받음)</label><div class="row"><select class="i" id="kkind" style="width:auto">${Object.entries(KINDS).map(([k,v])=>`<option value="${k}">${v}</option>`).join("")}</select><input class="i" id="ktext" placeholder="카톡으로 받은 요청 내용" style="flex:1;min-width:200px"><button class="btn sm" data-act="kreq">추가</button></div></div>
+
+ <div class="card"><h2><i>05</i>검토 · 추가 확인 질문 <span class="tag">${esc({received:"접수",reviewing:"검토 중",need_info:"추가 확인 필요",quoted:"견적 반영"}[rv.state]||"미착수")}</span></h2>
+ ${A(rv.questions).map(x=>`<p style="margin:4px 0">Q. ${esc(x.q)} → ${x.a?`<b>${esc(x.a)}</b>`:'<span class="unk">답변 대기</span>'}</p>`).join("")}
+ <label>견적에 꼭 필요한 질문만 (한 줄에 하나) — 보내면 상태가 '추가 확인 필요'로 바뀝니다</label><textarea class="i" id="newq" placeholder="예) POS는 어느 회사 제품인가요?"></textarea>
+ <label>예상 작업 범위 메모 (내부)</label><textarea class="i" id="scope">${esc(rv.scopeNote||"")}</textarea>
+ <div class="row" style="margin-top:8px"><button class="btn" data-act="rv-start">검토 시작</button><button class="btn pri" data-act="ask">질문 보내기 (need_info)</button><button class="btn" data-act="scope">메모 저장</button></div></div>
+
+ <div class="card"><h2><i>06</i>정식 견적 편집기 ${q?`<span class="tag" style="color:var(--sig)">편집 중 · 저장 시 v${esc(q.v)}</span>`:""}</h2>
+ ${q?qEditor(l,q):`<div class="row">${qs.length?`<button class="btn pri" data-act="q-edit">최신 v${qs[0].v} 수정 → v${qs[0].v+1}로 저장</button>`:""}<button class="btn ${qs.length?"":"pri"}" data-act="q-new">${qs.length?"빈 견적으로 새 버전":"견적 작성 시작"}</button></div>${qs.length?`<p class="dim" style="margin-top:8px">최신 v${qs[0].v}: ${won(qs[0].build?.total)} · ${qs[0].sample?"샘플":"정식"} · ${dt(qs[0].date)}</p>`:""}`}</div>
+
+ <div class="card"><h2><i>07</i>결제 <span class="tag">${esc(l.payment?.state||"none")}</span></h2><p class="dim" style="margin:0 0 8px">PG 미연결 — 계좌 입금을 확인한 뒤 직접 상태를 바꿉니다.</p>${A(l.payment?.attempts).map(a=>`<div class="dim">${dt(a.at)} · ${esc(a.result)}</div>`).join("")}
+ <div class="row" style="margin-top:8px">${["pending","paid","failed","canceled"].map(s=>`<button class="btn sm" data-pay="${s}">${{pending:"대기",paid:"입금 확인",failed:"실패",canceled:"취소"}[s]}</button>`).join("")}</div></div>
+
+ <div class="card"><h2><i>08</i>제작 단계</h2>${prodEditor(l)}</div>
+ <div class="card"><h2><i>09</i>인수 자료</h2>${handEditor(l)}</div>
+
+ <div class="card"><h2><i>10</i>카카오톡 메시지</h2><p class="note">카카오 알림톡 발송 API 미연결 — 생성하면 'not_connected'로 기록되고, 아래 문구를 복사해 카카오톡으로 직접 보내야 합니다.</p>
+ <div class="row">${Object.entries(KKT).map(([k,v])=>`<button class="btn sm" data-kk="${k}">${v} 메시지 생성</button>`).join("")}</div>
+ ${S.kk?`<div class="kk" style="margin-top:10px" id="kkout">${esc(S.kk)}</div><button class="btn sm" style="margin-top:6px" data-act="copy">문구 복사</button>`:""}
+ <div class="tblw" style="margin-top:10px"><table class="tbl"><tbody>${A(l.kakao).map(x=>`<tr><td>${esc(KKT[x.type]||x.type)}</td><td>${dt(x.createdAt)}</td><td>${esc({not_connected:"연동 전 · 미발송",queued:"대기",sent:"발송 완료",failed:"실패"}[x.state]||x.state)}</td></tr>`).join("")}</tbody></table></div></div>`;
+}
+
+function qEditor(l,q){
+ const items=A(l.devRequests?.items);
+ const f=(k,v,lab,type="text")=>`<div><label for="q_${k}">${lab}</label><input class="i" id="q_${k}" data-q="${k}" type="${type}" value="${esc(v)}"></div>`;
+ const t=(k,v,lab)=>`<div><label for="q_${k}">${lab} <span class="dim">(한 줄에 하나)</span></label><textarea class="i" id="q_${k}" data-ql="${k}">${esc(A(v).join("\n"))}</textarea></div>`;
+ const b=q.build,m=q.monthly;
+ return `<label class="row" style="color:var(--warn);font-size:.9rem"><input type="checkbox" data-qb="sample" ${q.sample?"checked":""}> SAMPLE (승인된 단가·산정 규칙 없는 금액이면 체크 유지 — 고객 화면에 워터마크)</label>
+ <div class="g3">${f("date",q.date.slice(0,10),"작성일","date")}${f("validUntil",String(q.validUntil).slice(0,10),"유효기간","date")}${f("purpose",q.purpose,"제작 목적")}</div>
+ <h3 style="margin:16px 0 4px;font-size:.95rem">포함 업무·화면 / AI 실행·승인 범위</h3><div class="tblw"><table class="tbl"><thead><tr><th>업무·화면</th><th>설명</th><th>AI 실행</th><th>사람 승인</th><th></th></tr></thead><tbody>${A(q.items).map((x,i)=>`<tr>${["area","desc","ai","approval"].map(k=>`<td><input class="i" data-qi="${i}.${k}" value="${esc(x[k])}" aria-label="${k}"></td>`).join("")}<td><button class="btn sm" data-qdel="items.${i}">×</button></td></tr>`).join("")}</tbody></table></div><button class="btn sm" data-qadd="items">+ 업무 추가</button>
+ <div class="g4">${f("users",q.users,"사용자 수")}${f("branches",q.branches,"지점 수")}${f("schedule.days",q.schedule.days,"최대 제작일")}${f("schedule.startCond",q.schedule.startCond,"착수 조건")}</div>
+ <div class="g3">${t("roles",q.roles,"권한 역할")}${t("integrations",q.integrations,"연동 범위")}${f("migration",q.migration,"데이터 이관")}${t("excluded",q.excluded,"제외")}${t("later",q.later,"추후 확장")}${t("prep",q.prep,"고객 준비 자료")}${t("acceptance",q.acceptance,"검수 기준")}${t("handoverItems",q.handoverItems,"최종 인수 항목")}${f("ownership",q.ownership,"소유·전달 범위")}</div>
+ <div class="g3">${f("revisions",q.revisions,"수정 횟수")}${f("education",q.education,"교육")}${f("freeFix",q.freeFix,"무상 개선")}</div>
+ <h3 style="margin:16px 0 4px;font-size:.95rem">총 구축비 (공급가 입력 → 부가세·합계·50/50 자동)</h3><div class="g3">${f("build.supply",b.supply||"","공급가 (원)")}</div>
+ <div class="tot"><div><span class="dim">부가세</span><b>${won(b.vat)}</b></div><div><span class="dim">합계</span><b>${won(b.total)}</b></div><div><span class="dim">계약금 50% / 잔금 50%</span><b>${won(b.total/2)}</b></div></div>
+ <h3 style="margin:16px 0 4px;font-size:.95rem">월 운영비</h3><div class="g4">${f("monthly.fixed",m.fixed||"","월 고정비")}${f("monthly.ai.estimate",m.ai.estimate||"","AI 예상 (월)")}${f("monthly.ai.cap",m.ai.cap||"","AI 월 한도")}${f("monthly.ai.overage",m.ai.overage,"초과 비용 규칙")}</div>${f("monthly.ai.unitNote",m.ai.unitNote,"AI 사용량 환산 가정 (예상 업무 처리량)")}
+ <label>외부 서비스 (월/연 구분)</label>${A(m.external).map((x,i)=>`<div class="row" style="margin-bottom:4px"><input class="i" data-qe="${i}.name" value="${esc(x.name)}" placeholder="서비스" style="flex:2;min-width:120px"><input class="i" data-qe="${i}.cost" value="${esc(x.cost)}" placeholder="비용" style="flex:1;min-width:90px"><select class="i" data-qe="${i}.cycle" style="width:auto"><option ${x.cycle==="월"?"selected":""}>월</option><option ${x.cycle==="연"?"selected":""}>연</option></select><button class="btn sm" data-qdel="monthly.external.${i}">×</button></div>`).join("")}<button class="btn sm" data-qadd="external">+ 외부 서비스</button>
+ <h3 style="margin:16px 0 4px;font-size:.95rem">요청 반영표 (디벨롭 요청 ↔ 견적)</h3>${items.length?`<div class="tblw"><table class="tbl"><thead><tr><th>요청</th><th>반영 방식</th><th>비용 영향</th></tr></thead><tbody>${items.map((x,i)=>{const r=A(q.reflects).find(y=>y.reqIndex===i)||{};return `<tr><td>${esc(x.text)}</td><td><input class="i" data-qr="${i}.how" value="${esc(r.how||"")}" placeholder="범위 포함 / 추후 확장 …"></td><td><input class="i" data-qr="${i}.cost" value="${esc(r.cost||"")}" placeholder="+0원"></td></tr>`}).join("")}</tbody></table></div>`:'<p class="dim">디벨롭 요청 없음</p>'}
+ <h3 style="margin:16px 0 4px;font-size:.95rem">A/B/C 구성 비교 (선택)</h3>${A(q.options).map((o,i)=>`<div class="row" style="margin-bottom:4px"><select class="i" data-qo="${i}.type" style="width:auto">${["A","B","C"].map(k=>`<option ${o.type===k?"selected":""}>${k}</option>`).join("")}</select><input class="i" data-qo="${i}.label" value="${esc(o.label)}" placeholder="이름" style="flex:1;min-width:100px"><input class="i" data-qo="${i}.total" value="${esc(o.total)}" placeholder="총액" style="flex:1;min-width:90px"><input class="i" data-qo="${i}.monthly" value="${esc(o.monthly)}" placeholder="월" style="flex:1;min-width:80px"><input class="i" data-qo="${i}.scope" value="${esc(o.scope)}" placeholder="범위" style="flex:2;min-width:120px"><button class="btn sm" data-qdel="options.${i}">×</button></div>`).join("")}<button class="btn sm" data-qadd="options">+ 구성 추가</button>
+ <div class="row" style="margin-top:16px"><button class="btn pri" data-act="q-save">v${esc(q.v)}로 저장 · 고객에게 공개</button><button class="btn" data-act="q-cancel">취소</button><label class="row" style="margin:0"><input type="checkbox" id="qstat" checked> 상태를 '견적 전달'로</label></div>`;
+}
+function prodEditor(l){
+ const st=A(l.production?.stages);
+ if(!st.length)return `<button class="btn" data-act="p-init">제작 단계 만들기 (6단계)</button>`;
+ return st.map((s,i)=>`<div class="req"><div><b>${esc(PST[s.k]||s.k)}</b><label>완료 결과</label><input class="i" data-ps="${i}.result" value="${esc(s.result||"")}"><div class="g2"><div><label>작동 화면 URL</label><input class="i" data-ps="${i}.demoUrl" value="${esc(s.demoUrl||"")}"></div><div><label>다음 예정</label><input class="i" data-ps="${i}.next" value="${esc(s.next||"")}"></div></div><div class="g2"><div><label>고객 확인 항목 (쉼표)</label><input class="i" data-ps="${i}.checks" value="${esc(A(s.checks).join(", "))}"></div><div><label>대기 중 자료/승인</label><input class="i" data-ps="${i}.waitingFor" value="${esc(s.waitingFor||"")}"></div></div></div><div><label style="margin-top:0">상태</label><select class="i" data-ps="${i}.state">${["todo","doing","waiting","done"].map(k=>`<option value="${k}" ${s.state===k?"selected":""}>${{todo:"예정",doing:"진행 중",waiting:"자료·승인 대기",done:"완료"}[k]}</option>`).join("")}</select></div></div>`).join("")
+ +`<button class="btn pri" data-act="p-save">제작 단계 저장</button>`+(A(l.production?.requests).length?`<h3 style="font-size:.95rem;margin:14px 0 4px">고객 수정·개선 요청</h3>${A(l.production.requests).map((r,i)=>`<div class="row" style="margin-bottom:4px"><span style="flex:1">${r.phase==="operating"?"[운영] ":""}${esc(r.text)}</span><select class="i" data-pr="${i}" style="width:auto">${["received","reviewing","done"].map(k=>`<option ${r.state===k?"selected":""}>${k}</option>`).join("")}</select></div>`).join("")}<button class="btn sm" data-act="pr-save">요청 상태 저장</button>`:"");
+}
+function handEditor(l){
+ const h=l.handover||{};const F=[["url","운영 주소"],["accounts","계정·권한 (쉼표)"],["features","확정 기능 (쉼표)"],["qaResult","검수 결과"],["dataCheck","데이터·연동 확인"],["training","교육 영상·매뉴얼 (쉼표)"],["export","내보내기·백업"],["billing","월 비용·청구 일정"],["aiCap","AI 한도"],["support","무상 개선·지원"],["ownership","소유·전달 항목"]];
+ return `<div class="g2">${F.map(([k,lab])=>`<div><label for="h_${k}">${lab}</label><input class="i" id="h_${k}" data-h="${k}" value="${esc(Array.isArray(h[k])?h[k].join(", "):h[k]||"")}"></div>`).join("")}</div><label class="row"><input type="checkbox" id="hdone" ${h.doneAt?"checked":""}> 검수·수정·데이터 확인·계정 전달·교육 모두 완료 (100%)</label><button class="btn pri" data-act="h-save">인수 자료 저장</button>`;
+}
+
+/* ---- quote editing state ---- */
+function setPath(o,p,v){const k=p.split(".");let x=o;while(k.length>1){const s=k.shift();x=x[s]=x[s]??{}}x[k[0]]=v}
+function recalc(q){const s=NUM(q.build.supply);q.build={supply:s,vat:Math.round(s*.1),total:Math.round(s*1.1)};const h=Math.round(q.build.total/2);q.pay=[{label:"계약금 50%",amount:h,when:"최종 확정 후"},{label:"잔금 50%",amount:q.build.total-h,when:"최종 인수 후"}]}
+document.addEventListener("input",e=>{
+ const t=e.target,d=t.dataset,q=S.qd;
+ if(t.id==="q"){S.q=t.value;render.soft=0;render();render.soft=1;const n=$("#q");n.focus();n.setSelectionRange(n.value.length,n.value.length);return}
+ if(!q)return;
+ if(d.q){const numK=["users","branches","schedule.days","monthly.fixed","monthly.ai.estimate","monthly.ai.cap","build.supply"];setPath(q,d.q,numK.includes(d.q)?NUM(t.value):t.value);if(d.q==="build.supply"){recalc(q);const tot=t.closest(".card").querySelector(".tot");if(tot)tot.innerHTML=`<div><span class="dim">부가세</span><b>${won(q.build.vat)}</b></div><div><span class="dim">합계</span><b>${won(q.build.total)}</b></div><div><span class="dim">계약금 50% / 잔금 50%</span><b>${won(q.build.total/2)}</b></div>`}}
+ if(d.ql)q[d.ql]=lines(t.value);
+ if(d.qi){const[i,k]=d.qi.split(".");q.items[+i][k]=t.value}
+ if(d.qe){const[i,k]=d.qe.split(".");q.monthly.external[+i][k]=k==="cost"?NUM(t.value):t.value}
+ if(d.qo){const[i,k]=d.qo.split(".");q.options[+i][k]=k==="total"||k==="monthly"?NUM(t.value):t.value}
+ if(d.qr){const[i,k]=d.qr.split(".");let r=q.reflects.find(y=>y.reqIndex===+i);if(!r){r={reqIndex:+i,how:"",cost:""};q.reflects.push(r)}r[k]=t.value}
+ if(d.qb)q[d.qb]=t.checked;
+});
+document.addEventListener("change",e=>{const t=e.target;if(S.qd&&(t.dataset.qe||t.dataset.qo||t.dataset.qb))t.dispatchEvent(new Event("input",{bubbles:true}))});
+
+document.addEventListener("click",async e=>{
+ const t=e.target.closest("button");if(!t)return;const d=t.dataset,l=sel();
+ if(d.f){S.f=d.f;render();return}
+ if(d.sel!=null){S.sel=d.sel||null;S.qd=null;S.kk=null;render();scrollTo(0,0);return}
+ if(!l)return;
+ if(d.qadd){const q=S.qd;if(d.qadd==="items")q.items.push({area:"",desc:"",ai:"",approval:""});if(d.qadd==="external")q.monthly.external.push({name:"",cost:0,cycle:"월"});if(d.qadd==="options")q.options.push({type:"A",label:"",total:0,monthly:0,scope:""});render();return}
+ if(d.qdel){const p=d.qdel.split(".");const i=+p.pop();let a=S.qd;p.forEach(k=>a=a[k]);a.splice(i,1);render();return}
+ if(d.pay){const p=l.payment||{};const r={pending:"관리자: 입금 대기로 변경",paid:"관리자: 입금 확인",failed:"관리자: 결제 실패 처리",canceled:"관리자: 결제 취소 처리"}[d.pay];await save({payment:{mode:p.mode||"manual",state:d.pay,attempts:[...A(p.attempts),{at:now(),result:r}]},...(d.pay==="paid"?{status:"paid_deposit"}:{})},"결제 상태: "+d.pay);return}
+ if(d.kk){const text=kkText(d.kk,l);S.kk=text;await save({kakao:[...A(l.kakao),{type:d.kk,text,createdAt:now(),state:"not_connected"}]},"메시지 생성됨 · 미발송 — 복사해서 직접 보내세요");return}
+ const a=d.act;
+ if(a==="status"){await save({status:$("#st").value},"상태를 바꿨습니다");return}
+ if(a==="draft"){const u=$("#durl").value.trim();if(u&&!/^https?:\/\//.test(u)){toast("http(s) 주소만 저장합니다");return}await save({draft:{url:u,version:(l.draft?.version||0)+1,readyAt:now()}});return}
+ if(a==="reqs"){const it=clone(A(l.devRequests.items));document.querySelectorAll("[data-rst]").forEach(s=>it[+s.dataset.rst].state=s.value);document.querySelectorAll("[data-reply]").forEach(s=>{const v=s.value.trim();if(v)it[+s.dataset.reply].reply=v;else delete it[+s.dataset.reply].reply});await save({devRequests:{items:it}});return}
+ if(a==="kreq"){const v=$("#ktext").value.trim();if(!v)return;const base=l.devRequests||{items:[],extras:[]};await save({devRequests:{...base,items:[...A(base.items),{kind:$("#kkind").value,text:v,state:"received",via:"kakao",confirmed:false}]}},"카톡 요청을 옮겼습니다 — 고객 확인 대기");return}
+ if(a==="rv-start"){await save({review:{state:"reviewing"},status:"reviewing"});return}
+ if(a==="ask"){const qs=lines($("#newq").value);if(!qs.length){toast("질문을 입력하세요");return}await save({review:{state:"need_info",questions:[...A(l.review?.questions),...qs.map(q=>({q,at:now()}))]},status:"need_info"},"질문을 보냈습니다 (need_info)");return}
+ if(a==="scope"){await save({review:{scopeNote:$("#scope").value}});return}
+ if(a==="q-new"||a==="q-edit"){const qs=A(l.quotes).slice().sort((x,y)=>y.v-x.v);const nv=(qs[0]?.v||0)+1;const base=a==="q-edit"?clone(qs[0]):blankQuote(l);S.qd=Object.assign(blankQuote(l),base,{v:nv,date:now()});S.qd.monthly=Object.assign(blankQuote(l).monthly,base.monthly||{});S.qd.monthly.ai=Object.assign({estimate:0,unitNote:"",cap:0,overage:""},S.qd.monthly.ai||{});recalc(S.qd);render();return}
+ if(a==="q-cancel"){S.qd=null;render();return}
+ if(a==="q-save"){const q=clone(S.qd);recalc(q);if(!q.build.total){toast("공급가를 입력하세요 — 가격은 자동 산출하지 않습니다");return}if(!q.purpose){toast("제작 목적을 입력하세요");return}
+  q.date=new Date(q.date).toISOString();q.validUntil=new Date(q.validUntil).toISOString();
+  const others=A(l.quotes).filter(x=>x.v!==q.v);const st=$("#qstat")?.checked;
+  if(await save({quotes:[...others,q],...(st?{status:"quote_ready",review:{state:"quoted"}}:{})},`견적 v${q.v} 저장됨`)){S.qd=null;render()}return}
+ if(a==="p-init"){await save({production:{stages:Object.keys(PST).map(k=>({k,state:"todo",result:"",demoUrl:"",checks:[],next:"",waitingFor:""})),requests:A(l.production?.requests)},status:"building"});return}
+ if(a==="p-save"){const st=clone(l.production.stages);document.querySelectorAll("[data-ps]").forEach(x=>{const[i,k]=x.dataset.ps.split(".");st[+i][k]=k==="checks"?x.value.split(",").map(s=>s.trim()).filter(Boolean):x.value});if(st.some(s=>s.demoUrl&&!/^https?:\/\//.test(s.demoUrl))){toast("작동 화면 URL은 http(s)만");return}await save({production:{stages:st}});return}
+ if(a==="pr-save"){const r=clone(l.production.requests);document.querySelectorAll("[data-pr]").forEach(x=>r[+x.dataset.pr].state=x.value);await save({production:{requests:r}});return}
+ if(a==="h-save"){const h={};document.querySelectorAll("[data-h]").forEach(x=>{const k=x.dataset.h;h[k]=["accounts","features","training"].includes(k)?x.value.split(",").map(s=>s.trim()).filter(Boolean):x.value.trim()});if(h.url&&!/^https?:\/\//.test(h.url)){toast("운영 주소는 http(s)만");return}h.doneAt=$("#hdone").checked?(l.handover?.doneAt||now()):null;await save({handover:h,...(h.doneAt?{status:"handover"}:{})});return}
+ if(a==="copy"){try{await navigator.clipboard.writeText(S.kk);toast("복사했습니다")}catch{toast("복사 실패 — 직접 선택해 복사하세요")}return}
+});
+
+(async()=>{
+ const c=window.claude;const[db,u]=c?await Promise.all([c.use("db").catch(()=>null),c.use("user").catch(()=>null)]):[null,null];
+ const gate=m=>{$("#app").innerHTML=`<div class="gate"><div><span class="mono" style="color:var(--sig)">ATZ MACH · ADMIN</span><h1>관리자 전용</h1><p class="dim">${m}</p><a class="btn" href="index.html">홈으로</a></div></div>`};
+ if(!db||!u){gate("로그인한 관리자만 열 수 있습니다.");return}
+ const admin=await u.isOwner().catch(()=>false)||await u.canEdit().catch(()=>false);
+ if(!admin){gate("이 페이지는 운영자만 볼 수 있습니다.");return}
+ S.db=db;
+ db.collection("leads").limit(500).onSnapshot(s=>{S.leads=s.docs.map(x=>({...clone(x.data()),_id:x.id})).sort((a,b)=>String(b.createdAt||b.devRequests?.submittedAt||"").localeCompare(String(a.createdAt||a.devRequests?.submittedAt||"")));render()},()=>gate("리드 목록을 열 권한이 없습니다."));
+})();
+</script>
+<style id="qa30-admin-css">
+/* S4 mobile: login-gate header - the logo broke into two lines ("ATZ" / "MACH ADMIN")
+   because the three header buttons left it too little room. Keep it on one line. */
+@media(max-width:440px){
+  .top .in{gap:8px}
+  .logo{white-space:nowrap;flex:none}
+  .back{padding:6px 8px;font-size:.8rem}
+}
+</style>
+<style id="qa52-admin-css">.qa52-sr{position:absolute!important;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+/* M01 320px: 로그인 화면 상단 링크 3개가 줄바꿈 안 돼 372px로 넘침 → 로고 한 줄, 링크 다음 줄 */
+@media(max-width:400px){.top .in{flex-wrap:wrap;height:auto;min-height:58px;padding-block:8px;row-gap:6px}.top .in .logo{flex-basis:100%}}</style><script id="qa52-admin-js">(function(){var T=document.title.split(' · ')[0];
+function fix(){var a=document.getElementById('app');
+ if(a){if(a.querySelector('main'))a.removeAttribute('role');else if(!document.querySelector('main'))a.setAttribute('role','main')}
+ var h=document.getElementById('qa52-h1'),other=[].some.call(document.querySelectorAll('h1'),function(x){return x!==h});
+ if(other&&h)h.remove();else if(!other&&!h){h=document.createElement('h1');h.id='qa52-h1';h.className='qa52-sr';h.textContent=T;
+  var m=document.querySelector('main')||a||document.body;m.insertBefore(h,m.firstChild)}}
+fix();new MutationObserver(fix).observe(document.body,{childList:true,subtree:true})})();</script></body>
+</html>

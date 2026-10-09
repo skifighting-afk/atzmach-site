@@ -1,0 +1,842 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>바른이치과 | 강남역 임플란트 · 교정 치과</title>
+<meta name="description" content="강남역 11번 출구 도보 3분 바른이치과. CT·3D 구강 스캔으로 먼저 보여드리고 설명한 뒤 치료합니다. 임플란트, 교정, 충치·신경치료, 심미치료. 화·목 21시 야간진료, 토요일 진료.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --fx-cur:#0b4f55;--fx-cur-tx:#dff7ef;--fx-font:"Manrope",sans-serif;
+  --wh:#fff;--bg:#f4f9f8;--bg2:#e9f3f1;--teal:#0b4f55;--teal2:#06363b;--teal3:#0f6a70;--mint:#6fd3bd;--mint-l:#dff7ef;--ink:#0f2629;--mu:#5c7376;--line:#d7e5e3;
+  --sa:"Noto Sans KR","Noto Sans CJK KR","Apple SD Gothic Neo",sans-serif;
+  --en:"Manrope","Noto Sans KR",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+section[id]{scroll-margin-top:72px}
+body{background:var(--wh);color:var(--ink);font-family:var(--sa);font-size:16px;line-height:1.75;overflow-x:hidden;word-break:keep-all;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit;color:inherit}
+.w{max-width:1280px;margin:0 auto;padding:0 48px}
+.lab{font-family:var(--en);font-size:13px;font-weight:700;letter-spacing:.18em;color:var(--teal3);display:flex;align-items:center;gap:12px;text-transform:uppercase}
+.lab::before{content:"";width:28px;height:2px;background:var(--mint)}
+h1,h2,h3{font-weight:700;letter-spacing:-.035em;line-height:1.28}
+h2{font-size:clamp(30px,3.6vw,50px)}
+h2 em{font-style:normal;color:var(--teal3);background:linear-gradient(transparent 62%,rgba(111,211,189,.45) 62%)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:56px;padding:0 28px;border-radius:999px;font-size:15.5px;font-weight:500;border:1.5px solid var(--teal);color:var(--teal);background:transparent;cursor:pointer;transition:background .3s,color .3s,border-color .3s,transform .3s}
+.btn:hover{background:var(--teal);color:#fff}
+.btn.pr{background:var(--teal);color:#fff}
+.btn.pr:hover{background:var(--teal2);border-color:var(--teal2)}
+.btn .ar{font-family:var(--en);transition:transform .3s}
+.btn:hover .ar{transform:translateX(4px)}
+
+/* reveal — own class (engine uses .in) */
+[data-rv]{opacity:0;transform:translateY(28px);transition:opacity 1s ease,transform 1s cubic-bezier(.2,.7,.2,1)}
+[data-rv].br-vis{opacity:1;transform:none}
+
+/* header */
+.top{position:fixed;inset:0 0 auto;z-index:60;transition:background .4s,box-shadow .4s}
+.top .w{display:flex;align-items:center;height:88px;gap:40px;transition:height .4s;max-width:none;padding:0 48px}
+.top.is-dim{background:rgba(255,255,255,.92);backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line)}
+.top.is-dim .w{height:68px}
+.mark{display:flex;align-items:center;gap:11px}
+.mark svg{width:38px;height:38px;flex:none}
+.mark b{display:block;font-size:19px;font-weight:800;letter-spacing:-.02em;line-height:1.15;color:var(--teal2)}
+.mark small{display:block;font-family:var(--en);font-size:10.5px;font-weight:700;letter-spacing:.28em;color:var(--teal3)}
+.top nav{margin-left:auto}
+.top nav ul{display:flex;gap:34px;list-style:none;font-size:15px;font-weight:500}
+.top nav a{position:relative;color:var(--ink)}
+.top nav a::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:2px;background:var(--mint);transform:scaleX(0);transform-origin:left;transition:transform .35s}
+.top nav a:hover::after{transform:none}
+.top .tel{font-family:var(--en);font-weight:700;font-size:15px;color:var(--teal)}
+.top .btn{height:44px;padding:0 22px;font-size:14.5px}
+.burger{display:none;width:44px;height:44px;border-radius:50%;border:1.5px solid var(--line);background:#fff;cursor:pointer;margin-left:auto}
+.burger span{display:block;width:16px;height:2px;background:var(--teal);margin:3.5px auto;border-radius:2px}
+
+/* hero — pinned tooth-mask scrub (ref B) */
+.hero{position:relative;height:290vh;background:var(--wh)}
+.hero .pin{position:sticky;top:0;height:100vh;height:100svh;min-height:640px;overflow:hidden;background:radial-gradient(circle at 50% 52%,#f1faf7 0,#fff 46%)}
+.hero .grid-bg{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:64px 64px;opacity:.35;-webkit-mask-image:radial-gradient(circle at 50% 50%,#000 0,transparent 62%);mask-image:radial-gradient(circle at 50% 50%,#000 0,transparent 62%)}
+.wm{position:absolute;left:0;right:0;bottom:-.17em;z-index:1;text-align:center;font-family:var(--en);font-weight:800;font-size:min(21.5vw,330px);line-height:1;letter-spacing:-.05em;color:var(--teal);white-space:nowrap;pointer-events:none}
+.wm span{display:inline-block;will-change:transform}
+.wm i{display:inline-block;font-style:normal;animation:wmUp 1.3s cubic-bezier(.2,.8,.2,1) both}
+@keyframes wmUp{from{transform:translateY(60%);opacity:0}}
+.tmask{position:absolute;inset:0;z-index:2;clip-path:inset(20% 40% 24% 40% round 42%)}
+.tmask img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.25);will-change:transform}
+.tmask .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,54,59,.15),rgba(6,54,59,.72));opacity:0}
+.tline{position:absolute;inset:0;z-index:3;width:100%;height:100%;pointer-events:none;overflow:visible}
+.tline path{fill:none;stroke:var(--mint);stroke-width:1.5;stroke-dasharray:4 6}
+.h-l{position:absolute;z-index:4;left:48px;top:150px;width:min(470px,34vw)}
+.h-l .lab{margin-bottom:22px}
+.hero h1{font-size:clamp(40px,4.4vw,66px);line-height:1.17;letter-spacing:-.045em;color:var(--teal2)}
+.hero h1 em{font-style:normal;color:var(--teal3);background:linear-gradient(transparent 64%,rgba(111,211,189,.5) 64%)}
+.hero .sub{margin-top:22px;font-size:16.5px;color:var(--mu);max-width:420px}
+.hero .ctas{display:flex;gap:10px;margin-top:30px;flex-wrap:wrap}
+.h-r{position:absolute;z-index:4;right:48px;top:168px;width:250px;list-style:none}
+.h-r li{display:flex;align-items:baseline;gap:14px;padding:14px 0;border-bottom:1px solid var(--line);font-size:15.5px;font-weight:500}
+.h-r li:first-child{border-top:1px solid var(--ink)}
+.h-r li b{font-family:var(--en);font-size:12px;font-weight:700;color:var(--teal3);letter-spacing:.1em}
+.h-r li span{margin-left:auto;font-family:var(--en);font-size:11px;letter-spacing:.14em;color:var(--mu)}
+.h-r .tr{display:block;border:0;padding:18px 0 0;font-size:13px;color:var(--mu);font-weight:400;line-height:1.9}
+.h-r .tr::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--mint);margin-right:8px;vertical-align:1px}
+.anno{position:absolute;z-index:4;font-family:var(--en);font-size:11px;font-weight:700;letter-spacing:.16em;color:var(--teal3);display:flex;align-items:center;gap:10px;white-space:nowrap}
+.anno::before{content:"";width:46px;height:1px;background:var(--teal3)}
+.anno.a1{left:calc(50% + 21vh);top:30%}
+.anno.a2{left:calc(50% + 19vh);top:66%}
+.h-q{position:absolute;z-index:5;left:0;right:0;top:50%;transform:translateY(-50%);text-align:center;color:#fff;opacity:0;padding:0 24px}
+.h-q p{font-family:var(--en);font-size:13px;font-weight:700;letter-spacing:.3em;color:var(--mint)}
+.h-q h2{font-size:clamp(34px,4.6vw,68px);margin-top:14px;letter-spacing:-.045em;text-shadow:0 6px 40px rgba(0,0,0,.25)}
+.h-q .btn{margin-top:30px;border-color:#fff;color:#fff}
+.h-q .btn:hover{background:#fff;color:var(--teal)}
+.scroll-hint{position:absolute;z-index:4;left:48px;bottom:30px;font-family:var(--en);font-size:11px;font-weight:700;letter-spacing:.24em;color:var(--mu);display:flex;align-items:center;gap:12px}
+.scroll-hint i{width:1px;height:36px;background:var(--line);position:relative;overflow:hidden}
+.scroll-hint i::after{content:"";position:absolute;left:0;top:-40%;width:1px;height:40%;background:var(--teal);animation:drip 1.8s infinite}
+@keyframes drip{to{top:100%}}
+
+/* section base */
+.sec{padding:150px 0}
+.head{max-width:760px}
+.head h2{margin-top:20px}
+.head p{margin-top:20px;color:var(--mu);font-size:17px}
+
+/* philosophy + word reveal */
+.phi{background:var(--wh)}
+.phi .row{display:grid;grid-template-columns:260px 1fr;gap:60px}
+.phi .wr{font-size:clamp(26px,2.9vw,42px);font-weight:500;line-height:1.55;letter-spacing:-.035em;color:var(--teal2)}
+.phi .wr b{color:var(--teal3);font-weight:800}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);margin-top:110px;border-top:1.5px solid var(--ink)}
+.facts div{padding:30px 26px 6px 0;border-right:1px solid var(--line);padding-left:26px}
+.facts div:first-child{padding-left:0}
+.facts div:last-child{border-right:0}
+.facts .n{font-family:var(--en);font-weight:800;font-size:clamp(56px,6vw,96px);line-height:1;letter-spacing:-.05em;color:var(--teal)}
+.facts .n small{font-family:var(--sa);font-size:.3em;font-weight:700;margin-left:6px;letter-spacing:0;color:var(--teal3)}
+.facts p{margin-top:14px;font-size:15px;color:var(--mu)}
+.facts p b{display:block;color:var(--ink);font-size:16px}
+
+/* marquee band */
+.band{background:var(--teal);color:#fff;padding:34px 0 30px;overflow:hidden}
+.band .mq{font-family:var(--en);font-weight:800;font-size:clamp(54px,7.4vw,118px);line-height:1.08;letter-spacing:-.04em}
+.band .mq-t span{padding-right:.5em;display:inline-flex;align-items:center;gap:.5em}
+.band .mq-t span::after{content:"";width:.34em;height:.34em;border-radius:50%;background:var(--mint)}
+.band .mq.o{color:transparent;-webkit-text-stroke:1.5px rgba(223,247,239,.55);font-size:clamp(40px,5vw,78px)}
+.band .mq.o .mq-t span::after{background:transparent;border:2px solid rgba(111,211,189,.6)}
+.band .ko{font-family:var(--sa);font-weight:800;letter-spacing:-.05em}
+
+/* departments — horizontal pin slider */
+.dept{background:var(--bg)}
+.dept .hs-pin{height:100vh;height:100svh;min-height:700px;display:flex;flex-direction:column;overflow:hidden}
+.hs-on .hs-pin{position:sticky;top:0}
+.dept .hs-head{display:flex;justify-content:space-between;align-items:flex-end;padding:112px max(48px,calc(50vw - 640px)) 34px;gap:40px}
+.dept .hs-head h2{margin-top:16px}
+.ctr{min-width:230px;text-align:right;font-family:var(--en);font-size:12px;font-weight:700;letter-spacing:.24em;color:var(--mu)}
+.ctr b{font-size:28px;color:var(--teal);letter-spacing:0;font-weight:800}
+.ctr .bar{height:2px;background:var(--line);margin-top:14px;overflow:hidden;border-radius:2px}
+.ctr .bar i{display:block;height:100%;background:var(--teal);transform-origin:left;transform:scaleX(.02)}
+.dept .hs-track{gap:28px;padding-left:max(48px,calc(50vw - 640px));flex:1;min-height:0;padding-bottom:6vh;will-change:transform}
+.dept .hs-track::after{flex-basis:20px}
+.dp{flex:0 0 min(78vw,1060px);display:grid;grid-template-columns:1.05fr 1fr;height:100%;max-height:640px;background:#fff;border-radius:28px;overflow:hidden;box-shadow:0 30px 60px -30px rgba(6,54,59,.25)}
+.dp .ph{position:relative;overflow:hidden}
+.dp .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.22)}
+.dp .ph .no{position:absolute;left:26px;top:22px;z-index:2;font-family:var(--en);font-weight:800;font-size:15px;color:#fff;background:rgba(6,54,59,.6);backdrop-filter:blur(6px);padding:6px 14px;border-radius:99px;letter-spacing:.12em}
+.dp .co{padding:clamp(28px,4.4vh,52px) 44px;display:flex;flex-direction:column}
+.dp .en{font-family:var(--en);font-size:12px;font-weight:700;letter-spacing:.26em;color:var(--teal3)}
+.dp h3{font-size:clamp(30px,2.6vw,40px);margin-top:10px;color:var(--teal2)}
+.dp .ds{margin-top:14px;color:var(--mu);font-size:15.5px}
+.dp ul{list-style:none;margin-top:22px;border-top:1px solid var(--line)}
+.dp li{display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid var(--line);font-size:15px}
+.dp li span{color:var(--mu);font-size:14px;text-align:right}
+.dp .ft{margin-top:auto;padding-top:22px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.dp .ft small{font-size:13px;color:var(--mu)}
+.dp .ft small b{display:block;font-family:var(--en);font-size:22px;color:var(--teal);font-weight:800}
+.dp .ft a{font-weight:700;color:var(--teal);font-size:15px;border-bottom:2px solid var(--mint);padding-bottom:2px}
+
+/* first visit sticky steps */
+.flow .split{display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:start;margin-top:90px}
+.flow .fig{position:sticky;top:110px;height:calc(100vh - 150px);max-height:700px;border-radius:28px;overflow:hidden;background:var(--teal2)}
+.flow .fig img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.08);transition:opacity .8s,transform 1.4s cubic-bezier(.2,.8,.2,1)}
+.flow .fig img.on{opacity:1;transform:none}
+.flow .fig::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(6,54,59,.75))}
+.flow .fig .num{position:absolute;z-index:2;left:32px;bottom:26px;color:#fff;font-family:var(--en);font-weight:800;font-size:120px;line-height:.9;letter-spacing:-.06em}
+.flow .fig .num small{font-size:20px;letter-spacing:.1em;color:var(--mint);margin-left:8px;font-weight:700}
+.flow .fig .prog{position:absolute;z-index:2;right:32px;bottom:38px;display:flex;gap:6px}
+.flow .fig .prog i{width:28px;height:4px;border-radius:4px;background:rgba(255,255,255,.3);transition:background .5s}
+.flow .fig .prog i.on{background:var(--mint)}
+.stp{padding:10vh 0;border-top:1px solid var(--line);opacity:.6;transition:opacity .6s}
+.stp.on{opacity:1}
+.stp .n{font-family:var(--en);font-weight:800;font-size:15px;letter-spacing:.2em;color:var(--teal3)}
+.stp h3{font-size:clamp(28px,2.6vw,38px);margin-top:12px;color:var(--teal2)}
+.stp p{margin-top:14px;color:var(--mu);font-size:16px;max-width:460px}
+.stp .t{display:inline-flex;gap:8px;margin-top:20px;font-size:13.5px;font-weight:500;color:var(--teal);background:var(--mint-l);padding:6px 14px;border-radius:99px}
+
+/* price */
+.price{background:var(--bg)}
+.price .grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:80px;align-items:start}
+.price .note{margin-top:34px;padding:22px 24px;border-radius:18px;background:#fff;border:1px solid var(--line);font-size:14px;color:var(--mu)}
+.price .note b{display:block;color:var(--ink);margin-bottom:6px;font-size:15px}
+.price .ins{margin-top:14px;padding:22px 24px;border-radius:18px;background:var(--teal);color:#e8f6f3;font-size:14.5px}
+.price .ins b{color:#fff;font-size:16px;display:block;margin-bottom:4px}
+.ptab{background:#fff;border-radius:28px;padding:16px 40px 30px;box-shadow:0 30px 60px -36px rgba(6,54,59,.25)}
+.ptab h3{font-family:var(--en);font-size:12px;font-weight:700;letter-spacing:.24em;color:var(--teal3);padding:26px 0 8px;border-bottom:1.5px solid var(--ink)}
+.ptab dl{display:grid;grid-template-columns:1fr auto}
+.ptab dt,.ptab dd{padding:16px 0;border-bottom:1px solid var(--line)}
+.ptab dt{font-size:16px;font-weight:500}
+.ptab dt small{display:block;font-size:13px;color:var(--mu);font-weight:400}
+.ptab dd{text-align:right;font-family:var(--en);font-weight:800;font-size:clamp(24px,2.2vw,32px);color:var(--teal);letter-spacing:-.03em;line-height:1.2;align-self:stretch;display:flex;align-items:center;justify-content:flex-end}
+.ptab dd small{font-family:var(--sa);font-size:14px;font-weight:500;margin-left:3px;color:var(--teal3)}
+
+/* doctors */
+.docs .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:70px}
+.doc{border:1px solid var(--line);border-radius:28px;padding:36px 34px 34px;transition:transform .5s cubic-bezier(.2,.8,.2,1),box-shadow .5s,border-color .5s;background:#fff}
+.doc:hover{transform:translateY(-8px);box-shadow:0 30px 60px -30px rgba(6,54,59,.3);border-color:transparent}
+.doc .ini{width:118px;height:118px;border-radius:50%;display:grid;place-items:center;background:var(--teal);color:#fff;font-family:var(--en);font-weight:800;font-size:34px;letter-spacing:-.02em;position:relative}
+.doc .ini::after{content:"";position:absolute;inset:-8px;border-radius:50%;border:1.5px dashed var(--mint)}
+.doc:nth-child(2) .ini{background:var(--teal3)}
+.doc:nth-child(3) .ini{background:var(--teal2)}
+.doc .rl{margin-top:30px;font-size:13.5px;font-weight:700;color:var(--teal3)}
+.doc h3{font-size:28px;margin-top:4px}
+.doc h3 small{font-family:var(--en);font-size:13px;color:var(--mu);font-weight:600;letter-spacing:.12em;margin-left:8px}
+.doc .sp{margin-top:12px;display:flex;flex-wrap:wrap;gap:6px}
+.doc .sp span{font-size:13px;padding:4px 12px;border-radius:99px;background:var(--mint-l);color:var(--teal2);font-weight:500}
+.doc ul{list-style:none;margin-top:22px;padding-top:18px;border-top:1px solid var(--line);font-size:14.5px;color:var(--mu)}
+.doc li{padding:3px 0 3px 14px;position:relative}
+.doc li::before{content:"";position:absolute;left:0;top:13px;width:5px;height:5px;border-radius:50%;background:var(--mint)}
+.doc .msg{margin-top:20px;font-size:15px;color:var(--teal2);font-weight:500}
+
+/* equipment */
+.eqp{background:var(--teal2);color:#dfeeec}
+.eqp .lab{color:var(--mint)}
+.eqp h2{color:#fff}
+.eqp h2 em{color:var(--mint);background:none}
+.eqp .grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.eqp .ph{position:relative;border-radius:28px;overflow:hidden;aspect-ratio:4/5}
+.eqp .ph .im{position:absolute;inset:0}
+.eqp .ph img{width:100%;height:100%;object-fit:cover}
+.eqp ol{list-style:none;margin-top:46px}
+.eqp li{display:grid;grid-template-columns:62px 1fr;gap:4px 18px;padding:24px 0;border-top:1px solid rgba(223,238,236,.18)}
+.eqp li b{grid-row:span 2;font-family:var(--en);font-weight:800;font-size:15px;color:var(--mint);letter-spacing:.14em;padding-top:4px}
+.eqp li h3{font-size:21px;color:#fff;letter-spacing:-.02em}
+.eqp li p{font-size:15px;color:#a9c6c3}
+
+/* visit */
+.visit .grid{display:grid;grid-template-columns:1fr 1.1fr;gap:70px;margin-top:70px}
+.hours{border-top:1.5px solid var(--ink)}
+.hours div{display:flex;justify-content:space-between;align-items:center;padding:18px 0;border-bottom:1px solid var(--line);font-size:16px}
+.hours div b{font-family:var(--en);font-weight:800;font-size:22px;color:var(--teal);letter-spacing:-.02em}
+.hours div.nt b::after{content:"야간";font-family:var(--sa);font-size:11.5px;font-weight:700;color:#fff;background:var(--teal3);padding:2px 9px;border-radius:99px;margin-left:10px;vertical-align:4px}
+.hours div.off b{color:var(--mu)}
+.hours p{font-size:14px;color:var(--mu);margin-top:14px}
+.map{position:relative;border-radius:28px;overflow:hidden;background:#eef5f3;border:1px solid var(--line);min-height:420px}
+.map svg{position:absolute;inset:0;width:100%;height:100%}
+.map .addr{position:absolute;left:20px;right:20px;bottom:20px;background:#fff;border-radius:18px;padding:18px 22px;box-shadow:0 20px 40px -24px rgba(6,54,59,.35);display:flex;justify-content:space-between;gap:16px;align-items:center;flex-wrap:wrap}
+.map .addr b{display:block;font-size:16px}
+.map .addr span{font-size:14px;color:var(--mu)}
+.map .addr a{font-weight:700;color:var(--teal);font-size:14.5px;white-space:nowrap}
+
+/* faq */
+.faq{background:var(--bg)}
+.faq .grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:80px}
+.faq details{border-bottom:1px solid var(--line)}
+.faq details:first-child{border-top:1.5px solid var(--ink)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;align-items:center;padding:24px 0;font-size:18px;font-weight:500}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";flex:none;width:30px;height:30px;border-radius:50%;background:var(--mint-l) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath d='M10 15h10M15 10v10' stroke='%230b4f55' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") center/100%;transition:transform .4s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{padding:0 50px 26px 0;color:var(--mu);font-size:15.5px}
+
+/* booking */
+.book .grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:80px}
+.book .side .ph{margin-top:40px;border-radius:28px;overflow:hidden;aspect-ratio:5/4;position:relative}
+.book .side .ph .im{position:absolute;inset:0}
+.book .side .ph img{width:100%;height:100%;object-fit:cover}
+.book .side .call{margin-top:26px;font-size:15px;color:var(--mu)}
+.book .side .call b{display:block;font-family:var(--en);font-size:30px;color:var(--teal);font-weight:800;letter-spacing:-.02em}
+form.fm{background:var(--bg);border-radius:28px;padding:44px}
+.fm .row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.fm label{display:block;font-size:14px;font-weight:500;margin-bottom:18px}
+.fm label>span{display:block;margin-bottom:8px}
+.fm label>span i{color:var(--teal3);font-style:normal}
+.fm input[type=text],.fm input[type=tel],.fm input[type=date],.fm select,.fm textarea{width:100%;height:54px;border:1px solid var(--line);border-radius:14px;background:#fff;padding:0 16px;font-size:15.5px;outline:none;transition:border-color .3s,box-shadow .3s}
+.fm textarea{height:110px;padding:14px 16px;resize:vertical}
+.fm input:focus,.fm select:focus,.fm textarea:focus{border-color:var(--teal3);box-shadow:0 0 0 4px rgba(111,211,189,.25)}
+.fm .chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.fm .chips label{margin:0}
+.fm .chips input{position:absolute;opacity:0;pointer-events:none}
+.fm .chips span{display:inline-block;margin:0;padding:10px 18px;border-radius:99px;border:1px solid var(--line);background:#fff;font-size:14.5px;cursor:pointer;transition:all .3s}
+.fm .chips input:checked+span{background:var(--teal);border-color:var(--teal);color:#fff}
+.fm .chips input:focus-visible+span{box-shadow:0 0 0 4px rgba(111,211,189,.4)}
+.fm .agree{display:flex;gap:10px;align-items:flex-start;font-weight:400;color:var(--mu);font-size:14px}
+.fm .agree input{width:18px;height:18px;margin-top:4px;accent-color:var(--teal)}
+.fm .btn{width:100%;margin-top:6px}
+.fm .msg{margin-top:14px;font-size:14.5px;color:var(--teal);font-weight:500;min-height:1.6em}
+.fm .tt{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:8px}
+
+/* footer */
+footer{background:var(--teal2);color:#9fbcb9;padding:80px 0 40px;font-size:14px}
+footer .top-row{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;padding-bottom:40px;border-bottom:1px solid rgba(223,238,236,.15)}
+footer .mark b{color:#fff}
+footer .mark small{color:var(--mint)}
+footer nav{display:flex;gap:28px;flex-wrap:wrap;color:#d8e8e6}
+footer .info{margin-top:30px;line-height:2}
+footer .info span{margin-right:18px;white-space:nowrap}
+footer .legal{margin-top:20px;font-size:13px;color:#7fa09d}
+footer .cr{margin-top:24px;font-size:12.5px;color:#6b8c89}
+footer .big{font-family:var(--en);font-weight:800;font-size:min(20vw,300px);line-height:.8;letter-spacing:-.05em;color:rgba(111,211,189,.08);text-align:center;margin-top:50px;user-select:none;white-space:nowrap}
+
+/* ===== responsive ===== */
+@media(max-width:1180px){
+  .top nav ul{gap:22px}.top .tel{display:none}
+  .h-r{display:none}
+  .anno{display:none}
+  .h-l{width:min(440px,40vw)}
+}
+@media(max-width:960px){
+  .top nav,.top .btn{display:none}
+  .burger{display:block}
+  .top.open{background:#fff;box-shadow:0 1px 0 var(--line)}
+  .top.open nav{display:block;position:absolute;left:0;right:0;top:100%;background:#fff;border-bottom:1px solid var(--line)}
+  .top.open nav ul{flex-direction:column;gap:0;padding:6px 20px 20px}
+  .top.open nav li a{display:block;padding:14px 0;border-bottom:1px solid var(--line);font-size:17px}
+}
+@media(max-width:860px){
+  .w{padding:0 20px}
+  .top .w{padding:0 20px;height:66px}
+  .top.is-dim .w{height:60px}
+  .mark svg{width:34px;height:34px}.mark b{font-size:17px}
+  .sec{padding:96px 0}
+  .hero{height:210vh}
+  .hero .pin{height:100svh;min-height:680px}
+  .h-l{left:20px;right:20px;top:92px;width:auto}
+  .h-l .lab{margin-bottom:14px;font-size:11px}
+  .hero h1{font-size:clamp(34px,9.4vw,44px)}
+  .hero .sub{font-size:15px;margin-top:14px}
+  .hero .ctas{margin-top:20px;flex-wrap:nowrap}
+  .hero .ctas .btn{flex:1 1 0;height:50px;padding:0 10px;font-size:14.5px}
+  .wm{font-size:25vw;bottom:-.14em}
+  .scroll-hint{display:none}
+  .h-q h2{font-size:30px}
+  .phi .row{grid-template-columns:1fr;gap:26px}
+  .phi .wr{font-size:24px}
+  .facts{grid-template-columns:1fr 1fr;margin-top:70px}
+  .facts div{padding:24px 14px 24px 0!important;border-right:0;border-bottom:1px solid var(--line)}
+  .facts div:nth-child(2n){padding-left:16px!important;border-left:1px solid var(--line)}
+  .facts .n{font-size:56px}
+  .facts p{font-size:13.5px}.facts p b{font-size:15px}
+  .band{padding:24px 0 20px}
+  .dept .hs-pin{height:auto;min-height:0}
+  .dept .hs-head{padding:96px 20px 28px;flex-direction:column;align-items:flex-start;gap:14px}
+  .ctr{text-align:left;min-width:0}.ctr .bar{display:none}
+  .dept .hs-track{padding:0 20px 80px;gap:14px;scroll-padding-left:20px}
+  .dp{flex-basis:86vw;grid-template-columns:1fr;max-height:none;height:auto;border-radius:22px}
+  .dp .ph{aspect-ratio:16/11}
+  .dp .ph img{transform:none}
+  .dp .co{padding:26px 22px}
+  .dp li{font-size:14px}
+  .flow .split{grid-template-columns:1fr;gap:0;margin-top:50px}
+  .flow .fig{position:relative;top:0;height:auto;aspect-ratio:4/3;margin-bottom:20px;border-radius:22px}
+  .flow .fig .num{font-size:72px;left:22px;bottom:18px}
+  .flow .fig .prog{right:22px;bottom:26px}
+  .stp{padding:30px 0;opacity:1}
+  .price .grid,.faq .grid,.book .grid,.eqp .grid,.visit .grid{grid-template-columns:1fr;gap:44px}
+  .ptab{padding:6px 20px 20px;border-radius:22px}
+  .ptab dt{font-size:15px}
+  .docs .grid{grid-template-columns:1fr;margin-top:46px;gap:16px}
+  .doc{padding:28px 24px;display:grid;grid-template-columns:84px 1fr;gap:0 20px;align-items:center}
+  .doc .ini{width:84px;height:84px;font-size:24px}
+  .doc .rl{margin-top:0}
+  .doc .hd{min-width:0}
+  .doc .sp,.doc ul,.doc .msg{grid-column:1/-1}
+  .doc h3{font-size:24px}
+  .eqp .ph{aspect-ratio:4/3}
+  .map{min-height:360px}
+  .faq summary{font-size:16px;padding:20px 0}
+  .faq details p{padding-right:0}
+  form.fm{padding:26px 20px;border-radius:22px}
+  .fm .row{grid-template-columns:1fr;gap:0}
+  footer .info span{white-space:normal;display:block}
+}
+@media (prefers-reduced-motion:reduce){[data-rv]{opacity:1;transform:none;transition:none}.wm i{animation:none}.scroll-hint i::after{animation:none}}
+html.rm .hero{height:auto}html.rm .hero .pin{position:relative}html.rm .stp{opacity:1}
+/* ===== FX engine (shared) ===== */
+.cur{position:fixed;left:0;top:0;z-index:1000;pointer-events:none}
+.cur span{position:absolute;left:-44px;top:-44px;width:88px;height:88px;border-radius:50%;display:grid;place-items:center;font:500 11px/1 var(--fx-font,sans-serif);letter-spacing:.22em;color:transparent;background:var(--fx-cur,#3a2f29);transform:scale(.13);transition:transform .5s cubic-bezier(.2,.8,.2,1),color .3s,background .3s}
+.cur.lnk span{transform:scale(.36);background:transparent;box-shadow:inset 0 0 0 3px var(--fx-cur,#3a2f29)}
+.cur.big span{transform:scale(1);color:var(--fx-cur-tx,#fff)}
+html.has-cur body,html.has-cur body *:not(input):not(textarea):not(select){cursor:none}
+.ln{display:block;overflow:hidden;padding-bottom:.1em;margin-bottom:-.1em}
+.ln>span{display:inline-block;transform:translate3d(0,110%,0);transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
+.in .ln>span{transform:none}.ln:nth-child(2)>span{transition-delay:.1s}.ln:nth-child(3)>span{transition-delay:.2s}
+.clip .im{overflow:hidden;clip-path:inset(100% 0 0 0);transition:clip-path 1.6s cubic-bezier(.7,0,.2,1)}
+.clip.in .im{clip-path:inset(0 0 0 0)}
+[data-par]{will-change:transform}
+.mq{overflow:hidden;white-space:nowrap;contain:paint}
+.mq-t{display:inline-flex;will-change:transform}
+.wd{display:inline-block}
+.hs-track{display:flex}
+.hs-track::after{content:"";flex:0 0 1px}
+@media (max-width:860px){.hs-track{overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}.hs-track::-webkit-scrollbar{display:none}.hs-track>*{scroll-snap-align:start}}
+html.rm .hs-track{overflow-x:auto}
+html.rm .ln>span,html.rm .clip .im{transform:none;clip-path:none;transition:none}
+
+</style>
+<meta name="robots" content="noindex,nofollow"></head>
+<body>
+<header class="top" id="top">
+  <div class="w">
+    <a href="#home" class="mark" aria-label="바른이치과 홈">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="12" fill="#0b4f55"/><path d="M11.5 13.2c0-3.6 4.4-4.6 8.5-2.2 4.1-2.4 8.5-1.4 8.5 2.2.8 3.6.1 6.4-.9 8.6-1 2.4-1.2 6.6-3 7.4-1.3.6-1.7-3.4-4.6-5.4-2.9 2-3.3 6-4.6 5.4-1.8-.8-2-5-3-7.4-1-2.2-1.7-5-.9-8.6Z" fill="#dff7ef"/><path d="M15 17.5h10" stroke="#6fd3bd" stroke-width="2" stroke-linecap="round"/></svg>
+      <span><b>바른이치과</b><small>BAREUN DENTAL</small></span>
+    </a>
+    <nav aria-label="주요 메뉴" id="nav"><ul>
+      <li><a href="#dept">진료과목</a></li>
+      <li><a href="#flow">첫 방문 안내</a></li>
+      <li><a href="#price">비용 안내</a></li>
+      <li><a href="#docs">의료진</a></li>
+      <li><a href="#visit">오시는 길</a></li>
+    </ul></nav>
+    <a class="tel" href="tel:0200000000">02-000-0000</a>
+    <a href="#book" class="btn pr">상담 예약</a>
+    <button class="burger" id="burger" aria-label="메뉴 열기" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home" aria-label="바른이치과 소개">
+  <div class="pin">
+    <div class="grid-bg" aria-hidden="true"></div>
+    <p class="wm" aria-hidden="true"><span><i style="animation-delay:.15s">B</i></span><span><i style="animation-delay:.22s">A</i></span><span><i style="animation-delay:.29s">R</i></span><span><i style="animation-delay:.36s">E</i></span><span><i style="animation-delay:.43s">U</i></span><span><i style="animation-delay:.5s">N</i></span></p>
+    <div class="tmask" data-cur="SCROLL"><img src="img/p36.jpg" alt="강남역이 내려다보이는 바른이치과 진료실 전경" fetchpriority="high"><div class="shade"></div></div>
+    <svg class="tline" aria-hidden="true"><path d=""/></svg>
+    <span class="anno a1" aria-hidden="true">CBCT 3D · DIGITAL SCAN</span>
+    <span class="anno a2" aria-hidden="true">GANGNAM STN. EXIT 11</span>
+    <div class="h-l">
+      <p class="lab">강남역 임플란트 · 교정 치과</p>
+      <h1>먼저 보여드리고,<br><em>바르게</em> 치료합니다.</h1>
+      <p class="sub">CT와 3D 구강 스캔으로 내 치아 상태를 화면에서 함께 확인합니다. 충분히 이해하신 다음에 치료를 시작합니다.</p>
+      <div class="ctas">
+        <a href="#book" class="btn pr">상담 예약하기 <span class="ar">→</span></a>
+        <a href="#flow" class="btn">첫 방문 안내</a>
+      </div>
+    </div>
+    <ul class="h-r">
+      <li><b>01</b>임플란트<span>IMPLANT</span></li>
+      <li><b>02</b>치아교정<span>ORTHO</span></li>
+      <li><b>03</b>충치 · 신경치료<span>ENDO</span></li>
+      <li><b>04</b>심미치료<span>ESTHETIC</span></li>
+      <li class="tr">강남역 11번 출구 도보 3분<br>화 · 목 21시 야간진료 · 토요일 진료</li>
+    </ul>
+    <div class="h-q">
+      <p>BAREUN DENTAL CLINIC</p>
+      <h2>강남역 한가운데,<br>설명이 충분한 치과.</h2>
+      <a href="#book" class="btn">상담 예약하기 <span class="ar">→</span></a>
+    </div>
+    <div class="scroll-hint" aria-hidden="true"><i></i>SCROLL</div>
+  </div>
+</section>
+
+<section class="sec phi" id="about">
+  <div class="w">
+    <div class="row">
+      <p class="lab" data-rv>01 — Philosophy</p>
+      <p class="wr" id="wr">치과가 두려운 이유는 대부분 <b>'모르기 때문'</b>입니다. 어디가 얼마나 상했는지, 왜 이 치료가 필요한지, 비용은 왜 이만큼인지. 바른이치과는 <b>CT와 3D 스캔 화면</b>을 함께 보며 설명을 마친 뒤에 치료를 시작합니다.</p>
+    </div>
+    <div class="facts">
+      <div data-rv><p class="n"><span data-count="3">3</span><small>분</small></p><p><b>강남역 11번 출구</b>도보 거리</p></div>
+      <div data-rv><p class="n"><span data-count="21">21</span><small>시</small></p><p><b>화 · 목 야간진료</b>퇴근 후 진료 가능</p></div>
+      <div data-rv><p class="n"><span data-count="60">60</span><small>분</small></p><p><b>첫 방문 진단 상담</b>촬영부터 비용 안내까지</p></div>
+      <div data-rv><p class="n"><span data-count="4">4</span><small>단계</small></p><p><b>치료 전 확인 절차</b>CT · 3D · 계획 · 비용</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="band" aria-hidden="true">
+  <div class="mq" data-mq="1"><div class="mq-t"><span>SEE IT</span><span class="ko">바르게 보고</span><span>EXPLAIN IT</span><span class="ko">바르게 설명하고</span><span>TREAT IT</span><span class="ko">바르게 치료합니다</span></div></div>
+  <div class="mq o" data-mq="-1"><div class="mq-t"><span>BAREUN DENTAL</span><span>IMPLANT</span><span>ORTHODONTICS</span><span>ENDODONTICS</span><span>ESTHETIC</span></div></div>
+</div>
+
+<section class="dept" id="dept">
+  <div class="hs-pin">
+    <div class="hs-head">
+      <div>
+        <p class="lab">02 — Departments</p>
+        <h2 data-mask>진료 과목별로<br><em>담당 원장</em>이 끝까지 봅니다</h2>
+      </div>
+      <div class="ctr" aria-hidden="true">SLIDE <b data-cnt>01</b> / 04<div class="bar"><i data-bar></i></div></div>
+    </div>
+    <div class="hs-track">
+      <article class="dp">
+        <div class="ph" data-cur="VIEW"><span class="no">01</span><img data-hpar src="img/p38.jpg" alt="임플란트 모형과 구강 스캐너" loading="lazy"></div>
+        <div class="co">
+          <p class="en">IMPLANT</p>
+          <h3>임플란트</h3>
+          <p class="ds">CT로 잇몸뼈의 높이와 폭을 확인하고, 식립 위치를 디지털로 먼저 설계합니다. 뼈가 부족한 경우 뼈이식 여부까지 진단 단계에서 안내합니다.</p>
+          <ul><li>단일 · 다수 임플란트<span>디지털 가이드</span></li><li>뼈이식 · 상악동 거상술<span>필요 시</span></li><li>만 65세 이상 건강보험<span>평생 2개</span></li></ul>
+          <div class="ft"><small>일반적인 치료 기간<b>3 – 6개월</b></small><a href="#price">비용 보기 →</a></div>
+        </div>
+      </article>
+      <article class="dp">
+        <div class="ph" data-cur="VIEW"><span class="no">02</span><img data-hpar src="img/p37.jpg" alt="3D 스캔 화면으로 교정 계획을 설명하는 원장" loading="lazy"></div>
+        <div class="co">
+          <p class="en">ORTHODONTICS</p>
+          <h3>치아교정</h3>
+          <p class="ds">3D 스캔으로 현재 치열을 기록하고, 교정 후 예상 배열을 화면으로 함께 확인합니다. 생활 패턴에 맞춰 장치 종류를 고릅니다.</p>
+          <ul><li>투명교정<span>탈착식</span></li><li>세라믹 · 메탈 브라켓<span>고정식</span></li><li>부분교정 · 앞니 교정<span>짧은 기간</span></li></ul>
+          <div class="ft"><small>일반적인 치료 기간<b>12 – 24개월</b></small><a href="#price">비용 보기 →</a></div>
+        </div>
+      </article>
+      <article class="dp">
+        <div class="ph" data-cur="VIEW"><span class="no">03</span><img data-hpar src="img/p36.jpg" alt="밝은 1인 진료 공간" loading="lazy" style="object-position:30% 50%"></div>
+        <div class="co">
+          <p class="en">ENDODONTICS</p>
+          <h3>충치 · 신경치료</h3>
+          <p class="ds">가능한 한 자연치아를 살리는 쪽으로 진단합니다. 신경치료는 미세 현미경 하에서 진행하고, 치료 회차와 과정을 미리 안내합니다.</p>
+          <ul><li>레진 · 인레이<span>충치 범위별</span></li><li>신경치료 · 재신경치료<span>현미경 진료</span></li><li>크라운 보철<span>지르코니아</span></li></ul>
+          <div class="ft"><small>신경치료 일반적인 내원<b>3 – 4회</b></small><a href="#price">비용 보기 →</a></div>
+        </div>
+      </article>
+      <article class="dp">
+        <div class="ph" data-cur="VIEW"><span class="no">04</span><img data-hpar src="img/p39.jpg" alt="대기실에서 웃고 있는 가족" loading="lazy"></div>
+        <div class="co">
+          <p class="en">ESTHETIC</p>
+          <h3>심미치료</h3>
+          <p class="ds">치아 색과 모양, 잇몸 라인까지 얼굴과의 조화를 기준으로 계획합니다. 삭제량을 줄이는 방법부터 먼저 검토합니다.</p>
+          <ul><li>라미네이트<span>최소 삭제</span></li><li>전문가 미백<span>내원 미백</span></li><li>잇몸 성형<span>필요 시</span></li></ul>
+          <div class="ft"><small>라미네이트 일반적인 내원<b>2 – 3회</b></small><a href="#price">비용 보기 →</a></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec flow" id="flow">
+  <div class="w">
+    <div class="head">
+      <p class="lab" data-rv>03 — First Visit</p>
+      <h2 data-mask>첫 방문은 이렇게<br><em>네 단계</em>로 진행됩니다</h2>
+      <p data-rv>처음 오신 날에는 치료를 서두르지 않습니다. 촬영과 진단, 계획과 비용 설명까지 약 60분이면 충분합니다.</p>
+    </div>
+    <div class="split">
+      <div class="fig" data-cur="STEP">
+        <img class="on" src="img/p36.jpg" alt="CT 촬영실이 있는 진료 공간" loading="lazy">
+        <img src="img/p37.jpg" alt="3D 스캔 결과를 설명하는 원장" loading="lazy">
+        <img src="img/p38.jpg" alt="임플란트 모형으로 치료 계획 설명" loading="lazy">
+        <img src="img/p39.jpg" alt="상담을 마치고 대기실에 있는 가족" loading="lazy">
+        <p class="num"><span id="stn">01</span><small>/ 04</small></p>
+        <div class="prog" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
+      </div>
+      <div class="steps">
+        <div class="stp on"><p class="n">STEP 01</p><h3>CT 촬영</h3><p>저선량 CBCT로 치아 뿌리와 잇몸뼈, 신경관 위치까지 입체로 촬영합니다. 일반 파노라마로 보이지 않는 부분을 확인합니다.</p><span class="t">약 10분 · 촬영실</span></div>
+        <div class="stp"><p class="n">STEP 02</p><h3>3D 진단</h3><p>구강 스캐너로 본을 뜨지 않고 치아를 디지털로 기록합니다. 촬영 결과를 진료실 모니터에서 담당 원장과 함께 봅니다.</p><span class="t">약 20분 · 진료실</span></div>
+        <div class="stp"><p class="n">STEP 03</p><h3>치료 계획</h3><p>필요한 치료와 꼭 지금 하지 않아도 되는 치료를 나눠서 설명합니다. 선택지가 여러 개라면 각각의 장단점을 그대로 안내합니다.</p><span class="t">약 20분 · 상담실</span></div>
+        <div class="stp"><p class="n">STEP 04</p><h3>비용 안내</h3><p>치료 항목별 비용을 문서로 드리고, 건강보험 적용 여부와 분납 가능 여부까지 확인합니다. 당일 결정하지 않으셔도 됩니다.</p><span class="t">약 10분 · 상담실</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec price" id="price">
+  <div class="w grid">
+    <div>
+      <p class="lab" data-rv>04 — Price</p>
+      <h2 data-mask style="margin-top:20px">비용은 진단 전에도<br><em>미리</em> 알 수 있어야 합니다</h2>
+      <div class="note" data-rv><b>비급여 진료비용 고지</b>본 비용은 의료법에 따른 비급여 진료비용 고지 기준이며, 부가세 및 검사비는 포함되어 있지 않습니다. 개인의 구강 상태와 치료 범위에 따라 달라질 수 있으며, 정확한 비용은 진단 후 문서로 안내드립니다.</div>
+      <div class="ins" data-rv><b>건강보험 적용 항목</b>만 65세 이상 임플란트(평생 2개, 본인부담 30%), 스케일링(연 1회), 신경치료 등은 건강보험이 적용됩니다.</div>
+    </div>
+    <div class="ptab" data-rv>
+      <h3>IMPLANT · 임플란트</h3>
+      <dl>
+        <dt>국산 임플란트 1개<small>픽스처 + 지대주 + 지르코니아 크라운</small></dt><dd>95<small>만원~</small></dd>
+        <dt>수입 임플란트 1개<small>픽스처 + 지대주 + 지르코니아 크라운</small></dt><dd>130<small>만원~</small></dd>
+        <dt>뼈이식 추가<small>부위 · 양에 따라 상이</small></dt><dd>20<small>만원~</small></dd>
+      </dl>
+      <h3>ORTHODONTICS · 교정</h3>
+      <dl>
+        <dt>투명교정<small>전체 교정 기준</small></dt><dd>450<small>만원~</small></dd>
+        <dt>세라믹 브라켓 교정<small>전체 교정 기준</small></dt><dd>400<small>만원~</small></dd>
+        <dt>부분교정<small>앞니 등 일부 치열</small></dt><dd>180<small>만원~</small></dd>
+      </dl>
+      <h3>RESTORE · ESTHETIC · 보존 · 심미</h3>
+      <dl>
+        <dt>레진 충전 1개<small>범위에 따라 상이</small></dt><dd>10<small>만원~</small></dd>
+        <dt>지르코니아 크라운 1개</dt><dd>50<small>만원~</small></dd>
+        <dt>라미네이트 1개</dt><dd>70<small>만원~</small></dd>
+        <dt>전문가 미백<small>1회 내원 기준</small></dt><dd>15<small>만원~</small></dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="sec docs" id="docs">
+  <div class="w">
+    <div class="head">
+      <p class="lab" data-rv>05 — Doctors</p>
+      <h2 data-mask>처음 상담한 원장이<br><em>마지막 진료</em>까지 봅니다</h2>
+      <p data-rv>진료 과목마다 담당 원장이 정해져 있습니다. 회차마다 의사가 바뀌지 않도록 1인 담당제로 운영합니다.</p>
+    </div>
+    <div class="grid">
+      <article class="doc" data-rv>
+        <div class="ini" aria-hidden="true">DH</div>
+        <div class="hd"><p class="rl">대표원장 · 임플란트</p><h3>이도현<small>D.H. LEE</small></h3></div>
+        <div class="sp"><span>통합치의학과 전문의</span><span>임플란트</span><span>보철</span></div>
+        <ul><li>치과대학 졸업 · 동 대학원 석사</li><li>대학병원 치과 수련</li><li>디지털 가이드 임플란트 진료</li></ul>
+        <p class="msg">"보여드릴 수 있는 만큼 다 보여드리고 시작합니다."</p>
+      </article>
+      <article class="doc" data-rv style="transition-delay:.1s">
+        <div class="ini" aria-hidden="true">SY</div>
+        <div class="hd"><p class="rl">원장 · 치아교정</p><h3>한서윤<small>S.Y. HAN</small></h3></div>
+        <div class="sp"><span>치과교정과 전문의</span><span>투명교정</span><span>성인교정</span></div>
+        <ul><li>치과대학 졸업 · 동 대학원 박사</li><li>치과교정과 수련</li><li>3D 디지털 교정 계획 진료</li></ul>
+        <p class="msg">"교정 후의 얼굴까지 같이 그려봅니다."</p>
+      </article>
+      <article class="doc" data-rv style="transition-delay:.2s">
+        <div class="ini" aria-hidden="true">JM</div>
+        <div class="hd"><p class="rl">원장 · 보존 · 심미</p><h3>오재민<small>J.M. OH</small></h3></div>
+        <div class="sp"><span>치과보존과 전문의</span><span>신경치료</span><span>라미네이트</span></div>
+        <ul><li>치과대학 졸업 · 동 대학원 석사</li><li>치과보존과 수련</li><li>미세 현미경 신경치료 진료</li></ul>
+        <p class="msg">"자연치아를 지키는 쪽을 먼저 봅니다."</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec eqp" id="equip">
+  <div class="w grid">
+    <div class="ph clip" data-cur="VIEW"><div class="im"><img data-par=".08" src="img/p38.jpg" alt="구강 스캐너와 임플란트 모형" loading="lazy"></div></div>
+    <div>
+      <p class="lab" data-rv>06 — Equipment</p>
+      <h2 data-mask style="margin-top:20px">설명이 쉬워지는<br><em>디지털 장비</em></h2>
+      <ol>
+        <li data-rv><b>01</b><h3>CBCT 3D 촬영</h3><p>저선량으로 치아와 잇몸뼈를 입체 촬영합니다. 촬영 결과는 모니터로 바로 함께 확인합니다.</p></li>
+        <li data-rv><b>02</b><h3>구강 스캐너</h3><p>본뜨기 재료 없이 치아를 디지털로 기록해 구역질과 재방문 부담을 줄입니다.</p></li>
+        <li data-rv><b>03</b><h3>디지털 가이드 수술</h3><p>임플란트 식립 각도와 깊이를 CT 데이터 위에서 사전 설계합니다.</p></li>
+        <li data-rv><b>04</b><h3>1인 1기구 멸균</h3><p>모든 기구는 개별 파우치로 고압 멸균하고, 진료 직전에 환자 앞에서 개봉합니다.</p></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="sec visit" id="visit">
+  <div class="w">
+    <div class="head">
+      <p class="lab" data-rv>07 — Visit</p>
+      <h2 data-mask>강남역 11번 출구에서<br><em>도보 3분</em></h2>
+    </div>
+    <div class="grid">
+      <div class="hours" data-rv>
+        <div><span>월 · 수 · 금</span><b>10:00 – 19:00</b></div>
+        <div class="nt"><span>화 · 목</span><b>10:00 – 21:00</b></div>
+        <div><span>토요일</span><b>10:00 – 15:00</b></div>
+        <div><span>점심시간 (평일)</span><b>13:00 – 14:00</b></div>
+        <div class="off"><span>일요일 · 공휴일</span><b>휴진</b></div>
+        <p>토요일은 점심시간 없이 진료합니다. 접수는 진료 종료 30분 전까지 가능합니다. 건물 지하 주차장 2시간 무료(진료 시).</p>
+      </div>
+      <div class="map" data-rv aria-label="오시는 길 약도">
+        <svg viewBox="0 0 600 440" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <rect width="600" height="440" fill="#eef5f3"/>
+          <g fill="#e1ecea"><rect x="30" y="30" width="170" height="120" rx="8"/><rect x="250" y="30" width="130" height="120" rx="8"/><rect x="430" y="30" width="150" height="120" rx="8"/><rect x="30" y="210" width="170" height="200" rx="8"/><rect x="430" y="210" width="150" height="200" rx="8"/><rect x="250" y="290" width="130" height="120" rx="8"/></g>
+          <path d="M0 180H600M225 0V440M405 0V440" stroke="#fff" stroke-width="34"/>
+          <path d="M0 180H600" stroke="#cfdedb" stroke-width="2" stroke-dasharray="12 10"/>
+          <path d="M0 252C120 252 160 260 225 262S330 262 405 262 520 258 600 256" stroke="#2fa84f" stroke-width="7" fill="none" opacity=".85"/>
+          <g font-family="Noto Sans KR,sans-serif" font-size="13" fill="#5c7376" font-weight="500"><text x="236" y="120" transform="rotate(-90 236 120)">강남대로</text><text x="40" y="172">테헤란로</text><text x="470" y="246">2호선</text></g>
+          <circle cx="225" cy="262" r="16" fill="#fff" stroke="#2fa84f" stroke-width="5"/><text x="148" y="296" font-family="Noto Sans KR,sans-serif" font-size="13" font-weight="700" fill="#0f2629">강남역 11번 출구</text>
+          <path d="M241 262C290 262 300 230 318 214" stroke="#0b4f55" stroke-width="3" fill="none" stroke-dasharray="5 6"/>
+          <rect x="262" y="198" width="110" height="74" rx="10" fill="#0b4f55" opacity="0"/>
+          <g transform="translate(318 186)"><circle r="26" fill="#0b4f55"/><circle r="40" fill="none" stroke="#6fd3bd" stroke-width="2"><animate attributeName="r" values="26;46" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0" dur="2s" repeatCount="indefinite"/></circle><path d="M-9-5c0-3.4 4.6-4 9-1.6C4.4-9 9-8.4 9-5c.6 3-.2 5-1 7-.8 2-1 5.6-2.4 6.2C4.4 8.7 4 5.4 0 3.8-4 5.4-4.4 8.7-5.6 8.2-7 7.6-7.2 4-8 2c-.8-2-1.6-4-1-7Z" fill="#dff7ef"/></g>
+          <text x="352" y="150" font-family="Noto Sans KR,sans-serif" font-size="15" font-weight="800" fill="#0b4f55">바른이치과 0층</text>
+        </svg>
+        <div class="addr"><div><b>서울특별시 강남구 강남대로 000, 0층</b><span>강남역 11번 출구에서 직진 200m · 건물 지하 주차</span></div><a href="tel:0200000000">02-000-0000 →</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec faq" id="faq">
+  <div class="w grid">
+    <div>
+      <p class="lab" data-rv>08 — FAQ</p>
+      <h2 data-mask style="margin-top:20px">자주 묻는<br><em>질문</em></h2>
+      <p data-rv style="margin-top:20px;color:var(--mu)">더 궁금한 점은 상담 예약 시 메모로 남겨 주세요. 진료 전에 답변드립니다.</p>
+    </div>
+    <div>
+      <details data-rv><summary>첫 방문 당일에 치료까지 받을 수 있나요?</summary><p>통증이 있는 응급 상황은 당일 처치가 가능합니다. 그 외 임플란트 · 교정 등은 첫날 CT 촬영과 진단, 치료 계획과 비용 안내까지 진행하고, 충분히 검토하신 뒤 다음 내원에 시작하는 것을 권해드립니다.</p></details>
+      <details data-rv><summary>CT 촬영 비용이 따로 있나요?</summary><p>진단 목적의 CBCT 촬영 비용은 비급여 진료비용 고지 기준에 따라 안내드리며, 해당 부위 치료를 진행하시는 경우 치료비에 포함해 정산합니다.</p></details>
+      <details data-rv><summary>임플란트는 몇 번 정도 내원해야 하나요?</summary><p>뼈 상태에 따라 다르지만 일반적으로 식립 · 실밥 제거 · 본뜨기 · 보철 장착까지 4~6회 내원하며, 기간은 3~6개월 정도입니다. 뼈이식이 필요한 경우 기간이 늘어날 수 있습니다.</p></details>
+      <details data-rv><summary>투명교정과 브라켓 교정 중 무엇이 맞을까요?</summary><p>치아 이동량과 생활 패턴에 따라 달라집니다. 3D 스캔으로 예상 이동 과정을 확인한 뒤, 가능한 장치들의 기간과 비용을 비교해 안내드립니다.</p></details>
+      <details data-rv><summary>야간진료에도 같은 원장에게 진료받을 수 있나요?</summary><p>화 · 목 야간진료는 과목별 담당 원장이 교대로 진료합니다. 예약 시 담당 원장의 진료 요일을 함께 안내드립니다.</p></details>
+      <details data-rv><summary>비용은 나눠서 낼 수 있나요?</summary><p>치료 단계별 분할 결제가 가능하며, 카드 무이자 할부는 카드사 정책에 따릅니다. 자세한 내용은 비용 안내 단계에서 문서로 드립니다.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="sec book" id="book">
+  <div class="w grid">
+    <div class="side">
+      <p class="lab" data-rv>09 — Reservation</p>
+      <h2 data-mask style="margin-top:20px">상담 예약은<br><em>1분</em>이면 됩니다</h2>
+      <p data-rv style="margin-top:20px;color:var(--mu)">남겨주신 연락처로 코디네이터가 진료 시간 확인 전화를 드립니다. 예약은 확인 전화 후 확정됩니다.</p>
+      <div class="ph clip" data-cur="VIEW"><div class="im"><img data-par=".06" src="img/p39.jpg" alt="바른이치과 대기실" loading="lazy"></div></div>
+      <p class="call" data-rv>전화 예약<b>02-000-0000</b>평일 10:00 – 19:00 · 화 · 목 21:00까지</p>
+    </div>
+    <form class="fm" id="fm" novalidate data-rv>
+      <div class="row">
+        <label><span>이름 <i>*</i></span><input type="text" id="fName" name="name" required autocomplete="name" placeholder="홍길동"></label>
+        <label><span>연락처 <i>*</i></span><input type="tel" id="fTel" name="tel" required autocomplete="tel" inputmode="tel" pattern="0[0-9]{1,2}-?[0-9]{3,4}-?[0-9]{4}" placeholder="010-0000-0000"></label>
+      </div>
+      <p class="tt">진료과목 <span style="color:var(--teal3)">*</span></p>
+      <div class="chips" role="radiogroup" aria-label="진료과목">
+        <label><input type="radio" name="dept" value="임플란트" required checked><span>임플란트</span></label>
+        <label><input type="radio" name="dept" value="치아교정"><span>치아교정</span></label>
+        <label><input type="radio" name="dept" value="충치 · 신경치료"><span>충치 · 신경치료</span></label>
+        <label><input type="radio" name="dept" value="심미치료"><span>심미치료</span></label>
+        <label><input type="radio" name="dept" value="검진 · 기타"><span>검진 · 기타</span></label>
+      </div>
+      <div class="row">
+        <label><span>희망일 <i>*</i></span><input type="date" id="fDate" name="date" required></label>
+        <label><span>희망 시간대</span><select id="fTime" name="time"><option>오전 (10–13시)</option><option>오후 (14–17시)</option><option>저녁 (17–21시, 화 · 목)</option></select></label>
+      </div>
+      <label><span>불편한 점 · 문의 내용</span><textarea name="memo" placeholder="예) 왼쪽 아래 어금니가 씹을 때 아파요"></textarea></label>
+      <label class="agree"><input type="checkbox" required name="agree"><span>개인정보 수집 · 이용(이름, 연락처, 희망 진료 정보)에 동의합니다. 수집 정보는 예약 확인 목적으로만 사용되며 상담 완료 후 1년간 보관됩니다.</span></label>
+      <button class="btn pr" type="submit">상담 예약 신청 <span class="ar">→</span></button>
+      <p class="msg" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="w">
+    <div class="top-row">
+      <a href="#home" class="mark" aria-label="바른이치과 홈"><svg viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="12" fill="#6fd3bd"/><path d="M11.5 13.2c0-3.6 4.4-4.6 8.5-2.2 4.1-2.4 8.5-1.4 8.5 2.2.8 3.6.1 6.4-.9 8.6-1 2.4-1.2 6.6-3 7.4-1.3.6-1.7-3.4-4.6-5.4-2.9 2-3.3 6-4.6 5.4-1.8-.8-2-5-3-7.4-1-2.2-1.7-5-.9-8.6Z" fill="#06363b"/></svg><span><b>바른이치과</b><small>BAREUN DENTAL</small></span></a>
+      <nav aria-label="하단 메뉴"><a href="#dept">진료과목</a><a href="#flow">첫 방문 안내</a><a href="#price">비용 안내</a><a href="#docs">의료진</a><a href="#visit">오시는 길</a><a href="#book">상담 예약</a></nav>
+    </div>
+    <p class="info"><span>바른이치과의원</span><span>대표자 이도현</span><span>사업자등록번호 000-00-00000</span><span>서울특별시 강남구 강남대로 000, 0층</span><span>대표전화 02-000-0000</span></p>
+    <p class="legal">본 사이트의 진료 정보는 일반적인 안내이며, 치료 결과와 기간은 개인의 구강 상태에 따라 차이가 있을 수 있습니다. 모든 치료는 부작용(통증, 부기, 시린 증상 등)이 발생할 수 있으므로 전문의와 충분히 상담 후 결정하시기 바랍니다.</p>
+    <p class="big" aria-hidden="true">BAREUN</p>
+    <p class="cr">© 2026 바른이치과. 본 사이트는 ATZ MACH 제작 시안입니다.</p>
+  </div>
+</footer>
+
+<script>
+/* FX engine — lerp smooth scroll + rAF scroll-scrub, no dependencies */
+const FX=(()=>{
+const D=document,R=D.documentElement;
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const FINE=matchMedia('(hover:hover) and (pointer:fine)').matches;
+const cl=(v,a=0,b=1)=>v<a?a:v>b?b:v,lerp=(a,b,t)=>a+(b-a)*t,mob=()=>innerWidth<=860;
+if(RM)R.classList.add('rm');
+const subs=[],sub=f=>subs.push(f);
+const prog=el=>{const r=el.getBoundingClientRect();return cl(-r.top/Math.max(1,el.offsetHeight-innerHeight))};
+const vis=r=>r.bottom>-120&&r.top<innerHeight+120;
+/* smooth scroll (desktop wheel only; touch/keys stay native) */
+let tgt=scrollY,cur=scrollY,sm=false,lastY=scrollY,vel=0;
+const maxY=()=>R.scrollHeight-innerHeight,SMOOTH=!RM&&FINE;
+if(SMOOTH){R.style.scrollBehavior='auto';
+  addEventListener('wheel',e=>{if(e.ctrlKey)return;const s=e.target.closest&&e.target.closest('textarea,select');if(s)return;
+    e.preventDefault();if(!sm)tgt=cur=scrollY;tgt=cl(tgt+e.deltaY*(e.deltaMode===1?40:1),0,maxY());sm=true},{passive:false});
+  addEventListener('keydown',()=>sm=false);addEventListener('pointerdown',()=>sm=false);}
+const go=y=>{y=cl(y,0,maxY());if(!SMOOTH){scrollTo({top:y,behavior:RM?'auto':'smooth'});return}if(!sm)cur=scrollY;tgt=y;sm=true};
+D.addEventListener('click',e=>{const a=e.target.closest('a[href^="#"]');if(!a||e.defaultPrevented)return;const h=a.getAttribute('href'),el=h.length>1&&D.querySelector(h);
+  if(h.length>1&&!el)return;e.preventDefault();go(el?el.getBoundingClientRect().top+scrollY-70:0)});
+/* in-view classes: mask titles, clip images, counters */
+const count=el=>{const to=+el.dataset.count,d=+(el.dataset.dec||0);if(RM){el.textContent=to.toFixed(d);return}
+  const t0=performance.now(),f=t=>{const k=cl((t-t0)/1700);el.textContent=(to*(1-Math.pow(1-k,3))).toFixed(d);if(k<1)requestAnimationFrame(f)};requestAnimationFrame(f)};
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;e.target.classList.add('in');if(e.target.dataset.count)count(e.target);io.unobserve(e.target)}),{rootMargin:'0px 0px -12% 0px'});
+D.querySelectorAll('[data-mask]').forEach(h=>{h.innerHTML=h.innerHTML.split(/<br\s*\/?>/i).map(s=>`<span class="ln"><span>${s}</span></span>`).join('');io.observe(h)});
+D.querySelectorAll('[data-count]').forEach(el=>{if(!RM)el.textContent='0';io.observe(el)});
+D.querySelectorAll('.clip').forEach(el=>io.observe(el));
+/* word splitter */
+const words=el=>{const w=D.createTreeWalker(el,NodeFilter.SHOW_TEXT),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(n=>{const f=D.createDocumentFragment();n.textContent.split(/(\s+)/).forEach(s=>{if(!s)return;if(/^\s+$/.test(s))f.append(s);else{const sp=D.createElement('span');sp.className='wd';sp.textContent=s;f.append(sp)}});n.replaceWith(f)});
+  return[...el.querySelectorAll('.wd')]};
+const wset=(s,k)=>{s.opacity=(.12+.88*k).toFixed(3);s.filter=k>.98?'none':`blur(${((1-k)*8).toFixed(1)}px)`;s.transform=k>.98?'none':`translate3d(0,${((1-k)*16).toFixed(1)}px,0)`};
+/* parallax */
+const pars=[...D.querySelectorAll('[data-par]')];
+if(!RM)sub(()=>{for(const el of pars){const r=el.parentElement.getBoundingClientRect();if(!vis(r))continue;
+  const off=r.top+r.height/2-innerHeight/2;el.style.transform=`translate3d(0,${(-off*+el.dataset.par).toFixed(1)}px,0) scale(${el.dataset.s||1.18})`}});
+/* velocity-reactive marquees */
+D.querySelectorAll('[data-mq]').forEach(m=>{const t=m.querySelector('.mq-t');t.innerHTML+=t.innerHTML;if(RM)return;
+  let x=0,dir=+m.dataset.mq||1,base=dir;sub((y,v)=>{const r=m.getBoundingClientRect();if(!vis(r))return;if(v>.4)dir=base;else if(v<-.4)dir=-base;
+    const w=t.scrollWidth/2;x-=(1.1+Math.min(Math.abs(v)*.9,40))*dir;x=((x%w)-w)%w;t.style.transform=`translate3d(${x.toFixed(1)}px,0,0) skewX(${cl(-v*.25,-8,8).toFixed(2)}deg)`})});
+/* horizontal pinned slider */
+const hslide=sec=>{const tr=sec.querySelector('.hs-track'),cnt=sec.querySelector('[data-cnt]'),bar=sec.querySelector('[data-bar]'),n=tr.children.length;let dist=0,on=false;
+  const size=()=>{on=!RM&&!mob();sec.classList.toggle('hs-on',on);if(!on){sec.style.height='';tr.style.transform='';return}
+    tr.style.transform='';dist=tr.scrollWidth-innerWidth;sec.style.height=(dist+innerHeight*1.15)+'px'};
+  size();addEventListener('resize',size);addEventListener('load',size);
+  tr.addEventListener('scroll',()=>{if(on)return;const i=Math.round(tr.scrollLeft/Math.max(1,tr.scrollWidth-tr.clientWidth)*(n-1))+1;if(cnt)cnt.textContent=String(i).padStart(2,'0')},{passive:true});
+  sub(()=>{if(!on)return;const r=sec.getBoundingClientRect();if(!vis(r))return;const p=cl(-r.top/Math.max(1,sec.offsetHeight-innerHeight)/.88);
+    tr.style.transform=`translate3d(${(-p*dist).toFixed(1)}px,0,0)`;if(cnt)cnt.textContent=String(Math.min(n,Math.round(p*(n-1))+1)).padStart(2,'0');
+    if(bar)bar.style.transform=`scaleX(${Math.max(.02,p).toFixed(3)})`;
+    tr.querySelectorAll('[data-hpar]').forEach(im=>{const b=im.parentElement.getBoundingClientRect();const o=b.left+b.width/2-innerWidth/2;im.style.transform=`translate3d(${(-o*.12).toFixed(1)}px,0,0) scale(1.22)`})})};
+/* custom cursor */
+if(FINE&&!RM){R.classList.add('has-cur');const c=D.createElement('div');c.className='cur';c.setAttribute('aria-hidden','true');c.innerHTML='<span></span>';D.body.append(c);
+  let mx=-200,my=-200,cx=-200,cy=-200;addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY},{passive:true});
+  D.addEventListener('mouseover',e=>{const t=e.target.closest('[data-cur]');c.classList.toggle('big',!!t);if(t)c.firstChild.textContent=t.dataset.cur||'VIEW';
+    c.classList.toggle('lnk',!t&&!!e.target.closest('a,button,summary,label'));c.style.opacity=e.target.closest('input,textarea,select')?0:1});
+  sub(()=>{cx=lerp(cx,mx,.2);cy=lerp(cy,my,.2);c.style.transform=`translate3d(${cx.toFixed(1)}px,${cy.toFixed(1)}px,0)`});}
+/* loop */
+const tick=t=>{if(sm){cur=lerp(cur,tgt,.1);if(Math.abs(tgt-cur)<.5){cur=tgt;sm=false}scrollTo(0,cur)}
+  const y=scrollY;vel=lerp(vel,y-lastY,.25);lastY=y;for(const f of subs)f(y,vel,t);requestAnimationFrame(tick)};
+requestAnimationFrame(tick);
+return{RM,FINE,cl,lerp,mob,sub,prog,vis,words,wset,hslide,go};
+})();
+
+
+/* ---- page: tooth-mask hero scrub ---- */
+(()=>{const {cl,lerp,sub,prog}=FX;const hero=document.querySelector('.hero'),pin=hero.querySelector('.pin'),mask=hero.querySelector('.tmask'),img=mask.querySelector('img'),
+ shade=mask.querySelector('.shade'),line=hero.querySelector('.tline path'),q=hero.querySelector('.h-q'),
+ copy=[...hero.querySelectorAll('.h-l,.h-r,.anno,.scroll-hint')],wm=[...hero.querySelectorAll('.wm span')];
+ /* molar outline on a 100-unit grid; anchor (50,40) sits in the solid crown so scaling it up covers the screen */
+ const T='M20 18C20 6 38 4 50 12C62 4 80 6 80 18C84 34 80 48 76 58C72 72 70 90 62 94C56 96 55 80 50 70C45 80 44 96 38 94C30 90 28 72 24 58C20 48 16 34 20 18Z';
+ const path=(ax,ay,s)=>T.replace(/([\d.]+) ([\d.]+)/g,(_,x,y)=>((x-50)*s+ax).toFixed(1)+' '+((y-40)*s+ay).toFixed(1));
+ let W,H,s0,s1,a0;const sz=()=>{W=pin.offsetWidth;H=pin.offsetHeight;const m=FX.mob();
+  s0=m?Math.min(H*.36,W*.6*92/68)/92:H*.56/92;const cy=m?H*.69:H*.53;a0=[W/2,cy-10*s0];s1=Math.max(W/2/24,H/2/16)*1.15;
+  hero.querySelector('.tline').setAttribute('viewBox',`0 0 ${W} ${H}`)};
+ const draw=p=>{const z=cl(p/.62),e=z*z*(3-2*z),s=lerp(s0,s1,e),ax=lerp(a0[0],W/2,e),ay=lerp(a0[1],H/2,e);
+  mask.style.clipPath=e>.995?'none':`path('${path(ax,ay,s)}')`;
+  line.setAttribute('d',path(ax,ay,s*1.07));line.style.opacity=cl(1-e*3).toFixed(3);
+  img.style.transform=`scale(${lerp(1.25,1.02,e).toFixed(3)})`;
+  shade.style.opacity=cl((p-.45)/.25).toFixed(3);
+  copy.forEach(c=>{c.style.opacity=cl(1-p*3.2).toFixed(3);c.style.transform=p?`translate3d(0,${(-p*150).toFixed(1)}px,0)`:''});
+  wm.forEach((s,i)=>{const k=cl(p*1.8-Math.abs(i-2.5)*.08);s.style.transform=k?`translate3d(0,${(k*120).toFixed(1)}%,0)`:''});
+  const qk=cl((p-.55)/.22);q.style.opacity=qk.toFixed(3);q.style.transform=`translate3d(0,calc(-50% + ${((1-qk)*30).toFixed(1)}px),0)`;
+  q.style.pointerEvents=qk>.5?'auto':'none'};
+ sz();draw(0);addEventListener('resize',()=>{sz();draw(FX.RM?0:prog(hero))});
+ if(FX.RM)return;
+ sub(()=>{const r=hero.getBoundingClientRect();if(r.bottom<-50)return;draw(prog(hero))});
+})();
+
+/* word reveal, slider, sticky steps */
+(()=>{const {cl,sub}=FX;
+ const ws=FX.words(document.getElementById('wr'));
+ if(FX.RM)ws.forEach(w=>FX.wset(w.style,1));
+ else sub(()=>{const s=ws[0].closest('section').getBoundingClientRect();if(!FX.vis(s))return;ws.forEach(w=>{const tp=w.getBoundingClientRect().top;FX.wset(w.style,cl((innerHeight*.85-tp)/(innerHeight*.28)))})});
+ FX.hslide(document.querySelector('.dept'));
+ const sts=[...document.querySelectorAll('.stp')],ims=[...document.querySelectorAll('.flow .fig img')],pg=[...document.querySelectorAll('.flow .prog i')],stn=document.getElementById('stn');let ac=-1;
+ sub(()=>{if(FX.mob()){if(ac!==-2){ac=-2;sts.forEach(s=>s.classList.add('on'))}return}let a=0;sts.forEach((s,i)=>{if(s.getBoundingClientRect().top<innerHeight*.5)a=i});
+  if(a!==ac){ac=a;sts.forEach((s,i)=>s.classList.toggle('on',i===a));ims.forEach((m,i)=>m.classList.toggle('on',i===a));pg.forEach((m,i)=>m.classList.toggle('on',i<=a));stn.textContent='0'+(a+1)}});
+})();
+
+/* header, menu, reveal, form */
+const top_=document.getElementById('top'),bg=document.getElementById('burger');
+const onS=()=>top_.classList.toggle('is-dim',scrollY>40);onS();addEventListener('scroll',onS,{passive:true});
+bg.onclick=()=>{const o=top_.classList.toggle('open');bg.setAttribute('aria-expanded',o)};
+top_.querySelectorAll('nav a').forEach(a=>a.addEventListener('click',()=>{top_.classList.remove('open');bg.setAttribute('aria-expanded',false)}));
+{const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('br-vis');io.unobserve(e.target)}}),{rootMargin:'0px 0px -8% 0px'});
+ document.querySelectorAll('[data-rv]').forEach(el=>io.observe(el));}
+{const f=document.getElementById('fm'),m=f.querySelector('.msg'),d=document.getElementById('fDate');
+ const t=new Date();t.setDate(t.getDate()+1);d.min=t.toISOString().slice(0,10);
+ f.addEventListener('submit',e=>{e.preventDefault();
+  if(!f.checkValidity()){m.textContent='필수 항목(*)과 개인정보 동의를 확인해 주세요.';f.reportValidity();return}
+  const dp=f.querySelector('[name=dept]:checked').value;
+  m.textContent=`${document.getElementById('fName').value}님, ${d.value} ${document.getElementById('fTime').value.split(' ')[0]} · ${dp} 상담 예약 신청이 접수되었습니다. 확인 전화를 드리겠습니다.`;f.reset()});}
+</script>
+<style id="qa52-bareun-css">/* T19 */h1,h2,h3{text-wrap:balance}/* M05 동의 체크 줄 44px */label:has(>input[type=checkbox]){min-height:44px}/* M09 */@media(max-width:1024px){input:not([type=checkbox]):not([type=radio]):not([type=range]):not([type=file]),select,textarea{font-size:16px!important}}.ptab dd small{letter-spacing:0}.mark small{font-size:11px}footer .cr{color:#93b3b0}</style><script id="qa52-bareun-js">(function(){var b=document.getElementById('burger');if(!b)return;
+function open(){return !!document.querySelector('nav.open,.open nav')}
+var was=false;function sync(){var o=open();if(o===was)return;was=o;
+ document.documentElement.style.overflow=o?'hidden':'';b.setAttribute('aria-expanded',o?'true':'false')}
+var mo=new MutationObserver(sync);[].concat([].slice.call(document.querySelectorAll('nav')),[b.closest('header')]).forEach(function(e){e&&mo.observe(e,{attributes:true,attributeFilter:['class']})});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&open()){b.click();b.focus()}})})();</script></body>
+</html>

@@ -1,0 +1,441 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>ATZ MACH 도입 시나리오</title><meta name="description" content="프랜차이즈 본사 · 제조 · 차량 부품 · 인테리어 시공. 업종별로 어떤 업무를 프로그램이 대신하는지 설계 예시로 보여 드립니다. 1차 시안 무료, 계약 후 14일 완성."><meta name="theme-color" content="#070620">
+<meta property="og:type" content="website"><meta property="og:locale" content="ko_KR"><meta property="og:title" content="ATZ MACH 도입 시나리오"><meta property="og:description" content="업종별로 어떤 업무를 프로그램이 대신하는지 설계 예시로 보여 드립니다.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;600;700&family=IBM+Plex+Mono:wght@500;700&display=swap">
+<style>
+/* 레이아웃: 사진 카드 목록 → 카드 하나를 누르면 같은 페이지에서 긴 글(시나리오)로 바뀜. 색 · 글꼴은 업종 안내(l/*.html)와 같은 값 */
+:root{--bg:#070620;--pn:#100d33;--ln:rgba(255,255,255,.1);--fg:#f3efff;--dim:#b4afdf;--br:#ff5ccf;--br2:#7a6bff;--gain:#2ee59d;--loss:#ff5c7a;--sans:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;--mono:"IBM Plex Mono","IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",monospace;color-scheme:dark;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.7 var(--sans);word-break:keep-all;overflow-wrap:break-word}
+img{max-width:100%}b,strong{font-weight:700}a{color:inherit}[hidden]{display:none!important}
+.w{max-width:920px;margin:0 auto;padding:0 16px}
+header{padding:18px 0;border-bottom:1px solid var(--ln)}header .w{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{font:700 18px var(--mono);text-decoration:none}.logo b{color:var(--br)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 20px;border-radius:12px;background:linear-gradient(95deg,var(--br),var(--br2));color:#fff;font-weight:700;text-decoration:none}
+.btn--s{min-height:40px;padding:0 14px;font-size:14px}
+h1{font-size:clamp(28px,6vw,44px);line-height:1.25;margin:20px 0 12px;text-wrap:balance}
+h2{font-size:clamp(21px,4.2vw,27px);line-height:1.35;margin:56px 0 14px;text-wrap:balance}
+p{margin:0 0 16px}.lede{color:var(--dim);font-size:17px;margin:0 0 20px;max-width:38em}
+.safe{color:var(--dim);font-size:13px;margin:10px 0 0}.safe:before{content:"✓ ";color:var(--gain);font-weight:700}
+.kw{display:inline-block;font:700 12px var(--mono);color:var(--br);border:1px solid rgba(255,92,207,.4);border-radius:6px;padding:2px 8px;margin-top:36px}
+.ex{font:700 11px var(--mono);color:var(--dim);border:1px solid var(--ln);border-radius:4px;padding:1px 6px;margin-left:6px;vertical-align:3px}
+.back{display:inline-flex;align-items:center;min-height:44px;margin-top:20px;color:var(--dim);font-size:14px;text-decoration:none}.back:hover{color:var(--fg)}
+.g{color:var(--gain)}
+
+/* 사진 카드 (홈 상단 카드와 같은 모양) */
+.cs-g{display:flex;flex-wrap:wrap;justify-content:center;gap:20px;margin:28px 0 8px}
+.cs-c{position:relative;display:block;flex:0 1 280px;aspect-ratio:31/43;max-width:100%;border-radius:26px;overflow:hidden;background:var(--pn);color:#fff;text-decoration:none;isolation:isolate}
+.cs-c img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%;z-index:-2;transition:transform .6s}
+.cs-c:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(7,6,32,.3) 0,rgba(7,6,32,0) 26%,rgba(7,6,32,.2) 48%,rgba(7,6,32,.9) 72%,rgba(7,6,32,.97) 100%)}
+.cs-c:hover img{transform:scale(1.04)}
+.cs-tag{position:absolute;left:16px;top:16px;display:inline-flex;align-items:center;gap:8px;max-width:calc(100% - 32px);padding:8px 14px;border-radius:999px;background:rgba(16,13,51,.72);border:1px solid rgba(255,255,255,.28);font-size:14px;font-weight:600;line-height:1.2;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.cs-tag svg{flex:none;width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.cs-b{position:absolute;left:20px;right:20px;bottom:20px;display:grid;gap:14px}
+.cs-n{font-size:clamp(21px,2.4vw,24px);font-weight:700;line-height:1.25;letter-spacing:-.02em;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.22)}
+.cs-m{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.cs-m b{display:block;font-size:clamp(21px,2.4vw,24px);line-height:1.2;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.cs-m small{display:block;margin-top:4px;font-size:13px;line-height:1.35;color:rgba(255,255,255,.72)}
+
+/* 시나리오 본문 */
+.meta{margin:10px 0 0;color:var(--dim);font-size:14px}
+.big{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:26px 0}
+.big div{min-width:0;background:var(--pn);border:1px solid var(--ln);border-radius:16px;padding:16px}
+.big b{display:block;font-size:clamp(21px,3.2vw,28px);line-height:1.15;letter-spacing:-.02em;font-variant-numeric:tabular-nums}.big small{display:block;margin-top:6px;color:var(--dim);font-size:13px;line-height:1.4}
+.ph{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;object-position:50% 34%;border-radius:20px;margin:0 0 30px;background:var(--pn)}
+.say{margin:28px 0;padding:6px 0 6px 20px;border-left:3px solid var(--br);font-size:clamp(19px,3.4vw,23px);font-weight:700;line-height:1.5;text-wrap:balance}
+.rows{display:grid;gap:10px;margin:16px 0}.row{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:stretch}
+.row>div{min-width:0;border-radius:14px;padding:12px 14px;font-size:15px}.row .b{background:rgba(255,92,122,.08);border:1px solid rgba(255,92,122,.3)}.row .a{background:rgba(46,229,157,.08);border:1px solid rgba(46,229,157,.35)}.row i{align-self:center;font-style:normal;color:var(--dim)}
+.row small{display:block;font:700 11px var(--mono);letter-spacing:.06em;margin-bottom:2px}.row .b small{color:var(--loss)}.row .a small{color:var(--gain)}
+.tw{overflow-x:auto;border:1px solid var(--ln);border-radius:14px;margin:16px 0 0}
+table{width:100%;border-collapse:collapse;font-size:15px}td,th{padding:10px 12px;border-bottom:1px solid var(--ln);text-align:left}tr:last-child td{border-bottom:0}th{color:var(--dim);font-weight:600;font-size:13px;white-space:nowrap}td.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.why{list-style:none;padding:0;margin:16px 0;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.why li{min-width:0;background:var(--pn);border:1px solid var(--ln);border-radius:16px;padding:16px}.why b{display:block;margin-bottom:4px}.why span{color:var(--dim);font-size:14px}
+.cta{margin:56px 0 40px;padding:28px;border-radius:20px;background:linear-gradient(120deg,rgba(255,92,207,.14),rgba(122,107,255,.14));border:1px solid rgba(255,122,217,.4);text-align:center}
+.cta h2{margin:0 0 10px}.cta .lede{margin-inline:auto}
+.more{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 40px}.more a{font-size:14px;padding:8px 12px;border:1px solid var(--ln);border-radius:99px;text-decoration:none;color:var(--dim);min-height:40px;display:inline-flex;align-items:center}.more a:hover{color:var(--fg);border-color:rgba(255,92,207,.5)}
+footer{border-top:1px solid var(--ln);padding:24px 0 40px;color:var(--dim);font-size:13px}footer a{display:inline-block;padding-block:15px;margin-block:-15px}
+:focus-visible{outline:2px solid var(--br);outline-offset:3px}
+@media(max-width:640px){.big{grid-template-columns:1fr 1fr}.row{grid-template-columns:1fr}.row i{transform:rotate(90deg);justify-self:center}.why{grid-template-columns:1fr}.ph{aspect-ratio:4/5}td,th{padding-left:8px;padding-right:8px}.cta{padding:24px 18px}}
+/* 예시 표기 */
+.secu{display:flex;gap:8px;align-items:flex-start;width:fit-content;max-width:100%;margin:14px 0 0;padding:10px 14px;border:1px solid var(--ln);border-radius:12px;color:var(--dim);font-size:13.5px;line-height:1.5}
+.secu:before{content:"예시";flex:none;font:700 11px var(--mono);color:var(--br);border:1px solid rgba(255,92,207,.4);border-radius:4px;padding:1px 6px;margin-top:1px}
+.cs-x,.phw span{position:absolute;right:14px;top:18px;font:700 11px/1 var(--mono);padding:6px 9px;border-radius:99px;background:rgba(16,13,51,.72);border:1px solid rgba(255,255,255,.28);color:#fff}
+.phw{position:relative;margin:0 0 30px}.phw .ph{margin:0}.phw span{top:14px}
+/* 움직이는 ERP 예시 화면 */
+.scr{position:relative;margin:18px 0 22px;border-radius:16px;overflow:hidden;background:#0c0a29;border:1px solid rgba(255,122,217,.35);box-shadow:0 30px 80px -40px rgba(255,92,207,.6)}
+.scr-bar{display:flex;align-items:center;gap:6px;padding:10px 14px;border-bottom:1px solid var(--ln);font-size:13px}
+.scr-bar i{flex:none;width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.18)}
+.scr-bar b{margin-left:6px;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.scr-bar span{flex:none;margin-left:auto;font:700 11px/1 var(--mono);padding:5px 8px;border-radius:99px;background:rgba(255,92,207,.14);color:#ff8be0;border:1px solid rgba(255,92,207,.4)}
+.scr-in{display:grid;grid-template-columns:128px minmax(0,1fr)}
+.scr-nav{display:grid;gap:4px;align-content:start;padding:12px 10px;border-right:1px solid var(--ln);font-size:13px;color:var(--dim)}
+.scr-nav span{padding:7px 10px;border-radius:8px;white-space:nowrap}
+.scr-nav .on{background:rgba(255,92,207,.14);color:#fff;font-weight:600}
+.scr-main{min-width:0;display:grid;gap:12px;padding:14px}
+.scr-k{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.scr-k div{min-width:0;padding:10px 12px;border-radius:10px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.07)}
+.scr-k small{display:block;font-size:11.5px;color:var(--dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.scr-k b{display:block;border-radius:6px;font-size:clamp(14px,2.4vw,19px);font-variant-numeric:tabular-nums;white-space:nowrap}
+.scr-tw{overflow-x:auto;border:1px solid var(--ln);border-radius:10px}
+.scr table{font-size:13px}.scr th{font-size:11.5px;padding:8px 10px}.scr td{padding:9px 10px;font-variant-numeric:tabular-nums}
+.chip{display:inline-block;padding:2px 8px;border-radius:99px;font-size:11.5px;font-weight:700;white-space:nowrap;background:rgba(255,255,255,.08);color:var(--dim)}
+.chip.ok{background:rgba(46,229,157,.14);color:var(--gain)}.chip.warn{background:rgba(255,181,71,.16);color:#ffb547}.chip.bad{background:rgba(255,92,122,.16);color:var(--loss)}
+.hit{animation:hit 1.3s ease-out}
+@keyframes hit{0%{background:rgba(255,92,207,.5)}100%{background:transparent}}
+.scr-say{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:baseline;min-height:3.4em;padding:11px 14px;border-top:1px solid var(--ln);font-size:14.5px;font-weight:600;line-height:1.5}
+.scr-say:before{content:"지금";font:700 11px var(--mono);color:var(--br)}
+.scr-cur{position:absolute;left:0;top:0;width:18px;height:18px;pointer-events:none;opacity:0;z-index:2;transition:transform .6s cubic-bezier(.3,.7,.2,1),opacity .3s}
+.scr-cur:before{content:"";position:absolute;inset:0;background:#fff;clip-path:polygon(0 0,0 78%,24% 60%,40% 96%,54% 90%,38% 55%,70% 55%);filter:drop-shadow(0 1px 2px #000)}
+.scr-cur.on{opacity:1}
+.scr-cur.tap:after{content:"";position:absolute;left:-9px;top:-9px;width:18px;height:18px;border-radius:50%;border:2px solid var(--br);animation:tap .5s ease-out both}
+@keyframes tap{from{transform:scale(.4);opacity:1}to{transform:scale(2.2);opacity:0}}
+@media(max-width:640px){.scr-in{grid-template-columns:minmax(0,1fr)}.scr-nav{display:flex;overflow-x:auto;scrollbar-width:none;border-right:0;border-bottom:1px solid var(--ln);padding:8px 10px}.scr-main{padding:10px}.scr table{font-size:12px}.scr td,.scr th{padding:8px 7px}.scr-k div{padding:8px 9px}}
+@media(prefers-reduced-motion:reduce){.cs-c img{transition:none}.hit,.scr-cur.tap:after{animation:none}.scr-cur{display:none}}
+</style></head>
+<body>
+<header><div class="w"><a class="logo" href="index.html">ATZ <b>MACH</b></a><a class="btn btn--s" href="index.html#diagnosis">무료 시안 받기</a></div></header>
+<main class="w" id="app"></main>
+<footer><div class="w">ATZ MACH Agent · 업종별 맞춤 업무 프로그램 제작 · <a href="privacy.html">개인정보처리방침</a> · <a href="terms.html">이용약관</a><br>보안을 위해 실제 고객 정보는 싣지 않습니다. 사진과 ERP 화면, 표시된 시간 · 업무는 업종별 설계 예시이며 실제 고객 실적이 아닙니다.</div></footer>
+<script>
+(function(){
+var ICO={
+ store:'<path d="M3 9l1.5-5h15L21 9M4.5 9v11h15V9M9.5 20v-6h5v6"/>',
+ factory:'<path d="M3 20V10l6 3.5V10l6 3.5V4h6v16z"/>',
+ car:'<path d="M3 13l2-6h14l2 6v5H3zM6 13h12M7 18v2M17 18v2"/>',
+ tool:'<path d="M14.5 4l5.5 5.5-3 3L11.5 7zM11.5 7L3 15.5V21h5.5L17 12.5"/>'
+};
+var WHY=[["직접 사업하는 팀","가맹 본사와 매장을 직접 운영하는 팀이 만듭니다."],["1시간, 눌러 보는 1차 시안","그림이 아니라 버튼이 눌리는 화면. 무료입니다."],["계약 후 14일 완성","7일차 2차 시안, 14일차 마무리본."]];
+var S=[
+{id:"interior",ico:"tool",tag:"인테리어 · 시공",name:"공정 · 자재 · 고객 보고",m1:["−13시간","월 재조율 · 예시"],m2:["현장 6곳","동시 진행 기준"],alt:"작업 차량 앞에 선 시공 기술자 두 명",
+ base:"아파트 리모델링 · 동시 현장 6곳 · 18명 기준",
+ h1:"타일이 안 와서 기공이 현장에서 기다리던 날",
+ st:["20 → 7시간","월 일정 재조율"],
+ intro:"공정표는 엑셀, 자재 주문은 전화, 고객 보고는 밤에 카톡 사진으로 따로 합니다. 공정이 바뀌면 카톡으로만 공유되고, 타일 주문 마감일을 놓치면 기공은 현장에서 기다립니다. 일정이 한 달에 8번 꼬이면 재조율에 20시간, 대기 일당으로 280만원이 나갑니다.",
+ say:"공정표가 바뀌면 자재 주문 마감일도 같이 바뀌어야 합니다.",
+ sec:[
+  ["공정표와 자재 주문이 따로 놀 때","공정표에서 다음 자재의 주문 마감일을 계산합니다. 기공 가능일과 아파트 관리실 공사 시간까지 같이 맞춥니다.",[["자재 주문 마감일을 놓쳐 공정이 밀림","공정표 기준으로 주문 마감일 계산"],["기공 일정을 전화로 여러 번 조율","기공 가능일 · 관리실 규정 자동 대조"]]],
+  ["구두로만 남던 추가 공사","현장에서 나온 추가 요청은 공수와 공기 영향을 계산해 확인서로 만듭니다. 고객은 링크로 서명합니다.",[["추가 요청이 구두로만 남음","추가공사 확인서 · 고객 서명"]]],
+  ["밤에 쓰던 고객 보고","공정별 사진을 고르고 진행률과 다음 일정을 정리해 고객에게 보냅니다. 승인은 사람이 합니다.",[["밤마다 카톡으로 사진 보고","사진 선별 · 일일 보고서 발송"]]]
+ ],
+ next:"현장 · 공정표 템플릿부터 만듭니다. 자재 리드타임과 발주서, 기공 일정 알림, 추가공사 확인서 순서로 붙입니다."},
+{id:"franchise",ico:"store",tag:"프랜차이즈 본사",name:"가맹 본사 운영",m1:["−97시간","월 반복 업무 · 예시"],m2:["30곳","가맹점 기준"],alt:"물류 창고에 모인 프랜차이즈 본사 직원들",
+ base:"가맹점 30곳 기준",
+ h1:"프로그램은 시중에 많았습니다. 본사 방식에 맞는 게 없었습니다.",
+ st:["150 → 52.5시간","월 반복 업무"],
+ intro:"프랜차이즈 본사용 프로그램은 이미 많습니다. 매출 취합도 되고 발주도 됩니다. 그런데 로열티 계산식, 발주 마감 시간, 점검 항목은 본사마다 다릅니다. 기성 프로그램에 본사를 맞추다 보면, 안 맞는 부분은 다시 엑셀과 단톡방으로 돌아갑니다.",
+ say:"필요한 건 프로그램 하나 더가 아니라, 우리 본사 방식 그대로 도는 프로그램입니다.",
+ sec:[
+  ["기성 프로그램을 써도 엑셀이 남는 이유","프로그램은 있는데, 프로그램과 프로그램 사이를 사람이 손으로 잇습니다. 그 사이를 본사 방식대로 연결합니다.",[["가맹점 보고를 기다렸다가 엑셀로 합침","매출 자동 취합 · 사람은 이상 지점만 확인"],["전화 · 카톡 발주로 출고표 작성","발주 접수 · 출고 자동 · 사람은 승인만"],["점검 보고 · 불만이 메신저에 흩어짐","이슈 접수 → 담당자 배정"]]],
+  ["월 150시간이 52시간으로","확인과 예외 처리는 사람이 하므로 업무마다 35%는 남는다고 가정했습니다.",null,[["가맹점 매출 취합","60h","21h"],["가맹점 발주 · 물류","40h","14h"],["점검 · 컴플레인 관리","30h","10.5h"],["가맹 상담 · 모집","20h","7h"]]],
+  ["계산식은 그대로, 화면만 하나로","정산 기준, 발주 마감, 점검표는 지금 쓰는 그대로 옮깁니다. 바뀌는 건 흩어진 화면이 하나가 된다는 것입니다. 입력한 자료는 언제든 엑셀로 내보낼 수 있습니다.",null]
+ ],
+ next:"가장 급한 업무 하나부터 만듭니다. 써 보면서 신메뉴 출시 점검, 가맹 상담 일정처럼 필요한 기능을 더합니다."},
+{id:"factory",ico:"factory",tag:"중견 제조",name:"생산 · 원료 · 발주",m1:["−29시간","월 반복 업무 · 예시"],m2:["3개 라인","직원 45명 기준"],alt:"공장 앞마당에 모인 제조 회사 직원들",
+ base:"제조 공장 · 직원 45명 · 라인 3개 기준",
+ h1:"생산일보 때문에 매일 2시간 늦게 퇴근하던 공장",
+ st:["44 → 15시간","월 생산일보 집계"],
+ intro:"라인마다 수기 일지를 쓰고, 저녁에 모아 생산일보와 원료 수불부를 엑셀로 다시 칩니다. 하루 2시간, 한 달이면 44시간입니다. 그사이 실재고는 수불부와 어긋나고, 원료 부족은 생산 당일에야 드러납니다.",
+ say:"기록을 두 번 하지 않으면, 부족도 하루 먼저 보입니다.",
+ sec:[
+  ["일지를 모아 다시 치는 2시간","라인 태블릿에 실적을 한 번 넣으면 생산일보와 수불부가 같이 만들어집니다.",[["라인 수기 일지를 저녁에 취합","태블릿 입력 → 생산일보 자동 작성"],["점검 기록 누락을 나중에 발견","점검 주기 누락 알림"]]],
+  ["원료 부족을 생산 당일이 아니라 3일 전에","생산계획에 맞춰 원료 소요를 계산하고 창고 재고와 대조합니다. 부족할 원료는 발주안으로 올라옵니다.",[["원료 부족을 생산 당일 발견","계획 기준 소요 · 부족 예측"],["BOM과 실투입 차이를 모름","주간 원료 편차 리포트"]]],
+  ["승인은 사람이, 서류는 프로그램이","단가와 마감 시간을 확인한 발주안을 담당자가 승인하면 거래처에 발주서가 나갑니다.",null]
+ ],
+ next:"품목 BOM과 원료 등록부터 시작합니다. 라인 태블릿 입력, 생산일보 자동 작성, 계획 연동 발주 순서로 붙입니다."},
+{id:"autoparts",ico:"car",tag:"차량 부품 제조",name:"납입 · 설비 · 품질",m1:["−30시간","월 반복 업무 · 예시"],m2:["공장 3곳","직원 85명 기준"],alt:"출하장에 모인 차량 부품 공장 직원들",
+ base:"차체 부품 1차 협력사 · 직원 85명 · 공장 3곳 기준",
+ h1:"고객사 소요가 바뀌면, 공장 세 곳이 같은 날 압니다",
+ st:["46 → 16시간","월 소요 반영 작업"],
+ intro:"고객사 포털의 소요계획을 받아 공장 세 곳의 엑셀에 각각 옮겨 적습니다. 변경은 다음 날에야 반영되고, 병목 공정은 출하 직전에 드러납니다. 한 번 늦으면 긴급 특송과 협력사 평가 감점으로 이어집니다.",
+ say:"납입 위험은 출하 전날이 아니라, 소요가 바뀐 날 보여야 합니다.",
+ sec:[
+  ["포털에서 엑셀로, 엑셀에서 공장으로","포털 파일을 자동으로 받아 품번별 변경분을 뽑고 공장별 공정에 배분합니다.",[["소요 변경이 공장마다 늦게 반영","소요계획 자동 수집 · 공장별 배분"],["병목 공정을 출하 직전에 앎","공정별 능력 대비 부하 계산"]]],
+  ["라인이 서기 전에 먼저 압니다","사이클타임과 정지 이력으로 고장 징후를 잡아 예방보전을 권합니다. 이관과 보전은 담당자가 승인합니다.",[["고장 징후를 놓쳐 라인 정지","사이클타임 · 정지 이력 기반 징후 알림"]]],
+  ["불량이 나면 LOT부터 보고서까지","LOT를 추적해 같은 시간대 정지 이력과 연결하고 시정조치 보고서 초안을 씁니다.",[["납입불량 원인 추적 · 보고에 며칠","LOT 추적 · 시정조치 보고서 초안"]]]
+ ],
+ next:"고객 포털 소요 연동부터 시작합니다. 품번별 공정 · 설비 라우팅, 설비 로그 수집, LOT 추적 · 품질 보고 순서로 붙입니다."}
+];
+
+var IDLE="예시 데이터로 업무 흐름을 재생합니다.";
+var NAV={interior:["공정표","자재","추가 공사","고객 보고"],franchise:["매출 취합","발주 · 출고","점검 · 이슈","정산"],factory:["생산일보","원료 · 재고","발주","설비 점검"],autoparts:["소요계획","공정 부하","설비","품질 · LOT"]};
+var SC={
+interior:[
+ {t:"공정표 · 자재 주문",on:0,k:[["진행 현장","6곳"],["이번 주 주문 마감","3건"],["대기 일당","0원"]],cols:["현장","다음 공정","자재 주문 마감","상태"],
+  rows:[["A현장 · 32평","타일 10/16","10/13","w:주문 전"],["B현장 · 24평","도배 10/15","10/12","o:주문 완료"],["C현장 · 45평","목공 10/17","10/14","w:주문 전"],["D현장 · 18평","마루 10/20","10/16","n:대기"]],
+  beats:[{r:0,c:1,v:"타일 10/18",say:"A현장 목공이 2일 밀렸습니다. 타일 일정이 같이 움직입니다."},{r:0,c:2,v:"10/15",say:"자재 주문 마감일을 다시 계산했습니다."},{r:0,c:3,v:"o:주문 완료",say:"담당자가 승인하면 발주서가 나가고, 기공에게 일정 알림이 갑니다."},{k:1,v:"2건",say:"이번 주 남은 주문 마감은 2건입니다."}]},
+ {t:"추가 공사 확인서",on:2,k:[["이번 달 추가 요청","7건"],["서명 대기","2건"],["추가 공사 금액","412만원"]],cols:["현장","요청 내용","금액 · 공기","서명"],
+  rows:[["A현장","붙박이장 추가","계산 중","n:작성 중"],["C현장","콘센트 이설","18만원 · +0일","o:서명 완료"],["E현장","욕실 선반","24만원 · +0일","w:서명 대기"],["B현장","조명 레일","31만원 · +1일","o:서명 완료"]],
+  beats:[{r:0,c:2,v:"86만원 · +2일",say:"현장에서 나온 추가 요청입니다. 공수와 공기 영향을 계산했습니다."},{r:0,c:3,v:"w:서명 대기",say:"확인서를 만들어 고객에게 링크로 보냈습니다."},{r:0,c:3,v:"o:서명 완료",say:"고객이 휴대폰으로 서명했습니다. 구두 약속이 기록으로 남습니다."},{k:2,v:"498만원",say:"추가 금액이 정산에 바로 잡힙니다."}]},
+ {t:"고객 일일 보고",on:3,k:[["오늘 보고 대상","6곳"],["발송 완료","3곳"],["보고 시각","18:00"]],cols:["현장","오늘 사진","진행률","보고"],
+  rows:[["A현장","12장 중 4장 선별","62%","w:승인 대기"],["B현장","9장 중 4장 선별","80%","o:발송 완료"],["C현장","15장 중 5장 선별","35%","w:승인 대기"],["D현장","사진 올리는 중","15%","n:작성 전"]],
+  beats:[{r:3,c:1,v:"8장 중 3장 선별",say:"현장에서 올린 사진 중 공정별 사진을 골랐습니다."},{r:3,c:3,v:"w:승인 대기",say:"진행률과 다음 일정까지 보고서로 정리했습니다."},{r:0,c:3,v:"o:발송 완료",say:"담당자가 승인하면 고객에게 발송됩니다."},{k:1,v:"4곳",say:"밤에 카톡으로 쓰던 보고가 끝났습니다."}]}],
+franchise:[
+ {t:"가맹점 매출 취합",on:0,k:[["보고 완료","27 / 30"],["어제 매출 합계","4,180만원"],["확인할 지점","1곳"]],cols:["가맹점","어제 매출","전주 대비","상태"],
+  rows:[["강남점","212만원","+6%","o:취합"],["홍대점","수집 중","–","n:수집 중"],["수원점","98만원","−31%","x:확인 필요"],["부산서면점","175만원","+2%","o:취합"]],
+  beats:[{r:1,c:1,v:"188만원",say:"가맹점 보고를 기다리지 않고 매출을 자동으로 가져옵니다."},{r:1,c:3,v:"o:취합",say:"엑셀로 합칠 일이 없습니다."},{k:0,v:"28 / 30"},{k:1,v:"4,368만원"},{r:2,c:3,v:"w:담당자 배정",say:"사람은 평소와 다른 지점만 봅니다. 수원점을 담당자에게 넘겼습니다."}]},
+ {t:"발주 접수 · 출고",on:1,k:[["오늘 발주","24건"],["발주 마감","15:00"],["출고 승인 대기","2건"]],cols:["가맹점","발주","금액","출고"],
+  rows:[["강남점","원두 10kg 외 6","84만원","o:출고표 생성"],["대전둔산점","시럽 12 외 3","37만원","w:승인 대기"],["홍대점","접수 중","–","n:접수 중"],["수원점","컵 2,000 외 4","52만원","w:승인 대기"]],
+  beats:[{r:2,c:1,v:"우유 40 외 5",say:"전화나 카톡이 아니라 발주 화면으로 접수됩니다."},{r:2,c:2,v:"61만원"},{r:2,c:3,v:"w:승인 대기",say:"출고표가 자동으로 만들어졌습니다."},{k:0,v:"25건"},{r:1,c:3,v:"o:출고표 생성",say:"사람은 승인만 누릅니다."}]},
+ {t:"로열티 정산",on:3,k:[["9월 정산 대상","30곳"],["계산 완료","29곳"],["정산 기준","본사 계산식"]],cols:["가맹점","9월 매출","로열티","정산서"],
+  rows:[["강남점","6,240만원","187만원","o:발송"],["홍대점","5,810만원","174만원","o:발송"],["수원점","3,020만원","계산 중","n:작성 중"],["부산서면점","5,150만원","155만원","w:확인 대기"]],
+  beats:[{r:2,c:2,v:"91만원",say:"본사가 쓰던 계산식 그대로 계산합니다."},{k:1,v:"30곳"},{r:2,c:3,v:"w:확인 대기",say:"정산서가 만들어졌습니다."},{r:3,c:3,v:"o:발송",say:"담당자가 확인하면 가맹점에 발송됩니다."}]}],
+factory:[
+ {t:"생산일보",on:0,k:[["오늘 가동","3개 라인"],["실적 입력","2 / 3 라인"],["점검 누락","0건"]],cols:["라인","품목","계획 / 실적","생산일보"],
+  rows:[["1라인","A제품 500g","4,000 / 4,020","o:작성 완료"],["2라인","B제품 1kg","2,400 / 2,310","o:작성 완료"],["3라인","C제품 2kg","1,200 / 입력 중","n:입력 대기"]],
+  beats:[{r:2,c:2,v:"1,200 / 1,185",say:"라인 태블릿에 실적을 한 번만 넣습니다."},{r:2,c:3,v:"o:작성 완료",say:"생산일보와 원료 수불부가 같이 만들어집니다."},{k:1,v:"3 / 3 라인",say:"저녁에 모아서 다시 칠 일이 없습니다."}]},
+ {t:"원료 부족 예측",on:1,k:[["3일 내 부족 예상","1종"],["발주안","1건"],["재고 기준","오늘 08:00"]],cols:["원료","창고 재고","3일 소요","판정"],
+  rows:[["원료 A","1,240kg","900kg","o:충분"],["원료 B","310kg","계산 중","n:계산 중"],["원료 C","85kg","60kg","o:충분"],["포장재 2kg용","3,000장","3,600장","x:부족"]],
+  beats:[{r:1,c:2,v:"520kg",say:"생산계획에 맞춰 원료 소요를 계산합니다."},{r:1,c:3,v:"x:부족",say:"3일 뒤에 부족할 원료를 미리 찾았습니다."},{k:0,v:"2종"},{k:1,v:"2건",say:"부족한 원료는 발주안으로 올라옵니다."}]},
+ {t:"발주 승인",on:2,k:[["발주안","2건"],["승인 대기","2건"],["발주서 발송","0건"]],cols:["원료","거래처 · 단가","수량","발주"],
+  rows:[["원료 B","가 거래처 · 4,200원","300kg","w:승인 대기"],["포장재 2kg용","나 거래처 · 85원","5,000장","w:승인 대기"],["원료 A","–","–","n:발주 불필요"]],
+  beats:[{r:0,c:3,v:"o:발주서 발송",say:"담당자가 승인하면 거래처에 발주서가 나갑니다."},{k:1,v:"1건"},{k:2,v:"1건"},{r:1,c:3,v:"o:발주서 발송",say:"단가와 마감 시간은 미리 확인돼 있습니다."},{k:1,v:"0건"},{k:2,v:"2건"}]}],
+autoparts:[
+ {t:"소요계획 반영",on:0,k:[["오늘 소요 변경","4품번"],["공장 반영","3 / 4"],["납입 위험","0건"]],cols:["품번","변경","배분 공장","부하"],
+  rows:[["DP-4410 도어 패널","+400","1공장","o:여유"],["RF-2207 루프 보강","−150","2공장","o:여유"],["BP-3318 범퍼 브래킷","+900","배분 중","n:계산 중"],["SM-1102 시트 마운트","+120","3공장","o:여유"]],
+  beats:[{r:2,c:2,v:"2공장 · 3공장",say:"고객사 포털의 소요 변경을 자동으로 받아 공장별로 나눕니다."},{k:1,v:"4 / 4"},{r:2,c:3,v:"x:프레스 104%",say:"공정 능력과 대조해 병목을 그날 바로 찾습니다."},{k:2,v:"1건",say:"납입 위험이 출하 전날이 아니라 오늘 보입니다."}]},
+ {t:"설비 고장 징후",on:2,k:[["가동 설비","62대"],["징후 알림","0건"],["예방보전 승인 대기","0건"]],cols:["설비","사이클타임","최근 정지","판정"],
+  rows:[["프레스 3호","4.1초","0회","o:정상"],["용접 로봇 7호","12.8초","1회","o:정상"],["프레스 5호","4.6초","3회","n:분석 중"],["도장 2라인","38초","0회","o:정상"]],
+  beats:[{r:2,c:1,v:"4.9초",say:"사이클타임이 늘고 짧은 정지가 반복됩니다."},{r:2,c:3,v:"x:고장 징후",say:"라인이 서기 전에 징후를 잡았습니다."},{k:1,v:"1건"},{k:2,v:"1건",say:"예방보전을 권합니다. 승인은 담당자가 합니다."}]},
+ {t:"LOT 추적 · 시정조치",on:3,k:[["납입 불량 접수","1건"],["추적 단계","2 / 4"],["보고서 초안","0건"]],cols:["단계","대상","결과","상태"],
+  rows:[["불량 접수","DP-4410 · 버(burr)","고객사 통보","o:접수"],["LOT 추적","LOT 251006-B","추적 중","n:진행 중"],["정지 이력 대조","프레스 5호","대기","n:대기"],["시정조치 보고서","초안","대기","n:대기"]],
+  beats:[{r:1,c:2,v:"10/6 야간 · 1,200개",say:"불량이 나온 LOT와 생산 시간대를 찾았습니다."},{r:1,c:3,v:"o:완료"},{r:2,c:2,v:"같은 시간 정지 3회",say:"같은 시간대 설비 정지 이력과 연결했습니다."},{r:2,c:3,v:"o:완료"},{r:3,c:3,v:"w:검토 대기",say:"시정조치 보고서 초안이 만들어졌습니다. 검토는 담당자가 합니다."},{k:2,v:"1건"}]}]
+};
+function cell(v){var m=/^([owxn]):(.*)$/.exec(v);return m?'<span class="chip '+{o:"ok",w:"warn",x:"bad",n:""}[m[1]]+'">'+esc(m[2])+'</span>':esc(v)}
+function scr(id,i){var d=SC[id][i];return '<figure class="scr" data-s="'+id+'" data-i="'+i+'"><div class="scr-bar"><i></i><i></i><i></i><b>'+esc(d.t)+'</b><span>예시 화면</span></div><div class="scr-in"><div class="scr-nav" aria-hidden="true">'+NAV[id].map(function(n,j){return '<span'+(j===d.on?' class="on"':'')+'>'+esc(n)+'</span>'}).join("")+'</div><div class="scr-main"><div class="scr-k">'+d.k.map(function(k){return '<div><small>'+esc(k[0])+'</small><b>'+esc(k[1])+'</b></div>'}).join("")+'</div><div class="scr-tw"><table><thead><tr>'+d.cols.map(function(c){return '<th>'+esc(c)+'</th>'}).join("")+'</tr></thead><tbody>'+d.rows.map(function(r){return '<tr>'+r.map(function(v){return '<td>'+cell(v)+'</td>'}).join("")+'</tr>'}).join("")+'</tbody></table></div></div></div><figcaption class="scr-say">'+IDLE+'</figcaption><i class="scr-cur" aria-hidden="true"></i></figure>'}
+/* 화면이 보일 때만 재생: 커서가 칸으로 가서 누르면 값이 바뀌고, 끝나면 처음부터 다시 */
+var stops=[];
+function run(fig){
+ var d=SC[fig.dataset.s][+fig.dataset.i],main=fig.querySelector(".scr-main"),init=main.innerHTML,cur=fig.querySelector(".scr-cur"),say=fig.querySelector(".scr-say"),i=0,t=0,on=false;
+ function tgt(b){return b.k!=null?fig.querySelectorAll(".scr-k b")[b.k]:fig.querySelector("tbody").rows[b.r].cells[b.c]}
+ function put(b){var e=tgt(b);if(b.k!=null)e.textContent=b.v;else e.innerHTML=cell(b.v);e.classList.remove("hit");void e.offsetWidth;e.classList.add("hit");if(b.say)say.textContent=b.say}
+ function step(){
+  if(!on)return;
+  if(i>=d.beats.length){t=setTimeout(function(){main.innerHTML=init;say.textContent=IDLE;cur.classList.remove("on");i=0;t=setTimeout(step,900)},3200);return}
+  var b=d.beats[i++],e=tgt(b),w=fig.querySelector(".scr-tw");
+  if(b.k==null&&w.scrollWidth>w.clientWidth)w.scrollLeft=Math.max(0,e.offsetLeft-12);
+  var f=fig.getBoundingClientRect(),r=e.getBoundingClientRect();
+  cur.classList.remove("tap");cur.classList.add("on");cur.style.transform="translate("+(r.left-f.left+Math.min(r.width/2,44))+"px,"+(r.top-f.top+r.height/2)+"px)";
+  t=setTimeout(function(){cur.classList.add("tap");put(b);t=setTimeout(step,b.say?2100:1000)},750)}
+ if(matchMedia("(prefers-reduced-motion:reduce)").matches||!("IntersectionObserver" in window)){d.beats.forEach(put);return function(){}}
+ var io=new IntersectionObserver(function(x){var v=x[0].isIntersecting;if(v&&!on){on=true;step()}else if(!v&&on){on=false;clearTimeout(t)}},{threshold:.35});
+ io.observe(fig);
+ return function(){on=false;clearTimeout(t);io.disconnect()}}
+
+function esc(t){return String(t).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function card(s){return '<a class="cs-c" href="#'+s.id+'"><img src="cs/'+s.id+'.jpg" alt="'+esc(s.alt)+'" loading="lazy"><span class="cs-tag"><svg viewBox="0 0 24 24" aria-hidden="true">'+ICO[s.ico]+'</svg>'+esc(s.tag)+'</span><span class="cs-b"><span class="cs-n">'+esc(s.name)+'</span><span class="cs-m"><span><b>'+esc(s.m1[0])+'</b><small>'+esc(s.m1[1])+'</small></span><span><b>'+esc(s.m2[0])+'</b><small>'+esc(s.m2[1])+'</small></span></span></span></a>'}
+function list(){return '<span class="kw">업종별 도입 시나리오</span><h1>업종마다, 회사마다 다르게 만듭니다.</h1><p class="lede">아래는 업종별 설계 예시입니다. 우리 회사 방식으로 바꾼 1차 시안은 무료로 받아 보실 수 있습니다.</p><p class="secu">보안을 위해 실제 고객 정보는 싣지 않습니다. 사진과 ERP 화면은 예시입니다.</p><div class="cs-g">'+S.map(card).join("")+'</div>'+cta("우리 회사")}
+function cta(who){return '<section class="cta"><h2>고민은 시안을 받아 보고 해도 늦지 않습니다.</h2><p class="lede">말로 설명하시면 '+esc(who)+' 방식에 맞춘 화면을 무료로 보내 드립니다.</p><a class="btn" href="index.html#diagnosis">ATZ 무료 화면 설계 시안 받기 →</a><p class="safe">결제 정보 필요 없음 · 접수 후 1시간 목표 · 계약 전까지 0원</p></section>'}
+function story(s){
+ var h='<a class="back" href="#">← 모든 시나리오</a><br><span class="kw" style="margin-top:8px">'+esc(s.tag)+'</span><h1>'+esc(s.h1)+'</h1><p class="meta">설계 예시 · '+esc(s.base)+'</p><p class="secu">보안을 위해 실제 고객 정보는 싣지 않습니다. 사진과 ERP 화면은 예시입니다.</p>'+
+ '<div class="big"><div><b class="g">'+esc(s.st[0])+'</b><small>'+esc(s.st[1])+' · 예시</small></div><div><b>'+esc(s.m2[0])+'</b><small>'+esc(s.m2[1])+'</small></div><div><b>14일</b><small>계약 후 완성</small></div><div><b>1시간</b><small>1차 시안 목표 · 무료</small></div></div>'+
+ '<img class="ph" src="cs/'+s.id+'.jpg" alt="'+esc(s.alt)+'"><p>'+esc(s.intro)+'</p><p class="say">'+esc(s.say)+'</p>';
+ s.sec.forEach(function(c,i){
+  h+='<h2>'+esc(c[0])+(c[3]?' <span class="ex">예시</span>':'')+'</h2><p>'+esc(c[1])+'</p>'+scr(s.id,i);
+  if(c[2])h+='<div class="rows">'+c[2].map(function(r){return '<div class="row"><div class="b"><small>지금</small>'+esc(r[0])+'</div><i aria-hidden="true">→</i><div class="a"><small>바꾼 뒤</small>'+esc(r[1])+'</div></div>'}).join("")+'</div>';
+  if(c[3])h+='<div class="tw"><table><thead><tr><th>업무</th><th>지금</th><th>바꾼 뒤</th></tr></thead><tbody>'+c[3].map(function(r){return '<tr><td>'+esc(r[0])+'</td><td class="n">'+esc(r[1])+'</td><td class="n g">'+esc(r[2])+'</td></tr>'}).join("")+'</tbody></table></div>';
+ });
+ h+='<h2>왜 ATZ MACH인가</h2><ul class="why">'+WHY.map(function(w){return '<li><b>'+esc(w[0])+'</b><span>'+esc(w[1])+'</span></li>'}).join("")+'</ul><h2>다음 단계</h2><p>'+esc(s.next)+'</p>'+cta(s.tag)+
+ '<h2 style="font-size:18px;margin-top:0">다른 시나리오</h2><nav class="more" aria-label="다른 시나리오">'+S.filter(function(o){return o!==s}).map(function(o){return '<a href="#'+o.id+'">'+esc(o.tag)+'</a>'}).join("")+'</nav>';
+ return h}
+function render(){
+ var id=location.hash.slice(1),s=S.filter(function(o){return o.id===id})[0];
+ stops.forEach(function(f){f()});stops=[];
+ document.getElementById("app").innerHTML=s?story(s):list();
+ [].forEach.call(document.querySelectorAll(".scr"),function(f){stops.push(run(f))});
+ document.title=(s?s.tag+" 도입 시나리오 | ":"")+"ATZ MACH"+(s?"":" 도입 시나리오");
+ scrollTo(0,0)}
+addEventListener("hashchange",render);render();
+})();
+</script>
+<style id="ic3dcss">
+#ic3d{--c-bg:#efebe3;--c-pn:#fbfaf7;--c-ln:#ddd6c9;--c-fg:#1d1b17;--c-mu:#6f685c;--c-ac:#e2572b;--c-ok:#1f8a5b;--c-wn:#c97a00;margin:56px 0;border-radius:22px;background:var(--c-bg);color:var(--c-fg);overflow:hidden;font-family:"Pretendard","IBM Plex Sans KR",system-ui,sans-serif;box-shadow:0 40px 90px -40px rgba(0,0,0,.8)}
+#ic3d *{box-sizing:border-box}
+#ic3d .ih{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:26px 28px 18px;border-bottom:1px solid var(--c-ln)}
+#ic3d .ih small{display:inline-flex;gap:8px;align-items:center;font:700 11px/1 ui-monospace,Menlo,monospace;letter-spacing:.18em;color:var(--c-ac)}
+#ic3d .ih small:before{content:"";width:8px;height:8px;border-radius:2px;background:var(--c-ac)}
+#ic3d .ih h3{margin:10px 0 0;font-size:clamp(22px,2.6vw,30px);font-weight:900;letter-spacing:-.03em}
+#ic3d .ih p{margin:6px 0 0;font-size:14px;color:var(--c-mu)}
+#ic3d .ex{font-size:11.5px;font-weight:800;padding:5px 9px;border-radius:6px;background:#fff;border:1px solid var(--c-ln);color:var(--c-mu)}
+#ic3d .ib{display:grid;grid-template-columns:330px 1fr}
+#ic3d .ctl{padding:22px 24px;border-right:1px solid var(--c-ln);background:var(--c-pn);display:flex;flex-direction:column;gap:18px}
+#ic3d .f>b{display:flex;justify-content:space-between;font-size:13px;font-weight:800;margin-bottom:8px}
+#ic3d .f>b span{color:var(--c-ac);font-variant-numeric:tabular-nums}
+#ic3d input[type=range]{width:100%;accent-color:var(--c-ac);height:22px}
+#ic3d input[type=date]{width:100%;padding:10px 12px;border:1px solid var(--c-ln);border-radius:10px;background:#fff;font:inherit;font-size:14px;color:var(--c-fg)}
+#ic3d .ch{display:flex;flex-wrap:wrap;gap:6px}
+#ic3d .ch button{padding:8px 12px;border-radius:9px;border:1px solid var(--c-ln);background:#fff;font:inherit;font-size:13px;font-weight:700;color:var(--c-fg);cursor:pointer}
+#ic3d .ch button[aria-pressed=true]{background:var(--c-fg);border-color:var(--c-fg);color:#fff}
+#ic3d .stage{position:relative;min-height:460px;background:radial-gradient(80% 80% at 50% 30%,#fff,#e6e0d4)}
+#ic3d canvas.gl{position:absolute;inset:0;width:100%!important;height:100%!important;cursor:grab;touch-action:pan-y}
+#ic3d .hud{position:absolute;left:16px;top:16px;display:flex;flex-direction:column;gap:6px;pointer-events:none}
+#ic3d .hud span{display:inline-flex;align-self:flex-start;padding:6px 10px;border-radius:8px;background:rgba(255,255,255,.88);font-size:12px;font-weight:800;box-shadow:0 4px 14px rgba(0,0,0,.08)}
+#ic3d .hud span b{color:var(--c-ac);margin-left:4px}
+#ic3d .tip{position:absolute;right:14px;bottom:12px;font-size:11.5px;color:var(--c-mu);pointer-events:none}
+#ic3d .bld{position:absolute;left:50%;top:16px;transform:translateX(-50%);padding:7px 12px;border-radius:99px;background:var(--c-fg);color:#fff;font-size:12px;font-weight:800;opacity:0;transition:opacity .3s;pointer-events:none}
+#ic3d .bld.on{opacity:1}
+#ic3d .kp{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--c-ln)}
+#ic3d .kp div{padding:18px 22px;border-left:1px solid var(--c-ln)}
+#ic3d .kp div:first-child{border-left:0}
+#ic3d .kp small{font-size:12px;color:var(--c-mu);font-weight:700}
+#ic3d .kp b{display:block;margin-top:6px;font-size:clamp(20px,2.2vw,28px);font-weight:900;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+#ic3d .kp b.ac{color:var(--c-ac)}
+#ic3d .lo{display:grid;grid-template-columns:1.25fr 1fr;border-top:1px solid var(--c-ln)}
+#ic3d .lo>div{padding:22px 24px;min-width:0}
+#ic3d .lo>div+div{border-left:1px solid var(--c-ln);background:var(--c-pn)}
+#ic3d h4{margin:0 0 12px;font-size:15px;font-weight:900;display:flex;justify-content:space-between;align-items:center;gap:8px}
+#ic3d h4 small{font-size:12px;color:var(--c-mu);font-weight:600}
+#ic3d table{width:100%;border-collapse:collapse;font-size:13px}
+#ic3d th,#ic3d td{padding:9px 6px;border-bottom:1px solid var(--c-ln);text-align:left;white-space:nowrap}
+#ic3d th{font-size:11.5px;color:var(--c-mu);font-weight:700}
+#ic3d td.n,#ic3d th.n{text-align:right;font-variant-numeric:tabular-nums}
+#ic3d tr.new td{animation:icf .9s}
+@keyframes icf{from{background:#ffe2d6}}
+#ic3d .tw{overflow-x:auto}
+#ic3d .gt{display:flex;flex-direction:column;gap:7px}
+#ic3d .gr{display:grid;grid-template-columns:78px 1fr;gap:8px;align-items:center;font-size:12px;font-weight:700}
+#ic3d .gr i{position:relative;height:18px;border-radius:5px;background:#e9e3d8}
+#ic3d .gr i em{position:absolute;top:0;bottom:0;border-radius:5px;background:var(--c-fg);transition:left .6s,width .6s}
+#ic3d .gr i u{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--c-ac);text-decoration:none;transition:left .6s}
+#ic3d .dl{margin-top:14px;display:flex;flex-direction:column;gap:6px}
+#ic3d .dl div{display:flex;justify-content:space-between;gap:8px;padding:9px 12px;border-radius:10px;background:#fff;border:1px solid var(--c-ln);font-size:13px}
+#ic3d .dl div b{font-variant-numeric:tabular-nums}
+#ic3d .dl .late{border-color:#f0b4a1;background:#fff3ee}
+#ic3d .dl .late b{color:var(--c-ac)}
+#ic3d .dl .soon b{color:var(--c-wn)}
+#ic3d .go{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+#ic3d .go button,#ic3d .go a{flex:1;min-width:140px;padding:13px 14px;border-radius:12px;border:0;font:inherit;font-size:14px;font-weight:900;text-align:center;text-decoration:none;cursor:pointer}
+#ic3d .go .p{background:var(--c-ac);color:#fff}
+#ic3d .go .o{background:#fff;border:1px solid var(--c-ln);color:var(--c-fg)}
+#ic3d .po{display:none;margin-top:12px;padding:14px;border-radius:12px;background:#fff;border:1px dashed var(--c-ac);font:12.5px/1.6 ui-monospace,Menlo,monospace;white-space:pre-wrap;color:var(--c-fg)}
+#ic3d .po.on{display:block;animation:icf .9s}
+#ic3d .nt{padding:12px 24px;border-top:1px solid var(--c-ln);font-size:12px;color:var(--c-mu)}
+@media(max-width:900px){#ic3d .ib{grid-template-columns:1fr}#ic3d .ctl{border-right:0;border-bottom:1px solid var(--c-ln)}#ic3d .stage{min-height:340px;order:-1}#ic3d .lo{grid-template-columns:1fr}#ic3d .lo>div+div{border-left:0;border-top:1px solid var(--c-ln)}#ic3d .kp{grid-template-columns:1fr 1fr}#ic3d .kp div:nth-child(3){border-left:0}#ic3d .kp div:nth-child(n+3){border-top:1px solid var(--c-ln)}}
+@media(max-width:560px){#ic3d{margin:36px -4px;border-radius:16px}#ic3d .ih,#ic3d .ctl,#ic3d .lo>div{padding-left:16px;padding-right:16px}#ic3d .kp div{padding:14px 16px}}
+</style>
+<script id="ic3djs">
+(function(){
+"use strict";
+/* 시연용 예시 단가·리드타임. 실제 견적·자재 규격과 다를 수 있음 */
+var FLOOR={"강마루":{u:"박스",per:3.3,loss:.07,p:[89000,129000],lead:5,tex:"wood"},"포세린 타일":{u:"장",per:.36,loss:.10,p:[9500,15000],lead:10,tex:"tile"},"장판":{u:"㎡",per:1,loss:.05,p:[18000,28000],lead:3,tex:"vinyl"}};
+var WALL={"실크벽지":{u:"롤",per:16.5,loss:.15,p:[22000,35000],lead:3,col:0xf1ece2},"합지벽지":{u:"롤",per:16.5,loss:.15,p:[12000,18000],lead:3,col:0xece6da},"페인트":{u:"통(18L)",per:30,loss:.05,p:[85000,140000],lead:2,col:0xe9eef0}};
+var GR=["스탠다드","프리미엄"];
+var PROC=[["철거",0,2],["설비 · 전기",2,3],["욕실 타일",5,4],["목공",5,5],["도배 · 도장",10,2],["바닥",12,2],["입주 청소",14,1]];
+var S={py:32,rooms:3,baths:2,floor:"강마루",wall:"실크벽지",g:1,start:null};
+var t0=new Date(new Date().toLocaleString("en-US",{timeZone:"Asia/Seoul"}));t0.setHours(0,0,0,0);
+var d14=new Date(t0);d14.setDate(d14.getDate()+14);S.start=d14;
+function ymd(d){return d.getFullYear()+"-"+("0"+(d.getMonth()+1)).slice(-2)+"-"+("0"+d.getDate()).slice(-2)}
+function md(d){return (d.getMonth()+1)+"/"+d.getDate()+"("+"일월화수목금토"[d.getDay()]+")"}
+function addD(d,n){var x=new Date(d);x.setDate(x.getDate()+n);return x}
+function won(n){return Math.round(n).toLocaleString("ko-KR")+"원"}
+function man(n){return (Math.round(n/1e4)).toLocaleString("ko-KR")+"만원"}
+
+/* 물량 계산 */
+function calc(){var A=S.py*3.3058*.88,W=Math.sqrt(A*1.5),D=A/W,H=2.3;
+ var bathA=S.baths*4.2,floorA=A-bathA,perim=2*(W+D)+S.rooms*D*.9,wallA=floorA*2.7;
+ var f=FLOOR[S.floor],w=WALL[S.wall],g=S.g;
+ var L=[];function add(name,spec,qty,unit,price,lead,proc){L.push({n:name,s:spec,q:qty,u:unit,p:price,c:qty*price,lead:lead,proc:proc})}
+ add("바닥재",S.floor+" · "+GR[g],Math.ceil(floorA*(1+f.loss)/f.per),f.u,f.p[g],f.lead,"바닥");
+ add("벽 마감",S.wall+" · "+GR[g],Math.ceil(wallA*(1+w.loss)/w.per),w.u,w.p[g],w.lead,"도배 · 도장");
+ var bt=S.baths*(4.2+17.5);add("욕실 타일","300×600 · "+GR[g],Math.ceil(bt*1.1/.18),"장",[4200,7800][g],7,"욕실 타일");
+ add("타일 접착제","25kg",Math.ceil(bt/3),"포",12000,2,"욕실 타일");
+ add("걸레받이","2.4m",Math.ceil(perim/2.4*1.05),"개",[6500,9800][g],5,"목공");
+ add("욕실 도기 세트",GR[g],S.baths,"세트",[480000,890000][g],7,"욕실 타일");
+ return{A:A,W:W,D:D,H:H,floorA:floorA,wallA:wallA,L:L,tot:L.reduce(function(a,x){return a+x.c},0)}}
+
+var root,R;
+function ui(){var h='<div class="ih"><div><small>LIVE · 3D 시공 시뮬레이터</small><h3>평수만 넣으면, 3D 도면 · 자재 물량 · 발주 마감일이 동시에.</h3><p>값을 바꾸면 집이 다시 지어지고, 발주서가 바로 다시 계산됩니다.</p></div><span class="ex">예시 단가 · 시연용</span></div>'+
+ '<div class="ib"><div class="ctl">'+
+ '<div class="f"><b>전용 평수<span data-o="py"></span></b><input type="range" min="15" max="60" step="1" data-k="py" aria-label="전용 평수"></div>'+
+ '<div class="f"><b>방<span data-o="rooms"></span></b><div class="ch" data-c="rooms">'+[1,2,3,4].map(function(n){return '<button type="button" data-v="'+n+'">'+n+'개</button>'}).join("")+'</div></div>'+
+ '<div class="f"><b>욕실<span data-o="baths"></span></b><div class="ch" data-c="baths">'+[1,2].map(function(n){return '<button type="button" data-v="'+n+'">'+n+'개</button>'}).join("")+'</div></div>'+
+ '<div class="f"><b>바닥재</b><div class="ch" data-c="floor">'+Object.keys(FLOOR).map(function(n){return '<button type="button" data-v="'+n+'">'+n+'</button>'}).join("")+'</div></div>'+
+ '<div class="f"><b>벽 마감</b><div class="ch" data-c="wall">'+Object.keys(WALL).map(function(n){return '<button type="button" data-v="'+n+'">'+n+'</button>'}).join("")+'</div></div>'+
+ '<div class="f"><b>자재 등급</b><div class="ch" data-c="g">'+GR.map(function(n,i){return '<button type="button" data-v="'+i+'">'+n+'</button>'}).join("")+'</div></div>'+
+ '<div class="f"><b>착공일</b><input type="date" data-k="start" aria-label="착공일"></div>'+
+ '</div><div class="stage"><div class="hud"><span>바닥 <b data-o="fa"></b></span><span>벽 · 천장 <b data-o="wa"></b></span></div><div class="bld">짓는 중…</div><div class="tip">드래그로 돌려 보기</div></div></div>'+
+ '<div class="kp"><div><small>자재비 합계 (예시)</small><b class="ac" data-o="tot"></b></div><div><small>발주 품목</small><b data-o="cnt"></b></div><div><small>준공 예정</small><b data-o="end"></b></div><div><small>가장 급한 주문 마감</small><b data-o="first"></b></div></div>'+
+ '<div class="lo"><div><h4>자재 물량 · 발주서<small>로스율 포함</small></h4><div class="tw"><table><thead><tr><th>품목</th><th>규격</th><th class="n">수량</th><th class="n">금액</th></tr></thead><tbody data-o="rows"></tbody></table></div>'+
+ '<div class="go"><button type="button" class="p" data-a="po">발주서 만들기</button><a class="o" href="index.html#diagnosis">우리 현장으로 1차 시안 받기</a></div><div class="po" data-o="po"></div></div>'+
+ '<div><h4>공정표 · 주문 마감<small>착공일 기준 자동 계산</small></h4><div class="gt" data-o="gt"></div><div class="dl" data-o="dl"></div></div></div>'+
+ '<p class="nt">단가 · 리드타임 · 로스율은 시연용 예시 값입니다. 실제 도입 시 업체 단가표와 공정 기준을 그대로 넣습니다.</p>';
+ root.innerHTML=h;
+ root.querySelector('[data-k=py]').value=S.py;root.querySelector('[data-k=start]').value=ymd(S.start);
+ root.addEventListener("input",function(e){var k=e.target.dataset.k;if(!k)return;if(k==="py")S.py=+e.target.value;else if(e.target.value){var p=e.target.value.split("-");S.start=new Date(+p[0],p[1]-1,+p[2])}update(k==="py")});
+ root.addEventListener("click",function(e){var b=e.target.closest("[data-v]");if(b){var c=b.parentNode.dataset.c,v=b.dataset.v;S[c]=/^\d+$/.test(v)?+v:v;update(c!=="g"||true);return}
+  if(e.target.closest("[data-a=po]"))po()})}
+
+function o(k){return root.querySelector('[data-o="'+k+'"]')}
+var tw={};
+function count(el,to,fmt){var from=tw[el.dataset.o]||0;tw[el.dataset.o]=to;var t=performance.now();(function f(n){var p=Math.min(1,(n-t)/600),e=1-Math.pow(1-p,3);el.textContent=fmt(from+(to-from)*e);if(p<1)requestAnimationFrame(f)})(t)}
+var prevQ={};
+function update(rebuild){R=calc();
+ [].forEach.call(root.querySelectorAll(".ch"),function(c){[].forEach.call(c.children,function(b){b.setAttribute("aria-pressed",String(String(S[c.dataset.c])===b.dataset.v))})});
+ o("py").textContent=S.py+"평 · "+R.A.toFixed(1)+"㎡";o("rooms").textContent=S.rooms+"개";o("baths").textContent=S.baths+"개";
+ o("fa").textContent=R.floorA.toFixed(1)+"㎡";o("wa").textContent=R.wallA.toFixed(1)+"㎡";
+ count(o("tot"),R.tot,man);o("cnt").textContent=R.L.length+"개";
+ var last=PROC[PROC.length-1];o("end").textContent=md(addD(S.start,last[1]+last[2]));
+ o("rows").innerHTML=R.L.map(function(x){var ch=prevQ[x.n]!==undefined&&prevQ[x.n]!==x.q;prevQ[x.n]=x.q;return '<tr'+(ch?' class="new"':'')+'><td><b>'+x.n+'</b></td><td>'+x.s+'</td><td class="n">'+x.q.toLocaleString("ko-KR")+' '+x.u+'</td><td class="n">'+won(x.c)+'</td></tr>'}).join("")+'<tr><td><b>합계</b></td><td></td><td></td><td class="n"><b>'+won(R.tot)+'</b></td></tr>';
+ var span=16;o("gt").innerHTML=PROC.map(function(p){var mats=R.L.filter(function(x){return x.proc===p[0]}),ml=mats.length?Math.max.apply(null,mats.map(function(x){return x.lead})):0;
+  return '<div class="gr"><span>'+p[0]+'</span><i><em style="left:'+(p[1]/span*100)+'%;width:'+(p[2]/span*100)+'%"></em>'+(ml?'<u style="left:'+(Math.max(0,p[1]-ml)/span*100)+'%" title="주문 마감"></u>':'')+'</i></div>'}).join("");
+ var dl=R.L.map(function(x){var pr=PROC.filter(function(p){return p[0]===x.proc})[0],d=addD(S.start,pr[1]-x.lead),left=Math.round((d-t0)/864e5);return{x:x,d:d,left:left}}).sort(function(a,b){return a.d-b.d});
+ o("dl").innerHTML=dl.map(function(y){var c=y.left<0?"late":y.left<=3?"soon":"";return '<div class="'+c+'"><span>'+y.x.n+' <small>(리드 '+y.x.lead+'일)</small></span><b>'+(y.left<0?"마감 지남 · "+(-y.left)+"일 늦음":md(y.d)+" · D-"+y.left)+'</b></div>'}).join("");
+ var f=dl[0];o("first").textContent=f.left<0?"이미 늦음":"D-"+f.left;o("first").className=f.left<=3?"ac":"";
+ o("po").classList.remove("on");
+ if(rebuild!==false)build()}
+function po(){var t="[발주서 초안 · 시연용]\n현장: "+S.py+"평 · 방 "+S.rooms+" · 욕실 "+S.baths+"\n착공: "+ymd(S.start)+"\n\n"+R.L.map(function(x){var pr=PROC.filter(function(p){return p[0]===x.proc})[0];return "· "+x.n+" ("+x.s+") "+x.q+x.u+" — 입고 "+md(addD(S.start,pr[1]-1))+" 전"}).join("\n")+"\n\n합계(예시 단가) "+won(R.tot)+"\n※ 실제 발송되지 않습니다";
+ var p=o("po");p.textContent=t;p.classList.add("on")}
+
+/* ===== 3D (캔버스 직접 렌더 · 외부 라이브러리 없음) ===== */
+var cv,cx,stage,ang=.75,drag=null,parts=[],bt=0,raf,TL=.62,LIT=[-.45,.8,.4];
+(function(){var l=Math.hypot.apply(null,LIT);LIT=LIT.map(function(v){return v/l})})();
+function hex(c,m){var r=(c>>16&255)*m,g=(c>>8&255)*m,b=(c&255)*m;return "rgb("+(r|0)+","+(g|0)+","+(b|0)+")"}
+function init3d(){stage=root.querySelector(".stage");cv=document.createElement("canvas");cv.className="gl";stage.prepend(cv);cx=cv.getContext("2d");
+ cv.addEventListener("pointerdown",function(e){drag={x:e.clientX,a:ang};cv.setPointerCapture(e.pointerId);cv.style.cursor="grabbing"});
+ cv.addEventListener("pointermove",function(e){if(drag)ang=drag.a-(e.clientX-drag.x)*.008});
+ cv.addEventListener("pointerup",function(){drag=null;cv.style.cursor=""});
+ new ResizeObserver(size).observe(stage);size();
+ var vis=true;new IntersectionObserver(function(e){vis=e[0].isIntersecting;if(vis&&!raf)loop()}).observe(stage);
+ var red=matchMedia("(prefers-reduced-motion:reduce)").matches,last=performance.now();
+ function loop(n){raf=0;if(!vis||!document.getElementById("ic3d"))return;n=n||performance.now();var dt=Math.min(.05,(n-last)/1000);last=n;if(!drag&&!red)ang+=dt*.12;bt+=red?9:dt;draw();
+  root.querySelector(".bld").classList.toggle("on",bt<parts.reduce(function(a,p){return Math.max(a,p.d)},0)+.45);raf=requestAnimationFrame(loop)}
+ loop()}
+function size(){var r=Math.min(2,devicePixelRatio||1);cv.width=stage.clientWidth*r;cv.height=stage.clientHeight*r;cx.setTransform(r,0,0,r,0,0);if(R)draw()}
+function draw(){var w=stage.clientWidth,h=stage.clientHeight;cx.clearRect(0,0,w,h);
+ var cs=Math.cos(ang),sn=Math.sin(ang),ct=Math.cos(TL),st=Math.sin(TL),k=Math.min(w/(Math.hypot(R.W,R.D)*1.18),h/(Math.hypot(R.W,R.D)*.95)),ox=w/2,oy=h*.56;
+ function P(x,y,z){var xr=x*cs-z*sn,zr=x*sn+z*cs;return[ox+xr*k,oy-y*ct*k+zr*st*k,zr*ct+y*st]}
+ function nv(n){var zr=n[0]*sn+n[2]*cs;return zr*ct+n[1]*st}
+ var floors=[],faces=[];
+ parts.forEach(function(p){var e=Math.max(0,Math.min(1,(bt-p.d)/.45));e=1-Math.pow(1-e,3);if(e<=0)return;
+  var sx=p.ax==="x"?e:1,sy=p.ax==="y"?e:1,yo=p.drop?(1-e)*2.2:0,x0=p.x-p.w*sx/2,x1=p.x+p.w*sx/2,z0=p.z-p.d2/2,z1=p.z+p.d2/2,y0=p.y0+yo,y1=p.y0+p.h*sy+yo;
+  var F=[[[0,1,0],[[x0,y1,z0],[x1,y1,z0],[x1,y1,z1],[x0,y1,z1]]],[[0,0,1],[[x0,y0,z1],[x1,y0,z1],[x1,y1,z1],[x0,y1,z1]]],[[0,0,-1],[[x1,y0,z0],[x0,y0,z0],[x0,y1,z0],[x1,y1,z0]]],[[1,0,0],[[x1,y0,z1],[x1,y0,z0],[x1,y1,z0],[x1,y1,z1]]],[[-1,0,0],[[x0,y0,z0],[x0,y0,z1],[x0,y1,z1],[x0,y1,z0]]]];
+  F.forEach(function(f){if(nv(f[0])<=0)return;var q=f[1].map(function(v){return P(v[0],v[1],v[2])}),dep=q.reduce(function(a,v){return a+v[2]},0)/4;
+   var sh=.58+.42*Math.max(0,f[0][0]*LIT[0]+f[0][1]*LIT[1]+f[0][2]*LIT[2]);var o={q:q,dep:dep,col:hex(p.col,sh),p:p,top:f[0][1]===1,b:[x0,x1,z0,z1,y1]};(p.floor?floors:faces).push(o)})});
+ cx.fillStyle="rgba(60,45,25,.12)";cx.beginPath();[[-R.W/2-.4,-R.D/2-.4],[R.W/2+.4,-R.D/2-.4],[R.W/2+.4,R.D/2+.4],[-R.W/2-.4,R.D/2+.4]].forEach(function(v,i){var q=P(v[0]+.25,0,v[1]+.35);i?cx.lineTo(q[0],q[1]):cx.moveTo(q[0],q[1])});cx.fill();
+ function poly(f){cx.beginPath();f.q.forEach(function(v,i){i?cx.lineTo(v[0],v[1]):cx.moveTo(v[0],v[1])});cx.closePath();cx.fillStyle=f.col;cx.fill();cx.strokeStyle="rgba(0,0,0,.07)";cx.lineWidth=1;cx.stroke()}
+ floors.sort(function(a,b){return a.dep-b.dep}).forEach(function(f){poly(f);if(!f.top||!f.p.pat)return;var b=f.b,s=f.p.pat;cx.save();cx.beginPath();f.q.forEach(function(v,i){i?cx.lineTo(v[0],v[1]):cx.moveTo(v[0],v[1])});cx.clip();cx.strokeStyle=s.c;cx.lineWidth=s.lw;cx.beginPath();
+  for(var z=b[2];z<=b[3]+1e-6;z+=s.dz){var a1=P(b[0],b[4],z),a2=P(b[1],b[4],z);cx.moveTo(a1[0],a1[1]);cx.lineTo(a2[0],a2[1])}
+  if(s.dx)for(var x=b[0],i=0;x<=b[1]+1e-6;x+=s.dx,i++){if(s.stag){for(var zz=b[2],j=0;zz<b[3];zz+=s.dz,j++){var xx=x+((j%2)?s.dx/2:0);if(xx>b[1])continue;var c1=P(xx,b[4],zz),c2=P(xx,b[4],Math.min(b[3],zz+s.dz));cx.moveTo(c1[0],c1[1]);cx.lineTo(c2[0],c2[1])}}else{var d1=P(x,b[4],b[2]),d2=P(x,b[4],b[3]);cx.moveTo(d1[0],d1[1]);cx.lineTo(d2[0],d2[1])}}
+  cx.stroke();cx.restore()});
+ faces.sort(function(a,b){return a.dep-b.dep}).forEach(poly)}
+function build(){if(!cx)return;parts=[];bt=0;
+ var W=R.W,D=R.D,H=2.3,th=.13,fk=FLOOR[S.floor].tex,wc=WALL[S.wall].col;
+ var FP={wood:{c:"rgba(90,55,20,.28)",lw:1,dz:.2,dx:1.2,stag:1,col:0xc39463},tile:{c:"rgba(120,110,95,.45)",lw:1,dz:.6,dx:.6,col:0xe9e5dc},vinyl:{c:"rgba(120,90,50,.12)",lw:1,dz:1.8,dx:0,col:0xd8c4a2}}[fk];
+ function box(o){parts.push(Object.assign({y0:0,ax:"y"},o))}
+ box({x:0,z:0,w:W,d2:D,h:.08,col:FP.col,floor:1,ax:"x",d:0,pat:FP});
+ function wall(x,z,w,d2,h,dl){box({x:x,z:z,w:w,d2:d2,h:h,col:wc,d:dl})}
+ wall(0,-D/2,W,th,H,.25);wall(-W/2,0,th,D,H,.35);wall(0,D/2,W,th,.45,.45);wall(W/2,0,th,D,.45,.45);
+ var rx=W/2-W*.42,n=S.rooms;wall(rx,.03*D,th,D*.94,H,.6);
+ for(var i=1;i<n;i++)wall(rx+W*.21,-D/2+D*i/n,W*.42*.82,th,H,.65+i*.08);
+ var bw=2.1,bd=2;for(var b=0;b<S.baths;b++){var bx=-W/2+bw/2+.07+b*(bw+.14),bz=-D/2+bd/2+.07;
+  box({x:bx,z:bz,w:bw,d2:bd,h:.09,col:0xd3dade,floor:1,ax:"x",d:.9+b*.1,pat:{c:"rgba(90,105,115,.4)",lw:1,dz:.3,dx:.6}});
+  wall(bx+bw/2+.04,bz,th,bd,H,1+b*.1);wall(bx,bz+bd/2,bw,th,H,1.05+b*.1);
+  box({x:bx-bw/2+.42,z:bz,w:.7,d2:1.5,h:.5,col:0xffffff,d:1.4})}
+ var kw=Math.min(3.4,W*.3);box({x:-W/2+W*.42,z:-D/2+.4,w:kw,d2:.62,h:.9,col:S.g?0x2f2c29:0xf4f1ea,d:1.3});box({x:-W/2+W*.42,z:-D/2+.4,w:kw+.04,d2:.66,h:.04,y0:.9,col:S.g?0xe9e4da:0x3a3530,d:1.35});
+ box({x:-W/2+W*.32,z:D/2-1.15,w:2.2,d2:.9,h:.45,col:0xe2572b,d:1.6,drop:1});box({x:-W/2+W*.32,z:D/2-.75,w:2.2,d2:.2,h:.8,col:0xc94a22,d:1.62,drop:1});
+ for(var r=0;r<n;r++)box({x:rx+W*.21,z:-D/2+D*(r+.5)/n,w:1.5,d2:2,h:.4,col:0xfaf8f3,d:1.7+r*.1,drop:1})}
+function mount(host){if(document.getElementById("ic3d"))return;root=document.createElement("section");root.id="ic3d";root.setAttribute("aria-label","3D 시공 시뮬레이터와 자재 발주 계산기");host.parentNode.insertBefore(root,host.nextSibling);ui();R=calc();init3d();update()}
+function check(){if(location.hash!=="#interior")return;var app=document.getElementById("app");if(!app)return;var ph=app.querySelector(".ph")||app.querySelector("img");if(!ph)return;var anchor=ph.closest("figure")||ph;mount(anchor)}
+new MutationObserver(check).observe(document.documentElement,{childList:true,subtree:true});addEventListener("hashchange",check);check();
+/* self-check: 수량은 항상 양수, 합계=행 합 */
+(function(){var s0=JSON.stringify(S);[15,32,60].forEach(function(p){S.py=p;var r=calc();console.assert(r.L.every(function(x){return x.q>0}),"qty");console.assert(Math.abs(r.tot-r.L.reduce(function(a,x){return a+x.q*x.p},0))<1,"sum")});var b=JSON.parse(s0);S.py=b.py})();
+})();
+</script>
+</body></html>

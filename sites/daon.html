@@ -1,0 +1,746 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>다온식품 DAON FOODS | 소스·장류 OEM/ODM 제조</title>
+<meta name="description" content="경기 이천 소스·드레싱·장류·액상 조미 OEM/ODM 제조사 다온식품. MOQ 500kg부터, 샘플 개발 2주. 배합 설계부터 양산·납품까지.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&family=IBM+Plex+Sans+KR:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --fx-cur:#e5372a;--fx-cur-tx:#fff;--fx-font:"JetBrains Mono",monospace;
+  --wh:#fff;--off:#f4f3ef;--off2:#ebe9e3;--red:#e5372a;--red-d:#b9271c;--red-l:#fde9e5;--ch:#1b1d20;--ch2:#26292d;--ch3:#33373c;--mu:#6a6e74;--line:#e2e0da;--dl:#3a3e44;
+  --sa:"IBM Plex Sans KR","Noto Sans KR","Noto Sans CJK KR",sans-serif;
+  --mo:"JetBrains Mono","DejaVu Sans Mono","IBM Plex Sans KR","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",ui-monospace,monospace;
+  --dp:"Archivo","Noto Sans KR","Noto Sans CJK KR",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--wh);color:var(--ch);font-family:var(--sa);font-size:16px;line-height:1.72;overflow-x:hidden;word-break:keep-all;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit;color:inherit}
+.w{max-width:1320px;margin:0 auto;padding:0 48px}
+section{position:relative;padding:140px 0}
+.mono{font-family:var(--mo);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.tag{display:inline-flex;align-items:center;gap:12px;font-family:var(--mo);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--mu)}
+.tag b{color:var(--red);font-weight:700}
+.tag::before{content:"";width:8px;height:8px;background:var(--red)}
+h2{font-size:clamp(34px,4.2vw,60px);font-weight:700;line-height:1.18;letter-spacing:-.04em;margin-top:20px}
+h2 em{font-style:normal;color:var(--red)}
+.lead{font-size:17.5px;color:var(--mu);max-width:600px;margin-top:20px}
+.dark{background:var(--ch);color:#eceae6}.dark .lead{color:#a5a8ad}.dark .tag{color:#a5a8ad}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;height:54px;padding:0 26px;font-weight:700;font-size:15.5px;border:1.5px solid transparent;border-radius:4px;cursor:pointer;transition:background .3s,color .3s,border-color .3s,transform .35s cubic-bezier(.2,.8,.2,1)}
+.btn:hover{transform:translateY(-2px)}
+.btn.r{background:var(--red);color:#fff}.btn.r:hover{background:var(--red-d)}
+.btn.l{border-color:var(--ch);color:var(--ch)}.btn.l:hover{background:var(--ch);color:#fff}
+.btn svg{width:16px;height:16px}
+[data-rv]{opacity:0;transform:translate3d(0,32px,0);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1)}
+[data-rv].rv-on{opacity:1;transform:none}
+[data-rv="2"]{transition-delay:.1s}[data-rv="3"]{transition-delay:.2s}
+
+/* header */
+.top{position:fixed;inset:0 0 auto;z-index:50;transition:background .35s,box-shadow .35s}
+.top .w{display:flex;align-items:center;height:76px;gap:40px;max-width:1440px}
+.top.is-dim{background:rgba(255,255,255,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--line)}
+.logo{display:flex;align-items:center;gap:12px}
+.logo svg{width:34px;height:34px}
+.logo b{display:block;font-family:var(--dp);font-weight:900;font-size:19px;letter-spacing:-.02em;line-height:1}
+.logo small{display:block;font-family:var(--mo);font-size:10px;letter-spacing:.12em;color:var(--mu);margin-top:3px}
+.top nav{margin-left:auto}
+.top nav ul{display:flex;gap:32px;list-style:none}
+.top nav a{font-size:14.5px;font-weight:500;display:inline-flex;gap:6px;align-items:baseline}
+.top nav a i{font-style:normal;font-family:var(--mo);font-size:10px;color:var(--red)}
+.top nav a:hover{color:var(--red)}
+.top .btn{height:44px;padding:0 20px;font-size:14.5px}
+.burger{display:none;width:44px;height:44px;border:0;background:none;margin-left:auto;cursor:pointer}
+.burger i{display:block;width:22px;height:2px;background:var(--ch);margin:5px auto;transition:transform .3s}
+.top.open .burger i:first-child{transform:translateY(3.5px) rotate(45deg)}.top.open .burger i:last-child{transform:translateY(-3.5px) rotate(-45deg)}
+
+/* hero — pinned scrub (ref B) */
+.hero{height:270vh;padding:0}
+.hero .pin{position:sticky;top:0;height:100vh;height:100svh;min-height:700px;overflow:hidden;background:var(--off);background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:calc((100vw - 96px)/12) 100%,calc((100vw - 96px)/12) 100%;background-position:48px 0}
+.hx{position:absolute;left:48px;top:128px;width:min(560px,40vw);z-index:4}
+.hx .mono{color:var(--mu);display:flex;gap:10px;align-items:center}
+.hx .mono i{width:8px;height:8px;background:var(--red);border-radius:50%;animation:pulse 1.6s infinite}
+@keyframes pulse{50%{opacity:.25}}
+.hero h1{font-size:clamp(40px,4.3vw,66px);font-weight:700;line-height:1.14;letter-spacing:-.05em;margin:22px 0 0}
+.hero h1 em{font-style:normal;color:var(--red)}
+.hx p.sub{color:var(--mu);font-size:17px;margin:20px 0 28px;max-width:470px}
+.hx .ctas{display:flex;gap:10px;flex-wrap:wrap}
+.hx .trust{list-style:none;margin-top:26px;font-family:var(--mo);font-size:11.5px;letter-spacing:.04em;color:var(--mu)}
+.hx .trust li{padding:3px 0}.hx .trust li::before{content:"→ ";color:var(--red)}
+.frame{position:absolute;right:48px;top:118px;width:50vw;height:58vh;z-index:2;overflow:hidden;border-radius:6px;transform:rotate(-3deg);transform-origin:50% 50%;box-shadow:0 40px 80px rgba(27,29,32,.22);will-change:transform}
+.frame img{width:100%;height:100%;object-fit:cover;transform:scale(1.28);will-change:transform}
+.frame::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(27,29,32,0) 40%,rgba(27,29,32,.55));opacity:var(--sh,0)}
+.frame .fl{position:absolute;left:16px;top:14px;z-index:2;font-family:var(--mo);font-size:11px;letter-spacing:.1em;color:#fff;background:rgba(27,29,32,.6);padding:4px 10px}
+.chip{position:absolute;z-index:3;background:#fff;border:1px solid var(--line);box-shadow:0 18px 40px rgba(27,29,32,.12);padding:14px 18px 14px;min-width:190px;will-change:transform}
+.chip .mono{color:var(--mu);font-size:10.5px;display:flex;justify-content:space-between;gap:14px}
+.chip .mono::after{content:"";width:7px;height:7px;background:var(--red);border-radius:50%;margin-top:3px}
+.chip b{display:block;font-family:var(--dp);font-weight:800;font-size:30px;letter-spacing:-.03em;line-height:1.15;margin-top:6px}
+.chip b small{font-family:var(--sa);font-weight:500;font-size:14px;color:var(--mu);margin-left:4px;letter-spacing:0}
+.chip.c1{left:calc(50vw - 150px);top:calc(118px + 40vh)}
+.chip.c2{right:72px;top:96px}
+.chip.c3{right:110px;top:calc(118px + 52vh)}
+.wm{position:absolute;left:0;right:0;bottom:-.17em;z-index:1;font-family:var(--dp);font-weight:900;font-size:16.6vw;line-height:1;letter-spacing:-.055em;white-space:nowrap;text-align:center;color:var(--ch);overflow:hidden;padding-top:.05em}
+.wm span{display:inline-block;will-change:transform}
+.wm span.o{color:var(--red)}
+.hcap{position:absolute;left:48px;right:48px;bottom:9vh;z-index:5;color:#fff;opacity:0;pointer-events:none;display:flex;justify-content:space-between;align-items:flex-end;gap:40px}
+.hcap p{font-size:clamp(34px,4.4vw,68px);font-weight:700;letter-spacing:-.05em;line-height:1.15}
+.hcap .mono{color:rgba(255,255,255,.8);text-align:right;line-height:2}
+.sline{position:absolute;left:48px;bottom:26px;z-index:4;font-family:var(--mo);font-size:11px;letter-spacing:.14em;color:var(--mu)}
+
+/* intro word reveal */
+.intro{padding:150px 0 120px}
+.intro .ig{display:grid;grid-template-columns:3fr 9fr;gap:40px}
+.wr{font-size:clamp(28px,3.1vw,46px);font-weight:500;line-height:1.5;letter-spacing:-.04em}
+.wr .rd{color:var(--red)}
+.specrow{display:grid;grid-template-columns:repeat(4,1fr);margin-top:80px;border-top:1.5px solid var(--ch)}
+.specrow div{padding:22px 20px 0 0;border-right:1px solid var(--line);padding-left:20px}
+.specrow div:first-child{padding-left:0}.specrow div:last-child{border:0}
+.specrow .mono{color:var(--mu);font-size:11px}
+.specrow b{display:block;font-family:var(--dp);font-weight:800;font-size:clamp(34px,3.4vw,50px);letter-spacing:-.04em;line-height:1.1;margin-top:8px}
+.specrow b small{font-family:var(--sa);font-weight:500;font-size:.36em;color:var(--mu);margin-left:4px;letter-spacing:0}
+.specrow p{font-size:14px;color:var(--mu);margin-top:6px}
+
+/* 01 OEM vs ODM */
+.cmp{background:var(--off)}
+.ch{display:flex;justify-content:space-between;align-items:flex-end;gap:40px}
+.ctab{display:grid;grid-template-columns:220px 1fr 1fr;margin-top:64px;background:#fff;border:1px solid var(--line)}
+.ctab>div{padding:22px 28px;border-bottom:1px solid var(--line);font-size:15.5px}
+.ctab .rh{font-family:var(--mo);font-size:12px;letter-spacing:.06em;color:var(--mu);background:var(--off);border-right:1px solid var(--line);display:flex;align-items:center}
+.ctab .hd{padding:34px 28px 28px;border-bottom:1.5px solid var(--ch)}
+.ctab .hd .mono{color:var(--red)}
+.ctab .hd h3{font-family:var(--dp);font-weight:900;font-size:56px;letter-spacing:-.04em;line-height:1;margin-top:10px}
+.ctab .hd p{font-size:15px;color:var(--mu);margin-top:10px}
+.ctab .co2{border-left:1px solid var(--line)}
+.ctab .hd.co2{background:var(--ch);color:#fff;border-left-color:var(--ch)}.ctab .hd.co2 p{color:#a5a8ad}
+.ctab .last{border-bottom:0}
+.ctab b{font-weight:700}
+.ctab .pill{display:inline-block;font-family:var(--mo);font-size:11px;background:var(--red-l);color:var(--red-d);padding:2px 8px;margin-left:6px;vertical-align:2px}
+
+/* marquee */
+.mqs{background:var(--red);color:#fff;padding:24px 0}
+.mqs .mq-t{font-family:var(--dp);font-weight:900;font-size:clamp(60px,9vw,140px);line-height:1;letter-spacing:-.04em}
+.mqs .mq-t span{padding-right:.35em;display:inline-flex;align-items:center;gap:.35em}
+.mqs .mq-t span i{display:inline-block;width:.3em;height:.3em;background:#fff;border-radius:50%}
+.mqs .mq-t span.ol{color:transparent;-webkit-text-stroke:2px #fff}
+
+/* 02 products horizontal pinned */
+.prod{padding:0;background:#fff}
+.prod .hs-pin{height:100vh;height:100svh;min-height:720px;display:flex;flex-direction:column;overflow:hidden}
+.hs-on .hs-pin{position:sticky;top:0}
+.prod .hs-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;padding:112px max(48px,calc(50vw - 660px)) 32px}
+.ctr{text-align:right;min-width:230px;font-family:var(--mo);font-size:12px;letter-spacing:.12em;color:var(--mu)}
+.ctr b{font-family:var(--dp);font-weight:800;font-size:34px;color:var(--ch);letter-spacing:-.02em}
+.ctr .bar{height:2px;background:var(--line);margin-top:12px;overflow:hidden}
+.ctr .bar i{display:block;height:100%;background:var(--red);transform-origin:left;transform:scaleX(.02)}
+.prod .hs-track{gap:24px;padding-left:max(48px,calc(50vw - 660px));flex:1;min-height:0;padding-bottom:6vh;will-change:transform}
+.pc{flex:0 0 min(860px,70vw);height:100%;max-height:560px;display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);background:#fff}
+.pc .ph{position:relative;overflow:hidden;background:var(--off)}
+.pc .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.22)}
+.pc .ph .en{position:absolute;left:18px;bottom:10px;z-index:2;font-family:var(--dp);font-weight:900;font-size:clamp(54px,5.6vw,92px);line-height:1;letter-spacing:-.05em;color:#fff;text-shadow:0 6px 30px rgba(0,0,0,.25)}
+.pc .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(27,29,32,.6))}
+.pc .tx{padding:34px 34px 30px;display:flex;flex-direction:column}
+.pc .tx .mono{color:var(--red)}
+.pc h3{font-size:30px;font-weight:700;letter-spacing:-.04em;margin-top:8px}
+.pc .tx>p{font-size:15px;color:var(--mu);margin-top:10px}
+.pc .ex{display:flex;flex-wrap:wrap;gap:6px;margin-top:18px}
+.pc .ex span{font-size:13px;border:1px solid var(--line);padding:3px 10px}
+.pc dl{margin-top:auto;display:grid;grid-template-columns:auto 1fr;font-family:var(--mo);font-size:12px;border-top:1.5px solid var(--ch)}
+.pc dt,.pc dd{padding:9px 0;border-bottom:1px solid var(--line)}
+.pc dt{color:var(--mu);padding-right:20px;letter-spacing:.06em}
+.pc dd{text-align:right}
+
+/* 03 process sticky */
+.flow2 .fg{display:grid;grid-template-columns:5fr 7fr;gap:80px;margin-top:70px}
+.flow2 .stk{position:sticky;top:100px;height:calc(100vh - 140px);max-height:700px;display:flex;flex-direction:column}
+.flow2 .fig{position:relative;flex:1;overflow:hidden;background:var(--off)}
+.flow2 .fig img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.08);transition:opacity .8s,transform 1.4s cubic-bezier(.2,.8,.2,1)}
+.flow2 .fig img.on{opacity:1;transform:scale(1)}
+.flow2 .big{position:absolute;left:20px;bottom:6px;z-index:2;font-family:var(--dp);font-weight:900;font-size:150px;line-height:1;letter-spacing:-.06em;color:#fff;mix-blend-mode:normal;text-shadow:0 8px 40px rgba(0,0,0,.3)}
+.flow2 .rail{display:flex;gap:4px;margin-top:14px}
+.flow2 .rail i{flex:1;height:3px;background:var(--line);transition:background .4s}
+.flow2 .rail i.on{background:var(--red)}
+.st{padding:48px 0 52px;border-top:1px solid var(--line);opacity:.6;transition:opacity .5s}
+.st.on{opacity:1}
+.st .mono{display:flex;justify-content:space-between;color:var(--mu)}
+.st .mono b{color:var(--red);font-weight:700}
+.st h3{font-size:32px;font-weight:700;letter-spacing:-.04em;margin:12px 0 10px}
+.st p{color:var(--mu);max-width:560px}
+.st ul{list-style:none;margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:6px 20px;font-size:14.5px}
+.st li::before{content:"— ";color:var(--red)}
+
+/* 04 quality */
+.qa .qg{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end}
+.qa .note{margin-top:22px;font-family:var(--mo);font-size:11.5px;color:#8b8f95;letter-spacing:.02em;line-height:1.8}
+.qflow{display:grid;grid-template-columns:repeat(6,1fr);margin-top:72px;border-top:1px solid var(--dl);position:relative}
+.qflow::before{content:"";position:absolute;left:0;top:-1px;height:2px;width:100%;background:var(--red);transform-origin:left;transform:scaleX(var(--qp,0));transition:transform .2s linear}
+.qp{padding:28px 20px 30px 0;border-right:1px solid var(--dl);margin-right:20px;min-height:280px;display:flex;flex-direction:column}
+.qp:last-child{border:0;margin:0}
+.qp .mono{color:var(--red);font-size:11px}
+.qp h3{font-size:19px;font-weight:700;letter-spacing:-.03em;margin:14px 0 8px;color:#fff}
+.qp p{font-size:14px;color:#a5a8ad}
+.qp .ck{margin-top:auto;padding-top:18px;font-family:var(--mo);font-size:10.5px;color:#d5d3cf;letter-spacing:.04em}
+.qp .ck span{display:block;padding:2px 0}
+.qp .ck span::before{content:"✓ ";color:var(--red)}
+.qa .lab2{margin-top:60px;display:grid;grid-template-columns:7fr 5fr;gap:24px}
+.qa .im{position:relative;height:440px}
+.qa .im img{width:100%;height:100%;object-fit:cover}
+.qa .lbox{border:1px solid var(--dl);padding:34px;display:flex;flex-direction:column}
+.qa .lbox h3{font-size:24px;font-weight:700;letter-spacing:-.03em;color:#fff;margin-top:12px}
+.qa .lbox ul{list-style:none;margin-top:auto;font-size:14.5px;color:#cfcdc8}
+.qa .lbox li{display:flex;justify-content:space-between;gap:20px;padding:13px 0;border-bottom:1px solid var(--dl)}
+.qa .lbox li span{font-family:var(--mo);font-size:12px;color:#8b8f95}
+
+/* 05 equipment */
+.eq .eg{display:grid;grid-template-columns:4fr 8fr;gap:72px;align-items:start}
+.etbl{width:100%;border-collapse:collapse}
+.etbl thead th{font-family:var(--mo);font-size:11px;font-weight:500;letter-spacing:.08em;color:var(--mu);text-align:left;padding:0 10px 14px 0;border-bottom:1.5px solid var(--ch)}
+.etbl td{padding:20px 10px 20px 0;border-bottom:1px solid var(--line);vertical-align:top;font-size:15px}
+.etbl td:first-child{font-weight:700;font-size:16px}
+.etbl td:first-child small{display:block;font-family:var(--mo);font-weight:400;font-size:11px;color:var(--mu);margin-top:2px}
+.etbl td.n{font-family:var(--mo);font-size:14px;white-space:nowrap}
+.etbl td.q{text-align:right;font-family:var(--dp);font-weight:800;font-size:22px;white-space:nowrap}
+.etbl th:last-child{text-align:right}
+.etbl tr{transition:background .3s}.etbl tbody tr:hover{background:var(--off)}
+.ecap{margin-top:16px;font-family:var(--mo);font-size:11px;color:var(--mu)}
+
+/* 06 logistics */
+.lg2{background:var(--off)}
+.lg2 .lgg{display:grid;grid-template-columns:6fr 6fr;gap:80px;align-items:center}
+.lg2 .im{position:relative;aspect-ratio:4/5}
+.lg2 .im img{width:100%;height:100%;object-fit:cover}
+.lg2 .im .fl{position:absolute;left:0;bottom:0;z-index:2;background:var(--red);color:#fff;font-family:var(--mo);font-size:11px;letter-spacing:.1em;padding:8px 14px}
+.ll{margin-top:44px;border-top:1.5px solid var(--ch)}
+.ll div{display:grid;grid-template-columns:150px 1fr;gap:20px;padding:20px 0;border-bottom:1px solid var(--line)}
+.ll dt{font-family:var(--mo);font-size:12px;letter-spacing:.06em;color:var(--mu);padding-top:3px}
+.ll dd b{display:block;font-size:17px;letter-spacing:-.02em}
+.ll dd span{font-size:14.5px;color:var(--mu)}
+
+/* 07 form */
+.rfq .rg{display:grid;grid-template-columns:4fr 8fr;gap:72px;align-items:start}
+.rfq .side .mono{color:var(--mu)}
+.rfq .side ol{list-style:none;margin-top:36px;counter-reset:a}
+.rfq .side li{counter-increment:a;display:grid;grid-template-columns:44px 1fr;padding:16px 0;border-top:1px solid var(--line);font-size:15px;color:var(--mu)}
+.rfq .side li::before{content:"0" counter(a);font-family:var(--mo);font-size:12px;color:var(--red);padding-top:3px}
+.rfq .contact{margin-top:28px;font-family:var(--mo);font-size:12px;color:var(--mu);line-height:2}
+.rfq .contact b{font-family:var(--dp);font-size:30px;color:var(--ch);letter-spacing:-.02em;display:block;line-height:1.3}
+form.qf{border:1.5px solid var(--ch);padding:44px;background:#fff;position:relative}
+form.qf::before{content:"RFQ FORM / 견적 요청서";position:absolute;top:-10px;left:28px;background:#fff;padding:0 10px;font-family:var(--mo);font-size:11px;letter-spacing:.1em;color:var(--red)}
+.fr{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.fi{display:flex;flex-direction:column;gap:8px;margin-bottom:22px}
+.fi>label,.fi>.fl2{font-size:13.5px;font-weight:700;display:flex;gap:6px;align-items:baseline}
+.fi>label i,.fi>.fl2 i{color:var(--red);font-style:normal}
+.fi>label small,.fi>.fl2 small{font-family:var(--mo);font-weight:400;font-size:10.5px;color:var(--mu);margin-left:auto}
+.fi input,.fi select,.fi textarea{width:100%;height:52px;border:0;border-bottom:1.5px solid var(--line);background:var(--off);padding:0 14px;font-size:16px;outline:none;border-radius:0;transition:border-color .25s,background .25s}
+.fi textarea{height:110px;padding:14px;resize:vertical}
+.fi input:focus,.fi select:focus,.fi textarea:focus{border-color:var(--red);background:#fff}
+.qty{display:grid;grid-template-columns:1fr 130px;gap:8px}
+.seg{display:flex;gap:6px}
+.seg label{flex:1;position:relative;cursor:pointer}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg span{display:grid;place-items:center;height:48px;border:1.5px solid var(--line);font-size:14.5px;font-weight:500;transition:all .25s}
+.seg input:checked+span{background:var(--ch);border-color:var(--ch);color:#fff}
+.seg input:focus-visible+span{outline:2px solid var(--red);outline-offset:2px}
+.drop{position:relative;display:flex;align-items:center;gap:16px;border:1.5px dashed #c9c6bf;background:var(--off);padding:18px 20px;cursor:pointer;transition:border-color .25s,background .25s}
+.drop:hover,.drop.ov{border-color:var(--red);background:var(--red-l)}
+.drop input{position:absolute;inset:0;opacity:0;cursor:pointer;height:auto}
+.drop svg{width:30px;height:30px;color:var(--red);flex:none}
+.drop b{display:block;font-size:15px}
+.drop span{font-size:12.5px;color:var(--mu);font-family:var(--mo)}
+.chk{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--mu);margin:4px 0 12px}
+.chk input{width:18px;height:18px;accent-color:var(--red);margin-top:3px;flex:none}
+form.qf .btn{width:100%;height:58px;font-size:16.5px;margin-top:12px}
+.msg{margin-top:14px;font-weight:700;font-size:15px;min-height:1em;color:var(--ch)}
+
+/* faq */
+.faq{background:var(--off)}
+.faq .fg2{display:grid;grid-template-columns:4fr 8fr;gap:72px}
+.faq details{border-top:1px solid #d6d3cc}
+.faq details:last-child{border-bottom:1px solid #d6d3cc}
+.faq summary{list-style:none;display:grid;grid-template-columns:60px 1fr 30px;align-items:center;padding:24px 0;font-weight:700;font-size:17.5px;letter-spacing:-.02em;cursor:pointer}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary b{font-family:var(--mo);font-size:12px;color:var(--red);font-weight:500}
+.faq summary::after{content:"";width:14px;height:14px;justify-self:end;background:linear-gradient(var(--ch),var(--ch)) center/100% 2px no-repeat,linear-gradient(var(--ch),var(--ch)) center/2px 100% no-repeat;transition:transform .35s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{padding:0 30px 26px 60px;color:var(--mu);font-size:15.5px}
+
+footer{background:var(--ch);color:#a5a8ad;padding:90px 0 36px;font-size:14px;overflow:hidden}
+footer .ff{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;padding-bottom:46px;border-bottom:1px solid var(--dl)}
+footer .logo b{color:#fff}
+footer h4{font-family:var(--mo);font-weight:500;font-size:11px;letter-spacing:.12em;color:#fff;margin-bottom:14px}
+footer ul{list-style:none}footer li{padding:3px 0}footer a:hover{color:#fff}
+footer .biz{margin-top:26px;line-height:1.95;font-size:13px}
+footer .fw{font-family:var(--dp);font-weight:900;font-size:clamp(60px,15.4vw,230px);line-height:.82;letter-spacing:-.055em;color:var(--ch2);margin-top:40px;white-space:nowrap}
+footer .fw span{color:var(--red)}
+footer .cp{margin-top:24px;font-size:12px;color:#6f7378}
+
+/* ===== FX engine (shared) ===== */
+.cur{position:fixed;left:0;top:0;z-index:1000;pointer-events:none}
+.cur span{position:absolute;left:-44px;top:-44px;width:88px;height:88px;border-radius:50%;display:grid;place-items:center;font:500 11px/1 var(--fx-font,sans-serif);letter-spacing:.22em;color:transparent;background:var(--fx-cur,#3a2f29);transform:scale(.13);transition:transform .5s cubic-bezier(.2,.8,.2,1),color .3s,background .3s}
+.cur.lnk span{transform:scale(.36);background:transparent;box-shadow:inset 0 0 0 3px var(--fx-cur,#3a2f29)}
+.cur.big span{transform:scale(1);color:var(--fx-cur-tx,#fff)}
+html.has-cur body,html.has-cur body *:not(input):not(textarea):not(select){cursor:none}
+.ln{display:block;overflow:hidden;padding-bottom:.1em;margin-bottom:-.1em}
+.ln>span{display:inline-block;transform:translate3d(0,110%,0);transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
+.in .ln>span{transform:none}.ln:nth-child(2)>span{transition-delay:.1s}.ln:nth-child(3)>span{transition-delay:.2s}
+.clip .im{overflow:hidden;clip-path:inset(100% 0 0 0);transition:clip-path 1.6s cubic-bezier(.7,0,.2,1)}
+.clip.in .im{clip-path:inset(0 0 0 0)}
+[data-par]{will-change:transform}
+.mq{overflow:hidden;white-space:nowrap;contain:paint}
+.mq-t{display:inline-flex;will-change:transform}
+.wd{display:inline-block}
+.hs-track{display:flex}
+.hs-track::after{content:"";flex:0 0 1px}
+@media (max-width:860px){.hs-track{overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}.hs-track::-webkit-scrollbar{display:none}.hs-track>*{scroll-snap-align:start}}
+html.rm .hs-track{overflow-x:auto}
+html.rm .ln>span,html.rm .clip .im{transform:none;clip-path:none;transition:none}
+
+
+@media(max-width:1180px){
+  .chip.c1{left:calc(50vw - 110px)}
+  .ctab{grid-template-columns:160px 1fr 1fr}
+  .qflow{grid-template-columns:repeat(3,1fr)}.qp:nth-child(3){border:0;margin-right:0}.qp:nth-child(-n+3){border-bottom:1px solid var(--dl)}
+  .eq .eg,.rfq .rg,.faq .fg2{grid-template-columns:1fr;gap:48px}
+  .top nav ul{gap:20px}
+}
+@media(max-width:860px){
+  .w{padding:0 20px}
+  section{padding:96px 0}
+  .top .w{height:66px;gap:12px}
+  .top nav,.top .w>.btn{display:none}
+  .burger{display:block}
+  .top.open{background:#fff}
+  .top.open nav{display:block;position:absolute;top:100%;left:0;right:0;background:#fff;border-bottom:1px solid var(--line)}
+  .top.open nav ul{flex-direction:column;gap:0;padding:4px 20px 22px}
+  .top.open nav a{display:flex;padding:14px 0;border-bottom:1px solid var(--line);font-size:17px}
+  .hero{height:auto}
+  .hero .pin{position:relative;height:auto;min-height:0;padding:100px 20px 0;background-size:calc((100vw - 40px)/4) 100%;background-position:20px 0}
+  .hx{position:relative;left:0;top:0;width:auto}
+  .hero h1{font-size:clamp(34px,9.6vw,46px)}
+  .hx p.sub{font-size:15.5px;margin:16px 0 22px}
+  .hx .ctas .btn{flex:1 1 0;padding:0 12px}
+  .frame{position:relative;right:auto;top:auto;width:100%;height:auto;aspect-ratio:4/3;margin-top:34px;transform:none}
+  .frame img{transform:scale(1.08)}
+  .chips{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+  .chip{position:relative;left:auto!important;right:auto!important;top:auto!important;min-width:0;box-shadow:none;padding:12px 14px}
+  .chip.c3{grid-column:1/-1}
+  .chip b{font-size:24px}
+  .wm{position:relative;bottom:auto;margin:30px 0 0;font-size:14vw;line-height:.86;padding:0}
+  .hcap,.sline{display:none}
+  .intro{padding:90px 0}
+  .intro .ig{grid-template-columns:1fr;gap:20px}
+  .wr{font-size:24px}
+  .specrow{grid-template-columns:1fr 1fr;margin-top:50px}
+  .specrow div{padding:18px 12px 18px 0!important;border-right:0;border-bottom:1px solid var(--line)}
+  .specrow div:nth-child(odd){border-right:1px solid var(--line)}.specrow div:nth-child(even){padding-left:14px!important}
+  .ch{flex-direction:column;align-items:flex-start;gap:0}
+  .ctab{grid-template-columns:1fr 1fr;margin-top:40px}
+  .ctab .rh{grid-column:1/-1;border-right:0;padding:10px 16px}
+  .ctab>div{padding:14px 16px;font-size:14px}
+  .ctab .hd{padding:22px 16px}.ctab .hd h3{font-size:38px}
+  .ctab .corner{display:none}
+  .prod .hs-pin{height:auto;min-height:0;padding-bottom:80px}
+  .prod .hs-head{padding:96px 20px 28px;flex-direction:column;align-items:flex-start}
+  .ctr{text-align:left;min-width:0;width:100%}
+  .prod .hs-track{padding:0 20px;gap:12px;scroll-padding:0 20px}
+  .pc{flex:0 0 84vw;grid-template-columns:1fr;grid-template-rows:200px auto;max-height:none;height:auto}
+  .pc .tx{padding:22px 20px}
+  .pc h3{font-size:24px}
+  .pc dl{margin-top:20px}
+  .flow2 .fg{grid-template-columns:1fr;margin-top:30px;gap:0}
+  .flow2 .stk{display:none}
+  .st{opacity:1;padding:34px 0}
+  .st h3{font-size:24px}.st ul{grid-template-columns:1fr}
+  .qa .qg{grid-template-columns:1fr;gap:10px}
+  .qflow{grid-template-columns:1fr 1fr;margin-top:44px}
+  .qp{min-height:0;padding:22px 14px 22px 0;margin-right:14px;border-bottom:1px solid var(--dl)}
+  .qp:nth-child(odd){border-right:1px solid var(--dl)!important;margin-right:14px!important}.qp:nth-child(even){border-right:0;margin-right:0}
+  .qa .lab2{grid-template-columns:1fr;margin-top:40px}
+  .qa .im{height:300px}
+  .etbl thead{display:none}
+  .etbl,.etbl tbody{display:block}
+  .etbl tr{display:grid;grid-template-columns:1fr auto;padding:16px 0;border-bottom:1px solid var(--line)}
+  .etbl td{border:0;padding:2px 0}
+  .etbl td:nth-child(2){grid-column:1;font-size:14px;color:var(--mu)}
+  .etbl td.n{grid-column:1}
+  .etbl td.q{grid-column:2;grid-row:1/4;align-self:center}
+  .lg2 .lgg{grid-template-columns:1fr;gap:40px}
+  .ll div{grid-template-columns:1fr;gap:4px}
+  form.qf{padding:30px 18px}
+  .fr{grid-template-columns:1fr;gap:0}
+  .faq summary{grid-template-columns:44px 1fr 24px;font-size:16px}
+  .faq details p{padding:0 0 22px 44px}
+  footer .ff{grid-template-columns:1fr 1fr}footer .ff>div:first-child{grid-column:1/-1}
+}
+@media (prefers-reduced-motion:reduce){[data-rv]{opacity:1;transform:none;transition:none}}
+html.rm .hero{height:auto}html.rm .hero .pin{position:relative;height:100vh;height:100svh}
+</style>
+<meta name="robots" content="noindex,nofollow"></head>
+<body>
+<header class="top" id="top">
+  <div class="w">
+    <a href="#" class="logo" aria-label="다온식품 홈">
+      <svg viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" fill="#e5372a"/><path d="M9 8h7.5a9 9 0 0 1 0 18H9z" fill="#fff"/><circle cx="16.5" cy="17" r="3.4" fill="#e5372a"/></svg>
+      <span><b>DAON FOODS</b><small>다온식품 · ICHEON</small></span>
+    </a>
+    <nav id="nav"><ul>
+      <li><a href="#oem"><i>01</i>OEM·ODM</a></li>
+      <li><a href="#products"><i>02</i>제조 품목</a></li>
+      <li><a href="#process"><i>03</i>개발 프로세스</a></li>
+      <li><a href="#quality"><i>04</i>품질 관리</a></li>
+      <li><a href="#faq"><i>08</i>FAQ</a></li>
+    </ul></nav>
+    <a href="#rfq" class="btn r">견적 문의</a>
+    <button class="burger" id="burger" aria-label="메뉴 열기" aria-expanded="false"><i></i><i></i></button>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="pin">
+    <div class="hx">
+      <p class="mono"><i></i>Sauce · Dressing · Jang · Liquid — OEM / ODM</p>
+      <h1 data-mask>원하는 맛을 배합비로,<br>배합비를 <em>양산</em>으로.</h1>
+      <p class="sub">경기 이천의 소스·장류 전문 제조사 다온식품. 브랜드의 레시피를 그대로 생산하는 OEM부터, 맛 설계부터 함께하는 ODM까지.</p>
+      <div class="ctas">
+        <a href="#rfq" class="btn r">견적 문의하기 <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        <a href="#oem" class="btn l">OEM·ODM 비교</a>
+      </div>
+      <ul class="trust"><li>배합비 수령 전 비밀유지계약(NDA) 체결</li><li>샘플 단계부터 담당 연구원 1:1 배정</li><li>소량 시생산 후 양산 전환</li></ul>
+    </div>
+    <div class="frame" data-cur="LINE"><span class="fl">LINE A · SAUCE FILLING</span><img src="img/p48.jpg" alt="다온식품 이천 공장의 소스 생산 라인"></div>
+    <div class="chips">
+      <div class="chip c1"><span class="mono">MIN. ORDER</span><b>500<small>kg~</small></b></div>
+      <div class="chip c2"><span class="mono">SAMPLE LEAD TIME</span><b>2<small>주 샘플 개발</small></b></div>
+      <div class="chip c3"><span class="mono">CATEGORIES</span><b>4<small>개 품목군 · 용기 5종</small></b></div>
+    </div>
+    <div class="wm" aria-hidden="true"><span>D</span><span>A</span><span class="o">O</span><span>N</span><span>&nbsp;</span><span>F</span><span>O</span><span>O</span><span>D</span><span>S</span></div>
+    <div class="hcap" aria-hidden="true"><p>배합은 정밀하게,<br>생산은 같은 맛으로.</p><span class="mono">ICHEON PLANT<br>SAUCE LINE A</span></div>
+  </div>
+</section>
+
+<section class="intro" id="about">
+  <div class="w">
+    <div class="ig">
+      <span class="tag"><b>00</b>About</span>
+      <p class="wr" id="wr">다온식품은 경기도 이천에서 소스와 장류를 만드는 B2B 제조사입니다. 브랜드가 원하는 맛을 <span class="rd">배합비로</span> 옮기고, 그 배합비를 첫 생산부터 반복 생산까지 <span class="rd">같은 맛으로</span> 지켜내는 일. 우리가 가장 잘하는 일입니다.</p>
+    </div>
+    <div class="specrow">
+      <div data-rv><span class="mono">MOQ</span><b><span data-count="500">500</span><small>kg~</small></b><p>품목·용기별 협의</p></div>
+      <div data-rv="2"><span class="mono">Sample</span><b><span data-count="2">2</span><small>주</small></b><p>1차 샘플 개발 기준</p></div>
+      <div data-rv="3"><span class="mono">Category</span><b><span data-count="4">4</span><small>개 품목군</small></b><p>소스·드레싱·장류·액상</p></div>
+      <div data-rv="3"><span class="mono">Packing</span><b><span data-count="5">5</span><small>종 용기</small></b><p>파우치·PET·유리병·말통·스틱</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cmp" id="oem">
+  <div class="w">
+    <div class="ch">
+      <div><span class="tag" data-rv><b>01</b>OEM vs ODM</span><h2 data-mask>레시피가 있으신가요,<br><em>맛부터 만들까요?</em></h2></div>
+      <p class="lead" data-rv="2">보유한 배합비가 있다면 OEM, 콘셉트만 있다면 ODM으로 시작합니다. 진행 중 방식을 전환할 수도 있습니다.</p>
+    </div>
+    <div class="ctab" data-rv>
+      <div class="rh corner">구분</div>
+      <div class="hd"><span class="mono">Original Equipment Mfg.</span><h3>OEM</h3><p>고객사 배합비 그대로 생산</p></div>
+      <div class="hd co2"><span class="mono">Original Development Mfg.</span><h3>ODM</h3><p>다온이 배합 설계부터 개발</p></div>
+      <div class="rh">레시피 주체</div><div>고객사 <span class="pill">배합비 제공</span></div><div class="co2">다온식품 R&amp;D <span class="pill">공동 개발</span></div>
+      <div class="rh">이런 분께</div><div>이미 판매 중인 소스를 외주 생산으로 전환하려는 브랜드</div><div class="co2">신제품 콘셉트는 있지만 레시피가 없는 브랜드·프랜차이즈</div>
+      <div class="rh">개발 범위</div><div>배합비 공정 적합화 · 시생산 · 양산</div><div class="co2">맛 설계 · 샘플 · 관능 평가 · 시생산 · 양산</div>
+      <div class="rh">샘플 기간</div><div>약 1~2주 (공정 테스트)</div><div class="co2">약 2주 (1차 샘플 기준)</div>
+      <div class="rh">배합비 관리</div><div>고객사 소유 · NDA 하에 보관</div><div class="co2">계약 조건에 따라 협의</div>
+      <div class="rh last">시작 조건</div><div class="last">MOQ 500kg~ · 배합비·원료 사양서</div><div class="co2 last">MOQ 500kg~ · 콘셉트·타깃 단가</div>
+    </div>
+  </div>
+</section>
+
+<div class="mqs" data-mq="1" aria-hidden="true"><div class="mq"><div class="mq-t"><span>SAUCE <i></i></span><span class="ol">DRESSING <i></i></span><span>JANG <i></i></span><span class="ol">LIQUID <i></i></span></div></div></div>
+
+<section class="prod" id="products">
+  <div class="hs-pin">
+    <div class="hs-head">
+      <div><span class="tag"><b>02</b>Products</span><h2 data-mask>제조 가능 품목</h2></div>
+      <div class="ctr">SLIDE <b data-cnt>01</b> / 05<div class="bar"><i data-bar></i></div></div>
+    </div>
+    <div class="hs-track">
+      <article class="pc" data-cur="VIEW"><div class="ph"><img src="img/p49.jpg" alt="컨베이어 위의 소스 병" data-hpar loading="lazy"><span class="en">SAUCE</span></div><div class="tx"><span class="mono">Category 01</span><h3>소스</h3><p>가열·농축 공정으로 점도와 풍미를 맞추는 조리용·디핑 소스.</p><div class="ex"><span>바비큐</span><span>데리야끼</span><span>떡볶이 소스</span><span>불고기 양념</span><span>칠리</span></div><dl><dt>FILL</dt><dd>고점도 충전 · 열충전</dd><dt>PACK</dt><dd>PET · 유리병 · 파우치</dd><dt>STORAGE</dt><dd>상온 / 냉장</dd></dl></div></article>
+      <article class="pc" data-cur="VIEW"><div class="ph"><img src="img/p50.jpg" alt="연구실에서 샘플을 테스트하는 연구원" data-hpar loading="lazy" style="object-position:50% 70%"><span class="en">DRESSING</span></div><div class="tx"><span class="mono">Category 02</span><h3>드레싱</h3><p>진공 유화로 분리 없이 균일한 질감을 내는 샐러드·딥 드레싱.</p><div class="ex"><span>참깨</span><span>오리엔탈</span><span>요거트</span><span>시저</span><span>유자</span></div><dl><dt>FILL</dt><dd>유화 후 냉충전</dd><dt>PACK</dt><dd>PET · 스틱 · 디스펜서 팩</dd><dt>STORAGE</dt><dd>냉장 0~10℃</dd></dl></div></article>
+      <article class="pc" data-cur="VIEW"><div class="ph"><img src="img/p48.jpg" alt="소스 생산 탱크와 라인" data-hpar loading="lazy" style="object-position:30% 50%"><span class="en">JANG</span></div><div class="tx"><span class="mono">Category 03</span><h3>장류 베이스</h3><p>고추장·된장을 기반으로 한 양념장과 외식용 베이스.</p><div class="ex"><span>고추장 양념</span><span>쌈장</span><span>된장 베이스</span><span>비빔장</span></div><dl><dt>FILL</dt><dd>페이스트 충전</dd><dt>PACK</dt><dd>말통 · 파우치 · 튜브</dd><dt>STORAGE</dt><dd>상온 / 냉장</dd></dl></div></article>
+      <article class="pc" data-cur="VIEW"><div class="ph"><img src="img/p49.jpg" alt="충전 라인의 병" data-hpar loading="lazy" style="object-position:70% 20%"><span class="en">LIQUID</span></div><div class="tx"><span class="mono">Category 04</span><h3>액상 조미</h3><p>외식·급식 현장에서 쓰는 농축 육수와 간장 베이스 조미액.</p><div class="ex"><span>육수 농축액</span><span>맛간장</span><span>볶음 소스</span><span>쯔유</span></div><dl><dt>FILL</dt><dd>액상 정량 충전</dd><dt>PACK</dt><dd>말통 18L · PET</dd><dt>STORAGE</dt><dd>상온</dd></dl></div></article>
+      <article class="pc" data-cur="VIEW"><div class="ph"><img src="img/p51.jpg" alt="박스가 적재된 물류창고" data-hpar loading="lazy"><span class="en">PACK</span></div><div class="tx"><span class="mono">Packing Options</span><h3>포장 형태</h3><p>B2C 소매용부터 외식 업소용 대용량까지 용기와 단위를 선택합니다.</p><div class="ex"><span>스틱 15g</span><span>파우치 1kg</span><span>PET 300g</span><span>유리병 250g</span><span>말통 18L</span></div><dl><dt>LABEL</dt><dd>고객사 라벨 · 로트 인쇄</dd><dt>BOX</dt><dd>입수·박스 사양 협의</dd><dt>PALLET</dt><dd>팔레트 단위 출고</dd></dl></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="flow2" id="process">
+  <div class="w">
+    <span class="tag" data-rv><b>03</b>Development → Mass Production</span>
+    <h2 data-mask>상담부터 양산까지<br><em>6단계</em>로 진행합니다</h2>
+    <div class="fg">
+      <div class="stk">
+        <div class="fig"><img src="img/p50.jpg" alt="" class="on" loading="lazy"><img src="img/p50.jpg" alt="" loading="lazy" style="object-position:50% 85%"><img src="img/p49.jpg" alt="" loading="lazy" style="object-position:50% 80%"><img src="img/p48.jpg" alt="" loading="lazy"><img src="img/p49.jpg" alt="" loading="lazy"><img src="img/p51.jpg" alt="" loading="lazy"><span class="big" id="stn">01</span></div>
+        <div class="rail" id="rail"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div>
+      </div>
+      <div>
+        <div class="st"><span class="mono"><b>STEP 01</b>D+0</span><h3>상담 · 비밀유지계약</h3><p>품목, 목표 단가, 예상 수량을 듣고 진행 방식을 정합니다. 배합비를 받기 전 NDA를 먼저 체결합니다.</p><ul><li>요구 사양 정리</li><li>NDA 체결</li><li>OEM / ODM 결정</li><li>원료 사양 확인</li></ul></div>
+        <div class="st"><span class="mono"><b>STEP 02</b>~2 WEEKS</span><h3>배합 설계 · 1차 샘플</h3><p>담당 연구원이 맛·점도·염도 목표를 잡고 1차 샘플을 제작해 발송합니다.</p><ul><li>목표 맛 프로파일</li><li>점도·염도·당도 설정</li><li>1차 샘플 발송</li><li>원가 시뮬레이션</li></ul></div>
+        <div class="st"><span class="mono"><b>STEP 03</b>FEEDBACK</span><h3>관능 평가 · 수정</h3><p>고객사 평가를 반영해 배합을 수정합니다. 확정 샘플은 기준 샘플로 보관합니다.</p><ul><li>피드백 반영 수정</li><li>기준 샘플 확정</li><li>유통기한 설정 검토</li><li>표시사항 초안</li></ul></div>
+        <div class="st"><span class="mono"><b>STEP 04</b>PILOT</span><h3>시생산 (파일럿)</h3><p>실제 라인에서 소량 시생산해 공정 조건과 충전 적합성을 확인합니다.</p><ul><li>가열·충전 조건 확정</li><li>포장재 적합성</li><li>시생산품 검사</li><li>양산 단가 확정</li></ul></div>
+        <div class="st"><span class="mono"><b>STEP 05</b>MASS</span><h3>양산 · 출하 검사</h3><p>확정된 공정 조건으로 양산하고, 로트별 검사 후 출하를 승인합니다.</p><ul><li>로트 번호 관리</li><li>이물·금속 검출</li><li>로트별 샘플 보관</li><li>출하 승인</li></ul></div>
+        <div class="st"><span class="mono"><b>STEP 06</b>DELIVERY</span><h3>출고 · 납품</h3><p>상온·냉장 구분 보관 후 협의된 납기에 맞춰 출고합니다. 재발주는 기존 조건으로 바로 진행합니다.</p><ul><li>상온 / 냉장 출고</li><li>팔레트 · 박스 단위</li><li>거래명세 · 성적서</li><li>정기 발주 관리</li></ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="qa dark" id="quality">
+  <div class="w">
+    <div class="qg">
+      <div><span class="tag" data-rv><b>04</b>Hygiene &amp; QC</span><h2 data-mask>위생·품질은<br><em>공정마다 기록합니다</em></h2></div>
+      <div><p class="lead" data-rv="2">HACCP의 원칙인 위해요소 분석과 중요관리점 관리 방식을 바탕으로, 원료 입고부터 출하까지 여섯 지점에서 확인하고 기록하는 관리 체계를 운영합니다.</p><p class="note" data-rv="3">※ 본 내용은 다온식품의 공정 관리 방식에 대한 소개이며, 특정 인증의 보유를 표시하는 것이 아닙니다.</p></div>
+    </div>
+    <div class="qflow" id="qflow">
+      <div class="qp"><span class="mono">CP · 01</span><h3>원료 입고 검사</h3><p>원료별 규격서와 대조해 입고를 승인합니다.</p><div class="ck"><span>규격서 대조</span><span>보관 온도</span></div></div>
+      <div class="qp"><span class="mono">CP · 02</span><h3>계량 · 배합</h3><p>배합비 기준 이중 계량으로 배합 오차를 줄입니다.</p><div class="ck"><span>이중 계량</span><span>배합 기록</span></div></div>
+      <div class="qp"><span class="mono">CP · 03</span><h3>가열 · 살균</h3><p>품목별 설정 온도와 시간을 공정 중 확인합니다.</p><div class="ck"><span>온도 · 시간</span><span>모니터링 일지</span></div></div>
+      <div class="qp"><span class="mono">CP · 04</span><h3>충전 · 밀봉</h3><p>충전량과 밀봉 상태를 주기적으로 샘플링합니다.</p><div class="ck"><span>중량 확인</span><span>밀봉 검사</span></div></div>
+      <div class="qp"><span class="mono">CP · 05</span><h3>이물 · 금속 검출</h3><p>포장 완료품 전량을 금속 검출기에 통과시킵니다.</p><div class="ck"><span>전량 통과</span><span>감도 점검</span></div></div>
+      <div class="qp"><span class="mono">CP · 06</span><h3>출하 검사</h3><p>로트별 관능·이화학 확인 후 출하를 승인합니다.</p><div class="ck"><span>로트 샘플 보관</span><span>출하 기록</span></div></div>
+    </div>
+    <div class="lab2">
+      <div class="clip"><div class="im"><img src="img/p50.jpg" alt="연구실에서 소스 샘플을 분석하는 연구원" data-par=".06" loading="lazy" style="object-position:50% 40%"></div></div>
+      <div class="lbox" data-rv><span class="tag"><b>R&amp;D</b>In-house Lab</span><h3>사내 연구실에서<br>샘플과 로트를 확인합니다</h3><ul><li>염도 · 당도 · pH 측정<span>LOT CHECK</span></li><li>점도 확인<span>VISCOSITY</span></li><li>관능 평가<span>SENSORY</span></li><li>기준 샘플 보관<span>REFERENCE</span></li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="eq" id="equipment">
+  <div class="w eg">
+    <div><span class="tag" data-rv><b>05</b>Equipment</span><h2 data-mask>주요 설비</h2><p class="lead" data-rv="2">점성이 있는 소스부터 묽은 액상까지, 품목 특성에 맞는 라인에서 생산합니다.</p></div>
+    <div data-rv="2">
+      <table class="etbl">
+        <thead><tr><th>설비</th><th>용도</th><th>규격</th><th>보유</th></tr></thead>
+        <tbody>
+          <tr><td>가열 교반 탱크<small>HEAT MIXING KETTLE</small></td><td>소스·장류 가열 혼합</td><td class="n">1,000 L</td><td class="q">4기</td></tr>
+          <tr><td>진공 유화기<small>VACUUM EMULSIFIER</small></td><td>드레싱 유화</td><td class="n">500 L</td><td class="q">2기</td></tr>
+          <tr><td>콜로이드 밀<small>COLLOID MILL</small></td><td>페이스트 미세 분쇄</td><td class="n">—</td><td class="q">1기</td></tr>
+          <tr><td>자동 충전기<small>FILLING LINE</small></td><td>파우치·PET·유리병 충전</td><td class="n">4~6 Head</td><td class="q">3라인</td></tr>
+          <tr><td>스틱 포장기<small>STICK PACKER</small></td><td>1회용 스틱 소포장</td><td class="n">8열</td><td class="q">1라인</td></tr>
+          <tr><td>금속 검출기<small>METAL DETECTOR</small></td><td>포장 완료품 전량 검사</td><td class="n">라인별</td><td class="q">3대</td></tr>
+          <tr><td>냉장 보관실<small>COLD ROOM</small></td><td>원료·완제품 냉장 보관</td><td class="n">0~10 ℃</td><td class="q">2실</td></tr>
+        </tbody>
+      </table>
+      <p class="ecap">※ 설비 구성은 시안용 예시이며, 실제 사양은 공장 방문 시 확인하실 수 있습니다.</p>
+    </div>
+  </div>
+</section>
+
+<section class="lg2" id="logistics">
+  <div class="w lgg">
+    <div class="clip"><div class="im"><img src="img/p51.jpg" alt="완제품 박스가 적재된 다온식품 물류창고와 지게차" data-par=".07" loading="lazy"><span class="fl">ICHEON WAREHOUSE · AMBIENT / COLD</span></div></div>
+    <div>
+      <span class="tag" data-rv><b>06</b>Delivery &amp; Logistics</span>
+      <h2 data-mask>만든 그대로,<br><em>온도까지 지켜서</em></h2>
+      <p class="lead" data-rv="2">이천 공장 내 창고에서 상온·냉장을 구분해 보관하고, 수도권은 물론 전국 물류센터로 출고합니다.</p>
+      <dl class="ll" data-rv="3">
+        <div><dt>STORAGE</dt><dd><b>상온 · 냉장 분리 보관</b><span>냉장 품목 0~10℃ 보관 후 출고</span></dd></div>
+        <div><dt>SHIPPING</dt><dd><b>냉장 차량 · 화물 · 택배</b><span>수도권 냉장 배송, 전국 화물·택배 출고</span></dd></div>
+        <div><dt>UNIT</dt><dd><b>팔레트 · 박스 단위</b><span>고객사 물류센터 입고 기준에 맞춘 적재</span></dd></div>
+        <div><dt>DOCS</dt><dd><b>거래명세서 · 시험성적서</b><span>로트 번호와 함께 출고 서류 발행</span></dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="rfq" id="rfq">
+  <div class="w rg">
+    <div class="side">
+      <span class="tag" data-rv><b>07</b>Request for Quote</span>
+      <h2 data-mask>견적 문의</h2>
+      <p class="lead" data-rv="2">품목과 예상 수량을 남겨주시면 담당자가 2영업일 내 회신드립니다. 배합비 파일은 NDA 체결 후 전달하셔도 됩니다.</p>
+      <ol data-rv="3"><li>문의 접수 후 담당자 배정</li><li>NDA 체결 및 상세 사양 확인</li><li>샘플 개발 일정·견적 안내</li></ol>
+      <p class="contact" data-rv="3">B2B 영업팀 · 평일 09:00–18:00<b>031-000-0000</b>sales@daonfoods.example</p>
+    </div>
+    <form class="qf" id="qf" novalidate data-rv="2">
+      <div class="fr">
+        <div class="fi"><label for="co">회사명<i>*</i></label><input id="co" required autocomplete="organization" placeholder="(주)브랜드명"></div>
+        <div class="fi"><label for="nm">담당자<i>*</i></label><input id="nm" required autocomplete="name" placeholder="이름 / 직함"></div>
+      </div>
+      <div class="fr">
+        <div class="fi"><label for="ph">연락처<i>*</i></label><input id="ph" type="tel" required inputmode="tel" pattern="0\d{1,2}-?\d{3,4}-?\d{4}" placeholder="010-0000-0000"></div>
+        <div class="fi"><label for="em">이메일<i>*</i></label><input id="em" type="email" required autocomplete="email" placeholder="name@company.com"></div>
+      </div>
+      <div class="fr">
+        <div class="fi"><label for="it">품목<i>*</i></label><select id="it" required><option value="">품목 선택</option><option>소스</option><option>드레싱</option><option>장류 베이스</option><option>액상 조미</option><option>기타 / 미정</option></select></div>
+        <div class="fi"><span class="fl2" id="tyl">진행 방식</span><div class="seg" role="radiogroup" aria-labelledby="tyl"><label><input type="radio" name="ty" value="OEM"><span>OEM</span></label><label><input type="radio" name="ty" value="ODM"><span>ODM</span></label><label><input type="radio" name="ty" value="미정" checked><span>미정</span></label></div></div>
+      </div>
+      <div class="fr">
+        <div class="fi"><label for="qt">예상 수량<i>*</i><small>MOQ 500kg~</small></label><div class="qty"><input id="qt" type="number" min="1" step="1" required inputmode="numeric" placeholder="예) 1000"><select id="qu" aria-label="수량 단위"><option>kg / 회</option><option>kg / 월</option><option>개 / 회</option></select></div></div>
+        <div class="fi"><label for="pk">희망 포장</label><select id="pk"><option value="">선택</option><option>스틱</option><option>파우치</option><option>PET</option><option>유리병</option><option>말통 18L</option><option>미정</option></select></div>
+      </div>
+      <div class="fi"><span class="fl2">배합비 파일 첨부<small>PDF · XLSX · DOCX · HWP · 최대 10MB</small></span>
+        <label class="drop" id="drop"><input type="file" id="fl" accept=".pdf,.xls,.xlsx,.doc,.docx,.hwp,.jpg,.png"><svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M15 20V6M9 12l6-6 6 6M5 20v4h20v-4"/></svg><div><b id="fn">파일을 끌어다 놓거나 클릭해서 선택</b><span>배합비가 없다면 비워두셔도 됩니다</span></div></label>
+      </div>
+      <div class="fi"><label for="rq">요청 사항</label><textarea id="rq" placeholder="목표 단가, 출시 일정, 참고 제품 등을 적어주세요."></textarea></div>
+      <label class="chk"><input type="checkbox" id="nda"><span>배합비 전달 전 비밀유지계약(NDA) 체결을 희망합니다.</span></label>
+      <label class="chk"><input type="checkbox" id="ag" required><span>[필수] 견적 상담을 위한 개인정보(담당자명·연락처·이메일) 수집·이용에 동의합니다.</span></label>
+      <button class="btn r" type="submit">견적 요청 보내기</button>
+      <p class="msg" id="msg" role="status"></p>
+    </form>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <div class="w fg2">
+    <div><span class="tag" data-rv><b>08</b>FAQ</span><h2 data-mask>자주 묻는 질문</h2></div>
+    <div data-rv="2">
+      <details open><summary><b>Q.01</b>최소 주문 수량(MOQ)은 얼마인가요?</summary><p>기본 500kg부터 진행하며, 품목과 포장 형태(스틱·유리병 등)에 따라 달라질 수 있습니다. 정확한 기준은 견적 단계에서 안내드립니다.</p></details>
+      <details><summary><b>Q.02</b>샘플 개발 비용이 있나요?</summary><p>샘플 개발 비용과 횟수는 품목 난이도와 진행 방식(OEM·ODM)에 따라 상담 시 협의합니다. 양산 계약 시 정산 방식도 함께 안내드립니다.</p></details>
+      <details><summary><b>Q.03</b>배합비 보안은 어떻게 관리하나요?</summary><p>배합비 수령 전 비밀유지계약(NDA)을 체결하며, 배합비는 담당 연구원과 생산 책임자에게만 공유됩니다.</p></details>
+      <details><summary><b>Q.04</b>식품 표시사항이나 라벨도 도와주시나요?</summary><p>배합 확정 후 원재료명·영양성분 등 표시사항 초안 작성을 지원하며, 고객사 라벨 부착과 로트 번호 인쇄가 가능합니다.</p></details>
+      <details><summary><b>Q.05</b>공장 방문이나 생산 참관이 가능한가요?</summary><p>사전 예약 후 이천 공장 방문이 가능합니다. 위생 기준에 따라 생산 구역 출입은 위생복 착용 후 지정 동선으로 안내드립니다.</p></details>
+      <details><summary><b>Q.06</b>재발주는 어떻게 진행되나요?</summary><p>확정된 배합비와 공정 조건으로 바로 생산합니다. 정기 발주가 필요하시면 월 단위 생산 일정을 함께 계획합니다.</p></details>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="w">
+    <div class="ff">
+      <div>
+        <a href="#" class="logo"><svg viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" fill="#e5372a"/><path d="M9 8h7.5a9 9 0 0 1 0 18H9z" fill="#fff"/><circle cx="16.5" cy="17" r="3.4" fill="#e5372a"/></svg><span><b>DAON FOODS</b><small>다온식품 · ICHEON</small></span></a>
+        <p class="biz">(주)다온식품 · 대표 000 · 사업자등록번호 000-00-00000<br>경기도 이천시 0000면 00로 00 (본사·공장)<br>B2B 영업 031-000-0000 · 팩스 031-000-0000 · sales@daonfoods.example</p>
+      </div>
+      <div><h4>SERVICE</h4><ul><li><a href="#oem">OEM · ODM</a></li><li><a href="#products">제조 품목</a></li><li><a href="#process">개발 프로세스</a></li><li><a href="#equipment">설비</a></li></ul></div>
+      <div><h4>CONTACT</h4><ul><li><a href="#rfq">견적 문의</a></li><li><a href="#logistics">납품 · 물류</a></li><li><a href="#faq">FAQ</a></li><li><a href="#rfq">개인정보처리방침</a></li></ul></div>
+    </div>
+    <div class="fw" aria-hidden="true">DA<span>O</span>N FOODS</div>
+    <p class="cp">© 2026 다온식품. 본 사이트는 ATZ MACH 제작 시안입니다.</p>
+  </div>
+</footer>
+
+<script>
+/* FX engine — lerp smooth scroll + rAF scroll-scrub, no dependencies */
+const FX=(()=>{
+const D=document,R=D.documentElement;
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const FINE=matchMedia('(hover:hover) and (pointer:fine)').matches;
+const cl=(v,a=0,b=1)=>v<a?a:v>b?b:v,lerp=(a,b,t)=>a+(b-a)*t,mob=()=>innerWidth<=860;
+if(RM)R.classList.add('rm');
+const subs=[],sub=f=>subs.push(f);
+const prog=el=>{const r=el.getBoundingClientRect();return cl(-r.top/Math.max(1,el.offsetHeight-innerHeight))};
+const vis=r=>r.bottom>-120&&r.top<innerHeight+120;
+/* smooth scroll (desktop wheel only; touch/keys stay native) */
+let tgt=scrollY,cur=scrollY,sm=false,lastY=scrollY,vel=0;
+const maxY=()=>R.scrollHeight-innerHeight,SMOOTH=!RM&&FINE;
+if(SMOOTH){R.style.scrollBehavior='auto';
+  addEventListener('wheel',e=>{if(e.ctrlKey)return;const s=e.target.closest&&e.target.closest('textarea,select');if(s)return;
+    e.preventDefault();if(!sm)tgt=cur=scrollY;tgt=cl(tgt+e.deltaY*(e.deltaMode===1?40:1),0,maxY());sm=true},{passive:false});
+  addEventListener('keydown',()=>sm=false);addEventListener('pointerdown',()=>sm=false);}
+const go=y=>{y=cl(y,0,maxY());if(!SMOOTH){scrollTo({top:y,behavior:RM?'auto':'smooth'});return}if(!sm)cur=scrollY;tgt=y;sm=true};
+D.addEventListener('click',e=>{const a=e.target.closest('a[href^="#"]');if(!a||e.defaultPrevented)return;const h=a.getAttribute('href'),el=h.length>1&&D.querySelector(h);
+  if(h.length>1&&!el)return;e.preventDefault();go(el?el.getBoundingClientRect().top+scrollY-70:0)});
+/* in-view classes: mask titles, clip images, counters */
+const count=el=>{const to=+el.dataset.count,d=+(el.dataset.dec||0);if(RM){el.textContent=to.toFixed(d);return}
+  const t0=performance.now(),f=t=>{const k=cl((t-t0)/1700);el.textContent=(to*(1-Math.pow(1-k,3))).toFixed(d);if(k<1)requestAnimationFrame(f)};requestAnimationFrame(f)};
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;e.target.classList.add('in');if(e.target.dataset.count)count(e.target);io.unobserve(e.target)}),{rootMargin:'0px 0px -12% 0px'});
+D.querySelectorAll('[data-mask]').forEach(h=>{h.innerHTML=h.innerHTML.split(/<br\s*\/?>/i).map(s=>`<span class="ln"><span>${s}</span></span>`).join('');io.observe(h)});
+D.querySelectorAll('[data-count]').forEach(el=>{if(!RM)el.textContent='0';io.observe(el)});
+D.querySelectorAll('.clip').forEach(el=>io.observe(el));
+/* word splitter */
+const words=el=>{const w=D.createTreeWalker(el,NodeFilter.SHOW_TEXT),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(n=>{const f=D.createDocumentFragment();n.textContent.split(/(\s+)/).forEach(s=>{if(!s)return;if(/^\s+$/.test(s))f.append(s);else{const sp=D.createElement('span');sp.className='wd';sp.textContent=s;f.append(sp)}});n.replaceWith(f)});
+  return[...el.querySelectorAll('.wd')]};
+const wset=(s,k)=>{s.opacity=(.12+.88*k).toFixed(3);s.filter=k>.98?'none':`blur(${((1-k)*8).toFixed(1)}px)`;s.transform=k>.98?'none':`translate3d(0,${((1-k)*16).toFixed(1)}px,0)`};
+/* parallax */
+const pars=[...D.querySelectorAll('[data-par]')];
+if(!RM)sub(()=>{for(const el of pars){const r=el.parentElement.getBoundingClientRect();if(!vis(r))continue;
+  const off=r.top+r.height/2-innerHeight/2;el.style.transform=`translate3d(0,${(-off*+el.dataset.par).toFixed(1)}px,0) scale(${el.dataset.s||1.18})`}});
+/* velocity-reactive marquees */
+D.querySelectorAll('[data-mq]').forEach(m=>{const t=m.querySelector('.mq-t');t.innerHTML+=t.innerHTML;if(RM)return;
+  let x=0,dir=+m.dataset.mq||1,base=dir;sub((y,v)=>{const r=m.getBoundingClientRect();if(!vis(r))return;if(v>.4)dir=base;else if(v<-.4)dir=-base;
+    const w=t.scrollWidth/2;x-=(1.1+Math.min(Math.abs(v)*.9,40))*dir;x=((x%w)-w)%w;t.style.transform=`translate3d(${x.toFixed(1)}px,0,0) skewX(${cl(-v*.25,-8,8).toFixed(2)}deg)`})});
+/* horizontal pinned slider */
+const hslide=sec=>{const tr=sec.querySelector('.hs-track'),cnt=sec.querySelector('[data-cnt]'),bar=sec.querySelector('[data-bar]'),n=tr.children.length;let dist=0,on=false;
+  const size=()=>{on=!RM&&!mob();sec.classList.toggle('hs-on',on);if(!on){sec.style.height='';tr.style.transform='';return}
+    tr.style.transform='';dist=tr.scrollWidth-innerWidth;sec.style.height=(dist+innerHeight*1.15)+'px'};
+  size();addEventListener('resize',size);addEventListener('load',size);
+  tr.addEventListener('scroll',()=>{if(on)return;const i=Math.round(tr.scrollLeft/Math.max(1,tr.scrollWidth-tr.clientWidth)*(n-1))+1;if(cnt)cnt.textContent=String(i).padStart(2,'0')},{passive:true});
+  sub(()=>{if(!on)return;const r=sec.getBoundingClientRect();if(!vis(r))return;const p=cl(-r.top/Math.max(1,sec.offsetHeight-innerHeight)/.88);
+    tr.style.transform=`translate3d(${(-p*dist).toFixed(1)}px,0,0)`;if(cnt)cnt.textContent=String(Math.min(n,Math.round(p*(n-1))+1)).padStart(2,'0');
+    if(bar)bar.style.transform=`scaleX(${Math.max(.02,p).toFixed(3)})`;
+    tr.querySelectorAll('[data-hpar]').forEach(im=>{const b=im.parentElement.getBoundingClientRect();const o=b.left+b.width/2-innerWidth/2;im.style.transform=`translate3d(${(-o*.12).toFixed(1)}px,0,0) scale(1.22)`})})};
+/* custom cursor */
+if(FINE&&!RM){R.classList.add('has-cur');const c=D.createElement('div');c.className='cur';c.setAttribute('aria-hidden','true');c.innerHTML='<span></span>';D.body.append(c);
+  let mx=-200,my=-200,cx=-200,cy=-200;addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY},{passive:true});
+  D.addEventListener('mouseover',e=>{const t=e.target.closest('[data-cur]');c.classList.toggle('big',!!t);if(t)c.firstChild.textContent=t.dataset.cur||'VIEW';
+    c.classList.toggle('lnk',!t&&!!e.target.closest('a,button,summary,label'));c.style.opacity=e.target.closest('input,textarea,select')?0:1});
+  sub(()=>{cx=lerp(cx,mx,.2);cy=lerp(cy,my,.2);c.style.transform=`translate3d(${cx.toFixed(1)}px,${cy.toFixed(1)}px,0)`});}
+/* loop */
+const tick=t=>{if(sm){cur=lerp(cur,tgt,.1);if(Math.abs(tgt-cur)<.5){cur=tgt;sm=false}scrollTo(0,cur)}
+  const y=scrollY;vel=lerp(vel,y-lastY,.25);lastY=y;for(const f of subs)f(y,vel,t);requestAnimationFrame(tick)};
+requestAnimationFrame(tick);
+return{RM,FINE,cl,lerp,mob,sub,prog,vis,words,wset,hslide,go};
+})();
+
+
+/* ---- page ---- */
+(()=>{const {cl,lerp,sub,prog}=FX;
+ /* pinned hero scrub */
+ const hero=document.querySelector('.hero'),fr=hero.querySelector('.frame'),img=fr.querySelector('img'),hx=hero.querySelector('.hx'),
+  chips=[...hero.querySelectorAll('.chip')],wm=[...hero.querySelectorAll('.wm span')],cap=hero.querySelector('.hcap');
+ let on,fx,fy,fw,fh;const sz=()=>{on=!FX.RM&&!FX.mob();[fr,img,hx,cap,...chips,...wm].forEach(e=>{e.style.transform='';e.style.opacity=''});
+  if(on){fx=fr.offsetLeft;fy=fr.offsetTop;fw=fr.offsetWidth;fh=fr.offsetHeight}};sz();addEventListener('resize',sz);
+ const CD=[[-1,.6],[1,-1],[1,1]];
+ sub((y,v,t)=>{if(!on)return;const p=prog(hero);if(hero.getBoundingClientRect().bottom<0)return;
+  const z=cl(p/.62),e=z*z*(3-2*z);
+  const S=Math.max(innerWidth/fw,innerHeight/fh)*1.03,dx=innerWidth/2-(fx+fw/2),dy=innerHeight/2-(fy+fh/2);
+  fr.style.transform=`translate3d(${(dx*e).toFixed(1)}px,${(dy*e).toFixed(1)}px,0) rotate(${lerp(-3,0,e).toFixed(2)}deg) scale(${lerp(1,S,e).toFixed(3)})`;
+  fr.style.borderRadius=lerp(6,0,e).toFixed(1)+'px';fr.style.setProperty('--sh',cl((p-.45)/.2).toFixed(3));
+  img.style.transform=`scale(${lerp(1.28,1.02,e).toFixed(3)})`;
+  hx.style.opacity=cl(1-p*3).toFixed(3);hx.style.transform=`translate3d(0,${(-p*160).toFixed(1)}px,0)`;
+  chips.forEach((c,i)=>{const f=Math.sin(t/1400+i*2.1)*6,[a,b]=CD[i];c.style.transform=`translate3d(${(a*p*620).toFixed(1)}px,${(f+b*p*360).toFixed(1)}px,0) rotate(${(a*p*14).toFixed(1)}deg)`;c.style.opacity=cl(1-p*2.6).toFixed(3)});
+  wm.forEach((s,i)=>{const k=cl(p*2.1-Math.abs(i-4.5)*.06);s.style.transform=`translate3d(0,${(k*110).toFixed(1)}%,0)`});
+  const ck=cl((p-.6)/.22);cap.style.opacity=ck.toFixed(3);cap.style.transform=`translate3d(0,${((1-ck)*40).toFixed(1)}px,0)`});
+ /* word reveal */
+ const ws=FX.words(document.getElementById('wr'));
+ if(FX.RM)ws.forEach(w=>FX.wset(w.style,1));
+ else sub(()=>{if(!FX.vis(document.getElementById('about').getBoundingClientRect()))return;ws.forEach(w=>FX.wset(w.style,cl((innerHeight*.85-w.getBoundingClientRect().top)/(innerHeight*.32))))});
+ /* products slider */
+ FX.hslide(document.querySelector('.prod'));
+ /* sticky 6 steps */
+ const sts=[...document.querySelectorAll('.flow2 .st')],ims=[...document.querySelectorAll('.flow2 .fig img')],rail=[...document.querySelectorAll('#rail i')],stn=document.getElementById('stn');let ac=-1;
+ sub(()=>{if(FX.mob()){if(ac!==-2){ac=-2;sts.forEach(s=>s.classList.add('on'))}return}let a=0;sts.forEach((s,i)=>{if(s.getBoundingClientRect().top<innerHeight*.5)a=i});
+  if(a!==ac){ac=a;sts.forEach((s,i)=>s.classList.toggle('on',i===a));ims.forEach((m,i)=>m.classList.toggle('on',i===a));rail.forEach((r,i)=>r.classList.toggle('on',i<=a));stn.textContent=String(a+1).padStart(2,'0')}});
+ /* QC line progress */
+ const qf=document.getElementById('qflow');
+ sub(()=>{const r=qf.getBoundingClientRect();if(!FX.vis(r))return;qf.style.setProperty('--qp',cl((innerHeight*.85-r.top)/(innerHeight*.6)).toFixed(3))});
+})();
+
+/* header, menu, reveal, form */
+const top_=document.getElementById('top'),bg=document.getElementById('burger');
+const onS=()=>top_.classList.toggle('is-dim',scrollY>60);onS();addEventListener('scroll',onS,{passive:true});
+bg.onclick=()=>{const o=top_.classList.toggle('open');bg.setAttribute('aria-expanded',o)};
+top_.querySelectorAll('nav a').forEach(a=>a.addEventListener('click',()=>{top_.classList.remove('open');bg.setAttribute('aria-expanded',false)}));
+const rio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('rv-on');rio.unobserve(e.target)}}),{rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('[data-rv]').forEach(el=>rio.observe(el));
+const fl=document.getElementById('fl'),fn=document.getElementById('fn'),drop=document.getElementById('drop'),FN0=fn.textContent;
+fl.addEventListener('change',()=>{const f=fl.files[0];if(f&&f.size>10*1024*1024){fl.value='';fn.textContent='10MB 이하 파일만 첨부할 수 있습니다.';return}fn.textContent=f?f.name+' ('+Math.ceil(f.size/1024)+'KB)':FN0});
+['dragenter','dragover'].forEach(t=>drop.addEventListener(t,()=>drop.classList.add('ov')));['dragleave','drop'].forEach(t=>drop.addEventListener(t,()=>drop.classList.remove('ov')));
+const qf=document.getElementById('qf'),msg=document.getElementById('msg');
+qf.addEventListener('submit',e=>{e.preventDefault();
+  if(!qf.checkValidity()){msg.style.color='var(--red)';msg.textContent='필수 항목(*)과 개인정보 동의를 확인해 주세요.';qf.reportValidity();return}
+  msg.style.color='';msg.textContent=document.getElementById('co').value+' '+document.getElementById('nm').value+'님, '+document.getElementById('it').value+' 견적 요청이 접수되었습니다. 2영업일 내 회신드리겠습니다.';qf.reset();fn.textContent=FN0});
+</script>
+<style id="qa52-daon-css">/* T19 */h1,h2,h3{text-wrap:balance}/* M05 동의 체크 줄 44px */label:has(>input[type=checkbox]){min-height:44px}footer a:not([class]){display:inline-block;padding-block:15px;margin-block:-15px}footer .cp{color:#9a9ea4}details summary b{letter-spacing:0}a.logo small{font-size:11px}.chip .mono,.fl2 small{font-size:11px}</style><script id="qa52-daon-js">(function(){var b=document.getElementById('burger');if(!b)return;
+function open(){return !!document.querySelector('nav.open,.open nav')}
+var was=false;function sync(){var o=open();if(o===was)return;was=o;
+ document.documentElement.style.overflow=o?'hidden':'';b.setAttribute('aria-expanded',o?'true':'false')}
+var mo=new MutationObserver(sync);[].concat([].slice.call(document.querySelectorAll('nav')),[b.closest('header')]).forEach(function(e){e&&mo.observe(e,{attributes:true,attributeFilter:['class']})});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&open()){b.click();b.focus()}})})();</script></body>
+</html>

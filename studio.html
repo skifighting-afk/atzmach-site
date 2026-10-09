@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>ATZ MACH | 모든 비즈니스 설계를 단, 한 줄로</title>
+<meta name="description" content="홈페이지부터 ERP, CRM까지. 필요한 서비스를 한 줄로 설명하면 ATZ MACH가 비즈니스를 설계합니다.">
+<meta name="theme-color" content="#0c0c0c">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800;900&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0c0c0c;--bg2:#141414;--card:#161616;--line:#2a2a2a;--line2:#3a3a3a;--ink:#f4f4f2;--mute:#9a9a96;--dim:#6c6c68;--lime:#d8ff3e;--lime2:#c4f02a;--blue:#3b82f6}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans KR",system-ui,-apple-system,sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}button,textarea,input{font:inherit;color:inherit}
+.w{max-width:1180px;margin:0 auto;padding:0 24px}
+svg.i{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+:focus-visible{outline:2px solid var(--lime);outline-offset:3px;border-radius:6px}
+
+/* 상단 */
+.nav{position:sticky;top:0;z-index:20;background:rgba(12,12,12,.86);backdrop-filter:blur(10px)}
+.nav .w{display:flex;align-items:center;height:68px;gap:24px}
+.logo{display:flex;align-items:center;gap:12px;font-weight:800;font-size:22px;letter-spacing:.02em}
+.logo b{display:inline-flex;align-items:center;gap:8px;color:var(--lime);font:800 22px/1 "IBM Plex Mono",monospace;letter-spacing:-.1em}
+.nav ul{display:flex;gap:30px;list-style:none;margin:0 auto;padding:0}
+.nav ul a{font-size:14.5px;color:#d9d9d5;transition:color .2s}.nav ul a:hover{color:var(--lime)}
+.me{width:38px;height:38px;border-radius:50%;border:1.5px solid #d9d9d5;display:grid;place-items:center;background:none;cursor:pointer}
+.menu{display:none;background:none;border:0;cursor:pointer;margin-left:auto;padding:6px}
+
+/* 첫 화면 */
+.hero{position:relative;padding:44px 0 0;text-align:center}
+.side{position:absolute;top:58px;font-size:13px;line-height:1.75;color:var(--mute);text-align:left}
+.side--l{left:24px}.side--r{right:24px;font:500 11.5px/1.75 "IBM Plex Mono",monospace;letter-spacing:.08em;color:var(--dim)}
+.side--r:after{content:"";display:block;width:22px;height:2px;margin-top:12px;background:var(--lime)}
+h1{margin:0;font-size:clamp(40px,6vw,74px);font-weight:900;line-height:1.12;letter-spacing:-.03em}
+h1 em{font-style:normal;color:var(--lime)}
+.lead{margin:18px 0 0;font-size:clamp(15px,1.6vw,19px);color:#d9d9d5}
+.prompt{max-width:800px;margin:26px auto 0;padding:22px 22px 18px;border-radius:14px;background:var(--bg2);border:1px solid var(--line2);text-align:left;transition:border-color .25s,box-shadow .25s}
+.prompt:focus-within{border-color:#5a5a55;box-shadow:0 0 0 4px rgba(216,255,62,.08)}
+.prompt textarea{display:block;width:100%;min-height:62px;resize:none;border:0;background:none;outline:none;font-size:17px;line-height:1.6;color:var(--ink)}
+.prompt textarea::placeholder{color:#8a8a86}
+.prow{display:flex;align-items:center;gap:10px;margin-top:10px;flex-wrap:wrap}
+.tool{display:inline-flex;align-items:center;gap:8px;height:38px;padding:0 16px;border-radius:99px;border:1px solid var(--line2);background:none;color:#d9d9d5;font-size:13.5px;cursor:pointer;transition:border-color .2s,background .2s,color .2s}
+.tool:hover{border-color:#6a6a66}.tool[aria-pressed=true]{border-color:var(--lime);color:var(--lime);background:rgba(216,255,62,.07)}
+.tool svg.i{width:17px;height:17px}
+.files{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}.files span{font-size:12.5px;padding:4px 10px;border-radius:99px;background:#222;color:#cfcfca}
+.go{margin-left:auto;display:inline-flex;align-items:center;gap:10px;height:46px;padding:0 24px;border-radius:12px;border:0;background:var(--lime);color:#111;font-weight:800;font-size:16px;cursor:pointer;transition:background .2s,transform .2s}
+.go:hover{background:var(--lime2);transform:translateY(-1px)}.go svg.i{width:18px;height:18px;stroke-width:2.2}
+.msg{min-height:20px;margin:8px 0 0;font-size:13px;color:var(--lime)}
+.sug{display:flex;align-items:center;gap:14px;margin-top:22px;padding-top:26px;border-top:1px solid var(--line)}
+.sug>p{margin:0 18px 0 68px;font-size:14px;color:var(--mute);white-space:nowrap}
+.pill{display:inline-flex;align-items:center;gap:12px;height:44px;padding:0 18px;border-radius:99px;border:1px solid var(--line2);background:none;font-size:15px;color:#ececea;cursor:pointer;white-space:nowrap;transition:border-color .2s,background .2s}
+.pill:hover{border-color:var(--lime);background:rgba(216,255,62,.05)}.pill .ar{color:var(--mute)}
+
+/* 사례 */
+.cases{padding:48px 0 0}
+.cases-h{display:flex;align-items:flex-end;gap:24px}
+.cases-h h2{margin:0;font-size:clamp(24px,2.8vw,32px);font-weight:800;letter-spacing:-.02em}
+.cases-h p{margin:0 0 0 auto;font-size:13.5px;color:var(--mute);max-width:260px}
+.more{font-size:13.5px;color:#d9d9d5;white-space:nowrap;margin-left:40px}.more:hover{color:var(--lime)}
+.track{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+.cc{border-radius:10px;overflow:hidden;background:var(--card);border:1px solid var(--line);transition:border-color .3s,transform .3s}
+.cc:hover{border-color:#4a4a46;transform:translateY(-3px)}
+.cc-h{display:flex;align-items:center;gap:16px;padding:16px 18px}
+.tag{flex:none;padding:7px 12px;border-radius:7px;font-weight:800;font-size:13px;background:#14284a;color:#7fb2ff}
+.cc-h b{font-size:14.5px;font-weight:500;line-height:1.45}
+.scr{margin:0 10px 10px;border-radius:6px;overflow:hidden;background:#fff;color:#1b1b1f;height:300px;display:grid;font-size:9.5px}
+/* ERP 화면 */
+.erp{grid-template-columns:78px 1fr}
+.sb{background:#141821;color:#c5cad6;padding:10px 0;display:grid;align-content:start;gap:2px}
+.sb strong{font-size:10px;color:#fff;padding:0 10px 8px}
+.sb span{display:flex;align-items:center;gap:5px;padding:5px 10px}.sb span:before{content:"";width:7px;height:7px;border:1.3px solid currentColor;border-radius:2px}
+.sb .on{background:#1f3a73;color:#fff}
+.pane{padding:10px 12px;display:grid;gap:8px;align-content:start}
+.pane h4{margin:0;font-size:11.5px}
+.kp{display:grid;grid-template-columns:repeat(4,1fr);gap:5px}.kp div{border:1px solid #e6e6ea;border-radius:5px;padding:5px 6px}
+.kp small{display:block;color:#888;font-size:8px}.kp b{font-size:12.5px}.kp .r{color:#e5484d}
+.chart{border:1px solid #e6e6ea;border-radius:5px;padding:6px}
+.bars{display:flex;align-items:flex-end;gap:10px;height:58px;padding:0 6px;border-bottom:1px solid #eee}
+.bars i{flex:1;display:flex;gap:2px;align-items:flex-end;height:100%}.bars i:before,.bars i:after{content:"";flex:1;border-radius:1px}
+.bars i:before{height:var(--a);background:#3b82f6}.bars i:after{height:var(--b);background:#22c55e}
+.tbl{display:grid;gap:3px}.tbl div{display:grid;grid-template-columns:1.1fr 1fr .9fr .5fr .7fr;gap:4px;padding:2px 0;border-bottom:1px solid #f0f0f2}
+.st{padding:1px 4px;border-radius:3px;font-size:7.5px;text-align:center;background:#e8f0ff;color:#2f6fe6}.st.g{background:#e7f8ec;color:#178a43}
+/* CRM 화면 */
+.crm{grid-template-columns:70px 1fr}
+.kb{display:grid;grid-template-columns:repeat(4,1fr);gap:5px}
+.kb>div{display:grid;gap:4px;align-content:start}
+.kb h5{margin:0;display:flex;justify-content:space-between;padding:4px 5px;border-radius:4px;font-size:8.5px;background:#eef3ff;color:#2f6fe6}
+.kb h5.p{background:#fff1e6;color:#d9690f}.kb h5.v{background:#f2edff;color:#7044e0}.kb h5.k{background:#fff8de;color:#a07c00}
+.kb p{margin:0;padding:5px;border:1px solid #ececf0;border-radius:4px;line-height:1.35}.kb p b{display:block;font-size:8.5px}.kb p small{color:#999;font-size:7.5px}
+/* 홈페이지 화면 */
+.web{grid-template-rows:auto 1fr auto}
+.wn{display:flex;align-items:center;gap:12px;padding:7px 10px;border-bottom:1px solid #eee}.wn b{margin-right:auto;font-size:10px}.wn span{font-size:8.5px;color:#666}.wn i{font-style:normal;font-size:8px;background:#111;color:#fff;padding:3px 7px;border-radius:3px}
+.whero{display:grid;grid-template-columns:1fr 1.05fr;background:#f4efe8;min-height:0}
+.whero div{padding:14px 12px;display:grid;align-content:center;gap:5px}.whero h6{margin:0;font-size:13px;line-height:1.35}.whero small{color:#777;font-size:8px}.whero i{justify-self:start;font-style:normal;font-size:8px;background:#111;color:#fff;padding:4px 8px;border-radius:3px}
+.room{background:radial-gradient(30% 22% at 30% 70%,#4f6b3c 0 60%,transparent 62%),radial-gradient(18% 30% at 34% 48%,#6c8a52 0 60%,transparent 62%),linear-gradient(90deg,transparent 58%,#e9dcc6 58% 60%,transparent 60%),linear-gradient(180deg,#efe6d6 0 72%,#c9a77f 72%)}
+.bk{display:grid;grid-template-columns:1.2fr 1fr;gap:10px;padding:8px 10px}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;text-align:center;font-size:7.5px;color:#555}.cal b{grid-column:1/-1;font-size:8.5px;color:#111;padding-bottom:2px}
+.cal .on{background:#c6f13a;border-radius:50%;color:#111;font-weight:800}
+.tm{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;align-content:start;font-size:7.5px}.tm b{grid-column:1/-1;font-size:8.5px}.tm span{border:1px solid #e3e3e3;border-radius:3px;text-align:center;padding:3px 0}.tm i{grid-column:1/-1;font-style:normal;background:#111;color:#fff;text-align:center;padding:4px;border-radius:3px;margin-top:3px}
+.dots{display:none}
+
+/* 카테고리 */
+.cats{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;padding:16px 0 64px}
+.cat{display:grid;grid-template-columns:auto 1fr auto;column-gap:14px;align-items:center;padding:20px 18px;border-radius:8px;background:var(--card);border:1px solid var(--line);transition:border-color .25s,background .25s}
+.cat:hover{border-color:var(--lime);background:#1a1a17}
+.cat svg.big{width:28px;height:28px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;grid-row:span 2}
+.cat b{font-size:16px}.cat small{grid-column:2;font-size:12px;color:var(--mute);line-height:1.4}.cat .ar{grid-row:1/3;grid-column:3;color:var(--mute)}
+footer{border-top:1px solid var(--line);padding:22px 0 40px;font-size:12.5px;color:var(--dim)}
+
+@media(max-width:1000px){.side{display:none}.sug{flex-wrap:wrap}.sug>p{margin:0}.cats{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:760px){
+ .w{padding:0 16px}.nav ul,.me{display:none}.menu{display:block}.nav .w{height:60px}.logo,.logo b{font-size:19px}
+ .hero{padding-top:26px}h1{font-size:clamp(32px,9vw,40px)}
+ .lead{font-size:15.5px;line-height:1.55}.lead span{display:block}
+ .prompt{padding:16px;margin-top:20px}.prompt textarea{font-size:15.5px;min-height:56px}
+ .tool{width:44px;height:44px;padding:0;justify-content:center}.tool .t{display:none}
+ .go{height:44px;padding:0 18px;font-size:15px}
+ .sug{display:grid;gap:8px;margin-top:6px;padding-top:12px;border:0;text-align:left}.sug>p{font-size:14px}
+ .pill{justify-content:flex-start;width:100%;height:46px;border-radius:8px;font-size:14.5px}.pill .ar{margin-left:auto}
+ .cases{padding-top:34px}.cases-h p{display:none}.cases-h h2{font-size:22px}.more{margin-left:auto}
+ .track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin:14px -16px 0;padding:0 16px;scrollbar-width:none}.track::-webkit-scrollbar{display:none}
+ .cc{flex:0 0 88%;scroll-snap-align:start}.cc:hover{transform:none}.scr{height:250px}
+ .dots{display:flex;justify-content:center;gap:8px;margin-top:14px}.dots i{width:8px;height:8px;border-radius:50%;background:#444;transition:background .3s,width .3s}.dots i.on{background:var(--lime)}
+ .cats{grid-template-columns:1fr 1fr;gap:10px;padding-top:22px}.cat small{display:none}.cat{padding:18px 16px}.cat:last-child{grid-column:1/-1}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+.sb span,.sb strong{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:8.5px}.erp{grid-template-columns:72px 1fr}.crm{grid-template-columns:64px 1fr}.tbl span,.kb p,.kp small{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.cases-h p{max-width:330px}.cat small{font-size:12px}
+@media(max-width:760px){.crm .sb,.erp .sb{display:none}.erp,.crm{grid-template-columns:1fr}}
+</style></head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="clip" viewBox="0 0 24 24"><path d="M21 11.5l-8.5 8.5a5 5 0 01-7-7l9-9a3.3 3.3 0 014.7 4.7l-9 9a1.7 1.7 0 01-2.4-2.4l8.3-8.3"/></symbol>
+<symbol id="mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0014 0M12 18v3"/></symbol>
+<symbol id="spark" viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8zM19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></symbol>
+<symbol id="out" viewBox="0 0 24 24"><path d="M7 17L17 7M8 7h9v9"/></symbol>
+<symbol id="doc" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></symbol>
+<symbol id="users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0113 0M16 4.5a3.5 3.5 0 010 7M18 14a6 6 0 013.5 6"/></symbol>
+<symbol id="cal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></symbol>
+<symbol id="home" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 01-1 1h-5v-6h-6v6H4a1 1 0 01-1-1z"/></symbol>
+<symbol id="bar" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></symbol>
+<symbol id="grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.5"/></symbol>
+<symbol id="box" viewBox="0 0 24 24"><path d="M12 2l9 5v10l-9 5-9-5V7z"/><path d="M3 7l9 5 9-5M12 12v10"/></symbol>
+<symbol id="arr" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+</defs></svg>
+
+<header class="nav"><div class="w">
+ <a class="logo" href="index.html" aria-label="ATZ MACH 홈"><b aria-hidden="true">[ ]</b>ATZ MACH</a>
+ <ul><li><a href="#cases">둘러보기</a></li><li><a href="web.html">홈페이지</a></li><li><a href="index.html">ERP</a></li><li><a href="#cases">CRM</a></li><li><a href="#cats">앱</a></li><li><a href="enterprise.html">플랫폼</a></li></ul>
+ <a class="me" href="index.html#contact" aria-label="상담 문의"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0116 0"/></svg></a>
+ <a class="menu" href="index.html" aria-label="홈으로" title="홈으로"><svg class="i" style="width:26px;height:26px"><use href="#home"/></svg></a>
+</div></header>
+
+<main>
+<section class="hero"><div class="w">
+ <p class="side side--l">복잡한 업무를,<br>단순한 한 줄로.<br>ATZ MACH가<br>비즈니스를 설계합니다.</p>
+ <p class="side side--r" aria-hidden="true">IDEAS<br>INTO<br>SYSTEMS<br>FOR A BRIGHTER<br>BUSINESS</p>
+ <h1>모든 비즈니스 설계를<br><em>단, 한 줄로.</em></h1>
+ <p class="lead"><span>홈페이지부터 ERP, CRM까지.</span> <span>필요한 서비스를 설명해 주세요.</span></p>
+ <form class="prompt" id="pf">
+  <label for="pt" class="sr" style="position:absolute;left:-9999px">필요한 서비스 설명</label>
+  <textarea id="pt" rows="2" maxlength="500" placeholder="우리 회사에 필요한 서비스를 한 줄로 설명해 주세요."></textarea>
+  <div class="files" id="fl"></div>
+  <div class="prow">
+   <button type="button" class="tool" id="fb" aria-label="파일 첨부"><svg class="i"><use href="#clip"/></svg><span class="t">파일 첨부</span></button>
+   <button type="button" class="tool" id="vb" aria-label="음성 입력" aria-pressed="false"><svg class="i"><use href="#mic"/></svg><span class="t">음성 입력</span></button>
+   <button type="button" class="tool" id="ab" aria-label="자동 모드" aria-pressed="false"><svg class="i"><use href="#spark"/></svg><span class="t">자동 모드</span></button>
+   <button type="submit" class="go">설계 시작하기<svg class="i"><use href="#out"/></svg></button>
+  </div>
+  <input type="file" id="fi" multiple hidden>
+ </form>
+ <p class="msg" id="msg" aria-live="polite"></p>
+ <div class="sug">
+  <p>이런 걸 요청해 보세요.</p>
+  <button type="button" class="pill" data-q="재고·발주를 관리하는 ERP를 만들고 싶어요."><svg class="i"><use href="#doc"/></svg>재고·발주를 관리하는 ERP<span class="ar">→</span></button>
+  <button type="button" class="pill" data-q="영업팀이 쓰는 고객 관리 CRM이 필요해요."><svg class="i"><use href="#users"/></svg>영업팀 고객 관리 CRM<span class="ar">→</span></button>
+  <button type="button" class="pill" data-q="예약과 결제가 되는 홈페이지를 만들고 싶어요."><svg class="i"><use href="#cal"/></svg>예약·결제가 가능한 홈페이지<span class="ar">→</span></button>
+ </div>
+</div></section>
+
+<section class="cases" id="cases" aria-labelledby="ch"><div class="w">
+ <div class="cases-h"><h2 id="ch">비즈니스를 움직이는 설계</h2><p>실제 비즈니스에 바로 적용할 수 있는, ATZ MACH의 다양한 설계 결과를 확인해 보세요.</p><a class="more" href="index.html#portfolio">더보기 →</a></div>
+ <div class="track" id="tr">
+  <article class="cc"><div class="cc-h"><span class="tag">ERP</span><b>재고·발주를 체계적으로<br>관리하는 ERP</b></div>
+   <div class="scr erp" role="img" aria-label="재고 관리 ERP 예시 화면">
+    <div class="sb"><strong>ATZ MACH</strong><span>대시보드</span><span class="on">재고관리</span><span>발주관리</span><span>입고관리</span><span>출고관리</span><span>거래처관리</span><span>품목관리</span><span>보고서</span><span>설정</span></div>
+    <div class="pane"><h4>재고 현황</h4>
+     <div class="kp"><div><small>전체 품목</small><b>1,284</b></div><div><small>현재 재고 수량</small><b>48,560</b></div><div><small>발주 진행중</small><b>12</b></div><div><small>품절 임박</small><b class="r">7</b></div></div>
+     <div class="chart"><b style="font-size:9px">월별 입출고 현황</b><div class="bars"><i style="--a:55%;--b:40%"></i><i style="--a:70%;--b:52%"></i><i style="--a:48%;--b:66%"></i><i style="--a:86%;--b:60%"></i><i style="--a:62%;--b:44%"></i><i style="--a:74%;--b:58%"></i></div></div>
+     <div class="tbl"><b style="font-size:9px">최근 발주 내역</b><div><span>2024-06-14</span><span>(주)대한상사</span><span>A4용지</span><span>1,000</span><span class="st">발주완료</span></div><div><span>2024-06-13</span><span>(주)미래유통</span><span>사무용 의자</span><span>50</span><span class="st g">진행중</span></div><div><span>2024-06-12</span><span>삼성전자(주)</span><span>모니터</span><span>30</span><span class="st">입고완료</span></div><div><span>2024-06-10</span><span>(주)한빛</span><span>노트북</span><span>20</span><span class="st g">진행중</span></div></div>
+    </div></div></article>
+  <article class="cc"><div class="cc-h"><span class="tag">CRM</span><b>고객과 기회를 관리하는<br>영업 CRM</b></div>
+   <div class="scr crm" role="img" aria-label="영업 CRM 예시 화면">
+    <div class="sb"><strong>ATZ MACH</strong><span>대시보드</span><span class="on">고객관리</span><span>영업기회</span><span>활동내역</span><span>견적서</span><span>계약관리</span><span>보고서</span><span>설정</span></div>
+    <div class="pane"><h4 style="color:#6b6b6b;font-weight:500">고객명, 회사명, 담당자 검색…</h4>
+     <div class="kb">
+      <div><h5>신규 문의 <span>24</span></h5><p><b>(주)태크원</b>홈페이지 구축<br><small>김민수 · 2024-06-14</small></p><p><b>하나식품</b>ERP 도입<br><small>이지은 · 2024-06-13</small></p><p><b>브라이트 병원</b>CRM 상담<br><small>박성현 · 2024-06-12</small></p></div>
+      <div><h5 class="p">상담 진행 <span>18</span></h5><p><b>(주)성진유통</b>재고관리 시스템<br><small>정하늘 · 2024-06-14</small></p><p><b>미래교육</b>앱 개발 문의<br><small>이수진 · 2024-06-12</small></p><p><b>그린빌리스</b>예약 시스템<br><small>최의호 · 2024-06-11</small></p></div>
+      <div><h5 class="v">제안 진행 <span>11</span></h5><p><b>(주)엔비던그</b>그룹웨어 구축<br><small>김현영 · 2024-06-13</small></p><p><b>스마트헬스</b>CRM 고도화<br><small>박지현 · 2024-06-11</small></p><p><b>크리아푸드</b>ERP 제안서<br><small>송민재 · 2024-06-10</small></p></div>
+      <div><h5 class="k">계약 협의 <span>7</span></h5><p><b>(주)한성물류</b>ERP 도입<br><small>최민우 · 2024-06-12</small></p><p><b>지음컴퍼니</b>홈페이지 리뉴얼<br><small>이다연 · 2024-06-11</small></p><p><b>(주)타이드케어</b>통합 관리 시스템<br><small>한민서 · 2024-06-09</small></p></div>
+     </div></div></div></article>
+  <article class="cc"><div class="cc-h"><span class="tag">홈페이지</span><b>예약과 결제가 가능한<br>비즈니스 홈페이지</b></div>
+   <div class="scr web" role="img" aria-label="예약 홈페이지 예시 화면">
+    <div class="wn"><b>studio.momenti</b><span>소개</span><span>프로그램</span><span>예약</span><span>소식</span><i>로그인</i></div>
+    <div class="whero"><div><h6>일상과 특별한 순간,<br>모멘티 스튜디오</h6><small>좋은 공간이, 더 좋은 하루를 만듭니다.</small><i>지금 예약하기 →</i></div><div class="room"></div></div>
+    <div class="bk"><div class="cal"><b>원하는 날짜를 선택하세요.</b><span>일</span><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span><span></span><span></span><span></span><span></span><span></span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span class="on">14</span><span>15</span><span>16</span></div>
+     <div class="tm"><b>시간을 선택하세요.</b><span>09:00</span><span>10:00</span><span>11:00</span><span>13:00</span><span>14:00</span><span>15:00</span><span>16:00</span><span>17:00</span><span></span><i>예약하기</i></div></div>
+   </div></article>
+ </div>
+ <div class="dots" id="dt" aria-hidden="true"><i class="on"></i><i></i><i></i></div>
+ <p style="margin:12px 0 0;font-size:12px;color:var(--dim)">화면 속 회사명 · 사람 · 숫자는 모두 예시입니다.</p>
+
+ <nav class="cats" id="cats" aria-label="서비스 분류">
+  <a class="cat" href="web.html"><svg class="big"><use href="#home"/></svg><b>홈페이지</b><small>브랜드를 담은 비즈니스 홈페이지</small><span class="ar">→</span></a>
+  <a class="cat" href="index.html"><svg class="big"><use href="#bar"/></svg><b>ERP</b><small>업무를 효율화하는 전사 관리 시스템</small><span class="ar">→</span></a>
+  <a class="cat" href="index.html#diagnosis"><svg class="big"><use href="#users"/></svg><b>CRM</b><small>고객과 함께 성장하는 영업 관리</small><span class="ar">→</span></a>
+  <a class="cat" href="index.html#diagnosis"><svg class="big"><use href="#grid"/></svg><b>앱</b><small>아이디어를 실현하는 맞춤형 비즈니스 앱</small><span class="ar">→</span></a>
+  <a class="cat" href="enterprise.html"><svg class="big"><use href="#box"/></svg><b>플랫폼</b><small>더 큰 가능성을 만드는 통합 플랫폼</small><span class="ar">→</span></a>
+ </nav>
+</div></section>
+</main>
+<footer><div class="w">© 2026 ATZ MACH · 복잡한 업무를, 단순한 한 줄로.</div></footer>
+
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)},pt=$("#pt"),msg=$("#msg");
+document.querySelectorAll(".pill").forEach(function(b){b.onclick=function(){pt.value=b.dataset.q;pt.focus();msg.textContent=""}});
+$("#fb").onclick=function(){$("#fi").click()};
+$("#fi").onchange=function(){$("#fl").innerHTML=Array.prototype.map.call(this.files,function(f){var s=document.createElement("span");s.textContent="📎 "+f.name;return s.outerHTML}).join("")};
+var ab=$("#ab");ab.onclick=function(){var on=ab.getAttribute("aria-pressed")!=="true";ab.setAttribute("aria-pressed",on);msg.textContent=on?"자동 모드: 업종에 맞는 기능을 알아서 채워 드립니다.":""};
+var SR=window.SpeechRecognition||window.webkitSpeechRecognition,vb=$("#vb");
+if(!SR){vb.onclick=function(){msg.textContent="이 브라우저에서는 음성 입력을 쓸 수 없어요. 글로 적어 주세요."}}
+else{var r=new SR();r.lang="ko-KR";r.interimResults=true;var base="";
+ r.onresult=function(e){var t="";for(var i=0;i<e.results.length;i++)t+=e.results[i][0].transcript;pt.value=(base?base+" ":"")+t};
+ r.onend=function(){vb.setAttribute("aria-pressed","false");msg.textContent=""};r.onerror=function(){msg.textContent="음성을 듣지 못했어요. 다시 눌러 주세요."};
+ vb.onclick=function(){if(vb.getAttribute("aria-pressed")==="true"){r.stop();return}base=pt.value.trim();try{r.start();vb.setAttribute("aria-pressed","true");msg.textContent="듣고 있어요… 말씀해 주세요."}catch(e){}}}
+$("#pf").onsubmit=function(e){e.preventDefault();var v=pt.value.trim();if(v.length<4){msg.textContent="필요한 서비스를 한 줄로 적어 주세요.";pt.focus();return}
+ try{sessionStorage.setItem("atz_oneline",v)}catch(_){}
+ var to=/홈페이지|사이트|예약|쇼핑몰|랜딩/.test(v)?"web.html":"index.html#diagnosis";msg.textContent="설계를 시작합니다…";setTimeout(function(){location.href=to},300)};
+var tr=$("#tr"),dt=document.querySelectorAll("#dt i");tr.addEventListener("scroll",function(){var w=tr.firstElementChild.offsetWidth+12,k=Math.round(tr.scrollLeft/w);dt.forEach(function(d,i){d.classList.toggle("on",i===k)})},{passive:true});
+})();
+</script>
+<style id="qa52-studio-css">
+/* T02 '비즈/니스'처럼 단어 중간에서 끊기던 줄바꿈 → 단어 단위 */
+body{word-break:keep-all;overflow-wrap:break-word}
+@media(max-width:380px){.cats{grid-template-columns:1fr}}   /* 단어 단위가 되면서 320px 2단 카드('홈페이지')가 331px로 넘쳐 1단으로 */
+/* T19 */ h1,h2,h3{text-wrap:balance}
+/* M04 1001~1180px: 추천 버튼 줄이 1103px까지 나가 가로 스크롤 79px → 줄바꿈 */
+@media(max-width:1180px){.sug{flex-wrap:wrap}.sug>p{margin-left:0}}
+/* M09 iOS 확대 방지(15.5→16px) */
+@media(max-width:760px){.prompt textarea{font-size:16px}}
+/* M13 홈 버튼(구 '메뉴 열기') 44px 터치 */
+@media(max-width:760px){.menu{display:grid;place-items:center;min-width:44px;min-height:44px}}
+/* T20 AA: --dim 3.7→5.7:1, 예시화면 회색·배지 */
+:root{--dim:#8a8a86}
+.kp small,.kb p small{color:#666}.whero small{color:#666}.kp .r{color:#c9302f}
+.st{color:#1f5fd6}.st.g{color:#12733a}
+.kb h5{color:#2a5fcc}.kb h5.p{color:#a14d06}.kb h5.v{color:#5b33c4}.kb h5.k{color:#76600a}
+</style></body></html>

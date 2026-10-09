@@ -1,0 +1,9 @@
+#ATZ fmp4 chunks
+seg000.mp4
+seg001.mp4
+seg002.mp4
+seg003.mp4
+seg004.mp4
+seg005.mp4
+seg006.mp4
+seg007.mp4

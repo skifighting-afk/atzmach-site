@@ -1,0 +1,989 @@
+{
+ "version": "2026-10-05.1",
+ "currency": "KRW",
+ "vatRate": 0.1,
+ "tiers": {
+  "A": {
+   "min": 3000000,
+   "max": 8000000,
+   "purpose": "연 매출 약 15억 이하 규모",
+   "days": 14,
+   "rushDays": 10,
+   "revisions": 3,
+   "freeFix": "1주",
+   "edu": "온라인"
+  },
+  "B": {
+   "min": 8000000,
+   "max": 30000000,
+   "purpose": "연 매출 약 15억~80억 규모",
+   "days": 14,
+   "rushDays": 10,
+   "revisions": 6,
+   "freeFix": "1개월",
+   "edu": "온라인"
+  },
+  "C": {
+   "min": 30000000,
+   "max": 80000000,
+   "purpose": "연 매출 약 80억 이상 규모",
+   "days": 14,
+   "rushDays": 10,
+   "revisions": 9,
+   "freeFix": "1개월",
+   "edu": "온라인",
+   "note": "14일차 완성 후 단계 확장"
+  }
+ },
+ "payment": {
+  "deposit": 0.5,
+  "balance": 0.5,
+  "balanceWhen": "인수(검수) 후"
+ },
+ "base": {
+  "design_system": {
+   "A": 800000,
+   "B": 2000000,
+   "C": 5000000,
+   "desc": "화면 디자인 시스템·브랜드 적용"
+  },
+  "setup_pm": {
+   "A": 700000,
+   "B": 1800000,
+   "C": 4500000,
+   "desc": "업무 진단·기획서·프로젝트 관리"
+  },
+  "qa_handover": {
+   "A": 500000,
+   "B": 1200000,
+   "C": 2500000,
+   "desc": "테스트·인수인계·온라인 교육"
+  }
+ },
+ "modules": [
+  {
+   "key": "attendance_schedule",
+   "name": "근태·근무표",
+   "desc": "출퇴근·교대 편성·지각/연장 자동 계산",
+   "unit": "module",
+   "price": {
+    "min": 1500000,
+    "max": 4500000,
+    "default": 2500000
+   },
+   "complexityMultipliers": {
+    "simple": 0.6,
+    "standard": 1,
+    "complex": 1.8
+   },
+   "typicalIn": [
+    "restaurant",
+    "retail",
+    "franchise",
+    "leisure",
+    "clinic",
+    "beauty",
+    "manufacturing"
+   ]
+  },
+  {
+   "key": "payroll",
+   "name": "급여·인센티브 정산",
+   "desc": "시급/월급·수당·인센티브 계산과 개인 명세서 발송",
+   "unit": "module",
+   "price": {
+    "min": 2100000,
+    "max": 6300000,
+    "default": 3500000
+   },
+   "complexityMultipliers": {
+    "simple": 0.6,
+    "standard": 1,
+    "complex": 1.8
+   },
+   "typicalIn": [
+    "restaurant",
+    "franchise",
+    "leisure",
+    "beauty",
+    "retail"
+   ]
+  },
+  {
+   "key": "purchase_inventory",
+   "name": "발주·재고",
+   "desc": "적정재고 알림·자동 발주서·입고 확인",
+   "unit": "module",
+   "price": {
+    "min": 1800000,
+    "max": 5400000,
+    "default": 3000000
+   },
+   "complexityMultipliers": {
+    "simple": 0.6,
+    "standard": 1,
+    "complex": 1.8
+   },
+   "typicalIn": [
+    "restaurant",
+    "retail",
+    "franchise",
+    "manufacturing",
+    "ecommerce"
+   ]
+  },
+  {
+   "key": "sales_dashboard",
+   "name": "매출 집계·대시보드",
+   "desc": "채널·지점별 매출 자동 집계와 대표용 대시보드",
+   "unit": "module",
+   "price": {
+    "min": 1500000,
+    "max": 4500000,
+    "default": 2500000
+   },
+   "complexityMultipliers": {
+    "simple": 0.6,
+    "standard": 1,
+    "complex": 1.8
+   },
+   "typicalIn": [
+    "restaurant",
+    "retail",
+    "franchise",
+    "ecommerce",
+    "leisure",
+    "beauty"
+   ]
+  },
+  {
+   "key": "reservation_noshow",
+   "name": "예약·노쇼 관리",
+   "desc": "예약 접수·확정 문자·노쇼 추적·대기 관리",
+   "unit": "module",
+   "price": {
+    "min": 1500000,
+    "max": 4500000,
+    "default": 2500000
+   },
+   "complexityMultipliers": {
+    "simple": 0.6,
+    "standard": 1,
+    "complex": 1.8
+   },
+   "typicalIn": [
+    "restaurant",
+    "beauty",
+    "clinic",
+    "fitness",
+    "leisure",
+    "education"
+   ]
+  },
+  {
+   "key": "membership_credits",
+   "name": "회원권·잔여 회차",
+   "desc": "이용권·회차 차감·만료 알림",
+   "unit": "module",
+   "price": {
+    "min": 1500000,
+    "max": 4500000,
+    "default": 2500000
+   },
+   "complexityMultipliers": {
+    "simple": 0.6,
+    "standard": 1,
+    "complex": 1.8
+   },
+   "typicalIn": [
+    "fitness",
+    "beauty",
+    "education",
+    "leisure",
+    "clinic"
+   ]
+  },
+  {
+   "key": "crm_consult",
+   "name": "CRM·상담 이력",
+   "desc": "고객 카드·상담 기록·후속 연락 리마인드",
+   "unit": "module",
+   "price": {
+    "min": 1800000,
+    "max": 5400000,
+    "default": 3000000
+   },
+   "complexityMultipliers": {
+    "simple": 0.6,
+    "standard": 1,
+    "complex": 1.8
+   },
+   "typicalIn": [
+    "b2b_service",
+    "education",
+    "clinic",
+    "beauty",
+    "construction"
+   ]
+  },
+  {
+   "key": "quote_contract",
+   "name": "견적·계약서 생성",
+   "desc": "품목 선택→견적서·계약서 PDF 자동 생성",
+   "unit": "module",
+   "price": {
+    "min": 1500000,
+    "max": 4500000,
+    "default": 2500000
+   },
+   "complexityMultipliers": {
+    "simple": 0.6,
+    "standard": 1,
+    "complex": 1.8
+   },
+   "typicalIn": [
+    "construction",
+    "b2b_service",
+    "manufacturing",
+    "interior"
+   ]
+  },
+  {
+   "key": "receivable_reconcile",
+   "name": "미수금·입금 대사",
+   "desc": "통장 입금 내역과 청구 자동 매칭·미수 알림",
+   "unit": "module",
+   "price": {
+    "min": 1800000,
+    "max": 5400000,
+    "default": 3000000
+   },
+   "complexityMultipliers": {
+    "simple": 0.6,
+    "standard": 1,
+    "complex": 1.8
+   },
+   "typicalIn": [
+    "b2b_service",
+    "manufacturing",
+    "construction",
+    "logistics"
+   ]
+  },
+  {
+   "key": "branch_report",
+   "name": "가맹점·지점 보고 취합",
+   "desc": "지점 일일보고 양식·자동 취합·누락 알림",
+   "unit": "module",
+   "price": {
+    "min": 1800000,
+    "max": 5400000,
+    "default": 3000000
+   },
+   "complexityMultipliers": {
+    "simple": 0.6,
+    "standard": 1,
+    "complex": 1.8
+   },
+   "typicalIn": [
+    "franchise",
+    "retail",
+    "leisure"
+   ]
+  },
+  {
+   "key": "production_plan",
+   "name": "생산계획·작업지시",
+   "desc": "수주 기반 생산계획·작업지시서·실적 입력",
+   "unit": "module",
+   "price": {
+    "min": 2400000,
+    "max": 7200000,
+    "default": 4000000
+   },
+   "complexityMultipliers": {
+    "simple": 0.6,
+    "standard": 1,
+    "complex": 1.8
+   },
+   "typicalIn": [
+    "manufacturing",
+    "food_factory"
+   ]
+  },
+  {
+   "key": "quality_defect",
+   "name": "품질·불량 관리",
+   "desc": "검사 기록·불량 원인 집계·재발 알림",
+   "unit": "module",
+   "price": {
+    "min": 1800000,
+    "max": 5400000,
+    "default": 3000000
+   },
+   "complexityMultipliers": {
+    "simple": 0.6,
+    "standard": 1,
+    "complex": 1.8
+   },
+   "typicalIn": [
+    "manufacturing",
+    "food_factory"
+   ]
+  },
+  {
+   "key": "shipping_route",
+   "name": "출고·배송·노선",
+   "desc": "출고 지시·배송 노선 배정·완료 확인",
+   "unit": "module",
+   "price": {
+    "min": 2100000,
+    "max": 6300000,
+    "default": 3500000
+   },
+   "complexityMultipliers": {
+    "simple": 0.6,
+    "standard": 1,
+    "complex": 1.8
+   },
+   "typicalIn": [
+    "logistics",
+    "manufacturing",
+    "ecommerce",
+    "food_factory"
+   ]
+  },
+  {
+   "key": "site_workforce",
+   "name": "현장·출역·기성",
+   "desc": "현장별 출역 인원·일보·기성 청구 자료",
+   "unit": "module",
+   "price": {
+    "min": 2100000,
+    "max": 6300000,
+    "default": 3500000
+   },
+   "complexityMultipliers": {
+    "simple": 0.6,
+    "standard": 1,
+    "complex": 1.8
+   },
+   "typicalIn": [
+    "construction",
+    "interior"
+   ]
+  },
+  {
+   "key": "settlement_recon",
+   "name": "정산 대사(배달앱/PG)",
+   "desc": "배달앱·PG 정산금과 실매출 자동 대사",
+   "unit": "module",
+   "price": {
+    "min": 2100000,
+    "max": 6300000,
+    "default": 3500000
+   },
+   "complexityMultipliers": {
+    "simple": 0.6,
+    "standard": 1,
+    "complex": 1.8
+   },
+   "typicalIn": [
+    "restaurant",
+    "franchise",
+    "ecommerce"
+   ]
+  },
+  {
+   "key": "review_reply",
+   "name": "리뷰 수집·AI 응답",
+   "desc": "플랫폼 리뷰 모아보기·AI 답글 초안",
+   "unit": "module",
+   "price": {
+    "min": 1200000,
+    "max": 3600000,
+    "default": 2000000
+   },
+   "complexityMultipliers": {
+    "simple": 0.6,
+    "standard": 1,
+    "complex": 1.8
+   },
+   "typicalIn": [
+    "restaurant",
+    "beauty",
+    "clinic",
+    "hospitality",
+    "ecommerce"
+   ]
+  },
+  {
+   "key": "marketing_coupon",
+   "name": "마케팅·쿠폰·포인트",
+   "desc": "쿠폰 발행·포인트 적립·재방문 캠페인",
+   "unit": "module",
+   "price": {
+    "min": 1500000,
+    "max": 4500000,
+    "default": 2500000
+   },
+   "complexityMultipliers": {
+    "simple": 0.6,
+    "standard": 1,
+    "complex": 1.8
+   },
+   "typicalIn": [
+    "restaurant",
+    "retail",
+    "beauty",
+    "fitness",
+    "ecommerce"
+   ]
+  },
+  {
+   "key": "doc_autogen",
+   "name": "문서 자동 생성",
+   "desc": "일보·월간 보고서·명세서 자동 작성",
+   "unit": "module",
+   "price": {
+    "min": 1200000,
+    "max": 3600000,
+    "default": 2000000
+   },
+   "complexityMultipliers": {
+    "simple": 0.6,
+    "standard": 1,
+    "complex": 1.8
+   },
+   "typicalIn": [
+    "b2b_service",
+    "construction",
+    "franchise",
+    "manufacturing"
+   ]
+  },
+  {
+   "key": "approval_flow",
+   "name": "결재·승인 흐름",
+   "desc": "품의·지출·휴가 결재선과 모바일 승인",
+   "unit": "module",
+   "price": {
+    "min": 1500000,
+    "max": 4500000,
+    "default": 2500000
+   },
+   "complexityMultipliers": {
+    "simple": 0.6,
+    "standard": 1,
+    "complex": 1.8
+   },
+   "typicalIn": [
+    "b2b_service",
+    "manufacturing",
+    "franchise",
+    "construction"
+   ]
+  },
+  {
+   "key": "staff_mobile",
+   "name": "직원 앱(모바일)",
+   "desc": "직원용 모바일 웹앱(근무·업무·공지)",
+   "unit": "module",
+   "price": {
+    "min": 1800000,
+    "max": 5400000,
+    "default": 3000000
+   },
+   "complexityMultipliers": {
+    "simple": 0.6,
+    "standard": 1,
+    "complex": 1.8
+   },
+   "typicalIn": [
+    "restaurant",
+    "franchise",
+    "leisure",
+    "construction",
+    "logistics"
+   ]
+  },
+  {
+   "key": "customer_notify",
+   "name": "고객 앱/알림톡",
+   "desc": "고객 알림톡·조회 페이지(예약·주문 상태)",
+   "unit": "module",
+   "price": {
+    "min": 1500000,
+    "max": 4500000,
+    "default": 2500000
+   },
+   "complexityMultipliers": {
+    "simple": 0.6,
+    "standard": 1,
+    "complex": 1.8
+   },
+   "typicalIn": [
+    "restaurant",
+    "beauty",
+    "clinic",
+    "leisure",
+    "education",
+    "ecommerce"
+   ]
+  },
+  {
+   "key": "ai_agent",
+   "name": "AI 에이전트 실행(1개)",
+   "desc": "정해진 업무를 AI가 자동 처리·보고(에이전트 1개 기준)",
+   "unit": "module",
+   "price": {
+    "min": 2400000,
+    "max": 7200000,
+    "default": 4000000
+   },
+   "complexityMultipliers": {
+    "simple": 0.6,
+    "standard": 1,
+    "complex": 1.8
+   },
+   "typicalIn": [
+    "franchise",
+    "b2b_service",
+    "ecommerce",
+    "manufacturing"
+   ]
+  },
+  {
+   "key": "roles_permissions",
+   "name": "권한·역할",
+   "desc": "대표/관리자/직원/지점별 권한 분리",
+   "unit": "module",
+   "price": {
+    "min": 900000,
+    "max": 2700000,
+    "default": 1500000
+   },
+   "complexityMultipliers": {
+    "simple": 0.6,
+    "standard": 1,
+    "complex": 1.8
+   },
+   "typicalIn": [
+    "franchise",
+    "manufacturing",
+    "b2b_service"
+   ]
+  },
+  {
+   "key": "multi_branch",
+   "name": "다지점·본사 구조",
+   "desc": "본사-지점 데이터 구조·지점 비교·통합 리포트",
+   "unit": "module",
+   "price": {
+    "min": 2400000,
+    "max": 7200000,
+    "default": 4000000
+   },
+   "complexityMultipliers": {
+    "simple": 0.6,
+    "standard": 1,
+    "complex": 1.8
+   },
+   "typicalIn": [
+    "franchise",
+    "retail",
+    "leisure"
+   ]
+  },
+  {
+   "key": "hr_records",
+   "name": "인사·계약·연차",
+   "desc": "인사카드·근로계약·연차 자동 계산",
+   "unit": "module",
+   "price": {
+    "min": 1500000,
+    "max": 4500000,
+    "default": 2500000
+   },
+   "complexityMultipliers": {
+    "simple": 0.6,
+    "standard": 1,
+    "complex": 1.8
+   },
+   "typicalIn": [
+    "franchise",
+    "manufacturing",
+    "b2b_service"
+   ]
+  },
+  {
+   "key": "expense_card",
+   "name": "경비·법인카드 정리",
+   "desc": "카드 내역 수집·용도 분류·증빙 체크",
+   "unit": "module",
+   "price": {
+    "min": 1200000,
+    "max": 3600000,
+    "default": 2000000
+   },
+   "complexityMultipliers": {
+    "simple": 0.6,
+    "standard": 1,
+    "complex": 1.8
+   },
+   "typicalIn": [
+    "b2b_service",
+    "construction",
+    "franchise"
+   ]
+  },
+  {
+   "key": "task_board",
+   "name": "업무지시·체크리스트",
+   "desc": "오픈/마감 체크리스트·업무 지시·완료 확인",
+   "unit": "module",
+   "price": {
+    "min": 900000,
+    "max": 2700000,
+    "default": 1500000
+   },
+   "complexityMultipliers": {
+    "simple": 0.6,
+    "standard": 1,
+    "complex": 1.8
+   },
+   "typicalIn": [
+    "restaurant",
+    "retail",
+    "franchise",
+    "hospitality"
+   ]
+  },
+  {
+   "key": "asset_rental",
+   "name": "장비·렌탈 자산 관리",
+   "desc": "장비 대여·반납·정비 이력",
+   "unit": "module",
+   "price": {
+    "min": 1800000,
+    "max": 5400000,
+    "default": 3000000
+   },
+   "complexityMultipliers": {
+    "simple": 0.6,
+    "standard": 1,
+    "complex": 1.8
+   },
+   "typicalIn": [
+    "leisure",
+    "construction",
+    "logistics"
+   ]
+  },
+  {
+   "key": "order_intake",
+   "name": "주문 접수 통합",
+   "desc": "전화·카톡·온라인 주문을 한 화면으로",
+   "unit": "module",
+   "price": {
+    "min": 1500000,
+    "max": 4500000,
+    "default": 2500000
+   },
+   "complexityMultipliers": {
+    "simple": 0.6,
+    "standard": 1,
+    "complex": 1.8
+   },
+   "typicalIn": [
+    "restaurant",
+    "ecommerce",
+    "food_factory",
+    "b2b_service"
+   ]
+  },
+  {
+   "key": "vendor_purchase",
+   "name": "거래처·매입 관리",
+   "desc": "거래처 단가·매입 내역·세금계산서 정리",
+   "unit": "module",
+   "price": {
+    "min": 1200000,
+    "max": 3600000,
+    "default": 2000000
+   },
+   "complexityMultipliers": {
+    "simple": 0.6,
+    "standard": 1,
+    "complex": 1.8
+   },
+   "typicalIn": [
+    "restaurant",
+    "manufacturing",
+    "retail",
+    "construction"
+   ]
+  },
+  {
+   "key": "kpi_goal",
+   "name": "목표·KPI 관리",
+   "desc": "지점·직원 목표 설정과 달성률 추적",
+   "unit": "module",
+   "price": {
+    "min": 1500000,
+    "max": 4500000,
+    "default": 2500000
+   },
+   "complexityMultipliers": {
+    "simple": 0.6,
+    "standard": 1,
+    "complex": 1.8
+   },
+   "typicalIn": [
+    "franchise",
+    "b2b_service",
+    "retail"
+   ]
+  },
+  {
+   "key": "staff_training",
+   "name": "직원 교육·매뉴얼",
+   "desc": "매뉴얼·교육 영상·이수 확인",
+   "unit": "module",
+   "price": {
+    "min": 1200000,
+    "max": 3600000,
+    "default": 2000000
+   },
+   "complexityMultipliers": {
+    "simple": 0.6,
+    "standard": 1,
+    "complex": 1.8
+   },
+   "typicalIn": [
+    "franchise",
+    "hospitality",
+    "leisure"
+   ]
+  },
+  {
+   "key": "customer_portal",
+   "name": "고객 포털(B2B)",
+   "desc": "거래처용 주문·납기·명세서 조회 포털",
+   "unit": "module",
+   "price": {
+    "min": 2400000,
+    "max": 7200000,
+    "default": 4000000
+   },
+   "complexityMultipliers": {
+    "simple": 0.6,
+    "standard": 1,
+    "complex": 1.8
+   },
+   "typicalIn": [
+    "manufacturing",
+    "food_factory",
+    "b2b_service",
+    "logistics"
+   ]
+  }
+ ],
+ "scale": {
+  "note": "모듈·에이전트 금액에만 곱함. 사용자×지점 배수 합산 상한 1.8",
+  "users": [
+   {
+    "upTo": 20,
+    "mult": 1
+   },
+   {
+    "upTo": 50,
+    "mult": 1.05
+   },
+   {
+    "upTo": 150,
+    "mult": 1.15
+   },
+   {
+    "upTo": 500,
+    "mult": 1.3
+   },
+   {
+    "upTo": null,
+    "mult": 1.45
+   }
+  ],
+  "branches": [
+   {
+    "upTo": 1,
+    "mult": 1
+   },
+   {
+    "upTo": 3,
+    "mult": 1.05
+   },
+   {
+    "upTo": 10,
+    "mult": 1.15
+   },
+   {
+    "upTo": 30,
+    "mult": 1.3
+   },
+   {
+    "upTo": null,
+    "mult": 1.45
+   }
+  ],
+  "capMult": 1.8
+ },
+ "integrations": {
+  "perItem": {
+   "min": 1500000,
+   "max": 6000000,
+   "default": 3000000
+  },
+  "examples": [
+   "POS",
+   "PG",
+   "회계(더존·이카운트)",
+   "배달앱",
+   "공공 API",
+   "카카오 알림톡",
+   "은행 입금"
+  ]
+ },
+ "migration": {
+  "none": 0,
+  "small": 1500000,
+  "medium": 4000000,
+  "large": 9000000,
+  "desc": {
+   "small": "엑셀 1~3종",
+   "medium": "엑셀·구 프로그램 4~10종",
+   "large": "다지점·수년치·구 시스템 다수"
+  }
+ },
+ "rush": {
+  "mult": 1.3,
+  "desc": "일정 단축(14일 → 10일)"
+ },
+ "monthly": {
+  "hosting_db_backup": {
+   "A": 90000,
+   "B": 190000,
+   "C": 490000,
+   "desc": "서버·DB·일일 백업·SSL — TYPE별 최소 금액, 사용량·지점 수에 따라 증가"
+  },
+  "maintenance": {
+   "A": 390000,
+   "B": 890000,
+   "C": 1990000,
+   "includedRevisions": {
+    "A": 3,
+    "B": 3,
+    "C": 3
+   },
+   "desc": "선택 · 매달 수정 요청 N회(요청 한 묶음=1회, 이월 없음) · 장애 대응 · 보안 업데이트"
+  },
+  "ai_usage": {
+   "unitNote": "업무 처리 1,000건당",
+   "price": 60000,
+   "includedPerTier": {
+    "A": 1000,
+    "B": 5000,
+    "C": 20000
+   },
+   "overagePer1000": 60000,
+   "capDefault": 300000,
+   "capNote": "월 초과 사용료 상한(고객 설정 가능)"
+  },
+  "kakao_alimtalk": {
+   "perMsg": 15
+  },
+  "domain_yearly": 30000,
+  "userTiers": [
+   {
+    "label": "1~5명",
+    "upTo": 5,
+    "price": 190000,
+    "ai": 1000
+   },
+   {
+    "label": "6~15명",
+    "upTo": 15,
+    "price": 390000,
+    "ai": 3000
+   },
+   {
+    "label": "16~40명",
+    "upTo": 40,
+    "price": 790000,
+    "ai": 8000
+   },
+   {
+    "label": "41~100명",
+    "upTo": 100,
+    "price": 1490000,
+    "ai": 20000
+   },
+   {
+    "label": "101~300명",
+    "upTo": 300,
+    "price": 2990000,
+    "ai": 50000
+   },
+   {
+    "label": "301명 이상",
+    "upTo": null,
+    "price": 2990000,
+    "per100": 800000,
+    "ai": 50000,
+    "aiPer100": 15000
+   }
+  ],
+  "autoSwitch": "매월 1일 지난달 최대 사용 인원으로 구간 자동 적용 · 인상 7일 전 알림 · 2개월 연속 아래 구간이면 자동 인하 · 중간 청구 없음",
+  "name": "AI · 서버 이용료",
+  "includes": "AI 처리량 · 서버 · DB · 매일 백업 · 보안(SSL)"
+ },
+ "rules": [
+  "직원 수만으로 가격 결정 금지 — 가격은 업무(모듈)·연동·이관·지점 구조로 정함",
+  "합계가 tier 상한을 넘으면 상위 tier 제안(상위 tier 기본비 적용)",
+  "합계가 tier 하한보다 낮으면 해당 tier 하한을 최소 금액으로 적용",
+  "모든 라인은 10만원 단위 반올림, VAT 10% 별도",
+  "계약금 50% / 인수 후 잔금 50%",
+  "할인은 모듈 수 축소로 대응 — 단가 할인 지양",
+  "견적서 내용과 홈페이지 약속(14일·수정 횟수·무상 개선)은 반드시 일치"
+ ],
+ "disclaimer": "자동 산출 예상가이며, 상담·기획서 확정 후 최종 견적이 정해집니다. VAT 별도. 외부 서비스 이용료(알림톡·PG 수수료·외부 API 유료 플랜)는 실비 별도.",
+ "afterRevisions": {
+  "extraRevision": {
+   "A": 300000,
+   "B": 500000,
+   "C": 800000
+  },
+  "hourlyBasis": "KOSA 2026 SW기술자 일평균임금 414,762원 ÷ 8시간 ≈ 5.2만원 × 제경비·기술료 1.5",
+  "bugAfterFreeFix": "유지보수 가입 시 무상, 미가입 시 시간당 단가",
+  "newFeature": "모듈 단가 기준 추가 견적 후 고객 승인 시 진행"
+ },
+ "schedule": {
+  "draft1": "접수 후 1시간 · 화면 스케치 + 최소 기능 구현 (무료)",
+  "draft2": "계약·착수 후 7일차 · 본 기능 구현",
+  "final": "14일차 · 3차 마무리 · 인수"
+ },
+ "scoring": {
+  "hidden": true,
+  "weights": {
+   "revenue": 60,
+   "employees": 25,
+   "users": 15
+  },
+  "revenue": "60 × log10(매출억/0.5)/3 (0.5억~500억)",
+  "employees": "25 × log10(직원)/log10(300)",
+  "users": "15 × log10(사용자)/log10(500)",
+  "tier": "점수 45 미만 A · 68 미만 B · 이상 C",
+  "startPrice": "점수 구간 선형 보간 (25→300만, 53→1,000만, 68→3,000만, 90→6,000만, 100→8,000만) · 10만원 단위 · 구간 없이 연속",
+  "includedScreens": "round(3 + 7 × (점수-20)/70), 3~10개",
+  "addFeature": "25만원 × (시작금액/300만)^0.9 × 난이도, 5만원 단위"
+ }
+}
