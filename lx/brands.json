@@ -1,0 +1,812 @@
+{
+"주식 자동매매 실행기": {
+"icon": "lx/img/ic/00.jpg",
+"brand": "퀀트러너",
+"color": "#FF3D2E",
+"kr": "Gothic A1",
+"num": "JetBrains Mono",
+"style": "fintech-pro: dense, hairline dividers, square 4pt corners, red/blue market colors",
+"batch": "a"
+},
+"포트폴리오 리밸런싱": {
+"icon": "lx/img/ic/01.jpg",
+"brand": "밸런스랩",
+"color": "#2F5D50",
+"kr": "Gowun Batang",
+"num": "Fraunces",
+"style": "editorial wealth: cream paper, serif numerals, thin rules, no shadows",
+"batch": "a"
+},
+"공시·시세 알림 대시보드": {
+"icon": "lx/img/ic/02.jpg",
+"brand": "티커벨",
+"color": "#F5C400",
+"kr": "Do Hyeon",
+"num": "Bebas Neue",
+"style": "ticker-tape: black/yellow, condensed caps, scrolling tape strip, sharp corners",
+"batch": "a"
+},
+"보험 계약 갱신 관리": {
+"icon": "lx/img/ic/03.jpg",
+"brand": "리뉴플래너",
+"color": "#0E7C86",
+"kr": "IBM Plex Sans KR",
+"num": "Manrope",
+"style": "calm corporate teal, 10pt radius, outlined cards, line icons",
+"batch": "a"
+},
+"보험료 비교 견적": {
+"icon": "lx/img/ic/04.jpg",
+"brand": "비교왕",
+"color": "#FF6B35",
+"kr": "Jua",
+"num": "Rubik",
+"style": "playful consumer: chunky rounded font, big 22pt radius, sticker badges",
+"batch": "a"
+},
+"보장 공백 분석 리포트": {
+"icon": "lx/img/ic/05.jpg",
+"brand": "커버리",
+"color": "#6C4BF4",
+"kr": "Noto Sans KR",
+"num": "Sora",
+"style": "insight report: violet, radar chart, glassy layered cards",
+"batch": "a"
+},
+"동물병원 예약·진료 기록": {
+"icon": "lx/img/ic/06.jpg",
+"brand": "포포클리닉",
+"color": "#20B486",
+"kr": "Gowun Dodum",
+"num": "Outfit",
+"style": "soft clinic: mint/white, very round, friendly illustrations",
+"batch": "a"
+},
+"사료 구독 배송 관리": {
+"icon": "lx/img/ic/07.jpg",
+"brand": "냠박스",
+"color": "#F28C28",
+"kr": "Jua",
+"num": "Rubik",
+"style": "warm commerce: orange, kraft-paper textures, stamp-like labels",
+"batch": "a"
+},
+"중고차 매물 일괄 등록": {
+"icon": "lx/img/ic/08.jpg",
+"brand": "카리스트",
+"color": "#E11D48",
+"kr": "Black Han Sans",
+"num": "Barlow Condensed",
+"style": "dealer bold: heavy headline, racing stripes, angled tags",
+"batch": "a"
+},
+"정비소 예약·견적": {
+"icon": "lx/img/ic/09.jpg",
+"brand": "렌치업",
+"color": "#FFB800",
+"kr": "Do Hyeon",
+"num": "Oswald",
+"style": "garage industrial: black/yellow hazard stripes, sharp boxes",
+"batch": "a"
+},
+"차량 정비 이력 관리": {
+"icon": "lx/img/ic/10.jpg",
+"brand": "카로그",
+"color": "#00897B",
+"kr": "Nanum Gothic",
+"num": "Red Hat Mono",
+"style": "logbook: dark teal, monospaced log rows, gauge",
+"batch": "a"
+},
+"숙박 채널 재고 동기화": {
+"icon": "lx/img/ic/11.jpg",
+"brand": "스테이싱크",
+"color": "#1F4FFF",
+"kr": "Noto Sans KR",
+"num": "DM Sans",
+"style": "hospitality SaaS: crisp white/blue grid, heatmap cells",
+"batch": "a"
+},
+"여행 견적·일정표 생성": {
+"icon": "lx/img/ic/12.jpg",
+"brand": "트립노트",
+"color": "#00A3FF",
+"kr": "Gowun Dodum",
+"num": "Instrument Serif",
+"style": "travel journal: sky blue, serif italic numerals, dotted routes",
+"batch": "a"
+},
+"단체 여행 운영 관리": {
+"icon": "lx/img/ic/13.jpg",
+"brand": "그룹투어",
+"color": "#2E7D32",
+"kr": "Sunflower",
+"num": "Archivo",
+"style": "tour operator: forest green, ticket stubs, seat map",
+"batch": "a"
+},
+"펫 호텔 돌봄 리포트": {
+"icon": "lx/img/ic/14.jpg",
+"brand": "멍하우스",
+"color": "#FF6FA8",
+"kr": "Gowun Dodum",
+"num": "Outfit",
+"style": "keep current look but make it a branded pet hotel: logo in header, softer type",
+"batch": "a"
+},
+"산지 출하 관리": {
+"icon": "lx/img/ic/15.jpg",
+"brand": "팜고",
+"color": "#D7263D",
+"kr": "Sunflower",
+"num": "Archivo",
+"style": "agri co-op: earthy red, crate textures",
+"batch": "b"
+},
+"스마트팜 센서 모니터링": {
+"icon": "lx/img/ic/16.jpg",
+"brand": "그린센스",
+"color": "#00C853",
+"kr": "Orbit",
+"num": "JetBrains Mono",
+"style": "agri-tech dark green, sensor HUD, mono numerals",
+"batch": "b"
+},
+"농산물 온라인 주문 관리": {
+"icon": "lx/img/ic/17.jpg",
+"brand": "포도마켓",
+"color": "#7B2CBF",
+"kr": "Jua",
+"num": "Rubik",
+"style": "marketplace purple/lime, playful chips",
+"batch": "b"
+},
+"세무 신고 일정 관리": {
+"icon": "lx/img/ic/18.jpg",
+"brand": "택스캘",
+"color": "#1E3A8A",
+"kr": "Noto Serif KR",
+"num": "Fraunces",
+"style": "tax office: navy, serif, official stamp motifs",
+"batch": "b"
+},
+"고객 증빙 수집 포털": {
+"icon": "lx/img/ic/19.jpg",
+"brand": "찰칵증빙",
+"color": "#00B8A9",
+"kr": "Gowun Dodum",
+"num": "Outfit",
+"style": "friendly mint consumer, big camera CTA",
+"batch": "b"
+},
+"계약서 검토 체크리스트": {
+"icon": "lx/img/ic/20.jpg",
+"brand": "로체크",
+"color": "#8B5E3C",
+"kr": "Nanum Myeongjo",
+"num": "Instrument Serif",
+"style": "law-firm paper: beige, serif, red margin notes",
+"batch": "b"
+},
+"웨딩 견적·계약 관리": {
+"icon": "lx/img/ic/21.jpg",
+"brand": "베일앤코",
+"color": "#C08497",
+"kr": "Song Myung",
+"num": "Instrument Serif",
+"style": "luxury bridal: ivory/rose gold, serif display",
+"batch": "b"
+},
+"행사 좌석 배치": {
+"icon": "lx/img/ic/22.jpg",
+"brand": "시팅",
+"color": "#D4AF37",
+"kr": "Hahmlet",
+"num": "Syne",
+"style": "gala event: navy/gold, elegant",
+"batch": "b"
+},
+"촬영 스케줄 관리": {
+"icon": "lx/img/ic/23.jpg",
+"brand": "스튜디오B",
+"color": "#111111",
+"kr": "Noto Sans KR",
+"num": "Syne",
+"style": "monochrome editorial studio, grayscale photo",
+"batch": "b"
+},
+"관리비 고지·납부 안내": {
+"icon": "lx/img/ic/24.jpg",
+"brand": "우리집관리비",
+"color": "#2563EB",
+"kr": "Nanum Gothic",
+"num": "Manrope",
+"style": "utility-bill blue, paper bill",
+"batch": "b"
+},
+"민원 접수·처리 추적": {
+"icon": "lx/img/ic/25.jpg",
+"brand": "콜앤픽스",
+"color": "#F97316",
+"kr": "Do Hyeon",
+"num": "Rubik",
+"style": "service orange, ticket tracker",
+"batch": "b"
+},
+"청소·방역 업체 정산": {
+"icon": "lx/img/ic/26.jpg",
+"brand": "클린정산",
+"color": "#0D9488",
+"kr": "IBM Plex Sans KR",
+"num": "Red Hat Mono",
+"style": "B2B settlement teal, statement paper",
+"batch": "b"
+},
+"태양광 발전량 모니터링": {
+"icon": "lx/img/ic/27.jpg",
+"brand": "썬카운트",
+"color": "#FFB300",
+"kr": "Orbit",
+"num": "Unbounded",
+"style": "energy dark/amber, glowing gauges",
+"batch": "b"
+},
+"설치 견적·시공 관리": {
+"icon": "lx/img/ic/28.jpg",
+"brand": "솔라빌드",
+"color": "#F4511E",
+"kr": "Black Han Sans",
+"num": "Barlow Condensed",
+"style": "construction orange, step tracker",
+"batch": "b"
+},
+"전기요금 절감 리포트": {
+"icon": "lx/img/ic/29.jpg",
+"brand": "와트세이버",
+"color": "#16A34A",
+"kr": "Gothic A1",
+"num": "Outfit",
+"style": "savings green gradient report",
+"batch": "b"
+},
+"게임 운영 이벤트 관리": {
+"icon": "lx/img/ic/30.jpg",
+"brand": "레이드옵스",
+"color": "#9B5DE5",
+"kr": "Black Han Sans",
+"num": "Unbounded",
+"style": "game ops: purple/gold, fantasy frames",
+"batch": "c"
+},
+"스트리머 수익 정산": {
+"icon": "lx/img/ic/31.jpg",
+"brand": "스트림페이",
+"color": "#00F5D4",
+"kr": "Orbit",
+"num": "Unbounded",
+"style": "neon creator economy, glowing bars",
+"batch": "c"
+},
+"유튜브 댓글 관리": {
+"icon": "lx/img/ic/32.jpg",
+"brand": "댓글매니저",
+"color": "#FF0033",
+"kr": "Noto Sans KR",
+"num": "DM Sans",
+"style": "video platform light UI, red accent",
+"batch": "c"
+},
+"콘텐츠 구독 결제 관리": {
+"icon": "lx/img/ic/33.jpg",
+"brand": "리커버",
+"color": "#4F46E5",
+"kr": "Gothic A1",
+"num": "Sora",
+"style": "indigo subscription SaaS, funnel arrows",
+"batch": "c"
+},
+"의류 재고·사이즈 관리": {
+"icon": "lx/img/ic/34.jpg",
+"brand": "핏스톡",
+"color": "#A47148",
+"kr": "Gowun Batang",
+"num": "Syne",
+"style": "fashion warm grey, matrix grid",
+"batch": "c"
+},
+"도매 거래처 주문": {
+"icon": "lx/img/ic/35.jpg",
+"brand": "동대문링크",
+"color": "#B5452E",
+"kr": "Nanum Gothic",
+"num": "Archivo",
+"style": "wholesale brick red, order sheets",
+"batch": "c"
+},
+"반품·교환 처리": {
+"icon": "lx/img/ic/36.jpg",
+"brand": "리턴박스",
+"color": "#F97316",
+"kr": "Do Hyeon",
+"num": "Rubik",
+"style": "logistics orange, stepper",
+"batch": "c"
+},
+"시즌 기획 원가 계산": {
+"icon": "lx/img/ic/37.jpg",
+"brand": "코스트핏",
+"color": "#2D6A4F",
+"kr": "Nanum Myeongjo",
+"num": "Fraunces",
+"style": "ledger cream/green serif",
+"batch": "c"
+},
+"회원권·PT 횟수 관리": {
+"icon": "lx/img/ic/38.jpg",
+"brand": "핏카운트",
+"color": "#FF5F1F",
+"kr": "Black Han Sans",
+"num": "Bebas Neue",
+"style": "gym bold dark/orange, punch card",
+"batch": "c"
+},
+"출석·트레이너 배정": {
+"icon": "lx/img/ic/39.jpg",
+"brand": "코치보드",
+"color": "#2563EB",
+"kr": "Noto Sans KR",
+"num": "Manrope",
+"style": "scheduling blue light grid",
+"batch": "c"
+},
+"재등록 유도 메시지": {
+"icon": "lx/img/ic/40.jpg",
+"brand": "리턴핏",
+"color": "#A78BFA",
+"kr": "Gowun Dodum",
+"num": "Outfit",
+"style": "pilates lavender soft messaging",
+"batch": "c"
+},
+"체성분 변화 리포트": {
+"icon": "lx/img/ic/41.jpg",
+"brand": "바디그래프",
+"color": "#14B8A6",
+"kr": "IBM Plex Sans KR",
+"num": "Sora",
+"style": "health report teal white, charts",
+"batch": "c"
+},
+"나라장터 공고 알림": {
+"icon": "lx/img/ic/42.jpg",
+"brand": "공고레이더",
+"color": "#1D4ED8",
+"kr": "Noto Sans KR",
+"num": "Archivo",
+"style": "public procurement navy, gov-like",
+"batch": "c"
+},
+"입찰 서류 체크리스트": {
+"icon": "lx/img/ic/43.jpg",
+"brand": "서류팩",
+"color": "#B45309",
+"kr": "Nanum Myeongjo",
+"num": "Red Hat Mono",
+"style": "paper checklist amber",
+"batch": "c"
+},
+"투찰가 산정 계산기": {
+"icon": "lx/img/ic/44.jpg",
+"brand": "투찰계산기",
+"color": "#FBBF24",
+"kr": "Orbit",
+"num": "JetBrains Mono",
+"style": "calculator black/amber",
+"batch": "c"
+},
+"실적·자격증 관리": {
+"icon": "lx/img/ic/45.jpg",
+"brand": "써티볼트",
+"color": "#0F766E",
+"kr": "Gothic A1",
+"num": "Manrope",
+"style": "compliance teal",
+"batch": "c"
+},
+"광고 성과 통합 대시보드": {
+"icon": "lx/img/ic/46.jpg",
+"brand": "애드렌즈",
+"color": "#3B82F6",
+"kr": "Noto Sans KR",
+"num": "Sora",
+"style": "ad-tech dark navy",
+"batch": "d"
+},
+"클라이언트 보고서 자동 작성": {
+"icon": "lx/img/ic/47.jpg",
+"brand": "리포트봇",
+"color": "#6366F1",
+"kr": "Gothic A1",
+"num": "DM Sans",
+"style": "agency report indigo",
+"batch": "d"
+},
+"광고 예산 페이싱 알림": {
+"icon": "lx/img/ic/48.jpg",
+"brand": "페이스키퍼",
+"color": "#F97316",
+"kr": "Do Hyeon",
+"num": "Oswald",
+"style": "pacing orange gauge",
+"batch": "d"
+},
+"광고 소재 제작 요청 관리": {
+"icon": "lx/img/ic/49.jpg",
+"brand": "크리에이티브큐",
+"color": "#EC4899",
+"kr": "Gowun Dodum",
+"num": "Syne",
+"style": "creative pink approvals",
+"batch": "d"
+},
+"등하원 출결 알림": {
+"icon": "lx/img/ic/50.jpg",
+"brand": "도담하원",
+"color": "#22C55E",
+"kr": "Jua",
+"num": "Rubik",
+"style": "kid-friendly green parent app",
+"batch": "d"
+},
+"보육료·급식비 청구": {
+"icon": "lx/img/ic/51.jpg",
+"brand": "키즈빌",
+"color": "#EAB308",
+"kr": "Gowun Dodum",
+"num": "Outfit",
+"style": "warm beige receipt",
+"batch": "d"
+},
+"하루 활동 알림장": {
+"icon": "lx/img/ic/52.jpg",
+"brand": "꿈나무알림장",
+"color": "#FB923C",
+"kr": "Gaegu-like rounded (use Jua)",
+"num": "Rubik",
+"style": "crayon peach notebook",
+"batch": "d"
+},
+"예방접종 서류 추적": {
+"icon": "lx/img/ic/53.jpg",
+"brand": "접종체크",
+"color": "#0EA5E9",
+"kr": "Noto Sans KR",
+"num": "Manrope",
+"style": "clinical teal grid",
+"batch": "d"
+},
+"HACCP 점검 기록": {
+"icon": "lx/img/ic/54.jpg",
+"brand": "해썹노트",
+"color": "#2563EB",
+"kr": "IBM Plex Sans KR",
+"num": "JetBrains Mono",
+"style": "food safety blue clipboard",
+"batch": "d"
+},
+"원재료 로트 추적": {
+"icon": "lx/img/ic/55.jpg",
+"brand": "로트트레이스",
+"color": "#15803D",
+"kr": "Gothic A1",
+"num": "Chivo Mono",
+"style": "trace dark green tree",
+"batch": "d"
+},
+"유통기한 관리": {
+"icon": "lx/img/ic/56.jpg",
+"brand": "데이카운트",
+"color": "#DC2626",
+"kr": "Do Hyeon",
+"num": "Bebas Neue",
+"style": "warm cream countdown",
+"batch": "d"
+},
+"식품 표시 문구 검토": {
+"icon": "lx/img/ic/57.jpg",
+"brand": "라벨체크",
+"color": "#7C3AED",
+"kr": "Noto Sans KR",
+"num": "DM Sans",
+"style": "lavender label review",
+"batch": "d"
+},
+"상조 납입 관리": {
+"icon": "lx/img/ic/58.jpg",
+"brand": "평안상조",
+"color": "#1E3A5F",
+"kr": "Nanum Myeongjo",
+"num": "Fraunces",
+"style": "dignified navy/gold",
+"batch": "d"
+},
+"장례 견적 안내": {
+"icon": "lx/img/ic/59.jpg",
+"brand": "하늘정원",
+"color": "#3F3F46",
+"kr": "Song Myung",
+"num": "Instrument Serif",
+"style": "quiet charcoal serif",
+"batch": "d"
+},
+"상담 예약·배정": {
+"icon": "lx/img/ic/60.jpg",
+"brand": "온상담",
+"color": "#4D7C0F",
+"kr": "Gowun Batang",
+"num": "Outfit",
+"style": "sage green calm",
+"batch": "d"
+},
+"수입 통관 서류 관리": {
+"icon": "lx/img/ic/61.jpg",
+"brand": "클리어포트",
+"color": "#0B3C5D",
+"kr": "IBM Plex Sans KR",
+"num": "Archivo",
+"style": "trade navy, stepper",
+"batch": "e"
+},
+"해외 배송비·관세 견적": {
+"icon": "lx/img/ic/62.jpg",
+"brand": "쉽쿼트",
+"color": "#FF5A1F",
+"kr": "Jua",
+"num": "Rubik",
+"style": "consumer orange quotes",
+"batch": "e"
+},
+"환율 원가 계산기": {
+"icon": "lx/img/ic/63.jpg",
+"brand": "FX코스트",
+"color": "#A3E635",
+"kr": "Orbit",
+"num": "JetBrains Mono",
+"style": "dark lime fx terminal",
+"batch": "e"
+},
+"해외 고객 문의 응답": {
+"icon": "lx/img/ic/64.jpg",
+"brand": "링구챗",
+"color": "#2563EB",
+"kr": "Noto Sans KR",
+"num": "DM Sans",
+"style": "messenger blue",
+"batch": "e"
+},
+"정기배송 구독 관리": {
+"icon": "lx/img/ic/65.jpg",
+"brand": "데일리웰",
+"color": "#22C55E",
+"kr": "Gowun Dodum",
+"num": "Outfit",
+"style": "fresh green wellness",
+"batch": "e"
+},
+"해지 방어 메시지": {
+"icon": "lx/img/ic/66.jpg",
+"brand": "스테이온",
+"color": "#FB7185",
+"kr": "Gothic A1",
+"num": "Sora",
+"style": "plum/coral retention",
+"batch": "e"
+},
+"구독 수량 기준 발주": {
+"icon": "lx/img/ic/67.jpg",
+"brand": "오더포캐스트",
+"color": "#0D9488",
+"kr": "IBM Plex Sans KR",
+"num": "Manrope",
+"style": "ops teal table",
+"batch": "e"
+},
+"상담 기록 요약": {
+"icon": "lx/img/ic/68.jpg",
+"brand": "콜노트",
+"color": "#4338CA",
+"kr": "Nanum Myeongjo",
+"num": "Instrument Serif",
+"style": "cream indigo memo",
+"batch": "e"
+},
+"촬영 스케줄·장비 배정": {
+"icon": "lx/img/ic/69.jpg",
+"brand": "콜시트",
+"color": "#F59E0B",
+"kr": "Black Han Sans",
+"num": "Oswald",
+"style": "cinema dark amber",
+"batch": "e"
+},
+"납품 기한 관리": {
+"icon": "lx/img/ic/70.jpg",
+"brand": "딜리버리",
+"color": "#2563EB",
+"kr": "Do Hyeon",
+"num": "Bebas Neue",
+"style": "electric blue deadlines",
+"batch": "e"
+},
+"자막·번역 작업 관리": {
+"icon": "lx/img/ic/71.jpg",
+"brand": "서브타이틀랩",
+"color": "#10B981",
+"kr": "Noto Sans KR",
+"num": "JetBrains Mono",
+"style": "dark editor",
+"batch": "e"
+},
+"제작비 정산": {
+"icon": "lx/img/ic/72.jpg",
+"brand": "프로덕션페이",
+"color": "#B45309",
+"kr": "Gowun Batang",
+"num": "Fraunces",
+"style": "beige receipt",
+"batch": "e"
+},
+"헌금·기부금 관리": {
+"icon": "lx/img/ic/73.jpg",
+"brand": "은혜장부",
+"color": "#7F1D1D",
+"kr": "Nanum Myeongjo",
+"num": "Fraunces",
+"style": "ivory/burgundy serif",
+"batch": "f"
+},
+"교인 출석 체크": {
+"icon": "lx/img/ic/74.jpg",
+"brand": "함께예배",
+"color": "#B45309",
+"kr": "Gowun Batang",
+"num": "Instrument Serif",
+"style": "navy/gold sanctuary",
+"batch": "f"
+},
+"교회 소식 문자 발송": {
+"icon": "lx/img/ic/75.jpg",
+"brand": "교회소식",
+"color": "#16A34A",
+"kr": "Gowun Dodum",
+"num": "Outfit",
+"style": "light green messenger",
+"batch": "f"
+},
+"소모임·봉사 일정 관리": {
+"icon": "lx/img/ic/76.jpg",
+"brand": "섬김캘린더",
+"color": "#7C3AED",
+"kr": "Sunflower",
+"num": "Manrope",
+"style": "lavender schedule",
+"batch": "f"
+},
+"통근·전세버스 배차": {
+"icon": "lx/img/ic/77.jpg",
+"brand": "버스플로",
+"color": "#2563EB",
+"kr": "Gothic A1",
+"num": "Archivo",
+"style": "transit blue map",
+"batch": "f"
+},
+"무인 주차 정산": {
+"icon": "lx/img/ic/78.jpg",
+"brand": "파킹패스",
+"color": "#FACC15",
+"kr": "Do Hyeon",
+"num": "Barlow Condensed",
+"style": "dark/yellow parking",
+"batch": "f"
+},
+"정기권 관리": {
+"icon": "lx/img/ic/79.jpg",
+"brand": "시즌패스",
+"color": "#0F766E",
+"kr": "Noto Sans KR",
+"num": "Sora",
+"style": "teal wallet cards",
+"batch": "f"
+},
+"주차 혼잡도 대시보드": {
+"icon": "lx/img/ic/80.jpg",
+"brand": "파킹뷰",
+"color": "#22C55E",
+"kr": "Orbit",
+"num": "Unbounded",
+"style": "dark occupancy HUD",
+"batch": "f"
+},
+"발렛 기사 배정": {
+"icon": "lx/img/ic/81.jpg",
+"brand": "발렛원",
+"color": "#C9A227",
+"kr": "Hahmlet",
+"num": "Syne",
+"style": "black/gold hotel valet",
+"batch": "f"
+},
+"폐기물 수거 경로 관리": {
+"icon": "lx/img/ic/82.jpg",
+"brand": "에코루트",
+"color": "#16A34A",
+"kr": "Jua",
+"num": "Rubik",
+"style": "green route map",
+"batch": "f"
+},
+"배출 신고 서류 관리": {
+"icon": "lx/img/ic/83.jpg",
+"brand": "배출신고24",
+"color": "#1D4ED8",
+"kr": "Nanum Gothic",
+"num": "Red Hat Mono",
+"style": "gov form blue",
+"batch": "f"
+},
+"수거 업체 정산": {
+"icon": "lx/img/ic/84.jpg",
+"brand": "수거정산",
+"color": "#EA580C",
+"kr": "IBM Plex Sans KR",
+"num": "Chivo Mono",
+"style": "cream/orange statement",
+"batch": "f"
+},
+"환경 점검 체크리스트": {
+"icon": "lx/img/ic/85.jpg",
+"brand": "그린체크",
+"color": "#059669",
+"kr": "Gowun Dodum",
+"num": "Outfit",
+"style": "mint checklist",
+"batch": "f"
+},
+"드론 촬영 예약": {
+"icon": "lx/img/ic/86.jpg",
+"brand": "스카이샷",
+"color": "#06B6D4",
+"kr": "Orbit",
+"num": "Unbounded",
+"style": "dark blue aviation",
+"batch": "f"
+},
+"측량 데이터 납품 관리": {
+"icon": "lx/img/ic/87.jpg",
+"brand": "맵메이트",
+"color": "#EA580C",
+"kr": "IBM Plex Sans KR",
+"num": "JetBrains Mono",
+"style": "slate/orange survey",
+"batch": "f"
+},
+"촬영 장비 점검 기록": {
+"icon": "lx/img/ic/88.jpg",
+"brand": "배터리로그",
+"color": "#84CC16",
+"kr": "Gothic A1",
+"num": "Chivo Mono",
+"style": "graphite/lime HUD",
+"batch": "f"
+},
+"현장 사진 보고서 자동 작성": {
+"icon": "lx/img/ic/89.jpg",
+"brand": "포토리포트",
+"color": "#2563EB",
+"kr": "Noto Sans KR",
+"num": "DM Sans",
+"style": "gray A4 report",
+"batch": "f"
+}
+}
