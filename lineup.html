@@ -73,7 +73,9 @@ a{color:inherit}
 .lu-ep__k{display:inline-flex;align-items:center;gap:10px;font:800 .82rem/1 var(--display);letter-spacing:.32em;color:var(--g);padding:10px 16px;border-radius:999px;background:rgba(43,255,136,.08);box-shadow:inset 0 0 0 1px rgba(43,255,136,.35);margin:0}
 .lu-ep__k i{width:8px;height:8px;border-radius:50%;background:var(--g);box-shadow:0 0 12px var(--g);animation:pl 1.6s ease-in-out infinite}
 @keyframes pl{50%{opacity:.25}}
-.lu-ep h1{margin:26px 0 0;font-family:"Black Han Sans",var(--display);font-weight:400;font-size:clamp(54px,11.5vw,188px);line-height:.98;letter-spacing:-.035em;text-wrap:balance}
+.lu-ep__wm{font:900 clamp(40px,8.5vw,128px)/.86 var(--display);letter-spacing:-.02em;margin:0;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.32);white-space:nowrap}
+.lu-ep__wm b{color:var(--g);-webkit-text-stroke:0;text-shadow:0 0 40px rgba(43,255,136,.4)}
+.lu-ep h1{margin:18px 0 0;font-family:"Black Han Sans",var(--display);font-weight:400;font-size:clamp(54px,11.5vw,188px);line-height:.98;letter-spacing:-.035em;text-wrap:balance}
 .lu-ep h1 .l1{display:block;color:#fff}
 .lu-ep h1 .l2{display:block;background:linear-gradient(92deg,#2BFF88 0%,#B8FF6A 38%,#fff 52%,#FF5A4E 70%,#FF3B3B 100%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:epG 7s ease-in-out infinite;filter:drop-shadow(0 0 40px rgba(43,255,136,.25))}
 @keyframes epG{50%{background-position:100% 0}}
@@ -217,7 +219,7 @@ footer a{color:var(--mute)}
 <section class="lu-ep" aria-labelledby="epT">
   <div class="lu-ep__wall" id="epWall" aria-hidden="true"></div>
   <div class="wrap lu-ep__in">
-    <p class="lu-ep__k"><i></i>ATZ MACH</p>
+    <p class="lu-ep__wm">ATZ <b>LINEUP</b></p>
     <h1 id="epT"><span class="l1">안 되는 개발은</span><span class="l2">없습니다.</span></h1>
     <p class="lu-ep__rot"><span class="lu-ep__w" id="epW">주식 자동매매</span><span>도, 말만 하면 만듭니다.</span></p>
     <ul class="lu-ep__st" aria-label="라인업 요약">
@@ -362,4 +364,4 @@ render();
 P.forEach(function(p){if(!LX[p[1]])console.error("no screen",p[1]);if(!C[p[0]])console.error("no industry",p[0])});
 })();
 </script>
-</body></html>
+<script src="xlink.js" defer></script></body></html>
