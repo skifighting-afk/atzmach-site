@@ -58,17 +58,6 @@ a{color:inherit}
 @media(max-width:760px){.lines{order:5;flex:1 1 100%}.lu-top .btn--s{margin-left:auto}}
 
 /* Hero */
-.lu-hero{position:relative;overflow:hidden;padding-block:64px 36px;border-bottom:1px solid var(--line)}
-.lu-hero:before{content:"";position:absolute;inset:-20% -10% auto;height:120%;background:radial-gradient(40% 50% at 78% 20%,rgba(43,255,136,.14),transparent 70%),radial-gradient(35% 45% at 10% 90%,rgba(255,59,59,.12),transparent 70%);pointer-events:none}
-.lu-hero .wrap{position:relative}
-.wm{font:900 clamp(56px,13vw,180px)/.86 var(--display);letter-spacing:-.02em;margin:0;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.16);white-space:nowrap}
-.wm b{color:var(--g);-webkit-text-stroke:0;text-shadow:0 0 40px rgba(43,255,136,.35)}
-.lu-hero h1{font:700 clamp(26px,4.2vw,44px)/1.2 var(--body);letter-spacing:-.03em;margin:22px 0 0;text-wrap:balance}
-.lu-hero h1 em{font-style:normal;color:var(--g)}
-.stats{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 0;padding:0;list-style:none}
-.stats li{display:flex;align-items:baseline;gap:6px;padding:10px 14px;border-radius:12px;background:rgba(255,255,255,.04);box-shadow:inset 0 0 0 1px var(--line)}
-.stats b{font:900 1.5rem/1 var(--display);font-variant-numeric:tabular-nums}
-.stats span{font-size:.82rem;color:var(--mute)}
 .hero-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
 
 /* ===== Epic hero: a tilted wall of 90 real app icons behind one sentence ===== */
@@ -99,6 +88,20 @@ a{color:inherit}
 .ep .hero-cta{justify-content:center;margin-top:34px}
 .ep .btn{padding:16px 24px;font-size:1rem}
 @media(max-width:600px){.ep__row img{width:64px;height:64px;border-radius:16px}.ep__st li{min-width:0;flex:1 1 40%}}
+
+/* ===== "300%" promise strip ===== */
+.up3{position:relative;overflow:hidden;padding-block:90px;border-top:1px solid var(--line);background:#050608;text-align:center}
+.up3:before{content:"300%";position:absolute;left:50%;top:50%;transform:translate(-50%,-52%);font:900 clamp(160px,34vw,520px)/1 var(--display);letter-spacing:-.06em;color:transparent;-webkit-text-stroke:2px rgba(43,255,136,.14);white-space:nowrap;pointer-events:none}
+.up3 .wrap{position:relative}
+.up3__k{margin:0;font:700 clamp(16px,1.8vw,20px)/1.4 var(--body);color:var(--mute)}
+.up3 h2{margin:14px 0 0;font-family:"Black Han Sans",var(--display);font-weight:400;font-size:clamp(34px,5.4vw,74px);line-height:1.08;letter-spacing:-.03em;text-wrap:balance}
+.up3 h2 b{font-weight:400;background:linear-gradient(92deg,#2BFF88,#B8FF6A 45%,#fff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.up3__bar{display:grid;grid-template-columns:1fr 3fr;gap:10px;max-width:720px;margin:34px auto 0;text-align:left}
+.up3__bar div{padding:14px 16px;border-radius:14px;box-shadow:inset 0 0 0 1px var(--line)}
+.up3__bar div:last-child{background:linear-gradient(90deg,rgba(43,255,136,.22),rgba(43,255,136,.06));box-shadow:inset 0 0 0 1px rgba(43,255,136,.5),0 18px 50px -20px rgba(43,255,136,.6)}
+.up3__bar span{display:block;font-size:.8rem;color:var(--mute)}
+.up3__bar b{display:block;margin-top:4px;font:900 1.3rem/1.1 var(--display)}
+.up3__bar div:last-child b{color:var(--g)}
 
 /* ===== Bridge to ATZ 창업사관학교 ===== */
 .br{position:relative;overflow:hidden;padding-block:110px;border-top:1px solid var(--line);background:radial-gradient(60% 70% at 85% 30%,rgba(245,185,66,.16),transparent 70%),radial-gradient(50% 60% at 0% 100%,rgba(43,255,136,.08),transparent 70%),#0A0907}
@@ -242,6 +245,12 @@ footer a{color:var(--mute)}
   <p class="empty" id="empty" hidden>찾는 프로그램이 없나요? 말씀만 주시면 만듭니다.</p>
 </div></section>
 
+<section class="up3" aria-labelledby="upT"><div class="wrap">
+  <p class="up3__k">여기 보이는 화면은 맛보기입니다.</p>
+  <h2 id="upT">실제 납품 디자인은 위 시안보다<br><b>300% 이상</b> 좋아집니다.</h2>
+  <div class="up3__bar" aria-hidden="true"><div><span>지금 보신 시안</span><b>1×</b></div><div><span>우리 회사 브랜드로 다시 설계한 실제 프로그램</span><b>4× 이상</b></div></div>
+</div></section>
+
 <section class="br" aria-labelledby="brT"><div class="wrap br__g">
   <div>
     <p class="br__k">✦ ATZ 창업사관학교</p>
@@ -282,7 +291,7 @@ footer a{color:var(--mute)}
       <div class="mo__k"><span>14일 완성</span><span>1차 시안 무료</span><span>우리 회사 맞춤</span></div>
       <span class="mo__hint"><i></i>화면 속 버튼을 눌러 보세요</span>
       <a class="btn btn--g" id="moGo" href="https://pf.kakao.com/_yynFX/chat" target="_blank" rel="noopener">이 프로그램 만들기</a>
-      <span class="lu-ex">설계 예시 화면 · 숫자는 샘플</span>
+      <span class="lu-ex">설계 예시 화면 · 숫자는 샘플 · 실제 납품 디자인은 300% 이상 업그레이드</span>
       <div class="mo__nav"><button type="button" id="moP">← 이전</button><button type="button" id="moN">다음 →</button></div>
     </div>
   </div>
