@@ -61,75 +61,76 @@ a{color:inherit}
 .hero-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
 
 /* ===== Epic hero: a tilted wall of 90 real app icons behind one sentence ===== */
-.ep{position:relative;overflow:hidden;min-height:min(880px,100svh);display:grid;place-items:center;isolation:isolate;border-bottom:1px solid var(--line);background:#050608}
-.ep__wall{position:absolute;inset:-30% -20%;display:flex;flex-direction:column;gap:22px;transform:perspective(1100px) rotateX(38deg) rotateZ(-14deg) translateY(-6%);z-index:-2;opacity:.62}
-.ep__row{display:flex;gap:22px;width:max-content;animation:epL 70s linear infinite}
-.ep__row:nth-child(even){animation-name:epR;animation-duration:84s}
-.ep__row img{width:92px;height:92px;border-radius:22px;object-fit:cover;box-shadow:0 18px 40px -12px rgba(0,0,0,.8),inset 0 0 0 1px rgba(255,255,255,.08);flex:none}
+.lu-ep{position:relative;overflow:hidden;min-height:min(880px,100svh);display:grid;place-items:center;isolation:isolate;border-bottom:1px solid var(--line);background:#050608}
+.lu-ep__wall{position:absolute;inset:-30% -20%;display:flex;flex-direction:column;gap:22px;transform:perspective(1100px) rotateX(38deg) rotateZ(-14deg) translateY(-6%);z-index:-2;opacity:.62}
+.lu-ep__row{display:flex;gap:22px;width:max-content;animation:epL 70s linear infinite}
+.lu-ep__row:nth-child(even){animation-name:epR;animation-duration:84s}
+.lu-ep__row img{width:92px;height:92px;border-radius:22px;object-fit:cover;box-shadow:0 18px 40px -12px rgba(0,0,0,.8),inset 0 0 0 1px rgba(255,255,255,.08);flex:none}
 @keyframes epL{to{transform:translateX(-50%)}}@keyframes epR{from{transform:translateX(-50%)}to{transform:translateX(0)}}
-.ep:before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(55% 48% at 50% 50%,rgba(5,6,8,.94) 0%,rgba(5,6,8,.78) 45%,rgba(5,6,8,.25) 80%),linear-gradient(180deg,#050608 0%,transparent 22%,transparent 70%,#07080C 100%)}
-.ep:after{content:"";position:absolute;left:50%;top:50%;width:min(1100px,120vw);height:520px;transform:translate(-50%,-50%);z-index:-1;background:radial-gradient(closest-side,rgba(43,255,136,.20),transparent),radial-gradient(closest-side at 70% 60%,rgba(255,59,59,.16),transparent);filter:blur(30px);pointer-events:none}
-.ep__in{text-align:center;padding-block:96px 72px;position:relative}
-.ep__k{display:inline-flex;align-items:center;gap:10px;font:800 .82rem/1 var(--display);letter-spacing:.32em;color:var(--g);padding:10px 16px;border-radius:999px;background:rgba(43,255,136,.08);box-shadow:inset 0 0 0 1px rgba(43,255,136,.35);margin:0}
-.ep__k i{width:8px;height:8px;border-radius:50%;background:var(--g);box-shadow:0 0 12px var(--g);animation:pl 1.6s ease-in-out infinite}
+.lu-ep:before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(55% 48% at 50% 50%,rgba(5,6,8,.94) 0%,rgba(5,6,8,.78) 45%,rgba(5,6,8,.25) 80%),linear-gradient(180deg,#050608 0%,transparent 22%,transparent 70%,#07080C 100%)}
+.lu-ep:after{content:"";position:absolute;left:50%;top:50%;width:min(1100px,120vw);height:520px;transform:translate(-50%,-50%);z-index:-1;background:radial-gradient(closest-side,rgba(43,255,136,.20),transparent),radial-gradient(closest-side at 70% 60%,rgba(255,59,59,.16),transparent);filter:blur(30px);pointer-events:none}
+.lu-ep__in{text-align:center;padding-block:96px 72px;position:relative}
+.lu-ep__k{display:inline-flex;align-items:center;gap:10px;font:800 .82rem/1 var(--display);letter-spacing:.32em;color:var(--g);padding:10px 16px;border-radius:999px;background:rgba(43,255,136,.08);box-shadow:inset 0 0 0 1px rgba(43,255,136,.35);margin:0}
+.lu-ep__k i{width:8px;height:8px;border-radius:50%;background:var(--g);box-shadow:0 0 12px var(--g);animation:pl 1.6s ease-in-out infinite}
 @keyframes pl{50%{opacity:.25}}
-.ep h1{margin:26px 0 0;font-family:"Black Han Sans",var(--display);font-weight:400;font-size:clamp(54px,11.5vw,188px);line-height:.98;letter-spacing:-.035em;text-wrap:balance}
-.ep h1 .l1{display:block;color:#fff}
-.ep h1 .l2{display:block;background:linear-gradient(92deg,#2BFF88 0%,#B8FF6A 38%,#fff 52%,#FF5A4E 70%,#FF3B3B 100%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:epG 7s ease-in-out infinite;filter:drop-shadow(0 0 40px rgba(43,255,136,.25))}
+.lu-ep h1{margin:26px 0 0;font-family:"Black Han Sans",var(--display);font-weight:400;font-size:clamp(54px,11.5vw,188px);line-height:.98;letter-spacing:-.035em;text-wrap:balance}
+.lu-ep h1 .l1{display:block;color:#fff}
+.lu-ep h1 .l2{display:block;background:linear-gradient(92deg,#2BFF88 0%,#B8FF6A 38%,#fff 52%,#FF5A4E 70%,#FF3B3B 100%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:epG 7s ease-in-out infinite;filter:drop-shadow(0 0 40px rgba(43,255,136,.25))}
 @keyframes epG{50%{background-position:100% 0}}
-.ep__rot{margin:26px auto 0;font:600 clamp(18px,2.4vw,28px)/1.35 var(--body);color:#C9CEDA;display:flex;flex-wrap:wrap;justify-content:center;align-items:baseline;gap:.35em}
-.ep__w{display:inline-block;min-width:7.5em;text-align:center;padding:.12em .5em;border-radius:12px;background:rgba(255,255,255,.06);box-shadow:inset 0 0 0 1px rgba(255,255,255,.12);color:var(--wc,#fff);transition:opacity .25s,transform .25s}
-.ep__w.out{opacity:0;transform:translateY(-8px)}
-.ep__st{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin:38px 0 0;padding:0;list-style:none}
-.ep__st li{min-width:150px;padding:16px 20px;border-radius:16px;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));box-shadow:inset 0 0 0 1px rgba(255,255,255,.1);backdrop-filter:blur(8px);text-align:left}
-.ep__st b{display:block;font:900 clamp(30px,3.4vw,44px)/1 var(--display);font-variant-numeric:tabular-nums;color:#fff}
-.ep__st b small{font-size:.5em;margin-left:2px;color:var(--g)}
-.ep__st span{display:block;margin-top:6px;font-size:.82rem;color:var(--mute)}
-.ep .hero-cta{justify-content:center;margin-top:34px}
-.ep .btn{padding:16px 24px;font-size:1rem}
-@media(max-width:600px){.ep__row img{width:64px;height:64px;border-radius:16px}.ep__st li{min-width:0;flex:1 1 40%}}
+.lu-ep__rot{margin:26px auto 0;font:600 clamp(18px,2.4vw,28px)/1.35 var(--body);color:#C9CEDA;display:flex;flex-wrap:wrap;justify-content:center;align-items:baseline;gap:.35em}
+.lu-ep__w{display:inline-block;min-width:7.5em;text-align:center;padding:.12em .5em;border-radius:12px;background:rgba(255,255,255,.06);box-shadow:inset 0 0 0 1px rgba(255,255,255,.12);color:var(--wc,#fff);transition:opacity .25s,transform .25s}
+.lu-ep__w.out{opacity:0;transform:translateY(-8px)}
+.lu-ep__st{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin:38px 0 0;padding:0;list-style:none}
+.lu-ep__st li{min-width:150px;padding:16px 20px;border-radius:16px;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));box-shadow:inset 0 0 0 1px rgba(255,255,255,.1);backdrop-filter:blur(8px);text-align:left}
+.lu-ep__st b i{font-style:normal}
+.lu-ep__st b{display:block;font:900 clamp(30px,3.4vw,44px)/1 var(--display);font-variant-numeric:tabular-nums;color:#fff}
+.lu-ep__st b small{font-size:.5em;margin-left:2px;color:var(--g)}
+.lu-ep__st span{display:block;margin-top:6px;font-size:.82rem;color:var(--mute)}
+.lu-ep .hero-cta{justify-content:center;margin-top:34px}
+.lu-ep .btn{padding:16px 24px;font-size:1rem}
+@media(max-width:600px){.lu-ep__row img{width:64px;height:64px;border-radius:16px}.lu-ep__st li{min-width:0;flex:1 1 40%}}
 
 /* ===== "300%" promise strip ===== */
-.up3{position:relative;overflow:hidden;padding-block:90px;border-top:1px solid var(--line);background:#050608;text-align:center}
-.up3:before{content:"300%";position:absolute;left:50%;top:50%;transform:translate(-50%,-52%);font:900 clamp(160px,34vw,520px)/1 var(--display);letter-spacing:-.06em;color:transparent;-webkit-text-stroke:2px rgba(43,255,136,.14);white-space:nowrap;pointer-events:none}
-.up3 .wrap{position:relative}
-.up3__k{margin:0;font:700 clamp(16px,1.8vw,20px)/1.4 var(--body);color:var(--mute)}
-.up3 h2{margin:14px 0 0;font-family:"Black Han Sans",var(--display);font-weight:400;font-size:clamp(34px,5.4vw,74px);line-height:1.08;letter-spacing:-.03em;text-wrap:balance}
-.up3 h2 b{font-weight:400;background:linear-gradient(92deg,#2BFF88,#B8FF6A 45%,#fff);-webkit-background-clip:text;background-clip:text;color:transparent}
-.up3__bar{display:grid;grid-template-columns:1fr 3fr;gap:10px;max-width:720px;margin:34px auto 0;text-align:left}
-.up3__bar div{padding:14px 16px;border-radius:14px;box-shadow:inset 0 0 0 1px var(--line)}
-.up3__bar div:last-child{background:linear-gradient(90deg,rgba(43,255,136,.22),rgba(43,255,136,.06));box-shadow:inset 0 0 0 1px rgba(43,255,136,.5),0 18px 50px -20px rgba(43,255,136,.6)}
-.up3__bar span{display:block;font-size:.8rem;color:var(--mute)}
-.up3__bar b{display:block;margin-top:4px;font:900 1.3rem/1.1 var(--display)}
-.up3__bar div:last-child b{color:var(--g)}
+.lu-up3{position:relative;overflow:hidden;padding-block:90px;border-top:1px solid var(--line);background:#050608;text-align:center}
+.lu-up3:before{content:"300%";position:absolute;left:50%;top:50%;transform:translate(-50%,-52%);font:900 clamp(160px,34vw,520px)/1 var(--display);letter-spacing:-.06em;color:transparent;-webkit-text-stroke:2px rgba(43,255,136,.14);white-space:nowrap;pointer-events:none}
+.lu-up3 .wrap{position:relative}
+.lu-up3__k{margin:0;font:700 clamp(16px,1.8vw,20px)/1.4 var(--body);color:var(--mute)}
+.lu-up3 h2{margin:14px 0 0;font-family:"Black Han Sans",var(--display);font-weight:400;font-size:clamp(34px,5.4vw,74px);line-height:1.08;letter-spacing:-.03em;text-wrap:balance}
+.lu-up3 h2 b{font-weight:400;background:linear-gradient(92deg,#2BFF88,#B8FF6A 45%,#fff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lu-up3__bar{display:grid;grid-template-columns:1fr 3fr;gap:10px;max-width:720px;margin:34px auto 0;text-align:left}
+.lu-up3__bar div{padding:14px 16px;border-radius:14px;box-shadow:inset 0 0 0 1px var(--line)}
+.lu-up3__bar div:last-child{background:linear-gradient(90deg,rgba(43,255,136,.22),rgba(43,255,136,.06));box-shadow:inset 0 0 0 1px rgba(43,255,136,.5),0 18px 50px -20px rgba(43,255,136,.6)}
+.lu-up3__bar span{display:block;font-size:.8rem;color:var(--mute)}
+.lu-up3__bar b{display:block;margin-top:4px;font:900 1.3rem/1.1 var(--display)}
+.lu-up3__bar div:last-child b{color:var(--g)}
 
 /* ===== Bridge to ATZ 창업사관학교 ===== */
-.br{position:relative;overflow:hidden;padding-block:110px;border-top:1px solid var(--line);background:radial-gradient(60% 70% at 85% 30%,rgba(245,185,66,.16),transparent 70%),radial-gradient(50% 60% at 0% 100%,rgba(43,255,136,.08),transparent 70%),#0A0907}
-.br__g{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:56px;align-items:center}
-.br__k{display:inline-flex;align-items:center;gap:8px;font:800 .78rem/1 var(--display);letter-spacing:.2em;color:#1c1303;padding:9px 14px;border-radius:999px;background:linear-gradient(135deg,#f5b942,#ffd98a 50%,#f5b942);margin:0}
-.br h2{margin:22px 0 0;font-family:"Black Han Sans",var(--display);font-weight:400;font-size:clamp(38px,5.6vw,78px);line-height:1.04;letter-spacing:-.03em;text-wrap:balance}
-.br h2 em{font-style:normal;color:#f5b942}
-.br__p{margin:22px 0 0;color:#CFC6B4;font-size:clamp(16px,1.5vw,19px);max-width:30em}
-.br__f{display:flex;flex-wrap:wrap;gap:8px;margin:26px 0 0;padding:0;list-style:none}
-.br__f li{font:700 .9rem/1 var(--body);padding:11px 14px;border-radius:10px;background:rgba(245,185,66,.08);box-shadow:inset 0 0 0 1px rgba(245,185,66,.35);color:#FFE3A8}
-.br .hero-cta{margin-top:30px}
+.lu-br{position:relative;overflow:hidden;padding-block:110px;border-top:1px solid var(--line);background:radial-gradient(60% 70% at 85% 30%,rgba(245,185,66,.16),transparent 70%),radial-gradient(50% 60% at 0% 100%,rgba(43,255,136,.08),transparent 70%),#0A0907}
+.lu-br__g{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:56px;align-items:center}
+.lu-br__k{display:inline-flex;align-items:center;gap:8px;font:800 .78rem/1 var(--display);letter-spacing:.2em;color:#1c1303;padding:9px 14px;border-radius:999px;background:linear-gradient(135deg,#f5b942,#ffd98a 50%,#f5b942);margin:0}
+.lu-br h2{margin:22px 0 0;font-family:"Black Han Sans",var(--display);font-weight:400;font-size:clamp(38px,5.6vw,78px);line-height:1.04;letter-spacing:-.03em;text-wrap:balance}
+.lu-br h2 em{font-style:normal;color:#f5b942}
+.lu-br__p{margin:22px 0 0;color:#CFC6B4;font-size:clamp(16px,1.5vw,19px);max-width:30em}
+.lu-br__f{display:flex;flex-wrap:wrap;gap:8px;margin:26px 0 0;padding:0;list-style:none}
+.lu-br__f li{font:700 .9rem/1 var(--body);padding:11px 14px;border-radius:10px;background:rgba(245,185,66,.08);box-shadow:inset 0 0 0 1px rgba(245,185,66,.35);color:#FFE3A8}
+.lu-br .hero-cta{margin-top:30px}
 .btn--gold{background:linear-gradient(135deg,#f5b942,#ffd98a 50%,#f5b942);color:#1c1303;box-shadow:0 12px 36px -12px rgba(245,185,66,.8)}
 .btn--gold:hover{box-shadow:0 14px 44px -10px rgba(245,185,66,1)}
 /* money path: program → brand → first sale → revenue */
-.mp2{position:relative;display:flex;flex-direction:column;gap:14px}
-.mp2 li{list-style:none;position:relative;display:grid;grid-template-columns:64px 1fr auto;align-items:center;gap:16px;padding:16px 18px;border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
-.mp2 li:not(:last-child):after{content:"";position:absolute;left:49px;bottom:-15px;width:2px;height:16px;background:linear-gradient(#f5b942,transparent)}
-.mp2 img{width:64px;height:64px;border-radius:16px;object-fit:cover}
-.mp2 .ic2{width:64px;height:64px;border-radius:16px;display:grid;place-items:center;font:900 1.4rem/1 var(--display);color:#1c1303;background:#f5b942}
-.mp2 b{display:block;font:700 1.05rem/1.3 var(--body)}
-.mp2 span{display:block;font-size:.85rem;color:var(--mute);margin-top:3px}
-.mp2 em{font:800 .78rem/1 var(--display);font-style:normal;letter-spacing:.12em;color:#f5b942}
-.mp2 li.win{background:linear-gradient(135deg,rgba(245,185,66,.22),rgba(245,185,66,.06));box-shadow:inset 0 0 0 1px rgba(245,185,66,.55),0 20px 50px -24px rgba(245,185,66,.7)}
-.mp2 li.win b{font-family:"Black Han Sans",var(--display);font-weight:400;font-size:1.5rem;color:#FFE3A8}
-@media(max-width:900px){.br__g{grid-template-columns:1fr}.br{padding-block:80px}}
+.lu-mp2{position:relative;display:flex;flex-direction:column;gap:14px}
+.lu-mp2 li{list-style:none;position:relative;display:grid;grid-template-columns:64px 1fr auto;align-items:center;gap:16px;padding:16px 18px;border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
+.lu-mp2 li:not(:last-child):after{content:"";position:absolute;left:49px;bottom:-15px;width:2px;height:16px;background:linear-gradient(#f5b942,transparent)}
+.lu-mp2 img{width:64px;height:64px;border-radius:16px;object-fit:cover}
+.lu-mp2 .lu-ic2{width:64px;height:64px;border-radius:16px;display:grid;place-items:center;font:900 1.4rem/1 var(--display);color:#1c1303;background:#f5b942}
+.lu-mp2 b{display:block;font:700 1.05rem/1.3 var(--body)}
+.lu-mp2 span{display:block;font-size:.85rem;color:var(--mute);margin-top:3px}
+.lu-mp2 em{font:800 .78rem/1 var(--display);font-style:normal;letter-spacing:.12em;color:#f5b942}
+.lu-mp2 li.lu-win{background:linear-gradient(135deg,rgba(245,185,66,.22),rgba(245,185,66,.06));box-shadow:inset 0 0 0 1px rgba(245,185,66,.55),0 20px 50px -24px rgba(245,185,66,.7)}
+.lu-mp2 li.lu-win b{font-family:"Black Han Sans",var(--display);font-weight:400;font-size:1.5rem;color:#FFE3A8}
+@media(max-width:900px){.lu-br__g{grid-template-columns:1fr}.lu-br{padding-block:80px}}
 .lines .acad{display:inline-flex;align-items:center;gap:6px;padding:8px 13px;border-radius:999px;font:800 .78rem/1 var(--display);letter-spacing:.06em;color:#1c1303;text-decoration:none;white-space:nowrap;background:linear-gradient(135deg,#f5b942,#ffd98a 50%,#f5b942);box-shadow:0 0 0 1px rgba(245,185,66,.55)}
 .lines .acad:hover{color:#1c1303;background:linear-gradient(135deg,#ffd98a,#f5b942)}
-@media(prefers-reduced-motion:reduce){.ep__row,.ep h1 .l2{animation:none}}
+@media(prefers-reduced-motion:reduce){.lu-ep__row,.lu-ep h1 .l2{animation:none}}
 
 /* Name ticker */
 .tick{overflow:hidden;border-bottom:1px solid var(--line);background:var(--panel);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
@@ -213,15 +214,15 @@ footer a{color:var(--mute)}
 </div></header>
 
 <main id="main">
-<section class="ep" aria-labelledby="epT">
-  <div class="ep__wall" id="epWall" aria-hidden="true"></div>
-  <div class="wrap ep__in">
-    <p class="ep__k"><i></i>ATZ MACH</p>
+<section class="lu-ep" aria-labelledby="epT">
+  <div class="lu-ep__wall" id="epWall" aria-hidden="true"></div>
+  <div class="wrap lu-ep__in">
+    <p class="lu-ep__k"><i></i>ATZ MACH</p>
     <h1 id="epT"><span class="l1">안 되는 개발은</span><span class="l2">없습니다.</span></h1>
-    <p class="ep__rot"><span class="ep__w" id="epW">주식 자동매매</span><span>도, 말만 하면 만듭니다.</span></p>
-    <ul class="ep__st" aria-label="라인업 요약">
-      <li><b><span id="nP">0</span><small>+</small></b><span>업종별 프로그램</span></li>
-      <li><b><span id="nI">0</span></b><span>개 업종</span></li>
+    <p class="lu-ep__rot"><span class="lu-ep__w" id="epW">주식 자동매매</span><span>도, 말만 하면 만듭니다.</span></p>
+    <ul class="lu-ep__st" aria-label="라인업 요약">
+      <li><b><i id="nP">0</i><small>+</small></b><span>업종별 프로그램</span></li>
+      <li><b><i id="nI">0</i></b><span>개 업종</span></li>
       <li><b>14<small>일</small></b><span>안에 완성</span></li>
       <li><b>0<small>원</small></b><span>1차 시안</span></li>
     </ul>
@@ -245,24 +246,24 @@ footer a{color:var(--mute)}
   <p class="empty" id="empty" hidden>찾는 프로그램이 없나요? 말씀만 주시면 만듭니다.</p>
 </div></section>
 
-<section class="up3" aria-labelledby="upT"><div class="wrap">
-  <p class="up3__k">여기 보이는 화면은 맛보기입니다.</p>
+<section class="lu-up3" aria-labelledby="upT"><div class="wrap">
+  <p class="lu-up3__k">여기 보이는 화면은 맛보기입니다.</p>
   <h2 id="upT">실제 납품 디자인은 위 시안보다<br><b>300% 이상</b> 좋아집니다.</h2>
-  <div class="up3__bar" aria-hidden="true"><div><span>지금 보신 시안</span><b>1×</b></div><div><span>우리 회사 브랜드로 다시 설계한 실제 프로그램</span><b>4× 이상</b></div></div>
+  <div class="lu-up3__bar" aria-hidden="true"><div><span>지금 보신 시안</span><b>1×</b></div><div><span>우리 회사 브랜드로 다시 설계한 실제 프로그램</span><b>4× 이상</b></div></div>
 </div></section>
 
-<section class="br" aria-labelledby="brT"><div class="wrap br__g">
+<section class="lu-br" aria-labelledby="brT"><div class="wrap lu-br__g">
   <div>
-    <p class="br__k">✦ ATZ 창업사관학교</p>
+    <p class="lu-br__k">✦ ATZ 창업사관학교</p>
     <h2 id="brT">이 프로그램으로<br><em>직접 돈을 벌고</em> 싶다면?</h2>
-    <p class="br__p">만드는 건 저희가 합니다. 팔리는 브랜드로 키우는 법, 첫 판매까지 가는 길은 창업사관학교에서 대표가 직접 함께합니다.</p>
-    <ul class="br__f"><li>한 기수 3팀</li><li>4주 8회 구축</li><li>12주 매출 실행</li></ul>
+    <p class="lu-br__p">만드는 건 저희가 합니다. 팔리는 브랜드로 키우는 법, 첫 판매까지 가는 길은 창업사관학교에서 대표가 직접 함께합니다.</p>
+    <ul class="lu-br__f"><li>한 기수 3팀</li><li>4주 8회 구축</li><li>12주 매출 실행</li></ul>
     <div class="hero-cta">
       <a class="btn btn--gold" href="academy.html">ATZ 창업사관학교 보기 →</a>
       <a class="btn btn--o" href="https://pf.kakao.com/_yynFX/chat" target="_blank" rel="noopener">내 아이템으로 상담받기</a>
     </div>
   </div>
-  <ol class="mp2" id="brPath" aria-label="수익화 흐름"></ol>
+  <ol class="lu-mp2" id="brPath" aria-label="수익화 흐름"></ol>
 </div></section>
 
 <section class="end"><div class="wrap">
@@ -345,7 +346,7 @@ moF.addEventListener("click",function(e){
   var d=document.createElement("div");d.className="f-toast";d.textContent=t.getAttribute("data-tap");b.appendChild(d);setTimeout(function(){d.remove()},2300);
 });
 // Hero wall: 6 rows of the brand icons, doubled for a seamless loop.
-(function(){var w=document.getElementById("epWall"),h="";for(var r=0;r<6;r++){var row="";for(var k=0;k<30;k++){var n=(r*13+k*7)%90;row+='<img src="lx/img/ic/'+(n<10?"0":"")+n+'.jpg" alt="" loading="lazy" decoding="async">'}h+='<div class="ep__row">'+row+row+'</div>'}w.innerHTML=h})();
+(function(){var w=document.getElementById("epWall"),h="";for(var r=0;r<6;r++){var row="";for(var k=0;k<30;k++){var n=(r*13+k*7)%90;row+='<img src="lx/img/ic/'+(n<10?"0":"")+n+'.jpg" alt="" loading="lazy" decoding="async">'}h+='<div class="lu-ep__row">'+row+row+'</div>'}w.innerHTML=h})();
 // Rotating program name in its own industry color.
 (function(){var el=document.getElementById("epW"),order=[0,74,44,59,31,21,85,63,11,37],i=0;
   if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;
@@ -354,9 +355,9 @@ moF.addEventListener("click",function(e){
 document.getElementById("brPath").innerHTML=[
   ['<img src="lx/img/ic/14.jpg" alt="">','프로그램','ATZ MACH가 14일 안에 만들어 드립니다','01'],
   ['<img src="lx/img/ic/07.jpg" alt="">','브랜드','이름 · 판매 페이지 · 운영 화면까지','02'],
-  ['<span class="ic2">₩</span>','첫 판매','실제 고객에게 제안하고 반응 확인','03'],
-  ['<span class="ic2">↗</span>','매출','결과를 보고 12주 동안 함께 개선','04']
-].map(function(x,i){return'<li'+(i===3?' class="win"':'')+'>'+x[0]+'<div><b>'+x[1]+'</b><span>'+x[2]+'</span></div><em>'+x[3]+'</em></li>'}).join("");
+  ['<span class="lu-ic2">₩</span>','첫 판매','실제 고객에게 제안하고 반응 확인','03'],
+  ['<span class="lu-ic2">↗</span>','매출','결과를 보고 12주 동안 함께 개선','04']
+].map(function(x,i){return'<li'+(i===3?' class="lu-win"':'')+'>'+x[0]+'<div><b>'+x[1]+'</b><span>'+x[2]+'</span></div><em>'+x[3]+'</em></li>'}).join("");
 render();
 P.forEach(function(p){if(!LX[p[1]])console.error("no screen",p[1]);if(!C[p[0]])console.error("no industry",p[0])});
 })();
