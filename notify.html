@@ -1,0 +1,103 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>접수 알림 설정 · ATZ MACH</title><meta name="robots" content="noindex">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;700&display=swap">
+<style>
+html,body{margin:0;background:#070620;color:#f3efff;font:15px/1.55 "IBM Plex Sans KR",system-ui,sans-serif;word-break:keep-all}
+*{box-sizing:border-box}
+.top{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px clamp(16px,4vw,40px);background:rgba(10,8,34,.96);border-bottom:1px solid rgba(255,255,255,.1);font-size:13px;color:#b4afdf}
+.top b{font:800 15px "IBM Plex Mono",monospace;color:#fff}.top b i{color:#3ee6a0;font-style:normal}
+.top a{color:#a9c0ff}
+.wrap{max-width:980px;margin:0 auto;padding:22px clamp(16px,4vw,40px) 80px;display:grid;gap:18px}
+h1{font-size:24px;margin:0;letter-spacing:-.02em}h2{font-size:16px;margin:0 0 10px}
+.card{padding:18px;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);display:grid;gap:12px}
+.st{display:inline-flex;align-items:center;gap:7px;padding:5px 11px;border-radius:99px;font:600 12px "IBM Plex Mono",monospace}
+.st::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.st.ok{background:rgba(62,230,160,.14);color:#8ff5c8}.st.no{background:rgba(255,107,138,.14);color:#ff9fb3}.st.wait{background:rgba(255,176,32,.14);color:#ffd58a}.st.dim{background:rgba(255,255,255,.08);color:#b4afdf}
+label.f{display:grid;gap:6px;font-size:13.5px;color:#b4afdf}
+input[type=tel],input[type=text]{width:100%;max-width:360px;padding:11px 12px;border-radius:10px;border:1px solid #2b2766;background:#0b0a24;color:#fff;font:inherit;font-size:16px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:0 16px;border-radius:10px;border:0;background:linear-gradient(95deg,#3ee6a0,#2fd0c9);color:#04150d;font-weight:700;cursor:pointer}
+.btn.line{background:none;border:1px solid rgba(255,255,255,.25);color:#fff}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.msg{font-size:13.5px;color:#b4afdf;min-height:1.4em}.msg.err{color:#ff9fb3}.msg.ok{color:#8ff5c8}
+.ch{display:grid;gap:8px}
+.ch label{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:start;padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.03);cursor:pointer}
+.ch label.on{border-color:#3ee6a0}
+.ch input{margin-top:4px}
+.ch b{display:block}.ch small{display:block;color:#b4afdf;font-size:12.5px;line-height:1.5}
+ul.need{margin:6px 0 0;padding-left:18px;font-size:12.5px;color:#ffd58a}
+table{width:100%;border-collapse:collapse;font-size:13.5px}th,td{padding:9px 8px;border-bottom:1px solid rgba(255,255,255,.1);text-align:left;vertical-align:top}th{font:600 11.5px "IBM Plex Mono",monospace;color:#b4afdf}
+td.m{font:500 12px "IBM Plex Mono",monospace;color:#cfc9f5}
+.log{font:500 12px "IBM Plex Mono",monospace;color:#b4afdf;display:grid;gap:2px}
+.gate{padding:60px 20px;text-align:center;color:#b4afdf}
+.fine{font-size:12.5px;color:#8d88bd}
+</style></head><body>
+<div class="top"><b>ATZ <i>MACH</i> · 접수 알림 설정</b><span><a href="inbox.html">통합 접수함 →</a> <a href="index.html#admin">프로그램 접수함</a></span></div>
+<div class="wrap" id="root"><p class="gate">불러오는 중…</p></div>
+<script>
+"use strict";
+(async function(){
+const root=document.getElementById("root"),esc=s=>String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const LINE=location.pathname.indexOf("1tKY3Mu8")>-1?"platform":location.pathname.indexOf("SrXx3x5t")>-1?"app":"program";
+const c=window.claude;let db=null,user=null,admin=false;
+try{db=c&&await c.use("db");user=c&&await c.use("user");admin=!!(user&&(await user.isOwner().catch(()=>false)||await user.canEdit().catch(()=>false)))}catch(_){}
+if(!db||!admin){root.innerHTML='<p class="gate">관리자(소유자) 로그인 상태에서만 열립니다.<br>이 화면은 대표자 알림 설정 전용이며 고객에게 노출되지 않습니다.</p>';return}
+const mask=p=>{const d=String(p||"").replace(/\D/g,"");return d.length>=10?d.slice(0,3)+"-****-"+d.slice(-4):""};
+const fmt=iso=>iso?new Date(iso).toLocaleString("ko-KR",{month:"numeric",day:"numeric",hour:"2-digit",minute:"2-digit"}):"";
+const sref=db.doc("settings/notify");
+let S={},Q=[];
+async function load(){const s=await sref.get().catch(()=>null);S=s&&s.exists?s.data()||{}:{};const q=await db.collection("notify").orderBy("createdAt","desc").limit(100).get().catch(()=>null);Q=q?q.docs.map(d=>({id:d.id,...d.data()})):[]}
+function stLabel(x){return {queued:["wait","대기 (다음 점검 때 푸시)"],pushing:["wait","처리 중"],pushed:["ok","푸시 요청됨 · 단말 수신 미확인"],failed:["no","실패 · 재시도 "+(x.attempts||0)+"회"],skipped:["dim","건너뜀 · 채널 미연동"]}[x.state]||["dim",x.state||""]}
+function draw(){
+ const rec=S.recipient?mask(S.recipient):"";
+ root.innerHTML=`
+ <h1>대표자 신규 접수 알림</h1>
+ <p class="fine">접수 저장 위치: 이 페이지 아티팩트 DB <code>leads/&lt;고객id&gt;</code> (서버) · 알림 큐: <code>notify/&lt;고객id&gt;</code> · 이 설정: 관리자 전용 문서 <code>settings/notify</code> — 공개 HTML/JS에는 번호가 들어가지 않습니다. 현재 라인: <b>${LINE}</b></p>
+ <section class="card">
+  <h2>수신 번호 <span class="st ${rec?"ok":"no"}">${rec?"저장됨 · "+rec:"미저장"}</span></h2>
+  <label class="f">대표자 휴대폰 (대표자 알림 전용 · 고객 시안 수신번호와 별개)<input type="tel" id="rec" placeholder="010-0000-0000" value="" autocomplete="off"></label>
+  <div class="row"><button class="btn" id="save">번호 저장</button><button class="btn line" id="clear" ${rec?"":"disabled"}>번호 삭제</button><span class="msg" id="m1">${rec?"저장된 번호는 마스킹으로만 표시됩니다. 바꾸려면 새 번호를 입력하세요.":"아직 저장된 수신 번호가 없습니다."}</span></div>
+ </section>
+ <section class="card">
+  <h2>이메일 수신 주소 <span class="st ${S.email?"ok":"no"}">${S.email?"저장됨 · "+esc(S.email.replace(/^(.{2}).+(@.*)$/,"$1***$2")):"미저장"}</span></h2>
+  <label class="f">대표자 알림 메일 (대표자용 신규 접수 알림에만 사용)<input type="text" id="em" placeholder="name@example.com" value="" autocomplete="off"></label>
+  <div class="row"><button class="btn" id="saveem">메일 주소 저장</button><span class="msg" id="m4"></span></div>
+  <p class="fine">실제 발송 경로: 예약 작업 'ATZ 신규 접수 알림'의 완료 알림(이메일)이 <b>Claude 계정 이메일</b>로 갑니다. 별도 SMTP·발송 서비스 자격은 없으므로 여기 저장한 주소가 계정 이메일과 다르면 그 주소로는 발송되지 않습니다(저장만 됨).</p>
+ </section>
+ <section class="card">
+  <h2>알림 채널</h2>
+  <div class="ch">
+   <label class="${S.channel==="claude_push"?"on":""}"><input type="radio" name="ch" value="claude_push" ${S.channel==="claude_push"?"checked":""}><span><b>Claude 앱 푸시 (임시) <span class="st ok">사용 가능</span></b><small>예약 작업 'ATZ 신규 접수 알림'이 매시 :13·:33·:53에 큐를 읽어, 완료 알림(푸시+계정 이메일)으로 접수번호·유형·접수함 링크를 보냅니다. 수신 경로는 <b>대표 계정의 Claude 앱 알림</b>이며 휴대폰 번호로 가는 문자·카카오가 아닙니다. 지연 최대 약 20분. 단말 도착 여부는 확인되지 않아 '푸시 요청됨'까지만 기록합니다.</small></span></label>
+   <label class="${S.channel==="kakao"?"on":""}"><input type="radio" name="ch" value="kakao" ${S.channel==="kakao"?"checked":""}><span><b>카카오 알림톡 → 대표 휴대폰 <span class="st no">미연동</span></b><small>선택해도 지금은 발송되지 않고 '건너뜀 · 채널 미연동'으로 기록됩니다. 연결에 필요한 것:</small>
+    <ul class="need"><li>카카오 비즈니스 채널 사업자 인증 완료 (현재 미완료)</li><li>발신프로필 등록 · 알림톡 템플릿 승인</li><li>알림톡 발송사(알리고·NHN·솔라피 등) 계정 + API 키 — 서버 비밀설정에만 저장</li><li>발송 서버(엣지 함수) — 큐를 읽어 발송하고 결과를 기록</li></ul></span></label>
+  </div>
+  <div class="row"><button class="btn" id="savech">채널 저장</button><span class="msg" id="m2"></span></div>
+ </section>
+ <section class="card">
+  <h2>알림 큐 · 발송 기록 <span class="st dim">${Q.length}건</span></h2>
+  <div class="row"><button class="btn line" id="sample">샘플 접수 1건 넣기 (테스트 · 고객 아님)</button><button class="btn line" id="reload">새로고침</button><span class="msg" id="m3"></span></div>
+  ${Q.length?`<table><thead><tr><th>접수</th><th>유형</th><th>시각</th><th>상태</th><th>기록</th><th></th></tr></thead><tbody>${Q.map(x=>{const [k,l]=stLabel(x);return `<tr><td class="m">${esc(x.no)}<br><small>${esc(x.line)}</small></td><td>${esc(x.type)}</td><td class="m">${fmt(x.createdAt)}</td><td><span class="st ${k}">${l}</span>${x.pushedAt?`<br><small class="m">${fmt(x.pushedAt)}</small>`:""}</td><td><div class="log">${(x.log||[]).slice(-4).map(e=>esc(fmt(e.at)+" "+(e.channel||"")+" · "+(e.result||""))).join("<br>")||"-"}</div></td><td><button class="btn line" data-requeue="${esc(x.id)}" style="min-height:32px;font-size:12px">다시 큐</button>${x.id.indexOf("test-")===0?` <button class="btn line" data-del="${esc(x.id)}" style="min-height:32px;font-size:12px">삭제</button>`:""}</td></tr>`}).join("")}</tbody></table>`:'<p class="fine">큐가 비어 있습니다. 고객이 신청을 저장하면 여기에 쌓이고, 예약 작업이 처리합니다.</p>'}
+ </section>
+ <section class="card"><h2>지금 상태 요약</h2>
+  <ul style="margin:0;padding-left:18px;font-size:14px;line-height:1.7">
+   <li>접수 저장: 로그인한 방문자의 신청만 서버(DB)에 저장됩니다. 비로그인 화면은 저장되지 않으며 고객 화면에도 '저장되지 않음'으로 표시합니다.</li>
+   <li>1차 시안 생성: 예약 작업 '1차 시안 작업기'(매시 :06 · :21 · :41)가 program 라인의 요청을 읽어 처리합니다.</li>
+   <li>고객 카카오 발송: 미연동 (상태값 not_connected) — 고객 화면에서도 '연동 전'으로 표시.</li>
+   <li>대표 알림: 이 큐 + 예약 작업 'ATZ 신규 접수 알림'(매시 :13·:33·:53 → Claude 앱 푸시 + 계정 이메일, 최대 20분 지연, 단말·수신함 도착은 미검증). 카카오 알림톡은 심사·발송사 설정 뒤 어댑터 교체.</li>
+  </ul></section>`;
+ const rec_=root.querySelector("#rec"),m1=root.querySelector("#m1"),m2=root.querySelector("#m2"),m3=root.querySelector("#m3");
+ root.querySelector("#save").onclick=async()=>{const d=rec_.value.replace(/\D/g,"");if(!/^01[016789]\d{7,8}$/.test(d)){m1.textContent="휴대폰 번호 형식을 확인하세요.";m1.className="msg err";return}
+  try{await sref.set({...S,recipient:d,channel:S.channel||"claude_push",updatedAt:new Date().toISOString()});await load();draw();root.querySelector("#m1").textContent="저장했습니다 ("+mask(d)+") — 관리자 전용 문서에만 보관됩니다.";root.querySelector("#m1").className="msg ok"}catch(e){m1.textContent="저장 실패: "+(e&&e.message||e);m1.className="msg err"}};
+ root.querySelector("#saveem").onclick=async()=>{const v=root.querySelector("#em").value.trim(),m4=root.querySelector("#m4");if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)){m4.textContent="이메일 형식을 확인하세요.";m4.className="msg err";return}
+  try{await sref.set({...S,email:v,updatedAt:new Date().toISOString()});await load();draw();root.querySelector("#m4").textContent="저장했습니다 — 발송은 예약 작업 완료 알림(계정 이메일) 경로만 실제 동작합니다.";root.querySelector("#m4").className="msg ok"}catch(e){m4.textContent="저장 실패";m4.className="msg err"}};
+ root.querySelector("#clear").onclick=async()=>{if(!confirm("저장된 수신 번호를 삭제할까요?"))return;try{await sref.set({...S,recipient:"",updatedAt:new Date().toISOString()});await load();draw()}catch(e){m1.textContent="삭제 실패";m1.className="msg err"}};
+ root.querySelector("#savech").onclick=async()=>{const ch=(root.querySelector('input[name=ch]:checked')||{}).value;if(!ch){m2.textContent="채널을 고르세요.";m2.className="msg err";return}
+  try{await sref.set({...S,channel:ch,updatedAt:new Date().toISOString()});await load();draw();root.querySelector("#m2").textContent=ch==="kakao"?"저장됨 — 단, 알림톡은 미연동이라 실제 발송되지 않습니다.":"저장됨 — Claude 푸시(임시)로 보냅니다.";root.querySelector("#m2").className="msg ok"}catch(e){m2.textContent="저장 실패";m2.className="msg err"}};
+ root.querySelector("#sample").onclick=async()=>{const ts=Date.now(),id="test-"+ts;try{await db.doc("notify/"+id).set({line:LINE,evt:"test:"+ts,no:"TEST-"+String(ts).slice(-6),type:"샘플 테스트 (고객 아님)",leadPath:null,detail:location.origin+location.pathname.replace(/notify\.html$/,"index.html")+"#admin",createdAt:new Date().toISOString(),state:"queued",attempts:0,log:[]});await load();draw();root.querySelector("#m3").textContent="샘플 1건을 큐에 넣었습니다. 다음 예약 작업 점검(최대 20분) 때 푸시가 요청됩니다.";root.querySelector("#m3").className="msg ok"}catch(e){m3.textContent="실패: "+(e&&e.message||e);m3.className="msg err"}};
+ root.querySelector("#reload").onclick=async()=>{await load();draw()};
+ root.querySelectorAll("[data-requeue]").forEach(b=>b.onclick=async()=>{try{await db.doc("notify/"+b.dataset.requeue).update({state:"queued"});await load();draw()}catch(e){alert("실패")}});
+ root.querySelectorAll("[data-del]").forEach(b=>b.onclick=async()=>{try{await db.doc("notify/"+b.dataset.del).delete();await load();draw()}catch(e){alert("실패")}});
+}
+await load();draw();
+})();
+</script></body></html>

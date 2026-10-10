@@ -1,0 +1,84 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>통합 접수함 · ATZ MACH</title><meta name="robots" content="noindex">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;700&display=swap">
+<style>
+html,body{margin:0;background:#070620;color:#f3efff;font:14px/1.5 "IBM Plex Sans KR",system-ui,sans-serif;word-break:keep-all}*{box-sizing:border-box}
+.top{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px clamp(14px,3vw,32px);background:rgba(10,8,34,.96);border-bottom:1px solid rgba(255,255,255,.1);font-size:13px;color:#b4afdf}
+.top b{font:800 15px "IBM Plex Mono",monospace;color:#fff}.top b i{color:#3ee6a0;font-style:normal}.top a{color:#a9c0ff;margin-left:10px}
+.wrap{max-width:1280px;margin:0 auto;padding:16px clamp(14px,3vw,32px) 80px;display:grid;gap:14px}
+h1{font-size:22px;margin:0;letter-spacing:-.02em}
+.warn{display:grid;gap:4px;padding:12px 14px;border-radius:12px;background:rgba(255,176,32,.1);border:1px solid rgba(255,176,32,.4);font-size:13px;color:#ffd58a}
+.src{display:flex;flex-wrap:wrap;gap:8px}
+.src span{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:99px;border:1px solid rgba(255,255,255,.14);font:600 12px "IBM Plex Mono",monospace;color:#cfc9f5}
+.src i{width:7px;height:7px;border-radius:50%;display:inline-block}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+input[type=search],select,textarea{padding:9px 11px;border-radius:10px;border:1px solid #2b2766;background:#0b0a24;color:#fff;font:inherit;font-size:14px}
+textarea{width:100%;min-height:48px;resize:vertical}
+.btn{min-height:36px;padding:0 12px;border-radius:9px;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.04);color:#fff;font:inherit;font-weight:600;cursor:pointer}
+.btn.p{background:linear-gradient(95deg,#3ee6a0,#2fd0c9);color:#04150d;border:0}
+.n{font:600 12px "IBM Plex Mono",monospace;color:#b4afdf}
+table{width:100%;border-collapse:collapse;font-size:13px}th,td{padding:9px 8px;border-bottom:1px solid rgba(255,255,255,.1);text-align:left;vertical-align:top}th{font:600 11px "IBM Plex Mono",monospace;color:#b4afdf;white-space:nowrap}
+td.m{font:500 12px "IBM Plex Mono",monospace;white-space:nowrap}
+.ln{display:inline-block;padding:2px 7px;border-radius:99px;font:700 10.5px "IBM Plex Mono",monospace}
+.ln.program{background:rgba(255,92,207,.18);color:#ff8be0}.ln.app{background:rgba(62,230,160,.16);color:#8ff5c8}.ln.platform{background:rgba(107,147,255,.18);color:#a9c0ff}.ln.web{background:rgba(255,176,32,.18);color:#ffcf6a}.ln.academy{background:rgba(200,160,255,.18);color:#d9c3ff}
+.st{padding:5px 8px;border-radius:8px;border:1px solid #2b2766;background:#0b0a24;color:#fff;font:600 12.5px inherit}
+.st.new{border-color:#3ee6a0}.st.working{border-color:#ffb020}.st.sent{border-color:#a9c0ff}
+.idea{max-width:360px;color:#cfc9f5;white-space:pre-wrap}.idea.cl{max-height:3em;overflow:hidden}
+.lk a{display:inline-block;margin:0 6px 4px 0;font-size:12px;color:#a9c0ff}
+.memo{min-width:180px}
+.pi{color:#cfc9f5}.pi.hid{filter:blur(4px)}
+.gate{padding:60px 20px;text-align:center;color:#b4afdf}
+.fine{font-size:12px;color:#8d88bd}
+.msg{font-size:12.5px;color:#8ff5c8;min-height:1.2em}
+@media(max-width:760px){table,thead,tbody,tr,td,th{display:block}thead{display:none}tr{padding:10px 0;border-bottom:1px solid rgba(255,255,255,.12)}td{border:0;padding:3px 0}td::before{content:attr(data-l);display:block;font:600 10.5px "IBM Plex Mono",monospace;color:#b4afdf}}
+</style></head><body>
+<div class="top"><b>ATZ <i>MACH</i> · 통합 접수함</b><span><a href="notify.html">알림 설정</a><a href="index.html#admin">프로그램 접수함</a></span></div>
+<div class="wrap" id="root"><p class="gate">불러오는 중…</p></div>
+<script>
+"use strict";
+(async function(){
+const root=document.getElementById("root"),esc=s=>String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const URLS={program:"https://claude.ai/artifact/JTTJC34f1rcwLSDF8Ngz2E",app:"https://claude.ai/artifact/SrXx3x5tnat36xN2Kk5Gbe",platform:"https://claude.ai/artifact/1tKY3Mu8Auf9nruThov8Ri"};
+const STAGES=[["new","신규"],["seen","확인"],["working","시안 작업 중"],["sent","전달 완료"]];
+const c=window.claude;let db=null,admin=false;
+try{db=c&&await c.use("db");const u=c&&await c.use("user");admin=!!(u&&(await u.isOwner().catch(()=>false)||await u.canEdit().catch(()=>false)))}catch(_){}
+if(!db||!admin){root.innerHTML='<p class="gate">관리자(소유자) 로그인 상태에서만 열립니다.<br>고객 정보가 있는 화면이라 공개 링크로는 열리지 않습니다.</p>';return}
+const ms=v=>typeof v==="number"?v:(Date.parse(v)||0);
+const fmt=v=>{const t=ms(v);return t?new Date(t).toLocaleString("ko-KR",{month:"numeric",day:"numeric",hour:"2-digit",minute:"2-digit"}):""};
+const mask=p=>{const d=String(p||"").replace(/\D/g,"");return d.length>=10?d.slice(0,3)+"-****-"+d.slice(-4):(p||"")};
+let ROWS=new Map(),NOTI=new Map(),F={},lastMirror=0;try{F=JSON.parse(localStorage.getItem("atz-inbox-f")||"{}")}catch(_){}
+F.line=F.line||"";F.stage=F.stage||"";F.q=F.q||"";F.pi=!!F.pi;
+function saveF(){try{localStorage.setItem("atz-inbox-f",JSON.stringify(F))}catch(_){}}
+/* 조회: 한 번 읽기(get) + 60초 자동 새로고침. 컬렉션별 건수·오류를 화면에 그대로 표시 */
+const DIAG={};
+async function loadAll(){
+ const read=async(name,fn)=>{try{const snap=await db.collection(name).limit(500).get();DIAG[name]={n:snap.docs.length,err:""};return snap.docs}catch(e){DIAG[name]={n:0,err:(e&&(e.code?e.code+" ":"")+(e.message||String(e)))};return []}};
+ (await read("leads")).forEach(d=>{const x=d.data()||{};ROWS.set("program-"+d.id,{id:"program-"+d.id,line:"program",ref:"leads/"+d.id,srcId:d.id,no:x.planNo||(x.inquiry&&x.inquiry.id)||x.id||"",type:x.kind==="biz_design"?"프로그램 설계":x.inquiry?"상담 문의":x.chat?"챗봇 문의":x.id?"진단":"접수",name:x.name||"",phone:x.phone||"",company:x.company||"",idea:x.freeText||x.wantText||(x.inquiry&&x.inquiry.msg)||(x.chat&&x.chat.need)||"",createdAt:ms(x.requestedAt||x.createdAt),srcStatus:x.status||"",draft:x.draftJob&&x.draftJob.state||"",stage:x.stage||"new",memo:x.memo||"",live:true})});
+ (await read("inbox")).forEach(d=>{const x=d.data()||{};ROWS.set(d.id,{id:d.id,line:x.line,ref:"inbox/"+d.id,srcId:x.srcId,no:x.no||"",type:x.type||"",name:x.name||"",phone:x.phone||"",company:x.company||"",idea:x.idea||"",createdAt:ms(x.createdAt),srcStatus:x.srcStatus||"",draft:"",stage:x.stage||"new",memo:x.memo||"",live:false,src:x.src||"",mirroredAt:x.mirroredAt})});
+ (await read("notify")).forEach(d=>NOTI.set(d.id,d.data()||{}));
+ draw();
+}
+await loadAll();setInterval(loadAll,60000);
+function draw(){
+ const rows=[...ROWS.values()].filter(r=>(!F.line||r.line===F.line)&&(!F.stage||r.stage===F.stage)&&(!F.q||[r.no,r.name,r.phone,r.company,r.idea,r.type].join(" ").toLowerCase().includes(F.q.toLowerCase()))).sort((a,b)=>b.createdAt-a.createdAt);
+ ROWS.forEach(r=>{if(r.mirroredAt)lastMirror=Math.max(lastMirror,ms(r.mirroredAt))});
+ const cnt={};ROWS.forEach(r=>{cnt[r.line]=(cnt[r.line]||0)+1});
+ root.innerHTML=`<h1>통합 접수함 <span class="n">${rows.length}/${ROWS.size}건</span></h1>
+ <div class="src"><span><i style="background:#ff5ccf"></i>프로그램 ${cnt.program||0} · 이 DB</span><span><i style="background:#3ee6a0"></i>앱 ${cnt.app||0} · 복제본</span><span><i style="background:#6b93ff"></i>플랫폼 ${cnt.platform||0} · 복제본</span><span><i style="background:#ffb020"></i>홈페이지 ${cnt.web||0} · 서버</span><span><i style="background:#c8a0ff"></i>창업사관학교 ${cnt.academy||0} · 서버</span><span>마지막 동기화 ${lastMirror?fmt(lastMirror):"아직 없음"} · 예약 작업 매시 :13·:33·:53</span><button class="btn" id="rl" style="min-height:30px">새로고침</button></div>
+ <p class="fine">조회 상태: ${["leads","inbox","notify"].map(k=>{const d=DIAG[k]||{};return k+" "+(d.err?"오류 — "+esc(d.err):(d.n||0)+"건")}).join(" · ")}</p>
+ <div class="warn"><b>데이터 범위</b><span>· 프로그램 접수 = 이 아티팩트 DB(실시간). 앱·플랫폼 접수 = 각자 DB에 저장되며, 예약 작업이 20분 간격으로 이곳 <code>inbox</code>에 복제 → 최대 20분 지연. 원본은 '원본' 링크(해당 페이지 #admin)에서.</span><span>· 상태·메모는 여기(프로그램: 접수 문서 / 앱·플랫폼: 복제본)에만 저장되고 원본 접수함 상태와 자동 동기화되지 않습니다.</span><span>· <b>미해결:</b> 로그인하지 않은 고객의 신청은 서버에 저장되지 않아 어느 접수함에도 들어오지 않습니다(고객 화면에 '저장되지 않음' 표시). 카카오 알림톡은 심사 완료 전까지 미연동.</span></div>
+ <div class="bar"><input type="search" id="q" placeholder="접수번호 · 이름 · 연락처 · 회사 · 내용 검색" value="${esc(F.q)}" style="min-width:260px"><select id="fl"><option value="">전체 라인</option><option value="program" ${F.line==="program"?"selected":""}>프로그램</option><option value="app" ${F.line==="app"?"selected":""}>앱</option><option value="platform" ${F.line==="platform"?"selected":""}>플랫폼</option><option value="web" ${F.line==="web"?"selected":""}>홈페이지</option><option value="academy" ${F.line==="academy"?"selected":""}>창업사관학교</option></select><select id="fs"><option value="">전체 상태</option>${STAGES.map(s=>`<option value="${s[0]}" ${F.stage===s[0]?"selected":""}>${s[1]}</option>`).join("")}</select><button class="btn" id="pi">${F.pi?"연락처 가리기":"연락처 보기"}</button><a class="btn" href="${URLS.app}#admin" target="_blank" rel="noopener">앱 원본 접수함 ↗</a><a class="btn" href="${URLS.platform}#admin" target="_blank" rel="noopener">플랫폼 원본 접수함 ↗</a><span class="msg" id="msg"></span></div>
+ ${rows.length?`<table><thead><tr><th>접수</th><th>라인 · 유형</th><th>시각</th><th>고객</th><th>내용</th><th>상태</th><th>알림</th><th>메모</th><th>열기</th></tr></thead><tbody>${rows.map(r=>{const nt=r.line==="program"?NOTI.get(r.srcId):null;const ns=nt?({queued:"대기",pushing:"처리 중",pushed:"푸시·메일 요청",failed:"실패",skipped:"미연동"}[nt.state]||nt.state):(r.line==="program"?"-":"원본 DB");
+  const links=r.line==="program"?`<a href="index.html#admin">접수함</a><a href="portal.html" target="_blank" rel="noopener">포털</a>`:r.line==="platform"?`<a href="${URLS.platform}#admin" target="_blank" rel="noopener">원본</a><a href="${URLS.platform}/brief.html" target="_blank" rel="noopener">기획서</a><a href="${URLS.platform}/pkg-editor.html" target="_blank" rel="noopener">시안 편집</a>`:r.line==="app"?`<a href="${URLS.app}#admin" target="_blank" rel="noopener">원본</a>`:r.src==="server"?`<span class="dim">비로그인 접수 · 서버</span>`:``;
+  return `<tr data-id="${esc(r.id)}"><td class="m" data-l="접수">${esc(r.no||"-")}${r.draft?`<br><small>시안: ${esc(r.draft)}</small>`:""}${r.live?"":"<br><small>복제본</small>"}</td><td data-l="라인"><span class="ln ${esc(r.line)}">${r.line}</span> ${esc(r.type)}</td><td class="m" data-l="시각">${fmt(r.createdAt)}</td><td data-l="고객"><span class="pi ${F.pi?"":"hid"}">${esc(r.name)}${r.company?" · "+esc(r.company):""}<br>${esc(F.pi?r.phone:mask(r.phone))}</span></td><td data-l="내용"><div class="idea cl" title="눌러서 펼치기">${esc(r.idea)}</div></td><td data-l="상태"><select class="st ${esc(r.stage)}" data-stage>${STAGES.map(s=>`<option value="${s[0]}" ${r.stage===s[0]?"selected":""}>${s[1]}</option>`).join("")}</select>${r.srcStatus?`<br><small class="n">원본: ${esc(r.srcStatus)}</small>`:""}</td><td data-l="알림"><small>${esc(ns)}</small></td><td class="memo" data-l="메모"><textarea data-memo placeholder="내부 메모 (고객에게 안 보임)">${esc(r.memo)}</textarea><button class="btn" data-save style="min-height:30px;font-size:12px;margin-top:4px">저장</button></td><td class="lk" data-l="열기">${links}</td></tr>`}).join("")}</tbody></table>`:'<p class="fine">조건에 맞는 접수가 없습니다.</p>'}`;
+ const q=root.querySelector("#q");q.oninput=()=>{F.q=q.value;saveF();draw();root.querySelector("#q").focus();root.querySelector("#q").setSelectionRange(F.q.length,F.q.length)};
+ root.querySelector("#fl").onchange=e=>{F.line=e.target.value;saveF();draw()};root.querySelector("#fs").onchange=e=>{F.stage=e.target.value;saveF();draw()};
+ root.querySelector("#rl").onclick=()=>loadAll();
+ root.querySelector("#pi").onclick=()=>{F.pi=!F.pi;saveF();draw()};
+ root.querySelectorAll(".idea").forEach(d=>d.onclick=()=>d.classList.toggle("cl"));
+ root.querySelectorAll("tr[data-id]").forEach(tr=>{const r=ROWS.get(tr.dataset.id);const m=root.querySelector("#msg");
+  tr.querySelector("[data-stage]").onchange=async e=>{try{await db.doc(r.ref).update({stage:e.target.value,stageAt:new Date().toISOString()});r.stage=e.target.value;m.textContent=r.no+" 상태 저장됨"}catch(x){m.textContent="저장 실패: "+(x&&x.message||x)}};
+  tr.querySelector("[data-save]").onclick=async()=>{const v=tr.querySelector("[data-memo]").value;try{await db.doc(r.ref).update({memo:v,memoAt:new Date().toISOString()});r.memo=v;m.textContent=r.no+" 메모 저장됨"}catch(x){m.textContent="저장 실패: "+(x&&x.message||x)}}});
+}
+})();
+</script></body></html>

@@ -1025,14 +1025,17 @@ h1,h2,h3,h4,.say span{text-wrap:balance}p,li,small,figcaption,blockquote,dd,td{t
 <style id="objimg">
 .all__float .obj{background:var(--img-one) center/cover no-repeat,#1d1a16!important}
 </style>
-</head>
+<style id="navfix">/* 목차는 항상 위에 보인다 */
+header.top .svc{display:flex!important}header.top #menuBtn{display:none!important}
+@media(max-width:999px){header.top .top__a{flex-wrap:wrap;height:auto!important;padding-block:6px 4px;row-gap:0;column-gap:8px}header.top .svc{order:9;width:100%;margin:0;gap:0;overflow-x:auto;scrollbar-width:none}header.top .svc::-webkit-scrollbar{display:none}header.top .svc a.zp{padding:8px 7px;font-size:13px;gap:5px}header.top .svc a.acad{margin-left:auto;padding:7px 11px;font-size:12px}}
+@media(max-width:560px){header.top .svc a.zp small{display:none}header.top .svc a.acad b{display:none}}@media(max-width:480px){header.top .svc .zpx{display:none}}@media(max-width:380px){header.top .svc a.zp i{display:none}header.top .svc a.zp{padding-inline:6px}}</style></head>
 <body>
 <a class="skip" href="#main">본문으로 건너뛰기</a>
 <header class="top" id="top">
   <div class="wrap top__a">
     <a class="lg" href="index.html" aria-label="ATZ MACH 홈"><canvas class="lg__mark" width="46" height="23" aria-hidden="true"></canvas><span class="lg__word">ATZ <b>MACH</b></span><small>창업사관학교</small></a>
     <nav class="svc" aria-label="ATZ 서비스">
-      <a class="zp" href="index.html" style="--c:#ff5ccf"><i></i><small>01</small>실행형 ERP 구축</a><a class="zp" href="enterprise.html" style="--c:#22e58b"><i></i><small>02</small>기업 AI 전환</a><a class="zp" href="web.html" style="--c:#ffb020"><i></i><small>03</small>홈페이지 제작</a><a class="acad" href="academy.html" aria-current="page"><i aria-hidden="true">✦</i><b>ATZ</b>창업사관학교</a>
+      <a class="zp" href="index.html" style="--c:#ff5ccf"><i></i><small>01</small>프로그램<span class="zpx"> 개발</span></a><a class="zp" href="platform.html" style="--c:#6b93ff"><i></i><small>02</small>앱·플랫폼<span class="zpx"> 개발</span></a><a class="zp" href="web.html" style="--c:#ffb020"><i></i><small>03</small>홈페이지<span class="zpx"> 제작</span></a><a class="acad" href="academy.html" aria-current="page"><i aria-hidden="true">✦</i><b>ATZ</b>창업사관학교</a>
     </nav>
     <button class="menuBtn" type="button" id="menuBtn" aria-expanded="false" aria-controls="drawer">메뉴</button>
   </div>
@@ -1042,7 +1045,7 @@ h1,h2,h3,h4,.say span{text-wrap:balance}p,li,small,figcaption,blockquote,dd,td{t
 </header>
 <div class="drawer" id="drawer"><div class="drawer__p" role="dialog" aria-label="메뉴">
   <button class="menuBtn" type="button" id="drawerX" style="justify-self:end;margin:0">닫기</button>
-  <h4>ATZ 서비스</h4><a href="index.html">실행형 ERP 구축</a><a href="enterprise.html">기업 AI 전환</a><a href="web.html">홈페이지 제작</a><a href="academy.html" aria-current="page">ATZ 창업사관학교</a>
+  <h4>ATZ 서비스</h4><a href="index.html">프로그램 개발</a><a href="platform.html">앱·플랫폼 개발</a><a href="web.html">홈페이지 제작</a><a href="academy.html" aria-current="page">ATZ 창업사관학교</a>
   <h4>이 페이지</h4><a href="#empathy">이야기</a><a href="#formula">공식</a><a href="#mind">대표</a><a href="#together">커리큘럼</a><a href="#cost">비용·책임</a><a href="#skills">실무</a><a href="#faq">자주 묻는 질문</a><a href="#apply">상담</a>
 </div></div>
 
@@ -1462,7 +1465,27 @@ h1,h2,h3,h4,.say span{text-wrap:balance}p,li,small,figcaption,blockquote,dd,td{t
 <div class="toast" id="toast" role="status"></div>
 <dialog class="md" id="md" aria-labelledby="mdT"><div class="md__in"><div class="md__hd"><b id="mdT"></b><button class="md__x" type="button" id="mdX" aria-label="닫기">×</button></div><div class="md__body" id="mdB"></div></div></dialog>
 
-<script>
+<script id="atz-intake">/* ATZ MACH 공개 접수: 로그인 없이도 서버(Supabase, 프로젝트 chuckchuck · 테이블 atz_leads)에 영구 저장.
+   아래 키는 '공개용(publishable)' 키로, 서버 RLS 상 INSERT 만 허용되고 조회는 불가. 비밀키는 여기 없다. */
+window.atzIntake=async function(p){
+  var URL="https://mklluxpngagiechnfaxe.supabase.co/rest/v1/atz_leads",KEY="sb_publishable_k6yjB_VJzhSCu21zSnK9MQ_ky6c2Pmh";
+  var d=new Date(),pad=function(n){return String(n).padStart(2,"0")};
+  var no=p.no||((p.prefix||"ATZ")+"-"+String(d.getFullYear()).slice(2)+pad(d.getMonth()+1)+pad(d.getDate())+"-"+Math.random().toString(36).slice(2,6).toUpperCase());
+  var body={no:no,line:p.line,type:String(p.type||"").slice(0,80),name:String(p.name||"").slice(0,60),phone:String(p.phone||"").slice(0,30),company:String(p.company||"").slice(0,120),idea:String(p.idea||"").slice(0,4000),contact:String(p.contact||"").slice(0,200),source_url:location.href.split("#")[0].slice(0,300),consent:!!p.consent,is_test:/^TEST-E2E/i.test(String(p.name||""))||!!p.is_test,hp:String(p.hp||""),meta:p.meta||{}};
+  try{
+    var r=await fetch(URL,{method:"POST",headers:{"apikey":KEY,"Authorization":"Bearer "+KEY,"Content-Type":"application/json","Prefer":"return=minimal"},body:JSON.stringify(body)});
+    if(r.status===201)return {ok:true,no:no};
+    return {ok:false,no:no,status:r.status,error:(await r.text().catch(function(){return ""})).slice(0,200)};
+  }catch(e){return {ok:false,no:no,status:0,error:String(e&&e.message||e)}}
+};
+
+/* 대표 알림 큐 쓰기: notify/<uid> 한 문서에 아직 발송 전(queued)인 이전 접수가 있으면 more[] 에 보존한다 (같은 계정의 연속 접수 유실 방지). */
+window.atzQueue=async function(db,uid,entry){
+  var ref=db.doc("notify/"+uid),cur=await ref.get().catch(function(){return null}),o=cur&&cur.exists?cur.data()||{}:{};
+  if(o.evt===entry.evt)return;
+  var more=(o.more||[]).slice();if(o.state==="queued"&&o.no)more.push({line:o.line,no:o.no,type:o.type,createdAt:o.createdAt,evt:o.evt});
+  await ref.set(Object.assign({},entry,{state:"queued",attempts:0,more:more.slice(-20),log:(o.log||[]).slice(-20)}));
+};</script><script>
 /* ===== 운영 설정 (한 곳) ===== */
 const CFG={price:15000000,priceUnit:'1인당',vat:'VAT 포함',capacity:3,cohort:null,deadline:null,confirmedTeams:0,kakao:''};
 
@@ -1676,9 +1699,10 @@ $('#ctab').innerHTML=[['구성','4주 동안 주 2회 · 회당 2시간 = 8회 �
 
 /* ===== ⑧ 상담 ===== */
 async function cap(n){try{return window.claude?await window.claude.use(n):null}catch{return null}}
-async function saveLead(d){try{const[db,u]=await Promise.all([cap('db'),cap('user')]);const id=u?await u.id().catch(()=>null):null;if(!db||!id)return false;
-  const ref=db.doc('leads/'+id);const prev=await ref.get().catch(()=>null);if(prev&&prev.kind===d.kind&&prev.phone===d.phone)return true;
-  await ref.set({...d,status:'new'});db.doc('board/'+id).set({at:Date.now(),stageAt:Date.now(),stage:'문의 접수',indN:'창업 상담',page:'academy',goal:'startup'}).catch(()=>{});return true}catch{return false}}
+async function saveLead(d){try{const[db,u]=await Promise.all([cap('db'),cap('user')]);const id=u?await u.id().catch(()=>null):null;
+ if(!db||!id){if(!window.atzIntake)return false;const ir=await window.atzIntake({prefix:"ACA",line:"academy",type:d.kind==='academy_chat'?'상담봇 문의':'창업 상담',name:d.name,phone:d.phone,company:d.company||'',contact:d.via||'',idea:(d.chat||d.why||d.story||'')+(d.item?'\n품목: '+d.item:''),consent:true,meta:{want:d.want||[],source:d.source||''}});return !!ir.ok}
+  const ref=db.doc('leads/'+id);const ps=await ref.get().catch(()=>null),prev=ps&&ps.exists?(ps.data()||{}):null;
+  const merged={...(prev||{}),...d,status:'new'};if(prev&&prev.plan){merged.plan=prev.plan;merged.acaPlan=d.plan}await ref.set(merged);try{await window.atzQueue(db,id,{line:'academy',evt:'aca:'+d.createdAt,no:'ACA-'+String(d.createdAt).slice(-6),type:d.kind==='academy_chat'?'상담봇 문의':'창업 상담',leadPath:'leads/'+id,detail:location.origin+location.pathname.replace(/academy\.html$/,'')+'#admin',createdAt:new Date().toISOString()})}catch(e){}db.doc('board/'+id).set({at:Date.now(),stageAt:Date.now(),stage:'문의 접수',indN:'창업 상담',page:'academy',goal:'startup'}).catch(()=>{});return true}catch{return false}}
 function askT(){}
 function renderCarry(){const rows=[['좋아하는 것',S.likes],['잘하는 것',S.goods]].filter(r=>r[1]);const c=$('#carry');if(!c)return;
   c.hidden=!rows.length;c.innerHTML=rows.length?`<h3>위에서 적은 5+5도 함께 전달됩니다</h3><dl>${rows.map(r=>`<dt>${r[0]}</dt><dd>${esc(r[1]).replace(/\n/g,' · ')}</dd>`).join('')}</dl>`:''}
@@ -1956,5 +1980,11 @@ header .svc a.acad,header .svc a.acad b,header .svc a.acad i{font-weight:700!imp
 function f(){var y=scrollY;if(!mq.matches||y<80||de.classList.contains('qa52-lock')||document.querySelector('.top:focus-within')){de.classList.remove('qa52-dn');y0=y;return}
 if(Math.abs(y-y0)>8){de.classList.toggle('qa52-dn',y>y0);y0=y}}
 addEventListener('scroll',f,{passive:true});if(mq.addEventListener)mq.addEventListener('change',f)})();(function(){function u(){document.querySelectorAll('#fiveC,#dsrP,.sk__d').forEach(function(e){e.removeAttribute('aria-live')})}
-u();document.addEventListener('DOMContentLoaded',u);addEventListener('load',u)})();</script></body>
+u();document.addEventListener('DOMContentLoaded',u);addEventListener('load',u)})();</script><script id="phfmt">/* 연락처 칸: 숫자만 · 최대 11자리(서울 02는 10자리) · 자동 하이픈. React 입력칸도 값이 유지되도록 기본 setter 사용 */
+(function(){var set=Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,"value").set;
+function f(v){var x=v.replace(/\D/g,""),a=x.indexOf("02")===0?2:3,r,m;x=x.slice(0,a+8);if(x.length<=a)return x;r=x.slice(a);
+ m=r.length>7||x.indexOf("010")===0?4:3; /* 가운데 자리 수: 010은 항상 4 */
+ return x.slice(0,a)+"-"+(r.length>m?r.slice(0,m)+"-"+r.slice(m):r)}
+window.atzPhone=f;
+document.addEventListener("input",function(e){var t=e.target;if(!t.matches||!t.matches("input[type=tel],input[inputmode=tel]"))return;var v=f(t.value);if(v!==t.value)set.call(t,v)},true)})();</script></body>
 </html>
