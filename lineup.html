@@ -1,0 +1,367 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>전체 라인업 · 만들 수 있는 프로그램 전부 | ATZ MACH</title>
+<meta name="description" content="주식 자동매매부터 버스 배차까지. ATZ MACH가 만들 수 있는 업종별 프로그램 라인업을 실제 화면 설계로 확인하세요. 14일 완성, 1차 시안 무료.">
+<meta name="theme-color" content="#07080C"><meta name="robots" content="index,follow">
+<meta property="og:type" content="website"><meta property="og:locale" content="ko_KR"><meta property="og:title" content="전체 라인업 — ATZ MACH"><meta property="og:description" content="업종별 프로그램 라인업 · 실제 화면 설계 · 14일 완성"><meta property="og:image" content="og-web.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@800;900&family=IBM+Plex+Mono:wght@500;600;700&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Noto+Serif+KR:wght@400;700&family=Gothic+A1:wght@400;700;900&family=Nanum+Gothic:wght@400;700;800&family=Nanum+Myeongjo:wght@400;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Gowun+Batang:wght@400;700&family=Black+Han+Sans&family=Do+Hyeon&family=Jua&family=Sunflower:wght@500;700&family=Hahmlet:wght@400;700&family=Orbit&family=Song+Myung&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Manrope:wght@500;700;800&family=Sora:wght@400;600;700&family=Outfit:wght@400;600;700&family=Syne:wght@500;700;800&family=Bricolage+Grotesque:wght@500;700;800&family=Fraunces:wght@400;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Barlow+Condensed:wght@500;600;700&family=Oswald:wght@400;600;700&family=Bebas+Neue&family=Rubik:wght@400;600;700&family=Unbounded:wght@500;700&family=Chivo+Mono:wght@400;600&family=Red+Hat+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="lx/kit.css">
+<link rel="stylesheet" href="lx/s-a.css">
+<link rel="stylesheet" href="lx/s-b.css">
+<link rel="stylesheet" href="lx/s-c.css">
+<link rel="stylesheet" href="lx/s-d.css">
+<link rel="stylesheet" href="lx/s-e.css">
+<link rel="stylesheet" href="lx/s-f.css">
+<style>
+/* Layout: sticky site nav → short hero → sticky filter bar → portfolio grid of live-drawn program screens → closing CTA. Screens scale with container units, so one renderer serves cards and the modal. */
+:root{
+  --bg:#07080C;--panel:#0D1017;--card:#11141C;--line:rgba(255,255,255,.08);--line2:rgba(255,255,255,.14);
+  --fg:#F2F4F8;--mute:#8C93A3;--dim:#5B6272;--g:#2BFF88;--r:#FF3B3B;
+  --display:"Archivo","IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --body:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.6 var(--body);-webkit-font-smoothing:antialiased;word-break:keep-all}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+img{max-width:100%}[hidden]{display:none!important}
+a{color:inherit}
+.wrap{padding-inline:16px;max-width:1280px;margin:0 auto}
+.skip{position:absolute;left:-999px}.skip:focus{left:16px;top:16px;z-index:99;background:var(--g);color:#000;padding:8px 12px;border-radius:8px}
+:focus-visible{outline:2px solid var(--g);outline-offset:2px}
+
+/* Site nav (same lines as the rest of ATZ MACH, always visible) */
+.lu-top{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:rgba(7,8,12,.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.lu-top .wrap{display:flex;align-items:center;gap:12px;min-height:62px;flex-wrap:wrap;padding-block:8px}
+.lu-lg{font:900 1.15rem/1 var(--display);letter-spacing:.01em;text-decoration:none;white-space:nowrap}
+.lu-lg i{font-style:normal;color:var(--g)}
+.lines{display:flex;gap:2px;flex:1;min-width:0;overflow-x:auto;scrollbar-width:none}
+.lines::-webkit-scrollbar{display:none}
+.lines a{display:flex;align-items:center;gap:7px;white-space:nowrap;font-size:.86rem;color:rgba(255,255,255,.66);text-decoration:none;padding:8px 12px;border-radius:999px;transition:color .2s,background .2s}
+.lines a i{width:7px;height:7px;border-radius:50%;background:var(--c);box-shadow:0 0 10px var(--c)}
+.lines a small{font:500 .66rem var(--mono);opacity:.6}
+.lines a:hover{color:#fff;background:rgba(255,255,255,.07)}
+.lines a[aria-current]{color:#fff;font-weight:700;background:color-mix(in srgb,var(--c) 16%,transparent);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--c) 45%,transparent)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:12px;padding:12px 18px;font:700 .95rem/1.2 var(--body);text-decoration:none;cursor:pointer;transition:transform .15s,box-shadow .2s,background .2s;white-space:nowrap}
+.btn:active{transform:translateY(1px)}
+.btn--g{background:var(--g);color:#04130A;box-shadow:0 8px 30px -10px rgba(43,255,136,.7)}
+.btn--g:hover{box-shadow:0 10px 36px -8px rgba(43,255,136,.9)}
+.btn--o{background:rgba(255,255,255,.04);color:var(--fg);box-shadow:inset 0 0 0 1px var(--line2)}
+.btn--o:hover{box-shadow:inset 0 0 0 1px var(--g);color:var(--g)}
+.btn--s{padding:9px 14px;font-size:.85rem;border-radius:10px}
+@media(max-width:760px){.lines{order:5;flex:1 1 100%}.lu-top .btn--s{margin-left:auto}}
+
+/* Hero */
+.hero-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+
+/* ===== Epic hero: a tilted wall of 90 real app icons behind one sentence ===== */
+.lu-ep{position:relative;overflow:hidden;min-height:min(880px,100svh);display:grid;place-items:center;isolation:isolate;border-bottom:1px solid var(--line);background:#050608}
+.lu-ep__wall{position:absolute;inset:-30% -20%;display:flex;flex-direction:column;gap:22px;transform:perspective(1100px) rotateX(38deg) rotateZ(-14deg) translateY(-6%);z-index:-2;opacity:.62}
+.lu-ep__row{display:flex;gap:22px;width:max-content;animation:epL 70s linear infinite}
+.lu-ep__row:nth-child(even){animation-name:epR;animation-duration:84s}
+.lu-ep__row img{width:92px;height:92px;border-radius:22px;object-fit:cover;box-shadow:0 18px 40px -12px rgba(0,0,0,.8),inset 0 0 0 1px rgba(255,255,255,.08);flex:none}
+@keyframes epL{to{transform:translateX(-50%)}}@keyframes epR{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+.lu-ep:before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(55% 48% at 50% 50%,rgba(5,6,8,.94) 0%,rgba(5,6,8,.78) 45%,rgba(5,6,8,.25) 80%),linear-gradient(180deg,#050608 0%,transparent 22%,transparent 70%,#07080C 100%)}
+.lu-ep:after{content:"";position:absolute;left:50%;top:50%;width:min(1100px,120vw);height:520px;transform:translate(-50%,-50%);z-index:-1;background:radial-gradient(closest-side,rgba(43,255,136,.20),transparent),radial-gradient(closest-side at 70% 60%,rgba(255,59,59,.16),transparent);filter:blur(30px);pointer-events:none}
+.lu-ep__in{text-align:center;padding-block:96px 72px;position:relative}
+.lu-ep__k{display:inline-flex;align-items:center;gap:10px;font:800 .82rem/1 var(--display);letter-spacing:.32em;color:var(--g);padding:10px 16px;border-radius:999px;background:rgba(43,255,136,.08);box-shadow:inset 0 0 0 1px rgba(43,255,136,.35);margin:0}
+.lu-ep__k i{width:8px;height:8px;border-radius:50%;background:var(--g);box-shadow:0 0 12px var(--g);animation:pl 1.6s ease-in-out infinite}
+@keyframes pl{50%{opacity:.25}}
+.lu-ep__wm{font:900 clamp(40px,8.5vw,128px)/.86 var(--display);letter-spacing:-.02em;margin:0;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.32);white-space:nowrap}
+.lu-ep__wm b{color:var(--g);-webkit-text-stroke:0;text-shadow:0 0 40px rgba(43,255,136,.4)}
+.lu-ep h1{margin:18px 0 0;font-family:"Black Han Sans",var(--display);font-weight:400;font-size:clamp(54px,11.5vw,188px);line-height:.98;letter-spacing:-.035em;text-wrap:balance}
+.lu-ep h1 .l1{display:block;color:#fff}
+.lu-ep h1 .l2{display:block;background:linear-gradient(92deg,#2BFF88 0%,#B8FF6A 38%,#fff 52%,#FF5A4E 70%,#FF3B3B 100%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:epG 7s ease-in-out infinite;filter:drop-shadow(0 0 40px rgba(43,255,136,.25))}
+@keyframes epG{50%{background-position:100% 0}}
+.lu-ep__rot{margin:26px auto 0;font:600 clamp(18px,2.4vw,28px)/1.35 var(--body);color:#C9CEDA;display:flex;flex-wrap:wrap;justify-content:center;align-items:baseline;gap:.35em}
+.lu-ep__w{display:inline-block;min-width:7.5em;text-align:center;padding:.12em .5em;border-radius:12px;background:rgba(255,255,255,.06);box-shadow:inset 0 0 0 1px rgba(255,255,255,.12);color:var(--wc,#fff);transition:opacity .25s,transform .25s}
+.lu-ep__w.out{opacity:0;transform:translateY(-8px)}
+.lu-ep__st{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin:38px 0 0;padding:0;list-style:none}
+.lu-ep__st li{min-width:150px;padding:16px 20px;border-radius:16px;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));box-shadow:inset 0 0 0 1px rgba(255,255,255,.1);backdrop-filter:blur(8px);text-align:left}
+.lu-ep__st b i{font-style:normal}
+.lu-ep__st b{display:block;font:900 clamp(30px,3.4vw,44px)/1 var(--display);font-variant-numeric:tabular-nums;color:#fff}
+.lu-ep__st b small{font-size:.5em;margin-left:2px;color:var(--g)}
+.lu-ep__st span{display:block;margin-top:6px;font-size:.82rem;color:var(--mute)}
+.lu-ep .hero-cta{justify-content:center;margin-top:34px}
+.lu-ep .btn{padding:16px 24px;font-size:1rem}
+@media(max-width:600px){.lu-ep__row img{width:64px;height:64px;border-radius:16px}.lu-ep__st li{min-width:0;flex:1 1 40%}}
+
+/* ===== "300%" promise strip ===== */
+.lu-up3{position:relative;overflow:hidden;padding-block:90px;border-top:1px solid var(--line);background:#050608;text-align:center}
+.lu-up3:before{content:"300%";position:absolute;left:50%;top:50%;transform:translate(-50%,-52%);font:900 clamp(160px,34vw,520px)/1 var(--display);letter-spacing:-.06em;color:transparent;-webkit-text-stroke:2px rgba(43,255,136,.14);white-space:nowrap;pointer-events:none}
+.lu-up3 .wrap{position:relative}
+.lu-up3__k{margin:0;font:700 clamp(16px,1.8vw,20px)/1.4 var(--body);color:var(--mute)}
+.lu-up3 h2{margin:14px 0 0;font-family:"Black Han Sans",var(--display);font-weight:400;font-size:clamp(34px,5.4vw,74px);line-height:1.08;letter-spacing:-.03em;text-wrap:balance}
+.lu-up3 h2 b{font-weight:400;background:linear-gradient(92deg,#2BFF88,#B8FF6A 45%,#fff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lu-up3__bar{display:grid;grid-template-columns:1fr 3fr;gap:10px;max-width:720px;margin:34px auto 0;text-align:left}
+.lu-up3__bar div{padding:14px 16px;border-radius:14px;box-shadow:inset 0 0 0 1px var(--line)}
+.lu-up3__bar div:last-child{background:linear-gradient(90deg,rgba(43,255,136,.22),rgba(43,255,136,.06));box-shadow:inset 0 0 0 1px rgba(43,255,136,.5),0 18px 50px -20px rgba(43,255,136,.6)}
+.lu-up3__bar span{display:block;font-size:.8rem;color:var(--mute)}
+.lu-up3__bar b{display:block;margin-top:4px;font:900 1.3rem/1.1 var(--display)}
+.lu-up3__bar div:last-child b{color:var(--g)}
+
+/* ===== Bridge to ATZ 창업사관학교 ===== */
+.lu-br{position:relative;overflow:hidden;padding-block:110px;border-top:1px solid var(--line);background:radial-gradient(60% 70% at 85% 30%,rgba(245,185,66,.16),transparent 70%),radial-gradient(50% 60% at 0% 100%,rgba(43,255,136,.08),transparent 70%),#0A0907}
+.lu-br__g{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:56px;align-items:center}
+.lu-br__k{display:inline-flex;align-items:center;gap:8px;font:800 .78rem/1 var(--display);letter-spacing:.2em;color:#1c1303;padding:9px 14px;border-radius:999px;background:linear-gradient(135deg,#f5b942,#ffd98a 50%,#f5b942);margin:0}
+.lu-br h2{margin:22px 0 0;font-family:"Black Han Sans",var(--display);font-weight:400;font-size:clamp(38px,5.6vw,78px);line-height:1.04;letter-spacing:-.03em;text-wrap:balance}
+.lu-br h2 em{font-style:normal;color:#f5b942}
+.lu-br__p{margin:22px 0 0;color:#CFC6B4;font-size:clamp(16px,1.5vw,19px);max-width:30em}
+.lu-br__f{display:flex;flex-wrap:wrap;gap:8px;margin:26px 0 0;padding:0;list-style:none}
+.lu-br__f li{font:700 .9rem/1 var(--body);padding:11px 14px;border-radius:10px;background:rgba(245,185,66,.08);box-shadow:inset 0 0 0 1px rgba(245,185,66,.35);color:#FFE3A8}
+.lu-br .hero-cta{margin-top:30px}
+.btn--gold{background:linear-gradient(135deg,#f5b942,#ffd98a 50%,#f5b942);color:#1c1303;box-shadow:0 12px 36px -12px rgba(245,185,66,.8)}
+.btn--gold:hover{box-shadow:0 14px 44px -10px rgba(245,185,66,1)}
+/* money path: program → brand → first sale → revenue */
+.lu-mp2{position:relative;display:flex;flex-direction:column;gap:14px;margin:0;padding:0}
+.lu-mp2 li{list-style:none;position:relative;display:grid;grid-template-columns:64px 1fr auto;align-items:center;gap:16px;padding:16px 18px;border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
+.lu-mp2 li:not(:last-child):after{content:"";position:absolute;left:49px;bottom:-15px;width:2px;height:16px;background:linear-gradient(#f5b942,transparent)}
+.lu-mp2 img{width:64px;height:64px;border-radius:16px;object-fit:cover}
+.lu-mp2 .lu-ic2{width:64px;height:64px;border-radius:16px;display:grid;place-items:center;font:900 1.4rem/1 var(--display);color:#1c1303;background:#f5b942}
+.lu-mp2 b{display:block;font:700 1.05rem/1.3 var(--body)}
+.lu-mp2 span{display:block;font-size:.85rem;color:var(--mute);margin-top:3px}
+.lu-mp2 em{font:800 .78rem/1 var(--display);font-style:normal;letter-spacing:.12em;color:#f5b942}
+.lu-mp2 li.lu-win{background:linear-gradient(135deg,rgba(245,185,66,.22),rgba(245,185,66,.06));box-shadow:inset 0 0 0 1px rgba(245,185,66,.55),0 20px 50px -24px rgba(245,185,66,.7)}
+.lu-mp2 li.lu-win b{font-family:"Black Han Sans",var(--display);font-weight:400;font-size:1.5rem;color:#FFE3A8}
+@media(max-width:900px){.lu-br__g{grid-template-columns:1fr}.lu-br{padding-block:80px}}
+.lines .acad{display:inline-flex;align-items:center;gap:6px;padding:8px 13px;border-radius:999px;font:800 .78rem/1 var(--display);letter-spacing:.06em;color:#1c1303;text-decoration:none;white-space:nowrap;background:linear-gradient(135deg,#f5b942,#ffd98a 50%,#f5b942);box-shadow:0 0 0 1px rgba(245,185,66,.55)}
+.lines .acad:hover{color:#1c1303;background:linear-gradient(135deg,#ffd98a,#f5b942)}
+@media(prefers-reduced-motion:reduce){.lu-ep__row,.lu-ep h1 .l2{animation:none}}
+
+/* Name ticker */
+.tick{overflow:hidden;border-bottom:1px solid var(--line);background:var(--panel);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.tick__in{display:flex;gap:28px;width:max-content;padding-block:12px;animation:tk 90s linear infinite}
+.tick span{display:flex;align-items:center;gap:8px;font-size:.86rem;color:var(--mute);white-space:nowrap}
+.tick span i{width:6px;height:6px;border-radius:50%;background:var(--c)}
+@keyframes tk{to{transform:translateX(-50%)}}
+
+/* Filter bar */
+.fb{position:relative;z-index:30;background:rgba(7,8,12,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.fb .wrap{display:flex;flex-direction:column;align-items:stretch;gap:12px;padding-block:16px}
+/* all industries visible at once: chips wrap instead of scrolling */
+.chips{display:flex;flex-wrap:wrap;gap:8px;min-width:0}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;display:flex;align-items:center;gap:6px;border:0;background:rgba(255,255,255,.04);box-shadow:inset 0 0 0 1px var(--line);color:var(--mute);font:600 .8rem/1 var(--body);padding:9px 12px;border-radius:999px;cursor:pointer;white-space:nowrap;transition:color .15s,background .15s}
+.chip i{width:6px;height:6px;border-radius:50%;background:var(--c,var(--g))}
+.chip small{font:500 .68rem var(--mono);opacity:.7}
+.chip:hover{color:var(--fg)}
+.chip[aria-pressed="true"]{color:#04130A;background:var(--c,var(--g));box-shadow:none}
+.chip[aria-pressed="true"] i{background:#04130A}
+.lu-q{flex:none;width:100%;max-width:360px;background:rgba(255,255,255,.04);border:0;box-shadow:inset 0 0 0 1px var(--line);border-radius:999px;color:var(--fg);font:500 .85rem var(--body);padding:9px 14px}
+.lu-q::placeholder{color:var(--dim)}
+
+
+/* Grid */
+.grid-sec{padding-block:28px 72px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:22px 18px}
+.lu-cd{all:unset;box-sizing:border-box;display:flex;flex-direction:column;gap:14px;cursor:pointer;border-radius:22px;padding:22px 14px 16px;background:radial-gradient(70% 45% at 50% 30%,color-mix(in srgb,var(--c) 13%,transparent),transparent 75%),var(--card);box-shadow:inset 0 0 0 1px var(--line);transition:transform .25s cubic-bezier(.16,1,.3,1),box-shadow .25s;min-width:0}
+.lu-cd:hover{transform:translateY(-4px);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--c) 55%,transparent),0 24px 50px -24px color-mix(in srgb,var(--c) 60%,transparent)}
+.lu-cd:focus-visible{outline:2px solid var(--c);outline-offset:3px}
+.lu-cd__m{display:flex;flex-direction:column;align-items:center;gap:6px;padding-inline:4px;min-width:0;text-align:center}
+.lu-cd__t{font:700 1rem/1.3 var(--body);letter-spacing:-.02em;margin:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lu-cd__i{flex:none;font:600 .7rem/1 var(--body);padding:5px 8px;border-radius:999px;color:var(--c);background:color-mix(in srgb,var(--c) 14%,transparent)}
+.empty{padding:60px 0;text-align:center;color:var(--mute)}
+@media(max-width:520px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 10px}.lu-cd{padding:16px 8px 12px}.lu-cd__t{font-size:.86rem}}
+
+/* Modal: big phone + name + one button */
+.mo{position:fixed;inset:0;z-index:80;display:flex;align-items:center;justify-content:center;padding:16px;background:rgba(3,4,7,.84);backdrop-filter:blur(10px)}
+.mo__in{width:min(860px,100%);max-height:calc(100% - 8px);overflow:auto;border-radius:24px;background:radial-gradient(70% 60% at 30% 40%,color-mix(in srgb,var(--c) 16%,transparent),transparent 70%),var(--panel);box-shadow:inset 0 0 0 1px var(--line2),0 40px 120px -30px color-mix(in srgb,var(--c) 45%,transparent);display:grid;grid-template-columns:minmax(0,360px) minmax(0,1fr);gap:8px;animation:mi .3s cubic-bezier(.16,1,.3,1) both}
+@keyframes mi{from{opacity:0;transform:translateY(12px) scale(.98)}}
+.mo__v{padding:28px 20px 28px 28px;min-width:0}
+.mo__v .fone{max-width:330px}
+.mo__s{padding:28px 28px 24px 12px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.mo__s h2{margin:0;font:700 1.7rem/1.25 var(--body);letter-spacing:-.03em;text-wrap:balance}
+.mo__s p{margin:0;color:var(--mute);font-size:.95rem}
+.mo__k{display:flex;flex-wrap:wrap;gap:6px}
+.mo__k span{font-size:.78rem;padding:6px 10px;border-radius:8px;background:rgba(255,255,255,.05);color:#C9CEDA}
+.mo__x{align-self:flex-end;border:0;background:rgba(255,255,255,.06);color:var(--fg);width:38px;height:38px;border-radius:10px;cursor:pointer;font-size:1.1rem}
+.mo__hint{font-size:.8rem;color:var(--mute);display:flex;align-items:center;gap:8px}
+.mo__hint i{width:8px;height:8px;border-radius:50%;background:var(--c);box-shadow:0 0 10px var(--c)}
+.mo__nav{display:flex;gap:8px;margin-top:auto}
+.mo__nav button{flex:1;border:0;background:rgba(255,255,255,.05);color:var(--fg);padding:11px;border-radius:10px;cursor:pointer;font:600 .85rem var(--body)}
+.mo__nav button:hover{background:rgba(255,255,255,.1)}
+.mo .lu-cd__i{align-self:flex-start}
+.lu-ex{font:500 .72rem var(--mono);color:var(--dim)}
+@media(max-width:760px){.mo__in{grid-template-columns:1fr}.mo__v{padding:20px 20px 0}.mo__s{padding:16px 20px 20px}.mo__x{position:absolute;top:24px;right:24px;z-index:2}.mo__in{position:relative}}
+/* Closing */
+.end{border-top:1px solid var(--line);padding-block:72px;text-align:center;background:radial-gradient(50% 60% at 50% 100%,rgba(43,255,136,.10),transparent 70%)}
+.end h2{font:700 clamp(24px,4vw,40px)/1.25 var(--body);letter-spacing:-.03em;margin:0 0 10px;text-wrap:balance}
+.end p{color:var(--mute);margin:0 0 24px}
+.end .hero-cta{justify-content:center}
+.tel{font:600 .95rem var(--mono);color:var(--fg);user-select:all}
+footer{border-top:1px solid var(--line);padding-block:24px 40px;color:var(--dim);font-size:.8rem}
+footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between}
+footer a{color:var(--mute)}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.tick__in,.fs *{animation:none!important}.lu-cd,.btn{transition:none}.mo__in{animation:none}}
+</style></head><body>
+<a class="skip" href="#lineup">본문으로 건너뛰기</a>
+
+<header class="lu-top"><div class="wrap">
+  <a class="lu-lg" href="index.html" aria-label="ATZ MACH 홈">ATZ <i>MACH</i></a>
+  <nav class="lines" aria-label="서비스">
+    <a href="index.html" style="--c:#ff5ccf"><i></i><small>01</small>프로그램 개발</a>
+    <a href="app.html" style="--c:#3ee6a0"><i></i><small>02</small>앱 개발</a>
+    <a href="platform.html" style="--c:#6b93ff"><i></i><small>03</small>플랫폼 개발</a>
+    <a href="web.html" style="--c:#ffb020"><i></i><small>04</small>홈페이지 제작</a>
+    <a href="lineup.html" style="--c:#2bff88" aria-current="page"><i></i><small>05</small>전체 라인업</a>
+    <a class="acad" href="academy.html">✦ ATZ 창업사관학교</a>
+  </nav>
+  <a class="btn btn--g btn--s" href="https://pf.kakao.com/_yynFX/chat" target="_blank" rel="noopener">무료 1차 시안 받기</a>
+</div></header>
+
+<main id="main">
+<section class="lu-ep" aria-labelledby="epT">
+  <div class="lu-ep__wall" id="epWall" aria-hidden="true"></div>
+  <div class="wrap lu-ep__in">
+    <p class="lu-ep__wm">ATZ <b>LINEUP</b></p>
+    <h1 id="epT"><span class="l1">안 되는 개발은</span><span class="l2">없습니다.</span></h1>
+    <p class="lu-ep__rot"><span class="lu-ep__w" id="epW">주식 자동매매</span><span>도, 말만 하면 만듭니다.</span></p>
+    <ul class="lu-ep__st" aria-label="라인업 요약">
+      <li><b><i id="nP">0</i><small>+</small></b><span>업종별 프로그램</span></li>
+      <li><b><i id="nI">0</i></b><span>개 업종</span></li>
+      <li><b>14<small>일</small></b><span>안에 완성</span></li>
+      <li><b>0<small>원</small></b><span>1차 시안</span></li>
+    </ul>
+    <div class="hero-cta">
+      <a class="btn btn--g" href="#lineup">라인업 보기 ↓</a>
+      <a class="btn btn--o" href="https://pf.kakao.com/_yynFX/chat" target="_blank" rel="noopener">없는 프로그램 요청하기</a>
+    </div>
+  </div>
+</section>
+
+<div class="tick" aria-hidden="true"><div class="tick__in" id="tick"></div></div>
+
+<div class="fb"><div class="wrap">
+  <div class="chips" id="chips" role="group" aria-label="업종 필터"></div>
+  <label for="q" class="skip">프로그램 검색</label>
+  <input class="lu-q" id="q" type="search" placeholder="검색 · 예) 배차" autocomplete="off">
+</div></div>
+
+<section class="grid-sec" id="lineup" aria-label="프로그램 라인업"><div class="wrap">
+  <div class="grid" id="grid"></div>
+  <p class="empty" id="empty" hidden>찾는 프로그램이 없나요? 말씀만 주시면 만듭니다.</p>
+</div></section>
+
+<section class="lu-up3" aria-labelledby="upT"><div class="wrap">
+  <p class="lu-up3__k">여기 보이는 화면은 맛보기입니다.</p>
+  <h2 id="upT">실제 납품 디자인은 위 시안보다<br><b>300% 이상</b> 좋아집니다.</h2>
+  <div class="lu-up3__bar" aria-hidden="true"><div><span>지금 보신 시안</span><b>1×</b></div><div><span>우리 회사 브랜드로 다시 설계한 실제 프로그램</span><b>4× 이상</b></div></div>
+</div></section>
+
+<section class="lu-br" aria-labelledby="brT"><div class="wrap lu-br__g">
+  <div>
+    <p class="lu-br__k">✦ ATZ 창업사관학교</p>
+    <h2 id="brT">이 프로그램으로<br><em>직접 돈을 벌고</em> 싶다면?</h2>
+    <p class="lu-br__p">만드는 건 저희가 합니다. 팔리는 브랜드로 키우는 법, 첫 판매까지 가는 길은 창업사관학교에서 대표가 직접 함께합니다.</p>
+    <ul class="lu-br__f"><li>한 기수 3팀</li><li>4주 8회 구축</li><li>12주 매출 실행</li></ul>
+    <div class="hero-cta">
+      <a class="btn btn--gold" href="academy.html">ATZ 창업사관학교 보기 →</a>
+      <a class="btn btn--o" href="https://pf.kakao.com/_yynFX/chat" target="_blank" rel="noopener">내 아이템으로 상담받기</a>
+    </div>
+  </div>
+  <ol class="lu-mp2" id="brPath" aria-label="수익화 흐름"></ol>
+</div></section>
+
+<section class="end"><div class="wrap">
+  <h2>목록에 없어도 만듭니다.</h2>
+  <p>한 줄만 남겨 주세요. 1시간 안에 1차 시안을 보내 드립니다.</p>
+  <div class="hero-cta">
+    <a class="btn btn--g" href="https://pf.kakao.com/_yynFX/chat" target="_blank" rel="noopener">카카오톡으로 요청하기</a>
+    <span class="btn btn--o">전화 <span class="tel">010-4823-2636</span></span>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <span>ATZ MACH AGENT · 화면은 설계 예시이며 숫자는 샘플입니다. 투자·보험·세무 관련 프로그램은 업무 보조 도구로 수익이나 결과를 보장하지 않습니다.</span>
+  <span><a href="privacy.html">개인정보처리방침</a> · <a href="terms.html">이용약관</a></span>
+</div></footer>
+
+<div class="mo" id="mo" hidden role="dialog" aria-modal="true" aria-labelledby="moT">
+  <div class="mo__in" id="moIn">
+    <div class="mo__v"><div class="fone" id="moF"></div></div>
+    <div class="mo__s">
+      <button class="mo__x" id="moX" type="button" aria-label="닫기">✕</button>
+      <span class="lu-cd__i" id="moI"></span>
+      <h2 id="moT"></h2>
+      <p id="moD"></p>
+      <div class="mo__k"><span>14일 완성</span><span>1차 시안 무료</span><span>우리 회사 맞춤</span></div>
+      <span class="mo__hint"><i></i>화면 속 버튼을 눌러 보세요</span>
+      <a class="btn btn--g" id="moGo" href="https://pf.kakao.com/_yynFX/chat" target="_blank" rel="noopener">이 프로그램 만들기</a>
+      <span class="lu-ex">설계 예시 화면 · 숫자는 샘플 · 실제 납품 디자인은 300% 이상 업그레이드</span>
+      <div class="mo__nav"><button type="button" id="moP">← 이전</button><button type="button" id="moN">다음 →</button></div>
+    </div>
+  </div>
+</div>
+<script src="lx/screens.js"></script><script src="lx/s-a.js"></script><script src="lx/s-b.js"></script><script src="lx/s-c.js"></script><script src="lx/s-d.js"></script><script src="lx/s-e.js"></script><script src="lx/s-f.js"></script>
+<script>
+(function(){
+"use strict";
+var IND=[["금융·투자", "#2BFF88"], ["보험", "#FFD84D"], ["반려동물", "#FF8AD8"], ["중고차·정비", "#FF9F43"], ["여행·숙박", "#6FA8FF"], ["농업·농산물", "#B8FF6A"], ["세무·법률", "#C7A6FF"], ["행사·웨딩", "#FF6B6B"], ["건물·아파트 관리", "#9CFFEA"], ["태양광·에너지", "#F5F7FA"], ["게임·콘텐츠", "#A78BFA"], ["패션·의류", "#FF5CA8"], ["헬스·피트니스", "#5CE1E6"], ["공공조달·입찰", "#FFB84D"], ["광고대행", "#7CFF6B"], ["어린이집·유치원", "#F0ABFC"], ["식품 제조", "#FDBA74"], ["해외직구·무역", "#93C5FD"], ["건강식품 정기배송", "#86EFAC"], ["방송·영상 제작", "#FCA5A5"], ["종교·공동체", "#5EEAD4"], ["모빌리티·주차", "#FDE047"], ["폐기물·환경", "#C4B5FD"], ["상조·장례", "#FDA4AF"], ["드론·측량", "#BEF264"]];
+var P=[["금융·투자", "주식 자동매매 실행기", "정한 매매 규칙대로 조건이 맞으면 자동 주문"], ["금융·투자", "포트폴리오 리밸런싱", "목표 비중과 현재 비중 차이로 주문안 생성"], ["금융·투자", "공시·시세 알림 대시보드", "관심 종목 공시와 가격 변동을 한 화면에"], ["보험", "보험 계약 갱신 관리", "만기·갱신 고객을 설계사별로 추적"], ["보험", "보험료 비교 견적", "조건만 넣으면 상품별 비교표"], ["보험", "보장 공백 분석 리포트", "기존 증권을 읽어 공백 리포트 작성"], ["반려동물", "동물병원 예약·진료 기록", "예약과 진료 이력을 보호자와 공유"], ["반려동물", "사료 구독 배송 관리", "구독 주기·재고·배송일 자동 관리"], ["반려동물", "펫 호텔 돌봄 리포트", "돌봄 사진과 기록을 보호자에게 자동 발송"], ["중고차·정비", "중고차 매물 일괄 등록", "사진 한 번으로 여러 플랫폼에 등록"], ["중고차·정비", "정비소 예약·견적", "차량 정보로 견적과 예약을 한 번에"], ["중고차·정비", "차량 정비 이력 관리", "차량별 정비 이력과 점검 알림"], ["여행·숙박", "숙박 채널 재고 동기화", "여러 예약 채널의 객실 재고를 한 번에"], ["여행·숙박", "여행 견적·일정표 생성", "조건만 넣으면 일정표와 견적서"], ["여행·숙박", "단체 여행 운영 관리", "인원·식사·버스를 한 화면에서"], ["농업·농산물", "산지 출하 관리", "농가별 출하량·등급·정산 기록"], ["농업·농산물", "스마트팜 센서 모니터링", "온습도·토양 기준을 넘으면 바로 알림"], ["농업·농산물", "농산물 온라인 주문 관리", "채널별 주문과 송장을 일괄 처리"], ["세무·법률", "세무 신고 일정 관리", "고객별 신고 기한과 서류 추적"], ["세무·법률", "고객 증빙 수집 포털", "올린 서류를 항목별로 자동 분류"], ["세무·법률", "계약서 검토 체크리스트", "조항 누락을 점검표로 확인"], ["행사·웨딩", "웨딩 견적·계약 관리", "상담부터 잔금 일정까지"], ["행사·웨딩", "행사 좌석 배치", "하객 명단으로 좌석표 자동 생성"], ["행사·웨딩", "촬영 스케줄 관리", "촬영팀 배정과 납품 기한"], ["건물·아파트 관리", "관리비 고지·납부 안내", "세대별 고지와 미납 안내 자동화"], ["건물·아파트 관리", "민원 접수·처리 추적", "민원 접수부터 담당자 처리까지"], ["건물·아파트 관리", "청소·방역 업체 정산", "작업 기록으로 업체별 정산"], ["태양광·에너지", "태양광 발전량 모니터링", "발전소별 발전량과 이상 징후"], ["태양광·에너지", "설치 견적·시공 관리", "현장 조건으로 견적과 시공 일정"], ["태양광·에너지", "전기요금 절감 리포트", "사용량 데이터로 절감 리포트"], ["게임·콘텐츠", "게임 운영 이벤트 관리", "이벤트 기간과 보상 지급 자동화"], ["게임·콘텐츠", "스트리머 수익 정산", "후원·광고 수익을 크리에이터별로"], ["게임·콘텐츠", "유튜브 댓글 관리", "악성 댓글 필터와 답변 초안"], ["게임·콘텐츠", "콘텐츠 구독 결제 관리", "갱신·해지·결제 실패 복구"], ["패션·의류", "의류 재고·사이즈 관리", "색상·사이즈별 재고와 품절 예측"], ["패션·의류", "도매 거래처 주문", "매장별 주문과 출고를 한 화면에"], ["패션·의류", "반품·교환 처리", "반품 사유 분류와 회수 일정"], ["패션·의류", "시즌 기획 원가 계산", "원단·봉제 원가로 마진 시뮬레이션"], ["헬스·피트니스", "회원권·PT 횟수 관리", "등록·차감·만료 알림 자동화"], ["헬스·피트니스", "출석·트레이너 배정", "출석과 트레이너 스케줄을 함께"], ["헬스·피트니스", "재등록 유도 메시지", "만료 전 회원에게 맞춤 메시지"], ["헬스·피트니스", "체성분 변화 리포트", "측정값으로 회원용 리포트"], ["공공조달·입찰", "나라장터 공고 알림", "관심 키워드 공고를 모아 알림"], ["공공조달·입찰", "입찰 서류 체크리스트", "공고별 제출 서류와 기한"], ["공공조달·입찰", "투찰가 산정 계산기", "원가와 낙찰률로 투찰가 계산"], ["공공조달·입찰", "실적·자격증 관리", "실적·인증서 만료를 한 곳에"], ["광고대행", "광고 성과 통합 대시보드", "여러 매체 성과를 한 화면에"], ["광고대행", "클라이언트 보고서 자동 작성", "주간 보고서 초안 자동 생성"], ["광고대행", "광고 예산 페이싱 알림", "소진 속도가 빠르면 바로 알림"], ["광고대행", "광고 소재 제작 요청 관리", "요청부터 승인까지 흐름 관리"], ["어린이집·유치원", "등하원 출결 알림", "등하원 기록과 학부모 알림"], ["어린이집·유치원", "보육료·급식비 청구", "청구와 미납 안내 자동화"], ["어린이집·유치원", "하루 활동 알림장", "교사 기록을 학부모와 공유"], ["어린이집·유치원", "예방접종 서류 추적", "접종 기한과 서류 알림"], ["식품 제조", "HACCP 점검 기록", "위생 점검표를 디지털로"], ["식품 제조", "원재료 로트 추적", "로트 단위 원재료·출고처 추적"], ["식품 제조", "유통기한 관리", "로트별 유통기한과 폐기 알림"], ["식품 제조", "식품 표시 문구 검토", "표시 사항 누락 점검"], ["해외직구·무역", "수입 통관 서류 관리", "인보이스·B/L을 건별로"], ["해외직구·무역", "해외 배송비·관세 견적", "국가·중량별 배송비와 관세"], ["해외직구·무역", "환율 원가 계산기", "환율 변동에 따른 원가·판매가"], ["해외직구·무역", "해외 고객 문의 응답", "번역과 응답 초안"], ["건강식품 정기배송", "정기배송 구독 관리", "주기·결제·배송일 자동 관리"], ["건강식품 정기배송", "해지 방어 메시지", "해지 신호 고객에게 맞춤 혜택"], ["건강식품 정기배송", "구독 수량 기준 발주", "구독 수량에 맞춘 발주 제안"], ["건강식품 정기배송", "상담 기록 요약", "상담 메모로 CS 이력 관리"], ["방송·영상 제작", "촬영 스케줄·장비 배정", "촬영팀과 장비를 한 화면에"], ["방송·영상 제작", "납품 기한 관리", "클라이언트별 납품 단계와 수정"], ["방송·영상 제작", "자막·번역 작업 관리", "자막 배정과 검수 흐름"], ["방송·영상 제작", "제작비 정산", "프로젝트별 인건비·장비비"], ["종교·공동체", "헌금·기부금 관리", "기록과 영수증 발급 자동화"], ["종교·공동체", "교인 출석 체크", "예배별 출석과 미출석 알림"], ["종교·공동체", "교회 소식 문자 발송", "공지와 기도제목 그룹 발송"], ["종교·공동체", "소모임·봉사 일정 관리", "셀모임과 봉사팀 배정"], ["모빌리티·주차", "통근·전세버스 배차", "노선·차량·기사 배차를 자동으로"], ["모빌리티·주차", "무인 주차 정산", "차량번호 인식 기반 자동 정산"], ["모빌리티·주차", "정기권 관리", "정기권 만료와 갱신 안내"], ["모빌리티·주차", "주차 혼잡도 대시보드", "시간대별 점유율을 한눈에"], ["모빌리티·주차", "발렛 기사 배정", "입출차 요청을 기사별로 배정"], ["폐기물·환경", "폐기물 수거 경로 관리", "업체별 수거 일정과 누락 추적"], ["폐기물·환경", "배출 신고 서류 관리", "배출량과 인증 서류를 기한별로"], ["폐기물·환경", "수거 업체 정산", "수거량 기준 정산서 자동 작성"], ["폐기물·환경", "환경 점검 체크리스트", "점검 항목과 기록 보관"], ["상조·장례", "상조 납입 관리", "월 납입 현황과 미납 안내"], ["상조·장례", "장례 견적 안내", "상품별 견적서 발송"], ["상조·장례", "상담 예약·배정", "상담 일정과 담당자 배정"], ["드론·측량", "드론 촬영 예약", "촬영 일정과 비행 허가 서류"], ["드론·측량", "측량 데이터 납품 관리", "납품 파일과 검수 이력"], ["드론·측량", "촬영 장비 점검 기록", "배터리·기체 점검 주기 알림"], ["드론·측량", "현장 사진 보고서 자동 작성", "촬영 사진을 보고서 양식으로"]];
+var C={};IND.forEach(function(d){C[d[0]]=d[1]});
+var E=function(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})};
+function phone(name){return LX.frame(name).replace(/<img /g,'<img loading="lazy" decoding="async" ')}
+var grid=document.getElementById("grid"),chips=document.getElementById("chips"),q=document.getElementById("q"),empty=document.getElementById("empty");
+var state={ind:"",q:""},shown=[];
+document.getElementById("nP").textContent=P.length;
+document.getElementById("nI").textContent=IND.length;
+var tk=P.map(function(p){return'<span style="--c:'+C[p[0]]+'"><i></i>'+E(p[1])+'</span>'}).join("");
+document.getElementById("tick").innerHTML=tk+tk;
+chips.innerHTML='<button class="chip" type="button" data-i="" aria-pressed="true">전체 <small>'+P.length+'</small></button>'+IND.map(function(d){var n=P.filter(function(p){return p[0]===d[0]}).length;return'<button class="chip" type="button" data-i="'+E(d[0])+'" style="--c:'+d[1]+'" aria-pressed="false"><i></i>'+E(d[0])+' <small>'+n+'</small></button>'}).join("");
+function render(){
+  var qq=state.q.trim().toLowerCase();shown=[];
+  P.forEach(function(p,i){if((!state.ind||p[0]===state.ind)&&(!qq||(p[0]+p[1]+p[2]).toLowerCase().indexOf(qq)>-1))shown.push(i)});
+  grid.innerHTML=shown.map(function(i){var p=P[i],c=C[p[0]];return'<button class="lu-cd" type="button" data-k="'+i+'" style="--c:'+c+'" aria-label="'+E(p[1])+' 화면 크게 보기"><div class="fone" style="--c:'+c+'">'+phone(p[1])+'</div><div class="lu-cd__m"><p class="lu-cd__t">'+E(p[1])+'</p><span class="lu-cd__i">'+E(p[0])+'</span></div></button>'}).join("");
+  empty.hidden=shown.length>0;
+}
+chips.addEventListener("click",function(e){var b=e.target.closest(".chip");if(!b)return;state.ind=b.getAttribute("data-i");chips.querySelectorAll(".chip").forEach(function(x){x.setAttribute("aria-pressed",String(x===b))});render();document.getElementById("lineup").scrollIntoView({block:"start"})});
+q.addEventListener("input",function(){state.q=q.value;render()});
+// Modal
+var mo=document.getElementById("mo"),moF=document.getElementById("moF"),cur=-1,back=null;
+function open(i){cur=i;var p=P[i],c=C[p[0]];
+  document.getElementById("moIn").style.setProperty("--c",c);
+  moF.style.setProperty("--c",c);moF.innerHTML=LX.frame(p[1]);
+  var tag=document.getElementById("moI");tag.textContent=p[0];tag.style.setProperty("--c",c);
+  document.getElementById("moT").textContent=p[1];
+  document.getElementById("moD").textContent=p[2];
+  if(mo.hidden){back=document.activeElement;mo.hidden=false;document.body.style.overflow="hidden"}
+  document.getElementById("moX").focus()}
+function close(){mo.hidden=true;document.body.style.overflow="";if(back&&back.focus)back.focus()}
+function step(d){var k=shown.indexOf(cur);if(k<0)return;open(shown[(k+d+shown.length)%shown.length])}
+grid.addEventListener("click",function(e){var c=e.target.closest(".lu-cd");if(c)open(+c.getAttribute("data-k"))});
+document.getElementById("moX").addEventListener("click",close);
+document.getElementById("moP").addEventListener("click",function(){step(-1)});
+document.getElementById("moN").addEventListener("click",function(){step(1)});
+mo.addEventListener("click",function(e){if(e.target===mo)close()});
+document.addEventListener("keydown",function(e){if(mo.hidden)return;if(e.key==="Escape")close();else if(e.key==="ArrowRight")step(1);else if(e.key==="ArrowLeft")step(-1)});
+// Taps inside the big phone: switches flip, buttons say what the real program would do.
+moF.addEventListener("click",function(e){
+  var sw=e.target.closest("[data-sw]");if(sw){sw.classList.toggle("off");return}
+  var t=e.target.closest("[data-tap]");if(!t)return;var b=moF.querySelector(".f-body"),o=b.querySelector(".f-toast");if(o)o.remove();
+  var d=document.createElement("div");d.className="f-toast";d.textContent=t.getAttribute("data-tap");b.appendChild(d);setTimeout(function(){d.remove()},2300);
+});
+// Hero wall: 6 rows of the brand icons, doubled for a seamless loop.
+(function(){var w=document.getElementById("epWall"),h="";for(var r=0;r<6;r++){var row="";for(var k=0;k<30;k++){var n=(r*13+k*7)%90;row+='<img src="lx/img/ic/'+(n<10?"0":"")+n+'.jpg" alt="" loading="lazy" decoding="async">'}h+='<div class="lu-ep__row">'+row+row+'</div>'}w.innerHTML=h})();
+// Rotating program name in its own industry color.
+(function(){var el=document.getElementById("epW"),order=[0,74,44,59,31,21,85,63,11,37],i=0;
+  if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+  setInterval(function(){i=(i+1)%order.length;var p=P[order[i]];if(!p)return;el.classList.add("out");setTimeout(function(){el.textContent=p[1].replace(/ 관리$/,"");el.style.setProperty("--wc",C[p[0]]);el.classList.remove("out")},250)},2200)})();
+// Bridge: program → brand → first sale → revenue, using two real lineup icons.
+document.getElementById("brPath").innerHTML=[
+  ['<img src="lx/img/ic/14.jpg" alt="">','프로그램','ATZ MACH가 14일 안에 만들어 드립니다','01'],
+  ['<img src="lx/img/ic/07.jpg" alt="">','브랜드','이름 · 판매 페이지 · 운영 화면까지','02'],
+  ['<span class="lu-ic2">₩</span>','첫 판매','실제 고객에게 제안하고 반응 확인','03'],
+  ['<span class="lu-ic2">↗</span>','매출','결과를 보고 12주 동안 함께 개선','04']
+].map(function(x,i){return'<li'+(i===3?' class="lu-win"':'')+'>'+x[0]+'<div><b>'+x[1]+'</b><span>'+x[2]+'</span></div><em>'+x[3]+'</em></li>'}).join("");
+render();
+P.forEach(function(p){if(!LX[p[1]])console.error("no screen",p[1]);if(!C[p[0]])console.error("no industry",p[0])});
+})();
+</script>
+<script src="xlink.js?v=3" defer></script></body></html>
