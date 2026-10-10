@@ -22,13 +22,14 @@ LX["게임 운영 이벤트 관리"]={cls:"s-c01",time:"21:05",cap:"이벤트 �
 /* 02 스트리머 */
 LX["스트리머 수익 정산"]={cls:"s-c02",time:"23:12",cap:"후원·광고·구독 정산",
  body:function(){
-  var w=[[40,22,14],[52,26,18],[34,30,16],[66,34,20],[58,28,24],[78,36,26]],s="";
-  w.forEach(function(v,i){var x=14+i*52,y=130,a=v[0]*1.1,b=v[1]*1.1,c=v[2]*1.1;
-   s+='<rect x="'+x+'" y="'+(y-a)+'" width="34" height="'+a+'" rx="3" fill="#8B5CFF"/><rect x="'+x+'" y="'+(y-a-b)+'" width="34" height="'+b+'" rx="3" fill="#18E0C0"/><rect x="'+x+'" y="'+(y-a-b-c)+'" width="34" height="'+c+'" rx="3" fill="#FFB547"/><text x="'+(x+17)+'" y="146" font-size="9" fill="#8C86A8" text-anchor="middle">'+(i+1)+'주</text>'});
+  var w=[[40,22,14],[52,26,18],[34,30,16],[66,34,20],[58,28,24],[78,36,26]],s="",cl=["#FFE14D","#FF2BD6","#00F5D4"];
+  w.forEach(function(v,i){var x=22+i*52,y=132,t=y;
+   v.forEach(function(h,j){h*=.82;t-=h;s+='<rect x="'+x+'" y="'+t.toFixed(1)+'" width="14" height="'+(h-2).toFixed(1)+'" rx="7" fill="'+cl[j]+'"/>';});
+   s+='<circle cx="'+(x+7)+'" cy="'+(t-8).toFixed(1)+'" r="2" fill="#fff"/><text x="'+(x+7)+'" y="147" font-size="9" fill="#6E7E86" text-anchor="middle">W'+(i+1)+'</text>'});
   return ''+
  '<div class="ph"><img src="lx/img/stream-desk.jpg" alt=""><div class="sh"></div><span class="lv">10월 정산</span><div class="tt"><small>채널 · 하늘달 TV</small><b class="num">₩ 18,642,000</b><em>지난달 대비 +24.3%</em></div></div>'+
- '<div class="cd"><div class="lg"><i style="background:#8B5CFF"></i>후원<b class="num">9.8M</b></div><div class="lg"><i style="background:#18E0C0"></i>구독<b class="num">5.2M</b></div><div class="lg"><i style="background:#FFB547"></i>광고<b class="num">3.6M</b></div></div>'+
- '<div class="cv">'+svg("0 0 330 152",'<path d="M0 30H330M0 70H330M0 110H330" stroke="rgba(255,255,255,.07)"/>'+s)+'</div>'+
+ '<div class="cd"><div class="lg"><i style="background:#FFE14D"></i>후원<b class="num">9.8M</b></div><div class="lg"><i style="background:#FF2BD6"></i>구독<b class="num">5.2M</b></div><div class="lg"><i style="background:#00F5D4"></i>광고<b class="num">3.6M</b></div></div>'+
+ '<div class="cv">'+svg("0 0 330 152",'<path d="M0 30H330M0 70H330M0 110H330" stroke="rgba(0,245,212,.25)" stroke-dasharray="1 5" stroke-linecap="round"/>'+s)+'</div>'+
  '<h5>플랫폼별 정산<small>수수료 반영</small></h5>'+
  '<div class="rw"><b class="pl p1">치</b><p>치직 플랫폼<small>수수료 20% · 10.20 입금</small></p><span class="num">₩9,120,000</span></div>'+
  '<div class="rw"><b class="pl p2">유</b><p>유튜브 슈퍼챗·광고<small>원천징수 3.3% 제외</small></p><span class="num">₩6,942,000</span></div>'+
@@ -134,7 +135,7 @@ LX["회원권·PT 횟수 관리"]={cls:"s-c09",time:"19:30",cap:"회원권과 PT
   return ''+
  '<div class="ph"><img src="lx/img/gym.jpg" alt=""><div class="sh"></div><span class="tg">출입 중 · 19:02 입장</span></div>'+
  '<div class="card"><div class="r1"><i class="av">박</i><p>박○○ 회원<small>No.00482 · 담당 최○○ 트레이너</small></p><span class="bd">VIP</span></div>'+
- '<div class="rg"><div class="ring"><svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="33" fill="none" stroke="rgba(255,255,255,.1)" stroke-width="8"/><circle cx="40" cy="40" r="33" fill="none" stroke="#FF6A2B" stroke-width="8" stroke-linecap="round" stroke-dasharray="207" stroke-dashoffset="83" transform="rotate(-90 40 40)"/></svg><b class="num">12</b><small>남은 PT</small></div>'+
+ '<div class="rg"><div class="ring">'+(function(){var t="";for(var i=0;i<30;i++){var g=i*12-90,r=Math.PI*g/180;t+='<path d="M'+(40+30*Math.cos(r)).toFixed(1)+' '+(40+30*Math.sin(r)).toFixed(1)+'L'+(40+38*Math.cos(r)).toFixed(1)+' '+(40+38*Math.sin(r)).toFixed(1)+'" stroke="'+(i<18?"#FF5F1F":"rgba(255,255,255,.18)")+'" stroke-width="3" stroke-linecap="butt"/>'}return '<svg viewBox="0 0 80 80">'+t+'</svg>'})()+'<b class="num">12</b><small>남은 PT</small></div>'+
  '<div class="inf"><div><small>PT 총 30회</small><b class="num">18회 사용</b></div><div><small>회원권</small><b>6개월 · D-47</b></div><div><small>만료일</small><b class="num">2026.11.27</b></div></div></div>'+
  '<div class="pt">'+p+'</div></div>'+
  '<div class="ls"><h5>최근 이용<small>PT 차감 내역</small></h5>'+
@@ -176,12 +177,15 @@ LX["재등록 유도 메시지"]={cls:"s-c11",time:"11:20",cap:"만료 임박 �
 LX["체성분 변화 리포트"]={cls:"s-c12",time:"20:10",cap:"12주 체성분 변화",
  body:function(){
   var w=[78.4,77.9,77.1,76.6,75.8,75.2,74.9,74.1],m=[31.2,31.4,31.7,32.0,32.4,32.6,33.0,33.3],f=[24.6,24.1,23.5,22.9,22.2,21.8,21.1,20.5];
-  function pth(a,lo,hi){return a.map(function(v,i){return (i?"L":"M")+(10+i*44).toFixed(0)+" "+(110-(v-lo)/(hi-lo)*100).toFixed(1)}).join("")}
+  function pts(a,lo,hi){return a.map(function(v,i){return [10+i*44,110-(v-lo)/(hi-lo)*100]})}
+  function sm(P,close){var d="M"+P[0][0]+" "+P[0][1].toFixed(1);for(var i=1;i<P.length;i++){var x=(P[i-1][0]+P[i][0])/2;d+="C"+x+" "+P[i-1][1].toFixed(1)+" "+x+" "+P[i][1].toFixed(1)+" "+P[i][0]+" "+P[i][1].toFixed(1)}return close?d+"L"+P[P.length-1][0]+" 124L"+P[0][0]+" 124Z":d}
+  function dots(P,c,f){return P.map(function(q){return '<circle cx="'+q[0]+'" cy="'+q[1].toFixed(1)+'" r="3" fill="'+(f||"#fff")+'" stroke="'+c+'" stroke-width="2"/>'}).join("")}
+  var PM=pts(m,31,34),PF=pts(f,20,25),PW=pts(w,73,79);
   return ''+
  hd("체성분 리포트","김○○ 회원 · 8회 측정 · 7/12~10/11",'<span class="sh" data-tap="리포트 링크를 복사했어요">공유</span>')+
  '<div class="kp"><div><small>체중</small><b class="num">74.1<em>kg</em></b><i class="dn">▼4.3</i></div><div><small>골격근</small><b class="num">33.3<em>kg</em></b><i class="up">▲2.1</i></div><div><small>체지방률</small><b class="num">20.5<em>%</em></b><i class="dn">▼4.1</i></div></div>'+
  '<div class="gv"><div class="lg"><span><i style="background:#14B8A6"></i>골격근</span><span><i style="background:#F97362"></i>체지방률</span><span><i style="background:#7C8AA5"></i>체중</span></div>'+
- svg("0 0 330 124",'<path d="M0 20H330M0 60H330M0 100H330" stroke="#E6ECEA"/><path d="'+pth(w,73,79)+'" fill="none" stroke="#7C8AA5" stroke-width="2" stroke-dasharray="4 3"/><path d="'+pth(f,20,25)+'" fill="none" stroke="#F97362" stroke-width="2.4"/><path d="'+pth(m,31,34)+'" fill="none" stroke="#14B8A6" stroke-width="2.8"/><circle cx="318" cy="'+(110-(33.3-31)/3*100)+'" r="4.5" fill="#14B8A6"/>',"cv")+
+ svg("0 0 330 124",'<defs><linearGradient id="bgA" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#14B8A6" stop-opacity=".35"/><stop offset="1" stop-color="#14B8A6" stop-opacity="0"/></linearGradient></defs><path d="M0 110H330" stroke="#CFE3E0"/><path d="M0 60H330" stroke="#E4EEEC" stroke-dasharray="1 4" stroke-linecap="round"/><path d="'+sm(PM,1)+'" fill="url(#bgA)"/><path d="'+sm(PW)+'" fill="none" stroke="#9AA9BC" stroke-width="1.4"/><path d="'+sm(PF)+'" fill="none" stroke="#F97362" stroke-width="1.6"/><path d="'+sm(PM)+'" fill="none" stroke="#14B8A6" stroke-width="3" stroke-linecap="round"/>'+dots(PM,"#14B8A6")+'<g><rect x="278" y="'+(PM[7][1]-26).toFixed(1)+'" width="46" height="18" rx="9" fill="#0B3D3A"/><text x="301" y="'+(PM[7][1]-14).toFixed(1)+'" font-size="10" font-weight="700" fill="#fff" text-anchor="middle">33.3kg</text></g>',"cv")+
  '<div class="xl"><span>7/12</span><span>8/9</span><span>9/6</span><span>10/11</span></div></div>'+
  '<h5>부위별 근육<small>표준 대비</small></h5>'+
  '<div class="sg"><span>왼팔</span><div><i style="width:78%"></i><u style="left:70%"></u></div><b class="num">3.4</b></div>'+
@@ -213,7 +217,7 @@ LX["입찰 서류 체크리스트"]={cls:"s-c14",time:"10:48",cap:"제출 서류
   function it(st,t,s,r){return '<div class="it '+st+'" data-tap="'+t+' 상태를 바꿨어요"><i>'+(st=="d"?"✓":st=="w"?"!":"")+'</i><p>'+t+'<small>'+s+'</small></p><em>'+r+'</em></div>'}
   return ''+
  hd("입찰 서류 준비","성남시청 CCTV 교체 용역 · 공고 2026-1107")+
- '<div class="dl"><div class="rg"><svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="32" fill="none" stroke="#E7E1D2" stroke-width="8"/><circle cx="40" cy="40" r="32" fill="none" stroke="#1F4FD8" stroke-width="8" stroke-linecap="round" stroke-dasharray="201" stroke-dashoffset="64" transform="rotate(-90 40 40)"/></svg><b class="num">68<small>%</small></b></div><div><b>11 / 16 서류 완료</b><span>입찰 마감 <em class="num">10.13 (월) 10:00</em></span><span class="tm">남은 시간 <em class="num">47:12:05</em></span></div></div>'+
+ '<div class="dl"><div class="rg"><span class="sq">'+(function(){var h="";for(var i=0;i<16;i++)h+='<i'+(i<11?' class="o"':'')+'></i>';return h})()+'</span><b class="num">68<small>%</small></b></div><div><b>11 / 16 서류 완료</b><span>입찰 마감 <em class="num">10.13 (월) 10:00</em></span><span class="tm">남은 시간 <em class="num">47:12:05</em></span></div></div>'+
  '<div class="gp"><h5>자격 서류</h5>'+
  it("d","사업자등록증 사본","2026.03 발급","PDF")+
  it("d","법인 인감증명서","3개월 이내","PDF")+
@@ -242,9 +246,10 @@ LX["투찰가 산정 계산기"]={cls:"s-c15",time:"13:25",cap:"사정률 기반
  foot:function(){return ft(["투찰가 확정","투찰가를 확정했어요"],["기록","계산 기록을 저장했어요"])}};
 
 /* 16 실적 자격증 */
+var IC16='<svg class="ix" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.500 8-8 9-4.500-1-8-4-8-9V6z"/><path d="M8.500 12l2.500 2.500 4.500-5"/></svg>';
 LX["실적·자격증 관리"]={cls:"s-c16",time:"09:05",cap:"인증서 만료 일정과 실적",
  body:function(){
-  function ce(n,s,d,p,cl){return '<div class="ce '+cl+'" data-tap="'+n+' 갱신 알림을 설정했어요"><div class="ic"></div><div class="tx">'+n+'<small>'+s+'</small><div class="ex"><i style="width:'+p+'%"></i></div></div><b class="num">'+d+'</b></div>'}
+  function ce(n,s,d,p,cl){return '<div class="ce '+cl+'" style="--p:'+p+'" data-tap="'+n+' 갱신 알림을 설정했어요"><div class="ic">'+IC16+'</div><div class="tx">'+n+'<small>'+s+'</small><div class="ex"><i style="width:'+p+'%"></i></div></div><b class="num">'+d+'</b></div>'}
   return ''+
  hd("실적·자격 관리","(주)한결테크 · 보유 인증 9건",'<span class="al">만료 임박 2</span>')+
  '<div class="sm"><div><b class="num">9</b><small>유효 인증</small></div><div class="w"><b class="num">2</b><small>60일 내 만료</small></div><div class="r"><b class="num">1</b><small>만료됨</small></div><div><b class="num">23</b><small>준공 실적</small></div></div>'+
@@ -257,4 +262,37 @@ LX["실적·자격증 관리"]={cls:"s-c16",time:"09:05",cap:"인증서 만료 �
  '<div class="rf"><p>군포시 CCTV 통합관제 구축<small>2026.07 준공 · 발주 군포시</small></p><b class="num">₩ 3.2억</b></div>'+
  '<div class="rf"><p>양평군 정보화시스템 유지보수<small>2026.04 준공 · 발주 양평군</small></p><b class="num">₩ 1.9억</b></div>'},
  foot:function(){return ft(["만료 알림 일괄 설정","만료 60일 전 알림을 설정했어요"],["서류 추가","실적증명서를 추가해요"])}};
+/*BRAND-LAYER*/
+var IC={
+gem:'<path d="M6 4h12l4 6-10 11L2 10z"/><path d="M2 10h20M9 4l-2 6 5 11 5-11-2-6"/>',
+sword:'<path d="M14 3h7v7L10 21l-3-3zM7 18l-4 4M5 13l6 6"/>',
+flame:'<path d="M12 2c1 4 6 6 6 12a6 6 0 01-12 0c0-3 2-4 3-7 1 1 2 2 3 1z"/>',
+ticket:'<path d="M3 8a2 2 0 002-2h14a2 2 0 002 2v3a2 2 0 000 2v3a2 2 0 00-2 2H5a2 2 0 00-2-2v-3a2 2 0 000-2z"/><path d="M14 6v12" stroke-dasharray="2 2"/>',
+bell:'<path d="M6 17V11a6 6 0 0112 0v6l2 2H4zM10 21h4"/>',
+check:'<path d="M4 12.5l5 5L20 6.5"/>',
+alert:'<path d="M12 4v10M12 18v2"/>',
+refresh:'<path d="M20 11a8 8 0 00-14-4L4 9M4 4v5h5M4 13a8 8 0 0014 4l2-2M20 20v-5h-5"/>',
+star:'<path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/>',
+heart:'<path d="M12 20S4 14.5 4 9a4 4 0 018-1 4 4 0 018 1c0 5.500-8 11-8 11z"/>',
+back:'<path d="M15 5l-7 7 7 7"/>',
+bs:'<path d="M9 5h11v14H9L3 12z"/><path d="M12 9l5 6M17 9l-5 6"/>',
+chat:'<path d="M4 5h16v11H9l-5 4z"/>',
+play:'<rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10 9l5 3-5 3z"/>',
+cup:'<path d="M5 9h12v5a5 5 0 01-5 5h-2a5 5 0 01-5-5zM17 10h2a2 2 0 010 4h-2M8 3v3M12 3v3"/>',
+clap:'<path d="M7 12l3-7 2 1-1 4 5 1-3 8H8z"/>',
+pin:'<path d="M12 21s7-6 7-11a7 7 0 00-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.500"/>',
+box:'<path d="M3 8l9-5 9 5v8l-9 5-9-5zM3 8l9 5 9-5M12 13v8"/>',truck:'<path d="M2 6h11v10H2zM13 10h4l4 3v3h-8M6 19a2 2 0 100-.1M17 19a2 2 0 100-.1"/>',search:'<circle cx="11" cy="11" r="6"/><path d="M16 16l5 5"/>',coin:'<circle cx="12" cy="12" r="9"/><path d="M12 7v10M9 10c0-2 6-2 6 0s-6 1-6 3 6 2 6 0"/>',share:'<path d="M12 15V4M8 8l4-4 4 4M5 13v7h14v-7"/>'};
+function ic(n,c){return '<svg class="ix '+(c||'')+'" viewBox="0 0 24 24" aria-hidden="true">'+IC[n]+'</svg>'}
+function fx(h){return h
+ .replace(/💎/g,ic("gem")).replace(/🗡/g,ic("sword")).replace(/🐉/g,ic("flame")).replace(/🎟/g,ic("ticket")).replace(/🔔/g,ic("bell"))
+ .replace(/ ?(😍|👏|💛|💊)/g,"")
+ .replace(/>✓</g,">"+ic("check")+"<").replace(/>!</g,">"+ic("alert")+"<").replace(/>↻</g,">"+ic("refresh")+"<").replace(/>★</g,">"+ic("star")+"<").replace(/>‹</g,">"+ic("back")+"<").replace(/>⌫</g,">"+ic("bs")+"<")
+ .replace(/♥ ?/g,ic("heart")+" ")
+ .replace(/<i>1<\/i>접수/,"<i>"+ic("box")+"</i>접수").replace(/<i>2<\/i>회수/,"<i>"+ic("truck")+"</i>회수").replace(/<i>3<\/i>검수/,"<i>"+ic("search")+"</i>검수").replace(/<i>4<\/i>환불/,"<i>"+ic("coin")+"</i>환불")
+ .replace(/<b class="pl p1">[^<]*<\/b>/,'<b class="pl p1">'+ic("chat")+'</b>').replace(/<b class="pl p2">[^<]*<\/b>/,'<b class="pl p2">'+ic("play")+'</b>').replace(/<b class="pl p3">[^<]*<\/b>/,'<b class="pl p3">'+ic("cup")+'</b>')}
+var BR={c01:["레이드옵스","30","LIVE"],c02:["스트림페이","31","10월"],c03:["댓글매니저","32","STUDIO"],c04:["리커버","33","결제 복구"],c05:["핏스톡","34","SS27"],c06:["동대문링크","35","도매"],c07:["리턴박스","36","RMA"],c08:["코스트핏","37","FW27"],c09:["핏카운트","38","MEMBER"],c10:["코치보드","39","오늘"],c11:["리턴핏","40","메시지"],c12:["바디그래프","41","리포트"],c13:["공고레이더","42","알림 ON"],c14:["서류팩","43","D-2"],c15:["투찰계산기","44","공사"],c16:["써티볼트","45","인증"]};
+Object.keys(LX).forEach(function(k){var s=LX[k],m=/^s-(c\d\d)$/.exec(s.cls||"");if(!m||!BR[m[1]])return;var b=BR[m[1]],o=s.body;
+ s.body=function(){return '<div class="brq"><img src="lx/img/ic/'+b[1]+'.jpg" alt=""><b>'+b[0]+'</b><span>'+b[2]+'</span></div>'+fx(o())};
+ if(s.foot){var of=s.foot;s.foot=function(){return fx(of())}}});
+
 })();
