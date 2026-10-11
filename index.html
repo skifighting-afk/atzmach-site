@@ -2712,6 +2712,9 @@ function AW(){const E=awE,I0=(0,Bi.useState)(a3Init)[0];
    intake:{employees:awNum(it.employees)||null,users:awNum(it.users)||null,branches:awNum(it.branches)||null,tools:it.tools,integrations:it.integrations,migration:{size:a3Val(d,"migration")||null,note:""},startWhen:it.startWhen||null,unknown:a3Open(d)},
    wants:a3Req(d).concat(a3Acc(d).map(s=>s.name)).slice(0,30),answers:{industry:d.ind==null?"":awIndName(d),industryKey:d.ind==null?"pro":awKey(d),wants:a3Req(d),note:d.free.slice(0,800),company:d.co.trim(),phone:pd,design:{color:col,mode:d.mode}},
    ...(vers.length?{}:{status:"submitted",createdAt:Date.now(),requestedAt:iso,planNo:"ATZ-"+String(Date.now()).slice(-6)})};
+  if(window.__atzProgramSending)return;
+  window.__atzProgramSending=true;
+  try{const mail=await window.atzIntake({no:lead.planNo,line:'program',type:'프로그램 개발',name:lead.name,phone:lead.phone,company:lead.company,idea:lead.freeText,email:document.querySelector('#diagnosis [data-atz-email]')?.value,consent:true,fields:lead});if(!mail.ok){alert(mail.error);return;}}finally{window.__atzProgramSending=false;}
   sgen({steps:{analysis:"done",plan:"todo",review:"todo",quote:"todo"},c:0,err:"",fail:""});go("gen");R("aw3_generate",{});
   await xs(JSON.parse(JSON.stringify(lead))).catch(()=>{});runGen(!1)}
  async function runGen(basic){const g=genR.current,set=(k,v,x)=>sgen(o=>({...o,...(x||{}),steps:{...o.steps,[k]:v}}));let plan,mode="ai";

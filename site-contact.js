@@ -33,6 +33,7 @@
   const anchors=document.querySelectorAll('#lead input[type="tel"],#f input[type="tel"],#fP,#rqVal,#cVal,#dg-phone,#iq-phone,#a3-ph');
   for(const anchor of anchors){
    const row=anchor.closest('label')||anchor.parentElement;
+   if(anchor.type==='email'){anchor.required=true;anchor.setAttribute('data-atz-email','');row.parentElement.querySelector(':scope > .atz-email-row')?.remove();if(!anchor.dataset.atzEmailBound){anchor.dataset.atzEmailBound='1';anchor.addEventListener('input',()=>sessionStorage.setItem('atz-email-draft',anchor.value));}continue;}
    if(row.parentElement.querySelector(':scope > .atz-email-row'))continue;
    const label=document.createElement('label');label.className=(row.className||'fld')+' atz-email-row';
    label.innerHTML='<span>이메일 <em>필수</em></span><input data-atz-email name="email" type="email" autocomplete="email" placeholder="name@example.com" required aria-label="이메일 필수">';

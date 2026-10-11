@@ -2784,7 +2784,7 @@ function reqSum(rec){const fs=mkFeats(),ol=openList().filter(k=>k!=="check").map
 let RQ={typ:null,rec:true};
 /* 마지막 단계 안에 바로 붙는 요청 폼: 연락처 하나 + 동의만 */
 function sendHTML(){const C=LS.get("atz_web3_contact",{}),typ=RQ.typ||C.typ||"phone",T=LEAD_T.find(x=>x[0]===typ)||LEAD_T[0];RQ.typ=typ;
- return`<form class="rq__b rq__b--in" id="rqForm" novalidate><h4>무료 1차 시안 바로 받기</h4><p class="rq__lead">1시간 내로 제작해서 보내드리겠습니다.</p><ul class="rq__cond"><li>비용 없음</li><li>연락처 하나만</li><li>1시간 내 전달</li></ul>
+ return`<form class="rq__b rq__b--in" id="rqForm" novalidate><h4>무료 1차 시안 바로 받기</h4><p class="rq__lead">1시간 내로 제작해서 보내드리겠습니다.</p><ul class="rq__cond"><li>비용 없음</li><li>이메일 필수</li><li>1시간 내 전달</li></ul>
  <div id="rqSum" hidden>${reqSum(RQ.rec)}</div>
  <fieldset class="fld"><legend>시안 받을 곳 (하나만)</legend><div class="seg" role="radiogroup">${LEAD_T.map(x=>`<button type="button" role="radio" data-rqtyp="${x[0]}" aria-checked="${typ===x[0]}">${x[1]}</button>`).join("")}</div></fieldset>
  <label class="fld"><span>${T[1]} <em class="req">필수</em></span><input id="rqVal" ${T[2]} maxlength="60" value="${esc(C.typ===typ?C.val||"":"")}" aria-describedby="rqMsg"></label>
