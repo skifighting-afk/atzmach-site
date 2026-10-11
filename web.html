@@ -3268,15 +3268,8 @@ function leadText(p){const a=p.att.mk;return`[ATZ 홈페이지 ${p.intent==="ord
 async function saveLead(p){
  const ir=await window.atzIntake({line:'web',type:'홈페이지 제작',name:p.name||'',contact:p.contact?.value||'',company:p.proj||'',idea:p.memo||'',consent:true,fields:{'희망 연락 방법':p.contact?.type||'','희망 연락 시간':p.time||'','신청 내용':p.att||{},'선택한 참고 화면':(p.shots||[]).map(x=>x.caseName||x.name||x.id||'선택 화면')}});
  if(!ir.ok)throw new Error(ir.error);return {st:'ok',id:ir.no,ref:null,shots:0,shotsAll:(p.shots||[]).length};
- /* legacy archive */ const db=null,id=null;
- const lid=rid(),ref=db.doc("leads/"+id),d=await ref.get().catch(()=>null),o=d&&d.exists?d.data()||{}:null;
- const web={resultId:lid,page:"web5",via:p.via||"contact",intent:p.intent,contact:p.contact,time:p.time||"",memo:p.memo||"",proj:p.proj||"",refInfo:p.att.refs,mk:p.att.mk,design:p.att.design,studio:p.att.studio,quote:p.att.quote,at:new Date().toISOString()};
- const doc=o&&o.source&&o.source!=="web"?Object.assign({},o,{web,webAt:Date.now()}):Object.assign({},o||{},{source:"web",status:(o&&o.status)||"new",name:p.name||(o&&o.name)||"",phone:p.contact.type==="phone"?p.contact.value:(o&&o.phone)||"",contact:p.contact,company:MK.brand||p.proj||"",plan:lid,web,createdAt:(o&&o.createdAt)||Date.now(),updatedAt:Date.now()});
- await ref.set(doc);const chk=await ref.get();if(!(chk&&chk.exists&&chk.data()&&chk.data().web&&chk.data().web.resultId===lid))throw{code:"verify_failed"};
- let shotsOk=0;if(p.shots&&p.shots.length){for(let i=0;i<p.shots.length;i++){try{const sref=db.doc(`leads/${id}/shots/${lid}-${i}`);await sref.set({lead:lid,caseId:p.shots[i].id,caseName:(byCase[p.shots[i].id]||{}).name||"",img:p.shots[i].d,at:Date.now()});const v=await sref.get();if(v&&v.exists)shotsOk++}catch(e){}}}
- try{const now=Date.now();await db.doc("board/"+id).set({page:"web5",at:now,stage:"문의 접수",stageAt:now,goal:ST.goal||"",indN:p.att.mk.indN||"",pages:ST.pages})}catch(e){}
- try{await window.atzQueue(db,id,{line:"web",evt:"web:"+lid,no:lid,type:p.intent==="order"?"주문 요청":"상담 문의",leadPath:"leads/"+id,detail:location.origin+location.pathname.replace(/web\.html$/,"")+"#admin",createdAt:new Date().toISOString()})}catch(e){}
- return{st:"ok",id:lid,ref,shots:shotsOk,shotsAll:(p.shots||[]).length}}
+}
+
 function drawAtt(){const el=$("#att");if(!el)return;const fs=mkFeats(),Q=mkEstimate(),g=k=>`<button type="button" class="lnk" data-goto="${k}">고치기</button>`;
  el.innerHTML=`<details open><summary>함께 전달되는 내용 (연락처 제외)</summary><dl class="sum">
  <div><dt>업종 · 이름</dt><dd>${MK.cat?esc(MK.ind?indN(MK.ind):MK.cat):"미선택"} · ${MK.brand.trim()?esc(MK.brand):"이름 미정"} ${g("brand")}</dd></div>

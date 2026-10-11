@@ -2,7 +2,7 @@
  'use strict';
  const EMAIL='skifighting@gmail.com',KAKAO='https://pf.kakao.com/_yynFX/chat',endpoint='https://formsubmit.co/ajax/'+EMAIL;
  const script=document.currentScript,base=new URL('.',script.src),privacy=new URL('privacy.html',base).href;
- const labels={program:'프로그램 개발',web:'홈페이지 제작',platform:'앱·플랫폼 개발',app:'앱 개발',academy:'창업 상담',enterprise:'기업 AI 전환'};
+ const labels={program:'프로그램 개발',web:'홈페이지 제작',platform:'앱·플랫폼 개발',app:'앱 개발',academy:'창업 상담'};
  const page=location.pathname.split('/').pop().replace('.html','')||'index';
  const archive=window.atzIntake,inflight=new Map();
  function clean(v,max=30000){return String(v??'').trim().slice(0,max);}
@@ -26,7 +26,7 @@
  }
  window.atzIntake=p=>{const key=p.no||JSON.stringify([p.name,p.phone,p.contact,p.idea]);if(inflight.has(key))return inflight.get(key);const task=send(p).finally(()=>inflight.delete(key));inflight.set(key,task);return task;};
  const dock=document.createElement('aside');dock.className='atz-contact-dock';dock.setAttribute('aria-label','빠른 상담');dock.innerHTML='<button type="button" data-atz-inquiry><span class="atz-contact-icon" aria-hidden="true">↗</span>바로 문의하기</button><a href="'+KAKAO+'" target="_blank" rel="noopener"><span class="atz-contact-icon" aria-hidden="true">●</span>카카오 채널 상담</a>';document.body.append(dock);
- const targets={index:'#diagnosis',platform:'#apply',app:'#apply',academy:'#apply',enterprise:'#contact',web:'#make'};
+ const targets={index:'#diagnosis',platform:'#apply',app:'#apply',academy:'#apply',web:'#make'};
  function destination(){const hash=targets[page];return hash&&document.querySelector(hash)?hash:new URL('index.html#diagnosis',base).href;}
  function open(){const dest=destination();if(dest.startsWith('#')){const target=document.querySelector(dest);history.replaceState(null,'',dest);target.style.scrollMarginTop='130px';target.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'start'});target.setAttribute('tabindex','-1');target.focus({preventScroll:true});}else location.href=dest;}
  dock.querySelector('button').onclick=open;
@@ -39,7 +39,7 @@
  function validContact(v){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)||/^[+\d][\d\s()-]{7,25}$/.test(v)||/^.{2,60}$/.test(v)&&!v.includes('@')&&!/^[\d\s()+-]+$/.test(v);}
  // Existing business forms use the same email transport; demo forms are excluded.
  document.addEventListener('submit',e=>{
-  const f=e.target;if(!(f instanceof HTMLFormElement)||!f.matches('#lead,#f,#contact-form'))return;
+  const f=e.target;if(!(f instanceof HTMLFormElement)||!f.matches('#lead,#f'))return;
   e.preventDefault();e.stopImmediatePropagation();
   if(!f.reportValidity())return;
   const value=ids=>{for(const id of ids){const x=f.querySelector('#'+id)||f.querySelector(`[name="${id}"]`);if(x&&clean(x.value))return clean(x.value);}return '';};
@@ -57,7 +57,7 @@
    if(label)fields[label]=fields[label]?fields[label]+' · '+clean(val):clean(val)||'미기재';
   }
   if(page==='academy'&&typeof S!=='undefined'){fields['좋아하는 것']=S.likes||'미기재';fields['잘하는 것']=S.goods||'미기재';}
-  if(page==='enterprise'&&typeof DIAG!=='undefined'){fields['진단 선택 내용']=JSON.stringify(DIAG.get().a||{});fields['진단 요약']=document.querySelector('#cfSum')?.textContent?.trim()||'';}
+
   submit(f,{line:page,type:f.querySelector('input[name=type]:checked')?.value||labels[page==='index'?'program':page]||'상담 문의',name:value(['f-name','fN','cf_name','name','a-name']),phone:contact,contact,company:value(['cf_co','company','f-company']),idea:fields['아이디어 (1~5줄)']||fields['당신의 이야기를 들려주세요']||value(['f-idea','cf_memo']),fields,consent:true});
  },true);
  // First visit to the site in this browser session.
