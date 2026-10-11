@@ -280,13 +280,13 @@ input.i:focus,textarea.i:focus,select.i:focus{border-color:var(--sig);outline:no
 .dfw:fullscreen{background:var(--ink);padding:12px}.dfw:fullscreen .dfr{height:calc(100vh - 70px)}.dfw.full{position:fixed;inset:0;z-index:60;background:var(--ink);padding:12px}.dfw.full .dfr{height:calc(100vh - 70px)}
 @media (max-width:1000px){.pdocs{grid-template-columns:minmax(0,1fr)}}@media (max-width:600px){.pdoc dl,.pdoc .io,.pq .g2{grid-template-columns:minmax(0,1fr)}}
 </style>
-<meta name="robots" content="noindex,nofollow"></head>
+<meta name="robots" content="noindex,nofollow"><link rel="stylesheet" href="site-contact.css?v=1"><script defer src="site-contact.js?v=1"></script></head>
 <body>
 <header class="top"><div class="wrap">
- <a class="logo" href="index.html">ATZ <b>MACH</b><small>AGENT</small></a>
+ <a class="logo" href="index.html?v=20261011e">ATZ <b>MACH</b><small>AGENT</small></a>
  <span class="sp"></span>
  <button class="demo-t" id="demoT" aria-pressed="false" type="button"><i aria-hidden="true"></i><span>전체 과정 미리 체험 (DEMO)</span></button>
- <a class="back" href="index.html">← <span>홈으로</span></a>
+ <a class="back" href="index.html?v=20261011e">← <span>홈으로</span></a>
 </div></header>
 <div id="demobar"></div>
 <div class="wrap" id="head"></div>
@@ -557,7 +557,7 @@ function vVers(l){const V=A(l.versions);let i=S.ui.vv==null?V.length-1:Math.min(
  <p class="lead">${v.mode==="ai"?"ATZ 기획 에이전트가 작성하고 ATZ PM 에이전트가 한 번 더 검토했습니다.":"자동 분석이 연결되지 않아 기본 분석으로 작성했습니다."} 금액은 가격 정책으로 계산한 1차 견적이며, 상담·범위 확정 후 정식 견적서를 드립니다.</p>
  ${diffHTML(v)}<div class="pdocs">${planHTML(v.plan,co,v.mode)}${quoteHTML(v.quote,v.v)}</div>
  ${l.planReviewed||l.reviewedQuote?`<h2 class="t" style="margin-top:34px">검토된 기획서 · 견적서</h2><p class="lead">1차 시안 작업에서 담당 AI가 다시 검토한 결과입니다.</p><div class="pdocs">${l.planReviewed?planHTML(l.planReviewed,co,"ai"):""}${l.reviewedQuote?quoteHTML(l.reviewedQuote,l.reviewedQuote.v||l.draftJob?.planVersion||"",l.reviewedQuote.label||"검토된 1차 견적서"):""}</div>`:""}
- ${l.draftJob?trackHTML(l):`<div class="card" style="margin-top:20px"><p style="margin:0">이 기획서로 1차 시안을 받으려면 홈의 결과 화면에서 ‘이 내용으로 1차 시안 요청하기’를 눌러 주세요.</p><a class="btn pri" style="margin-top:10px" href="index.html#diagnosis">결과 화면으로 가기</a></div>`}`}
+ ${l.draftJob?trackHTML(l):`<div class="card" style="margin-top:20px"><p style="margin:0">이 기획서로 1차 시안을 받으려면 홈의 결과 화면에서 ‘이 내용으로 1차 시안 요청하기’를 눌러 주세요.</p><a class="btn pri" style="margin-top:10px" href="index.html?v=20261011e#diagnosis">결과 화면으로 가기</a></div>`}`}
 function vDraft2(l){
  return `<h2 class="t">1차 시안</h2>${trackHTML(l)}
  ${l.draftHtml?`<div class="dfw" id="dfw"><div class="row" style="justify-content:space-between;margin-bottom:8px"><b>1차 시안${l.draftJob?.planVersion?" · 기획서 v"+esc(l.draftJob.planVersion)+" 기준":""}</b><button class="btn" data-act="dfull">전체 화면</button></div>
@@ -729,7 +729,7 @@ function render(){
  $("#demobar").innerHTML=S.demo?`<div class="demobar"><div class="wrap"><b>DEMO</b><span>샘플 데이터로 ①→⑨ 전체 과정을 체험 중 · 아무것도 저장되지 않습니다 · 실제 결제·카톡 발송 없음</span><button type="button" data-act="demo-next" ${stepOf(S.dl)>=9&&S.dl.status==="operating"?"disabled":""}>다음 단계 진행 (우리 측 작업 시뮬레이션) →</button></div></div>`:"";
  const l=L();
  if(!S.loaded&&!S.demo){return}
- if(!l){$("#head").innerHTML="";$("#main").innerHTML=`<div class="empty"><span class="mono" style="color:var(--sig)">고객 전용 결과 페이지</span><h2>아직 신청 내역이 없습니다</h2><p class="dim">만들고 싶은 프로그램을 설명하면 기획서와 1차 견적서를 받을 수 있어요. 받은 결과는 이 페이지에서 다시 볼 수 있습니다.${S.offline?"<br><small>저장소에 연결되지 않은 화면입니다 — 신청은 홈에서 해주세요.</small>":""}</p><div class="row" style="justify-content:center;margin-top:22px"><a class="btn pri big" href="index.html#diagnosis">기획서와 1차 견적서 받기</a><button class="btn big" data-demo-on>전체 과정 미리 체험 (DEMO)</button></div></div>`;return}
+ if(!l){$("#head").innerHTML="";$("#main").innerHTML=`<div class="empty"><span class="mono" style="color:var(--sig)">고객 전용 결과 페이지</span><h2>아직 신청 내역이 없습니다</h2><p class="dim">만들고 싶은 프로그램을 설명하면 기획서와 1차 견적서를 받을 수 있어요. 받은 결과는 이 페이지에서 다시 볼 수 있습니다.${S.offline?"<br><small>저장소에 연결되지 않은 화면입니다 — 신청은 홈에서 해주세요.</small>":""}</p><div class="row" style="justify-content:center;margin-top:22px"><a class="btn pri big" href="index.html?v=20261011e#diagnosis">기획서와 1차 견적서 받기</a><button class="btn big" data-demo-on>전체 과정 미리 체험 (DEMO)</button></div></div>`;return}
  renderHead();
  const c=cur(),av=avail(l);
  const V={status:vStatus,plan:vPlan,draft:vDraft,dev:vDev,quote:vQuote,confirm:vConfirm,pay:vPay,build:vBuild,handover:vHand,kakao:vKakao}[c];

@@ -63,10 +63,10 @@ textarea.i{min-height:64px;resize:vertical}
 .mback{display:none}
 @media (max-width:900px){.lay{grid-template-columns:1fr}aside{position:static;height:auto;border-right:0;border-bottom:1px solid var(--rule)}.lay.det aside{display:none}.lay:not(.det) main{display:none}.mback{display:inline-flex}.g2,.g3,.g4,.tot{grid-template-columns:1fr}.req{grid-template-columns:1fr}.kv{grid-template-columns:1fr}.nc{display:none}}
 </style>
-<meta name="robots" content="noindex,nofollow"></head>
+<meta name="robots" content="noindex,nofollow"><link rel="stylesheet" href="site-contact.css?v=1"><script defer src="site-contact.js?v=1"></script></head>
 <body>
-<header class="top"><div class="in"><a class="logo" href="index.html">ATZ <b>MACH</b><small>ADMIN</small></a><span class="sp"></span>
-<div class="nc" title="연결 안 된 서비스"><span>카카오 발송 API · 미연결</span><span>PG 결제 · 미연결</span></div><a class="back" href="stats.html">방문 통계</a><a class="back" href="portal.html">고객 화면</a><a class="back" href="index.html">홈</a></div></header>
+<header class="top"><div class="in"><a class="logo" href="index.html?v=20261011e">ATZ <b>MACH</b><small>ADMIN</small></a><span class="sp"></span>
+<div class="nc" title="연결 안 된 서비스"><span>카카오 발송 API · 미연결</span><span>PG 결제 · 미연결</span></div><a class="back" href="stats.html?v=20261011e">방문 통계</a><a class="back" href="portal.html?v=20261011e">고객 화면</a><a class="back" href="index.html?v=20261011e">홈</a></div></header>
 <div id="app"><div class="gate"><p class="dim">불러오는 중…</p></div></div>
 <div id="toast" class="toast" hidden></div>
 <script>
@@ -237,7 +237,7 @@ document.addEventListener("click",async e=>{
 
 (async()=>{
  const c=window.claude;const[db,u]=c?await Promise.all([c.use("db").catch(()=>null),c.use("user").catch(()=>null)]):[null,null];
- const gate=m=>{$("#app").innerHTML=`<div class="gate"><div><span class="mono" style="color:var(--sig)">ATZ MACH · ADMIN</span><h1>관리자 전용</h1><p class="dim">${m}</p><a class="btn" href="index.html">홈으로</a></div></div>`};
+ const gate=m=>{$("#app").innerHTML=`<div class="gate"><div><span class="mono" style="color:var(--sig)">ATZ MACH · ADMIN</span><h1>관리자 전용</h1><p class="dim">${m}</p><a class="btn" href="index.html?v=20261011e">홈으로</a></div></div>`};
  if(!db||!u){gate("로그인한 관리자만 열 수 있습니다.");return}
  const admin=await u.isOwner().catch(()=>false)||await u.canEdit().catch(()=>false);
  if(!admin){gate("이 페이지는 운영자만 볼 수 있습니다.");return}

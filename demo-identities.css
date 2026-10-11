@@ -1,0 +1,224 @@
+#any .cvf-scr.pa-s1{--f-kr:"Noto Sans KR","IBM Plex Sans KR",sans-serif;--f-brand:"Outfit",sans-serif;--f-mono:"Outfit",monospace;--pa-num:"Outfit",sans-serif;--pa-mono:"Outfit",monospace;--pb-kr:"Noto Sans KR",sans-serif;--pb-br:"Outfit",sans-serif;--pb-mo:"Outfit",monospace;font-family:"Noto Sans KR","IBM Plex Sans KR",sans-serif;letter-spacing:-0.02em}
+#any .cvf-scr.pa-s1 .pa-bar :is(b,strong),#any .cvf-scr.pa-s1 .pa-bar{font-family:"Noto Sans KR","IBM Plex Sans KR",sans-serif!important}
+#any .cvf-scr.pa-s1 :is(svg text,.pa-amt,.pa-kp,.pa-sum,.pa-h1,.pa-h2){font-family:"Outfit","Noto Sans KR",sans-serif}
+#any .cvf-scr.pa-s2{--f-kr:"Noto Serif KR","IBM Plex Sans KR",sans-serif;--f-brand:"Cormorant Garamond",sans-serif;--f-mono:"Cormorant Garamond",monospace;--pa-num:"Cormorant Garamond",sans-serif;--pa-mono:"Cormorant Garamond",monospace;--pb-kr:"Noto Serif KR",sans-serif;--pb-br:"Cormorant Garamond",sans-serif;--pb-mo:"Cormorant Garamond",monospace;font-family:"Noto Serif KR","IBM Plex Sans KR",sans-serif;letter-spacing:-0.02em}
+#any .cvf-scr.pa-s2 .pa-nv :is(b,strong),#any .cvf-scr.pa-s2 .pa-nv{font-family:"Noto Serif KR","IBM Plex Sans KR",sans-serif!important}
+#any .cvf-scr.pa-s2 :is(svg text,.pa-amt,.pa-kp,.pa-sum,.pa-h1,.pa-h2){font-family:"Cormorant Garamond","Noto Serif KR",sans-serif}
+#any .cvf-scr.pa-s3{--f-kr:"Black Han Sans","IBM Plex Sans KR",sans-serif;--f-brand:"Barlow Condensed",sans-serif;--f-mono:"Barlow Condensed",monospace;--pa-num:"Barlow Condensed",sans-serif;--pa-mono:"Barlow Condensed",monospace;--pb-kr:"Black Han Sans",sans-serif;--pb-br:"Barlow Condensed",sans-serif;--pb-mo:"Barlow Condensed",monospace;font-family:"Black Han Sans","IBM Plex Sans KR",sans-serif;letter-spacing:-0.02em}
+#any .cvf-scr.pa-s3 .pa-h :is(b,strong),#any .cvf-scr.pa-s3 .pa-h{font-family:"Black Han Sans","IBM Plex Sans KR",sans-serif!important}
+#any .cvf-scr.pa-s3 :is(svg text,.pa-amt,.pa-kp,.pa-sum,.pa-h1,.pa-h2){font-family:"Barlow Condensed","Black Han Sans",sans-serif}
+#any .cvf-scr.pa-s4{--f-kr:"Hahmlet","IBM Plex Sans KR",sans-serif;--f-brand:"DM Serif Display",sans-serif;--f-mono:"DM Serif Display",monospace;--pa-num:"DM Serif Display",sans-serif;--pa-mono:"DM Serif Display",monospace;--pb-kr:"Hahmlet",sans-serif;--pb-br:"DM Serif Display",sans-serif;--pb-mo:"DM Serif Display",monospace;font-family:"Hahmlet","IBM Plex Sans KR",sans-serif;letter-spacing:-0.02em}
+#any .cvf-scr.pa-s4 .pa-hd :is(b,strong),#any .cvf-scr.pa-s4 .pa-hd{font-family:"Hahmlet","IBM Plex Sans KR",sans-serif!important}
+#any .cvf-scr.pa-s4 :is(svg text,.pa-amt,.pa-kp,.pa-sum,.pa-h1,.pa-h2){font-family:"DM Serif Display","Hahmlet",sans-serif}
+#any .cvf-scr.pa-s5{--f-kr:"Gowun Dodum","IBM Plex Sans KR",sans-serif;--f-brand:"Fredoka",sans-serif;--f-mono:"Fredoka",monospace;--pa-num:"Fredoka",sans-serif;--pa-mono:"Fredoka",monospace;--pb-kr:"Gowun Dodum",sans-serif;--pb-br:"Fredoka",sans-serif;--pb-mo:"Fredoka",monospace;font-family:"Gowun Dodum","IBM Plex Sans KR",sans-serif;letter-spacing:-0.02em}
+#any .cvf-scr.pa-s5 .pa-hd :is(b,strong),#any .cvf-scr.pa-s5 .pa-hd{font-family:"Gowun Dodum","IBM Plex Sans KR",sans-serif!important}
+#any .cvf-scr.pa-s5 :is(svg text,.pa-amt,.pa-kp,.pa-sum,.pa-h1,.pa-h2){font-family:"Fredoka","Gowun Dodum",sans-serif}
+#any .cvf-scr.pa-s6{--f-kr:"Do Hyeon","IBM Plex Sans KR",sans-serif;--f-brand:"Teko",sans-serif;--f-mono:"Teko",monospace;--pa-num:"Teko",sans-serif;--pa-mono:"Teko",monospace;--pb-kr:"Do Hyeon",sans-serif;--pb-br:"Teko",sans-serif;--pb-mo:"Teko",monospace;font-family:"Do Hyeon","IBM Plex Sans KR",sans-serif;letter-spacing:-0.02em}
+#any .cvf-scr.pa-s6 .pa-hd :is(b,strong),#any .cvf-scr.pa-s6 .pa-hd{font-family:"Do Hyeon","IBM Plex Sans KR",sans-serif!important}
+#any .cvf-scr.pa-s6 :is(svg text,.pa-amt,.pa-kp,.pa-sum,.pa-h1,.pa-h2){font-family:"Teko","Do Hyeon",sans-serif}
+#any .cvf-scr.pa-s7{--f-kr:"Gothic A1","IBM Plex Sans KR",sans-serif;--f-brand:"JetBrains Mono",sans-serif;--f-mono:"JetBrains Mono",monospace;--pa-num:"JetBrains Mono",sans-serif;--pa-mono:"JetBrains Mono",monospace;--pb-kr:"Gothic A1",sans-serif;--pb-br:"JetBrains Mono",sans-serif;--pb-mo:"JetBrains Mono",monospace;font-family:"Gothic A1","IBM Plex Sans KR",sans-serif;letter-spacing:-0.02em}
+#any .cvf-scr.pa-s7 .pa-top :is(b,strong),#any .cvf-scr.pa-s7 .pa-top{font-family:"Gothic A1","IBM Plex Sans KR",sans-serif!important}
+#any .cvf-scr.pa-s7 :is(svg text,.pa-amt,.pa-kp,.pa-sum,.pa-h1,.pa-h2){font-family:"JetBrains Mono","Gothic A1",sans-serif}
+#any .cvf-scr.pa-s8{--f-kr:"IBM Plex Sans KR","IBM Plex Sans KR",sans-serif;--f-brand:"Space Grotesk",sans-serif;--f-mono:"Space Grotesk",monospace;--pa-num:"Space Grotesk",sans-serif;--pa-mono:"Space Grotesk",monospace;--pb-kr:"IBM Plex Sans KR",sans-serif;--pb-br:"Space Grotesk",sans-serif;--pb-mo:"Space Grotesk",monospace;font-family:"IBM Plex Sans KR","IBM Plex Sans KR",sans-serif;letter-spacing:-0.02em}
+#any .cvf-scr.pa-s8 .pa-hd :is(b,strong),#any .cvf-scr.pa-s8 .pa-hd{font-family:"IBM Plex Sans KR","IBM Plex Sans KR",sans-serif!important}
+#any .cvf-scr.pa-s8 :is(svg text,.pa-amt,.pa-kp,.pa-sum,.pa-h1,.pa-h2){font-family:"Space Grotesk","IBM Plex Sans KR",sans-serif}
+#any .cvf-scr.pb-s1{--f-kr:"Hahmlet","IBM Plex Sans KR",sans-serif;--f-brand:"DM Serif Display",sans-serif;--f-mono:"DM Serif Display",monospace;--pb-num:"DM Serif Display",sans-serif;--pb-mono:"DM Serif Display",monospace;--pb-kr:"Hahmlet",sans-serif;--pb-br:"DM Serif Display",sans-serif;--pb-mo:"DM Serif Display",monospace;font-family:"Hahmlet","IBM Plex Sans KR",sans-serif;letter-spacing:-0.01em}
+#any .cvf-scr.pb-s1 .pb-hd :is(b,strong),#any .cvf-scr.pb-s1 .pb-hd{font-family:"Hahmlet","IBM Plex Sans KR",sans-serif!important}
+#any .cvf-scr.pb-s1 :is(svg text,.pb-amt,.pb-kp,.pb-sum,.pb-h1,.pb-h2){font-family:"DM Serif Display","Hahmlet",sans-serif}
+#any .cvf-scr.pb-s2{--f-kr:"Gowun Dodum","IBM Plex Sans KR",sans-serif;--f-brand:"Fredoka",sans-serif;--f-mono:"Fredoka",monospace;--pb-num:"Fredoka",sans-serif;--pb-mono:"Fredoka",monospace;--pb-kr:"Gowun Dodum",sans-serif;--pb-br:"Fredoka",sans-serif;--pb-mo:"Fredoka",monospace;font-family:"Gowun Dodum","IBM Plex Sans KR",sans-serif;letter-spacing:-0.01em}
+#any .cvf-scr.pb-s2 .pb-hd :is(b,strong),#any .cvf-scr.pb-s2 .pb-hd{font-family:"Gowun Dodum","IBM Plex Sans KR",sans-serif!important}
+#any .cvf-scr.pb-s2 :is(svg text,.pb-amt,.pb-kp,.pb-sum,.pb-h1,.pb-h2){font-family:"Fredoka","Gowun Dodum",sans-serif}
+#any .cvf-scr.pb-s3{--f-kr:"Do Hyeon","IBM Plex Sans KR",sans-serif;--f-brand:"Teko",sans-serif;--f-mono:"Teko",monospace;--pb-num:"Teko",sans-serif;--pb-mono:"Teko",monospace;--pb-kr:"Do Hyeon",sans-serif;--pb-br:"Teko",sans-serif;--pb-mo:"Teko",monospace;font-family:"Do Hyeon","IBM Plex Sans KR",sans-serif;letter-spacing:-0.01em}
+#any .cvf-scr.pb-s3 .pb-hd :is(b,strong),#any .cvf-scr.pb-s3 .pb-hd{font-family:"Do Hyeon","IBM Plex Sans KR",sans-serif!important}
+#any .cvf-scr.pb-s3 :is(svg text,.pb-amt,.pb-kp,.pb-sum,.pb-h1,.pb-h2){font-family:"Teko","Do Hyeon",sans-serif}
+#any .cvf-scr.pb-s4{--f-kr:"Gothic A1","IBM Plex Sans KR",sans-serif;--f-brand:"JetBrains Mono",sans-serif;--f-mono:"JetBrains Mono",monospace;--pb-num:"JetBrains Mono",sans-serif;--pb-mono:"JetBrains Mono",monospace;--pb-kr:"Gothic A1",sans-serif;--pb-br:"JetBrains Mono",sans-serif;--pb-mo:"JetBrains Mono",monospace;font-family:"Gothic A1","IBM Plex Sans KR",sans-serif;letter-spacing:-0.01em}
+#any .cvf-scr.pb-s4 .pb-hd :is(b,strong),#any .cvf-scr.pb-s4 .pb-hd{font-family:"Gothic A1","IBM Plex Sans KR",sans-serif!important}
+#any .cvf-scr.pb-s4 :is(svg text,.pb-amt,.pb-kp,.pb-sum,.pb-h1,.pb-h2){font-family:"JetBrains Mono","Gothic A1",sans-serif}
+#any .cvf-scr.pb-s5{--f-kr:"IBM Plex Sans KR","IBM Plex Sans KR",sans-serif;--f-brand:"Space Grotesk",sans-serif;--f-mono:"Space Grotesk",monospace;--pb-num:"Space Grotesk",sans-serif;--pb-mono:"Space Grotesk",monospace;--pb-kr:"IBM Plex Sans KR",sans-serif;--pb-br:"Space Grotesk",sans-serif;--pb-mo:"Space Grotesk",monospace;font-family:"IBM Plex Sans KR","IBM Plex Sans KR",sans-serif;letter-spacing:-0.01em}
+#any .cvf-scr.pb-s5 .pb-hd :is(b,strong),#any .cvf-scr.pb-s5 .pb-hd{font-family:"IBM Plex Sans KR","IBM Plex Sans KR",sans-serif!important}
+#any .cvf-scr.pb-s5 :is(svg text,.pb-amt,.pb-kp,.pb-sum,.pb-h1,.pb-h2){font-family:"Space Grotesk","IBM Plex Sans KR",sans-serif}
+#any .cvf-scr.pb-s6{--f-kr:"Noto Sans KR","IBM Plex Sans KR",sans-serif;--f-brand:"Outfit",sans-serif;--f-mono:"Outfit",monospace;--pb-num:"Outfit",sans-serif;--pb-mono:"Outfit",monospace;--pb-kr:"Noto Sans KR",sans-serif;--pb-br:"Outfit",sans-serif;--pb-mo:"Outfit",monospace;font-family:"Noto Sans KR","IBM Plex Sans KR",sans-serif;letter-spacing:-0.01em}
+#any .cvf-scr.pb-s6 .pb-hd :is(b,strong),#any .cvf-scr.pb-s6 .pb-hd{font-family:"Noto Sans KR","IBM Plex Sans KR",sans-serif!important}
+#any .cvf-scr.pb-s6 :is(svg text,.pb-amt,.pb-kp,.pb-sum,.pb-h1,.pb-h2){font-family:"Outfit","Noto Sans KR",sans-serif}
+#any .cvf-scr.pb-s7{--f-kr:"Noto Serif KR","IBM Plex Sans KR",sans-serif;--f-brand:"Cormorant Garamond",sans-serif;--f-mono:"Cormorant Garamond",monospace;--pb-num:"Cormorant Garamond",sans-serif;--pb-mono:"Cormorant Garamond",monospace;--pb-kr:"Noto Serif KR",sans-serif;--pb-br:"Cormorant Garamond",sans-serif;--pb-mo:"Cormorant Garamond",monospace;font-family:"Noto Serif KR","IBM Plex Sans KR",sans-serif;letter-spacing:-0.01em}
+#any .cvf-scr.pb-s7 .pb-hd :is(b,strong),#any .cvf-scr.pb-s7 .pb-hd{font-family:"Noto Serif KR","IBM Plex Sans KR",sans-serif!important}
+#any .cvf-scr.pb-s7 :is(svg text,.pb-amt,.pb-kp,.pb-sum,.pb-h1,.pb-h2){font-family:"Cormorant Garamond","Noto Serif KR",sans-serif}
+#any .cvf-scr.pb-s8{--f-kr:"Black Han Sans","IBM Plex Sans KR",sans-serif;--f-brand:"Barlow Condensed",sans-serif;--f-mono:"Barlow Condensed",monospace;--pb-num:"Barlow Condensed",sans-serif;--pb-mono:"Barlow Condensed",monospace;--pb-kr:"Black Han Sans",sans-serif;--pb-br:"Barlow Condensed",sans-serif;--pb-mo:"Barlow Condensed",monospace;font-family:"Black Han Sans","IBM Plex Sans KR",sans-serif;letter-spacing:-0.01em}
+#any .cvf-scr.pb-s8 .pb-hd :is(b,strong),#any .cvf-scr.pb-s8 .pb-hd{font-family:"Black Han Sans","IBM Plex Sans KR",sans-serif!important}
+#any .cvf-scr.pb-s8 :is(svg text,.pb-amt,.pb-kp,.pb-sum,.pb-h1,.pb-h2){font-family:"Barlow Condensed","Black Han Sans",sans-serif}
+#any .cvf-scr.pc-s1{--f-kr:"Gothic A1","IBM Plex Sans KR",sans-serif;--f-brand:"JetBrains Mono",sans-serif;--f-mono:"JetBrains Mono",monospace;--pc-num:"JetBrains Mono",sans-serif;--pc-mono:"JetBrains Mono",monospace;--pb-kr:"Gothic A1",sans-serif;--pb-br:"JetBrains Mono",sans-serif;--pb-mo:"JetBrains Mono",monospace;font-family:"Gothic A1","IBM Plex Sans KR",sans-serif;letter-spacing:0em}
+#any .cvf-scr.pc-s1 .pc-hd :is(b,strong),#any .cvf-scr.pc-s1 .pc-hd{font-family:"Gothic A1","IBM Plex Sans KR",sans-serif!important}
+#any .cvf-scr.pc-s1 :is(svg text,.pc-amt,.pc-kp,.pc-sum,.pc-h1,.pc-h2){font-family:"JetBrains Mono","Gothic A1",sans-serif}
+#any .cvf-scr.pc-s2{--f-kr:"IBM Plex Sans KR","IBM Plex Sans KR",sans-serif;--f-brand:"Space Grotesk",sans-serif;--f-mono:"Space Grotesk",monospace;--pc-num:"Space Grotesk",sans-serif;--pc-mono:"Space Grotesk",monospace;--pb-kr:"IBM Plex Sans KR",sans-serif;--pb-br:"Space Grotesk",sans-serif;--pb-mo:"Space Grotesk",monospace;font-family:"IBM Plex Sans KR","IBM Plex Sans KR",sans-serif;letter-spacing:0em}
+#any .cvf-scr.pc-s2 .pc-hd :is(b,strong),#any .cvf-scr.pc-s2 .pc-hd{font-family:"IBM Plex Sans KR","IBM Plex Sans KR",sans-serif!important}
+#any .cvf-scr.pc-s2 :is(svg text,.pc-amt,.pc-kp,.pc-sum,.pc-h1,.pc-h2){font-family:"Space Grotesk","IBM Plex Sans KR",sans-serif}
+#any .cvf-scr.pc-s3{--f-kr:"Noto Sans KR","IBM Plex Sans KR",sans-serif;--f-brand:"Outfit",sans-serif;--f-mono:"Outfit",monospace;--pc-num:"Outfit",sans-serif;--pc-mono:"Outfit",monospace;--pb-kr:"Noto Sans KR",sans-serif;--pb-br:"Outfit",sans-serif;--pb-mo:"Outfit",monospace;font-family:"Noto Sans KR","IBM Plex Sans KR",sans-serif;letter-spacing:0em}
+#any .cvf-scr.pc-s3 .pc-org :is(b,strong),#any .cvf-scr.pc-s3 .pc-org{font-family:"Noto Sans KR","IBM Plex Sans KR",sans-serif!important}
+#any .cvf-scr.pc-s3 :is(svg text,.pc-amt,.pc-kp,.pc-sum,.pc-h1,.pc-h2){font-family:"Outfit","Noto Sans KR",sans-serif}
+#any .cvf-scr.pc-s4{--f-kr:"Noto Serif KR","IBM Plex Sans KR",sans-serif;--f-brand:"Cormorant Garamond",sans-serif;--f-mono:"Cormorant Garamond",monospace;--pc-num:"Cormorant Garamond",sans-serif;--pc-mono:"Cormorant Garamond",monospace;--pb-kr:"Noto Serif KR",sans-serif;--pb-br:"Cormorant Garamond",sans-serif;--pb-mo:"Cormorant Garamond",monospace;font-family:"Noto Serif KR","IBM Plex Sans KR",sans-serif;letter-spacing:0em}
+#any .cvf-scr.pc-s4 .pc-brand :is(b,strong),#any .cvf-scr.pc-s4 .pc-brand{font-family:"Noto Serif KR","IBM Plex Sans KR",sans-serif!important}
+#any .cvf-scr.pc-s4 :is(svg text,.pc-amt,.pc-kp,.pc-sum,.pc-h1,.pc-h2){font-family:"Cormorant Garamond","Noto Serif KR",sans-serif}
+#any .cvf-scr.pc-s5{--f-kr:"Black Han Sans","IBM Plex Sans KR",sans-serif;--f-brand:"Barlow Condensed",sans-serif;--f-mono:"Barlow Condensed",monospace;--pc-num:"Barlow Condensed",sans-serif;--pc-mono:"Barlow Condensed",monospace;--pb-kr:"Black Han Sans",sans-serif;--pb-br:"Barlow Condensed",sans-serif;--pb-mo:"Barlow Condensed",monospace;font-family:"Black Han Sans","IBM Plex Sans KR",sans-serif;letter-spacing:0em}
+#any .cvf-scr.pc-s5 .pc-hd :is(b,strong),#any .cvf-scr.pc-s5 .pc-hd{font-family:"Black Han Sans","IBM Plex Sans KR",sans-serif!important}
+#any .cvf-scr.pc-s5 :is(svg text,.pc-amt,.pc-kp,.pc-sum,.pc-h1,.pc-h2){font-family:"Barlow Condensed","Black Han Sans",sans-serif}
+#any .cvf-scr.pc-s6{--f-kr:"Hahmlet","IBM Plex Sans KR",sans-serif;--f-brand:"DM Serif Display",sans-serif;--f-mono:"DM Serif Display",monospace;--pc-num:"DM Serif Display",sans-serif;--pc-mono:"DM Serif Display",monospace;--pb-kr:"Hahmlet",sans-serif;--pb-br:"DM Serif Display",sans-serif;--pb-mo:"DM Serif Display",monospace;font-family:"Hahmlet","IBM Plex Sans KR",sans-serif;letter-spacing:0em}
+#any .cvf-scr.pc-s6 .pc-nv :is(b,strong),#any .cvf-scr.pc-s6 .pc-nv{font-family:"Hahmlet","IBM Plex Sans KR",sans-serif!important}
+#any .cvf-scr.pc-s6 :is(svg text,.pc-amt,.pc-kp,.pc-sum,.pc-h1,.pc-h2){font-family:"DM Serif Display","Hahmlet",sans-serif}
+#any .cvf-scr.pc-s7{--f-kr:"Gowun Dodum","IBM Plex Sans KR",sans-serif;--f-brand:"Fredoka",sans-serif;--f-mono:"Fredoka",monospace;--pc-num:"Fredoka",sans-serif;--pc-mono:"Fredoka",monospace;--pb-kr:"Gowun Dodum",sans-serif;--pb-br:"Fredoka",sans-serif;--pb-mo:"Fredoka",monospace;font-family:"Gowun Dodum","IBM Plex Sans KR",sans-serif;letter-spacing:0em}
+#any .cvf-scr.pc-s7 .pc-ht :is(b,strong),#any .cvf-scr.pc-s7 .pc-ht{font-family:"Gowun Dodum","IBM Plex Sans KR",sans-serif!important}
+#any .cvf-scr.pc-s7 :is(svg text,.pc-amt,.pc-kp,.pc-sum,.pc-h1,.pc-h2){font-family:"Fredoka","Gowun Dodum",sans-serif}
+#any .cvf-scr.pc-s8{--f-kr:"Do Hyeon","IBM Plex Sans KR",sans-serif;--f-brand:"Teko",sans-serif;--f-mono:"Teko",monospace;--pc-num:"Teko",sans-serif;--pc-mono:"Teko",monospace;--pb-kr:"Do Hyeon",sans-serif;--pb-br:"Teko",sans-serif;--pb-mo:"Teko",monospace;font-family:"Do Hyeon","IBM Plex Sans KR",sans-serif;letter-spacing:0em}
+#any .cvf-scr.pc-s8 .pc-hd :is(b,strong),#any .cvf-scr.pc-s8 .pc-hd{font-family:"Do Hyeon","IBM Plex Sans KR",sans-serif!important}
+#any .cvf-scr.pc-s8 :is(svg text,.pc-amt,.pc-kp,.pc-sum,.pc-h1,.pc-h2){font-family:"Teko","Do Hyeon",sans-serif}
+#any .cvf-scr.pd-s1{--f-kr:"Noto Serif KR","IBM Plex Sans KR",sans-serif;--f-brand:"Cormorant Garamond",sans-serif;--f-mono:"Cormorant Garamond",monospace;--pd-num:"Cormorant Garamond",sans-serif;--pd-mono:"Cormorant Garamond",monospace;--pb-kr:"Noto Serif KR",sans-serif;--pb-br:"Cormorant Garamond",sans-serif;--pb-mo:"Cormorant Garamond",monospace;font-family:"Noto Serif KR","IBM Plex Sans KR",sans-serif;letter-spacing:0.01em}
+#any .cvf-scr.pd-s1 .pd-hd :is(b,strong),#any .cvf-scr.pd-s1 .pd-hd{font-family:"Noto Serif KR","IBM Plex Sans KR",sans-serif!important}
+#any .cvf-scr.pd-s1 :is(svg text,.pd-amt,.pd-kp,.pd-sum,.pd-h1,.pd-h2){font-family:"Cormorant Garamond","Noto Serif KR",sans-serif}
+#any .cvf-scr.pd-s2{--f-kr:"Black Han Sans","IBM Plex Sans KR",sans-serif;--f-brand:"Barlow Condensed",sans-serif;--f-mono:"Barlow Condensed",monospace;--pd-num:"Barlow Condensed",sans-serif;--pd-mono:"Barlow Condensed",monospace;--pb-kr:"Black Han Sans",sans-serif;--pb-br:"Barlow Condensed",sans-serif;--pb-mo:"Barlow Condensed",monospace;font-family:"Black Han Sans","IBM Plex Sans KR",sans-serif;letter-spacing:0.01em}
+#any .cvf-scr.pd-s2 .pd-hd :is(b,strong),#any .cvf-scr.pd-s2 .pd-hd{font-family:"Black Han Sans","IBM Plex Sans KR",sans-serif!important}
+#any .cvf-scr.pd-s2 :is(svg text,.pd-amt,.pd-kp,.pd-sum,.pd-h1,.pd-h2){font-family:"Barlow Condensed","Black Han Sans",sans-serif}
+#any .cvf-scr.pd-s3{--f-kr:"Hahmlet","IBM Plex Sans KR",sans-serif;--f-brand:"DM Serif Display",sans-serif;--f-mono:"DM Serif Display",monospace;--pd-num:"DM Serif Display",sans-serif;--pd-mono:"DM Serif Display",monospace;--pb-kr:"Hahmlet",sans-serif;--pb-br:"DM Serif Display",sans-serif;--pb-mo:"DM Serif Display",monospace;font-family:"Hahmlet","IBM Plex Sans KR",sans-serif;letter-spacing:0.01em}
+#any .cvf-scr.pd-s3 .pd-hd :is(b,strong),#any .cvf-scr.pd-s3 .pd-hd{font-family:"Hahmlet","IBM Plex Sans KR",sans-serif!important}
+#any .cvf-scr.pd-s3 :is(svg text,.pd-amt,.pd-kp,.pd-sum,.pd-h1,.pd-h2){font-family:"DM Serif Display","Hahmlet",sans-serif}
+#any .cvf-scr.pd-s4{--f-kr:"Gowun Dodum","IBM Plex Sans KR",sans-serif;--f-brand:"Fredoka",sans-serif;--f-mono:"Fredoka",monospace;--pd-num:"Fredoka",sans-serif;--pd-mono:"Fredoka",monospace;--pb-kr:"Gowun Dodum",sans-serif;--pb-br:"Fredoka",sans-serif;--pb-mo:"Fredoka",monospace;font-family:"Gowun Dodum","IBM Plex Sans KR",sans-serif;letter-spacing:0.01em}
+#any .cvf-scr.pd-s4 .pd-hd :is(b,strong),#any .cvf-scr.pd-s4 .pd-hd{font-family:"Gowun Dodum","IBM Plex Sans KR",sans-serif!important}
+#any .cvf-scr.pd-s4 :is(svg text,.pd-amt,.pd-kp,.pd-sum,.pd-h1,.pd-h2){font-family:"Fredoka","Gowun Dodum",sans-serif}
+#any .cvf-scr.pd-s5{--f-kr:"Do Hyeon","IBM Plex Sans KR",sans-serif;--f-brand:"Teko",sans-serif;--f-mono:"Teko",monospace;--pd-num:"Teko",sans-serif;--pd-mono:"Teko",monospace;--pb-kr:"Do Hyeon",sans-serif;--pb-br:"Teko",sans-serif;--pb-mo:"Teko",monospace;font-family:"Do Hyeon","IBM Plex Sans KR",sans-serif;letter-spacing:0.01em}
+#any .cvf-scr.pd-s5 .pd-hd :is(b,strong),#any .cvf-scr.pd-s5 .pd-hd{font-family:"Do Hyeon","IBM Plex Sans KR",sans-serif!important}
+#any .cvf-scr.pd-s5 :is(svg text,.pd-amt,.pd-kp,.pd-sum,.pd-h1,.pd-h2){font-family:"Teko","Do Hyeon",sans-serif}
+#any .cvf-scr.pd-s6{--f-kr:"Gothic A1","IBM Plex Sans KR",sans-serif;--f-brand:"JetBrains Mono",sans-serif;--f-mono:"JetBrains Mono",monospace;--pd-num:"JetBrains Mono",sans-serif;--pd-mono:"JetBrains Mono",monospace;--pb-kr:"Gothic A1",sans-serif;--pb-br:"JetBrains Mono",sans-serif;--pb-mo:"JetBrains Mono",monospace;font-family:"Gothic A1","IBM Plex Sans KR",sans-serif;letter-spacing:0.01em}
+#any .cvf-scr.pd-s6 .pd-hd :is(b,strong),#any .cvf-scr.pd-s6 .pd-hd{font-family:"Gothic A1","IBM Plex Sans KR",sans-serif!important}
+#any .cvf-scr.pd-s6 :is(svg text,.pd-amt,.pd-kp,.pd-sum,.pd-h1,.pd-h2){font-family:"JetBrains Mono","Gothic A1",sans-serif}
+#any .cvf-scr.pd-s7{--f-kr:"IBM Plex Sans KR","IBM Plex Sans KR",sans-serif;--f-brand:"Space Grotesk",sans-serif;--f-mono:"Space Grotesk",monospace;--pd-num:"Space Grotesk",sans-serif;--pd-mono:"Space Grotesk",monospace;--pb-kr:"IBM Plex Sans KR",sans-serif;--pb-br:"Space Grotesk",sans-serif;--pb-mo:"Space Grotesk",monospace;font-family:"IBM Plex Sans KR","IBM Plex Sans KR",sans-serif;letter-spacing:0.01em}
+#any .cvf-scr.pd-s7 .pd-hd :is(b,strong),#any .cvf-scr.pd-s7 .pd-hd{font-family:"IBM Plex Sans KR","IBM Plex Sans KR",sans-serif!important}
+#any .cvf-scr.pd-s7 :is(svg text,.pd-amt,.pd-kp,.pd-sum,.pd-h1,.pd-h2){font-family:"Space Grotesk","IBM Plex Sans KR",sans-serif}
+#any .cvf-scr.pd-s8{--f-kr:"Noto Sans KR","IBM Plex Sans KR",sans-serif;--f-brand:"Outfit",sans-serif;--f-mono:"Outfit",monospace;--pd-num:"Outfit",sans-serif;--pd-mono:"Outfit",monospace;--pb-kr:"Noto Sans KR",sans-serif;--pb-br:"Outfit",sans-serif;--pb-mo:"Outfit",monospace;font-family:"Noto Sans KR","IBM Plex Sans KR",sans-serif;letter-spacing:0.01em}
+#any .cvf-scr.pd-s8 .pd-hd :is(b,strong),#any .cvf-scr.pd-s8 .pd-hd{font-family:"Noto Sans KR","IBM Plex Sans KR",sans-serif!important}
+#any .cvf-scr.pd-s8 :is(svg text,.pd-amt,.pd-kp,.pd-sum,.pd-h1,.pd-h2){font-family:"Outfit","Noto Sans KR",sans-serif}
+#any .cvf-scr.pa-s1 .pa-q{border-radius:2px;box-shadow:none;border-left:3px solid #2d51dc}
+#any .cvf-scr.pa-s1 .pa-req{border-radius:3px;box-shadow:none}
+#any .cvf-scr.pa-s1 .pa-cta{border-radius:2px}
+#any .cvf-scr.pa-s2 .pa-hero{border-radius:0 0 70px 0}
+#any .cvf-scr.pa-s2 .pa-ts li{border-radius:50%}
+#any .cvf-scr.pa-s2 .pa-cal .pa-on{border-radius:50%}
+#any .cvf-scr.pa-s2 .pa-mo{font-family:"Cormorant Garamond",serif!important}
+#any .cvf-scr.pa-s3 .pa-bn{border-radius:0;box-shadow:none}
+#any .cvf-scr.pa-s3 .pa-mi{border-radius:0;border-bottom:2px solid currentColor}
+#any .cvf-scr.pa-s3 .pa-cb{border-radius:0;transform:skewX(-4deg)}
+#any .cvf-scr.pa-s4 .pa-cd{border-radius:24px 4px 24px 4px;box-shadow:0 12px 24px #0003}
+#any .cvf-scr.pa-s4 .pa-tk{border-radius:0 18px 18px 0}
+#any .cvf-scr.pa-s4 .pa-sc i{border-radius:50%}
+#any .cvf-scr.pa-s5 .pa-c{border-radius:24px;overflow:hidden}
+#any .cvf-scr.pa-s5 .pa-fb{border-radius:99px}
+#any .cvf-scr.pa-s5 .pa-cp{border-radius:99px}
+#any .cvf-scr.pa-s5 .pa-r b{font-family:"Fredoka",sans-serif}
+#any .cvf-scr.pa-s6 .pa-hr{border-radius:0 28px 0 28px}
+#any .cvf-scr.pa-s6 .pa-wc{border-radius:3px}
+#any .cvf-scr.pa-s6 .pa-co{border-radius:3px}
+#any .cvf-scr.pa-s6 .pa-gl{border-radius:0}
+#any .cvf-scr.pa-s6 .pa-hb{font-family:"Teko",sans-serif!important}
+#any .cvf-scr.pa-s7 .pa-nw{border-radius:2px;box-shadow:none}
+#any .cvf-scr.pa-s7 .pa-sc{border-radius:0;border-left:2px solid currentColor}
+#any .cvf-scr.pa-s7 .pa-ea{border-radius:0}
+#any .cvf-scr.pa-s7 .pa-tl{border-left-style:dashed}
+#any .cvf-scr.pa-s8 .pa-kp{border-radius:0;border-bottom:1px solid #ffffff30}
+#any .cvf-scr.pa-s8 .pa-ch{border-radius:0;background-image:linear-gradient(#ffffff08 1px,transparent 1px);background-size:100% 24px}
+#any .cvf-scr.pa-s8 .pa-bk{border-radius:1px}
+#any .cvf-scr.pb-s1 .pb-doc{border-radius:0;box-shadow:3px 3px 0 #1e272430}
+#any .cvf-scr.pb-s1 .pb-tabs{border-radius:0}
+#any .cvf-scr.pb-s1 .pb-pri{border-radius:1px}
+#any .cvf-scr.pb-s1 .pb-ttl{font-family:"Noto Serif KR",serif!important}
+#any .cvf-scr.pb-s2 .pb-hero{border-radius:0 0 32px 32px}
+#any .cvf-scr.pb-s2 .pb-btn,#any .cvf-scr.pb-s2 .pb-btn2{border-radius:99px}
+#any .cvf-scr.pb-s2 .pb-days b{border-radius:50%}
+#any .cvf-scr.pb-s2 .pb-ring{border-style:dotted}
+#any .cvf-scr.pb-s3 .pb-goal{border-radius:0;box-shadow:none}
+#any .cvf-scr.pb-s3 .pb-col{border-radius:2px}
+#any .cvf-scr.pb-s3 .pb-kb .pb-b{border-radius:2px;border-left:3px solid currentColor}
+#any .cvf-scr.pb-s3 .pb-fab{border-radius:8px}
+#any .cvf-scr.pb-s4 .pb-sum{border-radius:2px}
+#any .cvf-scr.pb-s4 .pb-tbl{border-radius:0}
+#any .cvf-scr.pb-s4 .pb-tbl>div{border-bottom-style:dashed}
+#any .cvf-scr.pb-s4 .pb-fl{border-radius:1px}
+#any .cvf-scr.pb-s5 .pb-sec{border-radius:0;border-top:2px solid currentColor}
+#any .cvf-scr.pb-s5 .pb-chk{border-radius:50%}
+#any .cvf-scr.pb-s5 .pb-prog{border-radius:0}
+#any .cvf-scr.pb-s5 .pb-pics>*{border-radius:1px}
+#any .cvf-scr.pb-s6 .pb-msgs .pb-g{border-radius:0 20px 20px 20px}
+#any .cvf-scr.pb-s6 .pb-msgs .pb-me{border-radius:20px 0 20px 20px}
+#any .cvf-scr.pb-s6 .pb-pin{border-radius:0}
+#any .cvf-scr.pb-s6 .pb-in{border-radius:99px}
+#any .cvf-scr.pb-s7 .pb-kpi{border-radius:0;border-left:1px solid #ffffff22}
+#any .cvf-scr.pb-s7 .pb-c{border-radius:0}
+#any .cvf-scr.pb-s7 .pb-gr{background-image:linear-gradient(#ffffff09 1px,transparent 1px);background-size:100% 20px}
+#any .cvf-scr.pb-s7 .pb-gr .pb-ln{stroke-dasharray:3 3;stroke-linecap:square}
+#any .cvf-scr.pb-s8 .pb-tk{border-radius:0;border-left:4px solid currentColor}
+#any .cvf-scr.pb-s8 .pb-hot{border-radius:2px}
+#any .cvf-scr.pb-s8 .pb-stp .pb-c{border-radius:50%}
+#any .cvf-scr.pb-s8 .pb-btn{border-radius:0}
+#any .cvf-scr.pc-s1 .pc-card{border-radius:0;box-shadow:none;border-top:3px solid currentColor}
+#any .cvf-scr.pc-s1 .pc-steps{border-radius:0}
+#any .cvf-scr.pc-s1 .pc-cta{border-radius:1px}
+#any .cvf-scr.pc-s2 .pc-fac{border-radius:28px 28px 4px 4px}
+#any .cvf-scr.pc-s2 .pc-dt{border-radius:18px}
+#any .cvf-scr.pc-s2 .pc-m-s{border-radius:50%}
+#any .cvf-scr.pc-s2 .pc-chips>*{border-radius:99px}
+#any .cvf-scr.pc-s3 .pc-pg{border-radius:0;box-shadow:none;border-bottom:1px solid currentColor}
+#any .cvf-scr.pc-s3 .pc-seal{border-radius:50%}
+#any .cvf-scr.pc-s3 .pc-rm{border-radius:2px}
+#any .cvf-scr.pc-s4 .pc-my{border-radius:28px 0 28px 0}
+#any .cvf-scr.pc-s4 .pc-ln{border-radius:0}
+#any .cvf-scr.pc-s4 .pc-sg{border-radius:99px}
+#any .cvf-scr.pc-s4 .pc-hero{border-bottom:3px solid currentColor}
+#any .cvf-scr.pc-s5 .pc-idc{border-radius:4px 4px 28px 4px;box-shadow:3px 5px 0 #0002}
+#any .cvf-scr.pc-s5 .pc-st{border-radius:0}
+#any .cvf-scr.pc-s5 .pc-rw{border-bottom:1px dotted currentColor}
+#any .cvf-scr.pc-s5 .pc-cta{border-radius:4px}
+#any .cvf-scr.pc-s6 .pc-q{border-radius:0;border-top:3px solid currentColor}
+#any .cvf-scr.pc-s6 .pc-op{border-radius:0}
+#any .cvf-scr.pc-s6 .pc-op i{border-radius:0}
+#any .cvf-scr.pc-s6 .pc-act{border-radius:0}
+#any .cvf-scr.pc-s7 .pc-ac{border-radius:99px}
+#any .cvf-scr.pc-s7 .pc-rc{border-radius:0 18px 18px 18px}
+#any .cvf-scr.pc-s7 .pc-rd{border-radius:18px 0 18px 18px}
+#any .cvf-scr.pc-s7 .pc-sh{border-radius:4px}
+#any .cvf-scr.pc-s7 .pc-np{border-radius:99px}
+#any .cvf-scr.pc-s8 .pc-vf{border-radius:0;border-top:2px solid currentColor}
+#any .cvf-scr.pc-s8 .pc-ac{border-radius:0}
+#any .cvf-scr.pc-s8 .pc-vb{border-radius:99px}
+#any .cvf-scr.pc-s8 .pc-ring{border-style:dashed}
+#any .cvf-scr.pd-s1 .pd-ch{border-radius:0;background-image:linear-gradient(#39e58c0b 1px,transparent 1px),linear-gradient(90deg,#39e58c0b 1px,transparent 1px);background-size:24px 24px}
+#any .cvf-scr.pd-s1 .pd-sl,#any .cvf-scr.pd-s1 .pd-bt{border-radius:0}
+#any .cvf-scr.pd-s1 .pd-cv path{stroke-linecap:square}
+#any .cvf-scr.pd-s2 .pd-hero{border-radius:0 0 30px 30px}
+#any .cvf-scr.pd-s2 .pd-pay{border-radius:22px}
+#any .cvf-scr.pd-s2 .pd-cta{border-radius:99px}
+#any .cvf-scr.pd-s2 .pd-h1{font-family:"DM Serif Display",serif!important}
+#any .cvf-scr.pd-s3 .pd-bl{border-radius:2px}
+#any .cvf-scr.pd-s3 .pd-fd{border-radius:0;border-left:3px solid currentColor}
+#any .cvf-scr.pd-s3 .pd-bar i{border-radius:0}
+#any .cvf-scr.pd-s3 .pd-ft{border-radius:0}
+#any .cvf-scr.pd-s4 .pd-kp{border-radius:18px}
+#any .cvf-scr.pd-s4 .pd-ct .pd-u{border-radius:18px 18px 0 18px}
+#any .cvf-scr.pd-s4 .pd-ct .pd-a{border-radius:18px 18px 18px 0}
+#any .cvf-scr.pd-s4 .pd-bt{border-radius:99px}
+#any .cvf-scr.pd-s5 .pd-jb{border-radius:0;border-left:2px solid currentColor}
+#any .cvf-scr.pd-s5 .pd-dl{border-radius:0}
+#any .cvf-scr.pd-s5 .pd-bt{border-radius:0}
+#any .cvf-scr.pd-s5 .pd-st{font-family:"JetBrains Mono",monospace}
+#any .cvf-scr.pd-s6 .pd-bk{border-radius:0 24px 24px 0}
+#any .cvf-scr.pd-s6 .pd-cd{border-radius:24px}
+#any .cvf-scr.pd-s6 .pd-av{border-radius:50%}
+#any .cvf-scr.pd-s6 .pd-bt{border-radius:99px}
+#any .cvf-scr.pd-s7 .pd-pp{border-radius:0;border-top:3px solid currentColor}
+#any .cvf-scr.pd-s7 .pd-pay{border-radius:0}
+#any .cvf-scr.pd-s7 .pd-bt{border-radius:2px}
+#any .cvf-scr.pd-s7 .pd-pg{border-radius:0}
+#any .cvf-scr.pd-s8 .pd-fn{border-radius:0}
+#any .cvf-scr.pd-s8 .pd-ch{border-radius:0}
+#any .cvf-scr.pd-s8 .pd-ch i{border-radius:0;box-shadow:2px 0 0 #0002}
+#any .cvf-scr.pd-s8 .pd-kp{border-radius:0;border-bottom:1px solid currentColor}
+#show .u-m{font-family:"Gothic A1",sans-serif}#show .u-m .cr{border-radius:0;border-bottom:1px solid #0f5e5a33}#show .u-m .fit i{border-radius:0;background:repeating-linear-gradient(90deg,#0f5e5a 0 5px,transparent 5px 7px)}
+#show .u-b{font-family:"Noto Serif KR",serif}#show .u-b h2{font-family:"Cormorant Garamond",serif}#show .u-b .slots li{border-radius:50%}#show .u-b .days li{border-radius:0;border-bottom:2px solid currentColor}
+#show .u-c{font-family:"Hahmlet",serif}#show .u-c h2,#show .u-c h3{font-family:"DM Serif Display","Hahmlet",serif}
+#show .u-o{font-family:"Gothic A1",sans-serif}#show .u-o :is(.kpi,.stat,.card){border-radius:0}#show .u-o svg text{font-family:"JetBrains Mono",monospace}
+#any .cvf-scr.pd-s1{--f-kr:"Gothic A1",sans-serif;--pd-num:"JetBrains Mono",monospace;--pd-mono:"JetBrains Mono",monospace;font-family:"Gothic A1",sans-serif}
