@@ -2,7 +2,7 @@
  'use strict';
  const EMAIL='skifighting@gmail.com',KAKAO='https://pf.kakao.com/_yynFX/chat',endpoint='https://formsubmit.co/ajax/'+EMAIL;
  const script=document.currentScript,base=new URL('.',script.src),privacy=new URL('privacy.html',base).href;
- const labels={program:'프로그램 개발',web:'홈페이지 제작',platform:'앱·플랫폼 개발',academy:'창업 상담'};
+ const labels={program:'AI ERP',web:'홈페이지 제작',platform:'앱플랫폼',academy:'창업 상담'};
  const page=location.pathname.split('/').pop().replace('.html','')||'index';
  const archive=window.atzIntake,inflight=new Map();
  window.atzConfirmReset=()=>new Promise(resolve=>{const dialog=document.createElement('dialog');dialog.className='atz-contact-dialog';dialog.setAttribute('aria-label','신청 내용 초기화');dialog.innerHTML='<h2>처음부터 다시 작성할까요?</h2><p>현재 신청서에 입력한 내용이 지워집니다.</p><button type="button" data-keep>취소 · 계속 작성</button> <button type="button" data-clear>지우고 다시 작성</button>';for(const button of dialog.querySelectorAll('button'))button.style.cssText='min-height:46px;padding:12px 18px;border:1px solid #77718c;border-radius:10px;background:#292638;color:#fff;font:700 15px/1.4 system-ui;cursor:pointer';dialog.querySelector('[data-clear]').style.cssText+=';background:#ffe500;color:#16151d;border-color:#ffe500';document.body.append(dialog);const finish=value=>{dialog.close();dialog.remove();resolve(value)};dialog.querySelector('[data-keep]').onclick=()=>finish(false);dialog.querySelector('[data-clear]').onclick=()=>finish(true);dialog.addEventListener('cancel',e=>{e.preventDefault();finish(false)});dialog.showModal();});
@@ -102,7 +102,4 @@
 
   submit(f,{email:f.querySelector('[data-atz-email]')?.value,line:page,type:f.querySelector('input[name=type]:checked')?.value||labels[page==='index'?'program':page]||'상담 문의',name:value(['f-name','fN','cf_name','name','a-name']),phone:contact,contact,company:value(['cf_co','company','f-company']),idea:fields['아이디어 (1~5줄)']||fields['당신의 이야기를 들려주세요']||value(['f-idea','cf_memo']),fields,consent:true});
  },true);
- // First visit to the site in this browser session.
- let first=true;try{first=!sessionStorage.getItem('atz-welcome-v1');}catch{}
- if(first){const welcome=document.createElement('dialog');welcome.className='atz-contact-dialog atz-welcome';welcome.setAttribute('aria-labelledby','atz-welcome-title');welcome.innerHTML='<div class="atz-contact-top"><span>ATZ MACH</span><button type="button" class="atz-contact-close" aria-label="안내 닫기">×</button></div><span class="atz-welcome-stamp">선착순 100팀</span><h2 id="atz-welcome-title">모든 작업,<br><em>14일 이내 완료.</em></h2><div class="atz-welcome-offer"><strong>1<small>시간 이내</small></strong><div><b>무료 1차 시안 제작</b><span>화면 · 방향성 검증</span></div></div><div class="atz-welcome-values"><span>전국 최저가</span><span>최고 품질</span></div><button type="button" class="atz-welcome-cta">무료 1차 시안 문의하기 ↗</button><button type="button" class="atz-welcome-dismiss">지금은 둘러볼게요</button>';document.body.append(welcome);const close=()=>{welcome.close();try{sessionStorage.setItem('atz-welcome-v1','1');}catch{}};welcome.querySelector('.atz-contact-close').onclick=close;welcome.querySelector('.atz-welcome-dismiss').onclick=close;welcome.querySelector('.atz-welcome-cta').onclick=()=>{close();open();};welcome.addEventListener('cancel',close);welcome.showModal();}
 })();
