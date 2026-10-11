@@ -1,105 +1,97 @@
-(()=>{
- 'use strict';
- const EMAIL='skifighting@gmail.com',KAKAO='https://pf.kakao.com/_yynFX/chat',endpoint='https://formsubmit.co/ajax/'+EMAIL;
- const script=document.currentScript,base=new URL('.',script.src),privacy=new URL('privacy.html',base).href;
- const labels={program:'AI ERP',web:'홈페이지 제작',platform:'앱플랫폼',academy:'창업 상담'};
- const page=location.pathname.split('/').pop().replace('.html','')||'index';
- const archive=window.atzIntake,inflight=new Map();
- window.atzConfirmReset=()=>new Promise(resolve=>{const dialog=document.createElement('dialog');dialog.className='atz-contact-dialog';dialog.setAttribute('aria-label','신청 내용 초기화');dialog.innerHTML='<h2>처음부터 다시 작성할까요?</h2><p>현재 신청서에 입력한 내용이 지워집니다.</p><button type="button" data-keep>취소 · 계속 작성</button> <button type="button" data-clear>지우고 다시 작성</button>';for(const button of dialog.querySelectorAll('button'))button.style.cssText='min-height:46px;padding:12px 18px;border:1px solid #77718c;border-radius:10px;background:#292638;color:#fff;font:700 15px/1.4 system-ui;cursor:pointer';dialog.querySelector('[data-clear]').style.cssText+=';background:#ffe500;color:#16151d;border-color:#ffe500';document.body.append(dialog);const finish=value=>{dialog.close();dialog.remove();resolve(value)};dialog.querySelector('[data-keep]').onclick=()=>finish(false);dialog.querySelector('[data-clear]').onclick=()=>finish(true);dialog.addEventListener('cancel',e=>{e.preventDefault();finish(false)});dialog.showModal();});
- function showKakaoReceipt(id){
-  let box=document.querySelector('#atz-kakao-receipt');if(!box){box=document.createElement('section');box.id='atz-kakao-receipt';box.setAttribute('role','status');box.style.cssText='position:fixed;z-index:10020;bottom:24px;left:50%;transform:translateX(-50%);width:min(520px,calc(100% - 32px));box-sizing:border-box;padding:24px;border:1px solid #ffe500;border-radius:20px;background:#171620;color:#fff;box-shadow:0 16px 60px #0009';document.body.append(box);}
-  box.replaceChildren();const title=document.createElement('strong');title.textContent='접수 완료 · 카카오채널로 시안을 받아보세요';const text=document.createElement('p');text.textContent='아래 접수번호를 복사하고 채널 채팅에 보내주세요. 같은 채팅방으로 시안을 보내드립니다.';const code=document.createElement('input');code.readOnly=true;code.value=id;code.setAttribute('aria-label','카카오채널에 보낼 접수번호');code.style.cssText='width:100%;box-sizing:border-box;padding:12px;background:#292735;color:white;border:1px solid #666;border-radius:8px';const copy=document.createElement('button');copy.type='button';copy.style.cssText='min-height:44px;margin-top:12px;padding:10px 14px;border:1px solid #77718c;border-radius:10px;background:#292638;color:#fff;font:700 15px system-ui;cursor:pointer';copy.textContent='접수번호 복사';copy.onclick=async()=>{try{await navigator.clipboard.writeText(id);copy.textContent='복사됐습니다';}catch{code.focus();code.select();copy.textContent='번호를 선택했습니다. 복사해 주세요';}};const link=document.createElement('a');link.href=KAKAO;link.target='_blank';link.rel='noopener';link.textContent='카카오채널 열기 ↗';link.style.cssText='display:inline-block;margin:12px;padding:12px;border-radius:10px;background:#ffe500;color:#171620;font-weight:700';const close=document.createElement('button');close.type='button';close.style.cssText=copy.style.cssText;close.textContent='닫기';close.onclick=()=>box.remove();box.append(title,text,code,copy,link,close);
- }
- function clean(v,max=30000){return String(v??'').trim().slice(0,max);}
- function no(){return 'ATZ-'+new Date().toISOString().slice(0,10).replaceAll('-','')+'-'+crypto.randomUUID().slice(0,8).toUpperCase();}
- async function send(p){
-  const id=p.no||no();
-  const email=clean(p.email||p.meta?.email||p.fields?.['이메일']||(typeof sessionStorage!=='undefined'?sessionStorage.getItem('atz-email-draft'):'')||(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(p.contact||'')?p.contact:''));
-  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))return {ok:false,no:id,error:'올바른 이메일을 입력해 주세요.'};
-  p={...p,email};
-  if(p.hp)return {ok:false,no:id,error:'spam'};
-  if(!p.consent)return {ok:false,no:id,error:'동의가 필요합니다.'};
-  if(!clean(p.phone||p.contact))return {ok:false,no:id,error:'연락처가 필요합니다.'};
-  const fields={_subject:`[ATZ MACH 신규 문의] ${clean(p.type||labels[p.line]||'상담',70)} · ${clean(p.name||'문의 고객',60)}`,_replyto:email,이메일:email,_template:'table',_captcha:'false',접수번호:id,접수시각:new Date().toLocaleString('ko-KR',{timeZone:'Asia/Seoul'}),이름:clean(p.name,60)||'미기재',연락처:clean(p.phone||p.contact,200),요청분야:clean(p.type||labels[p.line]||p.line,100)||'상담',업체명:clean(p.company,120)||'미기재',문의내용:clean(p.idea)||'미기재',접수페이지:location.origin+location.pathname};
-  const extra=p.fields||p.meta||{};
-  const names={org:'사용 대상',type:'제작 유형',via:'시안 전달 채널',want:'희망 상담 분야',industry:'업종',employees:'직원 수',fit:'진단 결과',likes:'좋아하는 것',goods:'잘하는 것',customRequirements:'제작 요청사항',contactWhen:'희망 연락 시간',tools:'사용 중인 도구',locations:'매장 수'};
-  function append(obj,prefix=''){for(const [key,value] of Object.entries(obj||{})){if(value==null||/password|token|secret|^hp$/i.test(key))continue;if(key==='via')continue;const label=prefix+(names[key]||key);if(Array.isArray(value))fields[label]=value.map(v=>typeof v==='object'?JSON.stringify(v):v).join(' · ')||'미선택';else if(typeof value==='object')append(value,label+' / ');else fields[label]=clean(value)||'미기재';}}
-  append(p.meta);append(p.fields);fields['시안 전달 방법']='카카오채널 1:1 채팅';fields['채팅 연결 안내']='고객이 채널에 접수번호를 보내면 해당 채팅방으로 시안 전달';fields['개인정보 수집·이용 동의']=p.consent?'동의':'미동의';
+/* 문의는 카카오톡 채널 · 전화 두 가지로만 받는다.
+   - 페이지마다 있던 입력 폼·상담봇·하단 신청 바를 숨기고, 그 자리에 연락 패널을 넣는다(구간 id는 그대로 → 기존 버튼이 패널로 이동).
+   - 모든 페이지에 같은 연락 위젯(PC: 오른쪽 아래 / 폰: 하단 바). */
+(function () {
+  var KAKAO = "https://pf.kakao.com/_yynFX/chat", TEL = "tel:01048232636", TEL_TXT = "010-4823-2636";
+  var page = (location.pathname.split("/").pop() || "index.html").replace(".html", "") || "index";
+  if (/^(admin|inbox|notify|stats|portal)$/.test(page)) return;  // 운영자용 화면에는 넣지 않음
+  // 패널을 넣을 구간: [선택자, 제목 1줄, 제목 2줄(강조), 색]
+  var SEC = {
+    index: [["#diagnosis", "만들고 싶은 프로그램,", "말로 설명하세요."], ["#contact", "고민은", "전화 한 통이면 끝납니다."]],
+    web: [["#make", "어떤 홈페이지가", "필요하세요?"]],
+    academy: [["#apply", "간절하십니까?", "오늘, 대화로 시작합니다."]],
+    app: [["#apply", "어떤 앱을", "만들고 싶으세요?"]],
+    platform: [["#apply", "무엇을", "만들고 싶으세요?"]],
+  }[page] || [];
+  var C = { index: "#ff5ccf", web: "#ffb020", academy: "#ffd98a", app: "#6b93ff", platform: "#6b93ff", lineup: "#2bff88", erp: "#3ad6ff" }[page] || "#ff5ccf";
+  var HIDE = ".cb,#atz-adm,.ux-bar,#mkBar,#fdock,#chat,#mcta,.mcta,#mr,a[href='#mr']";
+  // 폼·접수 흐름을 설명하던 문구 정리 (예시 화면 속 '접수' 같은 데모 문구는 그대로)
+  var TXT = [["여기 적으면 상담 신청서에 그대로 들어갑니다. 비워 둬도 괜찮습니다.", ""], ["상담 먼저 접수", "상담 먼저"], ["신청 후 1시간 안에", "문의 후 1시간 안에"], ["신청하면 1시간 안에", "문의하면 1시간 안에"],
+    ["한 줄만 남겨 주세요. 1시간 안에 1차 시안을 보내 드립니다.", "카카오톡 한 줄이면, 1시간 안에 1차 시안을 보내 드립니다."], ["접수 후 1시간 목표", "문의 후 1시간 목표"]];
+  function fixText() {
+    var w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT), x;
+    while ((x = w.nextNode())) { var v = x.nodeValue; if (v.length < 4) continue; for (var i = 0; i < TXT.length; i++) if (v.indexOf(TXT[i][0]) >= 0) { v = v.split(TXT[i][0]).join(TXT[i][1]); x.nodeValue = v; if (!v.trim() && x.parentElement) x.parentElement.style.display = "none" } }
+  }
+  var I_K = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 3.2C6.6 3.2 2.2 6.6 2.2 10.9c0 2.8 1.9 5.2 4.7 6.6l-1 3.6c-.1.3.3.6.6.4l4.2-2.8c.4 0 .9.1 1.3.1 5.4 0 9.8-3.4 9.8-7.9S17.4 3.2 12 3.2z"/></svg>';
+  var I_T = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg>';
+  var css = HIDE + "{display:none!important}" +
+    ".atzc-host>*:not(.atzc){display:none!important}.atzc-host{min-height:0!important;height:auto!important;padding:0!important;display:block!important}" +
+    ".atzc{--c:" + C + ";position:relative;overflow:hidden;padding:clamp(72px,11vw,140px) 20px;text-align:center;background:radial-gradient(60% 70% at 50% 0%,color-mix(in srgb,var(--c) 26%,transparent),transparent 70%),#07060f;color:#fff;font-family:'IBM Plex Sans KR','Pretendard',system-ui,sans-serif}" +
+    ".atzc::before{content:'';position:absolute;inset:auto -10% -40% -10%;height:70%;background:radial-gradient(50% 50% at 50% 50%,color-mix(in srgb,var(--c) 18%,transparent),transparent 70%);pointer-events:none}" +
+    ".atzc h2{position:relative;margin:0 0 14px;font-size:clamp(30px,5.4vw,64px);line-height:1.15;font-weight:800;letter-spacing:-.035em;word-break:keep-all}.atzc h2 em{font-style:normal;color:var(--c);display:block}" +
+    ".atzc p{position:relative;margin:0 auto 40px;color:rgba(255,255,255,.66);font-size:clamp(15px,1.6vw,18px)}" +
+    ".atzc__b{position:relative;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;max-width:760px;margin:0 auto}" +
+    ".atzc a.k,.atzc a.t{flex:1 1 300px;display:flex;align-items:center;gap:16px;padding:22px 26px;border-radius:22px;text-decoration:none;text-align:left;transition:transform .18s,box-shadow .18s}" +
+    ".atzc a svg{width:30px;height:30px;flex:none}.atzc a b{display:block;font-size:20px;font-weight:800;letter-spacing:-.02em}.atzc a small{display:block;margin-top:3px;font-size:13px;opacity:.72}.atzc a i{margin-left:auto;font-style:normal;font-size:22px;transition:transform .18s}" +
+    ".atzc a.k{background:#FEE500;color:#191600;box-shadow:0 18px 50px -14px rgba(254,229,0,.55)}" +
+    ".atzc a.t{background:rgba(255,255,255,.06);color:#fff;border:1.5px solid color-mix(in srgb,var(--c) 60%,transparent);box-shadow:0 18px 50px -18px color-mix(in srgb,var(--c) 70%,transparent)}.atzc a.t svg{color:var(--c)}" +
+    ".atzc a:hover{transform:translateY(-3px)}.atzc a:hover i{transform:translateX(4px)}.atzc a:focus-visible,.atzw a:focus-visible{outline:3px solid #fff;outline-offset:3px}" +
+    ".atzc__tags{position:relative;display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:26px}.atzc__tags span{padding:7px 13px;border-radius:99px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);font-size:13px;color:rgba(255,255,255,.75)}" +
+    /* 위젯: PC 오른쪽 아래 */
+    ".atzw{position:fixed;right:20px;bottom:20px;z-index:2147483000;display:flex;flex-direction:column;gap:10px;font-family:'IBM Plex Sans KR','Pretendard',system-ui,sans-serif}" +
+    ".atzw a{display:flex;align-items:center;gap:10px;height:54px;padding:0 20px 0 16px;border-radius:99px;text-decoration:none;font-weight:800;font-size:15px;letter-spacing:-.01em;box-shadow:0 12px 32px -8px rgba(0,0,0,.55);transition:transform .18s}" +
+    ".atzw a:hover{transform:translateY(-2px)}.atzw svg{width:22px;height:22px;flex:none}" +
+    ".atzw .k{background:#FEE500;color:#191600}.atzw .t{background:#111018;color:#fff;border:1.5px solid " + C + "}.atzw .t svg{color:" + C + "}" +
+    "body.atzc-on .atzw{opacity:0;pointer-events:none;transform:translateY(10px)}.atzw{transition:opacity .25s,transform .25s}" +
+    /* 폰: 하단 꽉 찬 바 */
+    "@media(max-width:760px){.atzw{left:0;right:0;bottom:0;flex-direction:row;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(7,6,15,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid rgba(255,255,255,.08)}" +
+    ".atzw a{flex:1;justify-content:center;height:52px;padding:0 10px;border-radius:14px;box-shadow:none;font-size:15px}body{padding-bottom:calc(76px + env(safe-area-inset-bottom))!important}" +
+    "body.atzc-on .atzw{opacity:1;pointer-events:auto;transform:none}.atzc a.k,.atzc a.t{flex-basis:100%;padding:20px}}" +
+    "#aib{bottom:140px!important}@media(max-width:760px){#aib{bottom:calc(88px + env(safe-area-inset-bottom))!important}}" +  // 업종 체험의 MACH AI 버튼은 위젯 위로
+    "@media(prefers-reduced-motion:reduce){.atzc a,.atzw a,.atzw{transition:none}}";
+  var st = document.createElement("style"); st.id = "atzc-css"; st.textContent = css; document.head.appendChild(st);
 
-  try{let response,result;const body=JSON.stringify(fields);for(let attempt=0;attempt<3;attempt++){
-   response=await fetch(endpoint,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body,signal:AbortSignal.timeout(20000)});result=await response.json();
-   if(response.status!==429||attempt===2)break;
-   const retryHeader=response.headers?.get('Retry-After');const retrySeconds=Number(retryHeader);const retryAt=Date.parse(retryHeader||'');const delay=Math.max(65000,Number.isFinite(retrySeconds)&&retrySeconds>0?retrySeconds*1000:Number.isFinite(retryAt)?retryAt-Date.now():0);
-   await new Promise(resolve=>setTimeout(resolve,delay));
+  function btns(cls) {
+    return '<a class="k" href="' + KAKAO + '" target="_blank" rel="noopener">' + I_K + '<span><b>카카오톡 상담</b>' + (cls ? '<small>채팅으로 바로 물어보기</small>' : '') + '</span>' + (cls ? '<i>→</i>' : '') + '</a>' +
+      '<a class="t" href="' + TEL + '">' + I_T + '<span><b>' + (cls ? TEL_TXT : '전화 상담') + '</b>' + (cls ? '<small>지금 바로 통화</small>' : '') + '</span>' + (cls ? '<i>→</i>' : '') + '</a>';
   }
-   if(!response.ok||!(result.success===true||result.success==='true')){console.warn('ATZ mail service:',response.status,String(result.message||''));return {ok:false,no:id,error:'전송하지 못했습니다. 잠시 후 다시 시도하거나 카카오 채널로 문의해 주세요.'};}
-   if(archive)Promise.resolve(archive({...p,no:id})).catch(()=>{});
-   showKakaoReceipt(id);return {ok:true,no:id};
-  }catch{return {ok:false,no:id,error:'연결이 원활하지 않습니다. 다시 시도하거나 카카오 채널로 문의해 주세요.'};}
- }
- window.atzIntake=p=>{const key=p.no||JSON.stringify([p.name,p.phone,p.contact,p.idea]);if(inflight.has(key))return inflight.get(key);const task=send(p).finally(()=>inflight.delete(key));inflight.set(key,task);return task;};
- // Add a required email to each original inquiry form, including dynamically rendered steps.
- function emailFields(){
-  for(const form of document.querySelectorAll('form#f,form#lead,form#rqForm,form#cform')){
-   if(form.querySelector('[data-atz-reset]'))continue;
-   const reset=document.createElement('button');reset.type='button';reset.dataset.atzReset='';reset.className='btn btn--line';reset.textContent='↺ 처음부터 다시 작성';reset.style.cssText='margin-top:12px;min-height:44px';reset.onclick=async()=>{if(!await window.atzConfirmReset())return;form.reset();for(const input of form.querySelectorAll('input:not([type=checkbox]):not([type=radio]):not([type=hidden]),textarea')){input.value='';input.dispatchEvent(new Event('input',{bubbles:true}));}form.dispatchEvent(new Event('change',{bubbles:true}));sessionStorage.removeItem('atz-email-draft');form.querySelector('input,textarea')?.focus();};form.append(reset);
+  function panel(s) {
+    var d = document.createElement("div"); d.className = "atzc";
+    d.innerHTML = "<h2>" + s[1] + "<em>" + s[2] + "</em></h2><p>카카오톡이나 전화 한 통이면 충분합니다.</p><div class=\"atzc__b\">" + btns(1) + "</div>" +
+      '<div class="atzc__tags"><span>1차 시안 무료</span><span>대표가 직접 상담</span><span>계약 전까지 0원</span></div>';
+    return d;
   }
-
-  const anchors=document.querySelectorAll('#lead input[type="tel"],#f input[type="tel"],#fP,#rqVal,#cVal,#dg-phone,#iq-phone,#a3-ph');
-  for(const anchor of anchors){
-   const row=anchor.closest('label')||anchor.parentElement;
-   if(anchor.type==='email'){anchor.required=true;anchor.setAttribute('data-atz-email','');row.parentElement.querySelector(':scope > .atz-email-row')?.remove();if(!anchor.dataset.atzEmailBound){anchor.dataset.atzEmailBound='1';anchor.addEventListener('input',()=>sessionStorage.setItem('atz-email-draft',anchor.value));}continue;}
-   if(row.parentElement.querySelector(':scope > .atz-email-row'))continue;
-   const label=document.createElement('label');label.className=(row.className||'fld')+' atz-email-row';
-   label.innerHTML='<span>이메일 <em>필수</em></span><input data-atz-email name="email" type="email" autocomplete="email" placeholder="name@example.com" required aria-label="이메일 필수">';
-   label.style.cssText='display:flex;flex-direction:column;gap:8px;grid-column:1 / -1;width:100%';const input=label.querySelector('input');input.className=anchor.className;input.style.cssText='box-sizing:border-box;width:100%;min-height:52px;padding:14px 16px;border:1px solid rgba(150,135,210,.3);border-radius:14px;background:rgba(8,6,30,.65);color:inherit;font:inherit;outline-offset:3px';input.value=sessionStorage.getItem('atz-email-draft')||'';
-   input.addEventListener('input',()=>sessionStorage.setItem('atz-email-draft',input.value));row.after(label);
+  var panels = [];
+  function mount() {
+    SEC.forEach(function (s, i) {
+      var h = document.querySelector(s[0]); if (!h) return;
+      if (!h.querySelector(":scope>.atzc")) { h.classList.add("atzc-host"); h.appendChild(panels[i] || (panels[i] = panel(s))); }
+    });
+    if (!document.querySelector(".atzw")) {
+      var w = document.createElement("nav"); w.className = "atzw"; w.setAttribute("aria-label", "문의"); w.innerHTML = btns(0); document.body.appendChild(w);
+    }
   }
- }
- emailFields();new MutationObserver(emailFields).observe(document.body,{childList:true,subtree:true});
- function checkEmail(e){
-  const form=e.target.closest('form');
-  const button=e.target.closest('button');
-  if(e.type==='click'&&(!button||!/(접수|신청|시안.*받|보내)/.test(button.textContent)))return;
-  const scope=form||e.target.closest('#diagnosis,#apply,#make')||e.target.closest('section');
-  const input=scope?.querySelector('[data-atz-email]');
-  if(input&&!input.checkValidity()){e.preventDefault();e.stopImmediatePropagation();input.reportValidity();input.focus();}
- }
- document.addEventListener('submit',checkEmail,true);document.addEventListener('click',checkEmail,true);
- const dock=document.createElement('aside');dock.className='atz-contact-dock';dock.setAttribute('aria-label','빠른 상담');dock.innerHTML='<button type="button" data-atz-inquiry><span class="atz-contact-icon" aria-hidden="true">↗</span>바로 문의하기</button><a href="'+KAKAO+'" target="_blank" rel="noopener"><span class="atz-contact-icon" aria-hidden="true">●</span>카카오 채널 상담</a>';document.body.append(dock);
- const targets={index:'#diagnosis',platform:'#apply',academy:'#apply',web:'#make'};
- function destination(){const hash=targets[page];return hash||new URL('index.html#diagnosis',base).href;}
- async function open(){const dest=destination();if(dest.startsWith('#')){let target=document.querySelector(dest);for(let attempt=0;!target&&attempt<30;attempt++){await new Promise(resolve=>setTimeout(resolve,100));target=document.querySelector(dest);}if(!target)return;history.replaceState(null,'',dest);target.style.scrollMarginTop='130px';target.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'start'});target.setAttribute('tabindex','-1');target.focus({preventScroll:true});}else location.href=dest;}
- dock.querySelector('button').onclick=open;
- async function submit(form,p){
-  if(form.dataset.atzSending)return;form.dataset.atzSending='1';const buttons=[...form.querySelectorAll('[type="submit"]')],previous=buttons.map(b=>b.disabled);buttons.forEach(b=>b.disabled=true);
-  let status=form.querySelector('.atz-contact-status');if(!status){status=document.createElement('div');status.className='atz-contact-status';status.setAttribute('role','status');form.append(status);}status.dataset.error='false';status.textContent='문의 보내는 중…';
-  try{const result=await window.atzIntake(p);status.dataset.error=String(!result.ok);status.textContent=result.ok?`문의가 접수됐습니다. ${result.no} · 확인 후 연락드립니다.`:result.error;if(result.ok){form.reset();form.dispatchEvent(new CustomEvent('atz:submitted',{bubbles:true,detail:{no:result.no}}));}}
-  finally{delete form.dataset.atzSending;buttons.forEach((b,i)=>b.disabled=previous[i]);}
- }
- function validContact(v){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)||/^[+\d][\d\s()-]{7,25}$/.test(v)||/^.{2,60}$/.test(v)&&!v.includes('@')&&!/^[\d\s()+-]+$/.test(v);}
- // Existing business forms use the same email transport; demo forms are excluded.
- document.addEventListener('submit',e=>{
-  const f=e.target;if(!(f instanceof HTMLFormElement)||!f.matches('#lead,#f'))return;
-  e.preventDefault();e.stopImmediatePropagation();
-  if(!f.reportValidity())return;
-  const value=ids=>{for(const id of ids){const x=f.querySelector('#'+id)||f.querySelector(`[name="${id}"]`);if(x&&clean(x.value))return clean(x.value);}return '';};
-  const contact=value(['f-phone','fP','f_ph','cf_ph','phone','contact','rqVal','a-phone','f-contact','tel']);
-  const consent=[...f.querySelectorAll('input[type="checkbox"]')].some(x=>x.checked&&(/agree|consent|ok/i.test(x.id+x.name)||['fC','rqAgree'].includes(x.id)||x.required));
-  let status=f.querySelector('.atz-contact-status');if(!status){status=document.createElement('div');status.className='atz-contact-status';status.setAttribute('role','status');f.append(status);}
-  if(!contact||!validContact(contact)){status.textContent='연락처를 확인해 주세요.';status.dataset.error='true';return;}if(!consent){status.textContent='개인정보 수집·이용에 동의해 주세요.';status.dataset.error='true';return;}
-  const fields={},groupNames={org:'어디에서 쓰시나요?',type:'무엇을 만들까요?',via:'시안 전달 채널',want:'희망 상담 분야'};
-  for(const x of f.querySelectorAll('input,textarea,select')){
-   if(x.disabled||['hidden','submit','button','password','file'].includes(x.type))continue;
-   if(['checkbox','radio'].includes(x.type)&&!x.checked)continue;
-   if(x.type==='checkbox'&&(/agree|consent|ok/i.test(x.id+x.name)||x.required))continue;
-   const labelElement=x.labels?.[0];const ownLabel=(labelElement?.querySelector('span')?.textContent||labelElement?.textContent)?.trim();
-   const label=groupNames[x.name]||x.getAttribute('aria-label')||ownLabel||x.name||x.id;
-   const val=x.type==='checkbox'?(ownLabel||x.value||'선택'):x.tagName==='SELECT'?[...x.selectedOptions].map(o=>o.textContent).join(' · '):x.value;
-   if(label)fields[label]=fields[label]?fields[label]+' · '+clean(val):clean(val)||'미기재';
-  }
-  if(page==='academy'&&typeof S!=='undefined'){fields['좋아하는 것']=S.likes||'미기재';fields['잘하는 것']=S.goods||'미기재';}
-
-  submit(f,{email:f.querySelector('[data-atz-email]')?.value,line:page,type:f.querySelector('input[name=type]:checked')?.value||labels[page==='index'?'program':page]||'상담 문의',name:value(['f-name','fN','cf_name','name','a-name']),phone:contact,contact,company:value(['cf_co','company','f-company']),idea:fields['아이디어 (1~5줄)']||fields['당신의 이야기를 들려주세요']||value(['f-idea','cf_memo']),fields,consent:true});
- },true);
+  // 연락 패널이 화면에 보이면 PC 위젯은 잠시 숨긴다(같은 버튼 중복 방지)
+  var on = [], io = "IntersectionObserver" in window && new IntersectionObserver(function (es) {
+    es.forEach(function (e) { var i = on.indexOf(e.target); if (e.isIntersecting && i < 0) on.push(e.target); if (!e.isIntersecting && i >= 0) on.splice(i, 1) });
+    document.body.classList.toggle("atzc-on", on.length > 0) }, { threshold: .25 });
+  function run() { mount(); fixText(); panels.forEach(function (p) { if (io && p && !p._o) { p._o = 1; io.observe(p) } }) }
+  // 기존 '무료 시안 받기' 버튼들(폼으로 가던 링크·버튼)은 연락 패널로 보낸다. 패널이 없는 페이지는 카카오톡 채널을 연다.
+  var ids = SEC.map(function (s) { return s[0] }), CTA = /시안 받기|시안받기|상담 신청|상담하기|이야기 시작|문의하기|신청하기/;
+  window.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest("a,button"); if (!a || a.closest(".atzc,.atzw")) return;
+    var h = a.getAttribute("href") || "", hit = ids.indexOf(h) >= 0 || ((!h || h.charAt(0) === "#") && CTA.test(a.textContent || ""));
+    if (!hit) return;
+    e.preventDefault(); e.stopImmediatePropagation();
+    var p = panels[Math.max(0, ids.indexOf(h))] || panels[0];
+    if (p && p.isConnected && p.getBoundingClientRect().height) {
+      scrollTo({ top: scrollY + p.getBoundingClientRect().top - 70, behavior: matchMedia("(prefers-reduced-motion:reduce)").matches ? "auto" : "smooth" });
+      // 내려가는 동안 위쪽 구간이 늦게 그려지며 길이가 바뀌므로, 멈춘 뒤 패널 위치로 다시 맞춘다
+      var k = 0, fix = setInterval(function () { var t = p.getBoundingClientRect().top; if (++k < 4) return; if (k > 14) return clearInterval(fix); if (Math.abs(t - 70) > 6) scrollTo(0, scrollY + t - 70) }, 250);
+    }
+    else window.open(KAKAO, "_blank", "noopener");
+  }, true);
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", run); else run();
+  // 화면이 나중에 그려지는 페이지(홈 등)도 있으니 잠깐 동안 다시 확인
+  var n = 0, t = setInterval(function () { run(); if (++n > 40) clearInterval(t) }, 500);
 })();
