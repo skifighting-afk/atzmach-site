@@ -1,0 +1,311 @@
+@font-face {
+  font-family: 'Gowun Dodum';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(media/fonts/gowun-dodum-0.woff2) format('truetype');
+}
+
+@font-face {
+  font-family: 'Noto Serif KR';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(media/fonts/noto-serif-kr-0.woff2) format('truetype');
+}
+@font-face {
+  font-family: 'Noto Serif KR';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(media/fonts/noto-serif-kr-1.woff2) format('truetype');
+}
+@font-face {
+  font-family: 'Noto Serif KR';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(media/fonts/noto-serif-kr-2.woff2) format('truetype');
+}
+
+@font-face {
+  font-family: 'Black Han Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(media/fonts/black-han-sans-0.woff2) format('truetype');
+}
+
+@font-face {
+  font-family: 'Barlow Condensed';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(media/fonts/barlow-condensed-0.woff2) format('truetype');
+}
+@font-face {
+  font-family: 'Barlow Condensed';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(media/fonts/barlow-condensed-1.woff2) format('truetype');
+}
+@font-face {
+  font-family: 'Barlow Condensed';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url(media/fonts/barlow-condensed-2.woff2) format('truetype');
+}
+@font-face {
+  font-family: 'Barlow Condensed';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url(media/fonts/barlow-condensed-3.woff2) format('truetype');
+}
+
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(media/fonts/space-grotesk-0.woff2) format('truetype');
+}
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(media/fonts/space-grotesk-1.woff2) format('truetype');
+}
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(media/fonts/space-grotesk-2.woff2) format('truetype');
+}
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(media/fonts/space-grotesk-3.woff2) format('truetype');
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(media/fonts/jetbrains-mono-0.woff2) format('truetype');
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(media/fonts/jetbrains-mono-1.woff2) format('truetype');
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(media/fonts/jetbrains-mono-2.woff2) format('truetype');
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(media/fonts/jetbrains-mono-3.woff2) format('truetype');
+}
+
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(media/fonts/cormorant-garamond-0.woff2) format('truetype');
+}
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(media/fonts/cormorant-garamond-1.woff2) format('truetype');
+}
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(media/fonts/cormorant-garamond-2.woff2) format('truetype');
+}
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(media/fonts/cormorant-garamond-3.woff2) format('truetype');
+}
+
+@font-face {
+  font-family: 'Do Hyeon';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(media/fonts/do-hyeon-extra-0.woff2) format('truetype');
+}
+
+@font-face {
+  font-family: 'Noto Sans KR';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(media/fonts/noto-sans-kr-extra-0.woff2) format('truetype');
+}
+@font-face {
+  font-family: 'Noto Sans KR';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(media/fonts/noto-sans-kr-extra-1.woff2) format('truetype');
+}
+@font-face {
+  font-family: 'Noto Sans KR';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(media/fonts/noto-sans-kr-extra-2.woff2) format('truetype');
+}
+
+@font-face {
+  font-family: 'Hahmlet';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(media/fonts/hahmlet-extra-0.woff2) format('truetype');
+}
+@font-face {
+  font-family: 'Hahmlet';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(media/fonts/hahmlet-extra-1.woff2) format('truetype');
+}
+@font-face {
+  font-family: 'Hahmlet';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(media/fonts/hahmlet-extra-2.woff2) format('truetype');
+}
+
+@font-face {
+  font-family: 'Gothic A1';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(media/fonts/gothic-a1-extra-0.woff2) format('truetype');
+}
+@font-face {
+  font-family: 'Gothic A1';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(media/fonts/gothic-a1-extra-1.woff2) format('truetype');
+}
+@font-face {
+  font-family: 'Gothic A1';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(media/fonts/gothic-a1-extra-2.woff2) format('truetype');
+}
+
+@font-face {
+  font-family: 'Fredoka';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(media/fonts/fredoka-extra-0.woff2) format('truetype');
+}
+@font-face {
+  font-family: 'Fredoka';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(media/fonts/fredoka-extra-1.woff2) format('truetype');
+}
+@font-face {
+  font-family: 'Fredoka';
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(media/fonts/fredoka-extra-2.woff2) format('truetype');
+}
+
+@font-face {
+  font-family: 'Teko';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(media/fonts/teko-extra-0.woff2) format('truetype');
+}
+@font-face {
+  font-family: 'Teko';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(media/fonts/teko-extra-1.woff2) format('truetype');
+}
+@font-face {
+  font-family: 'Teko';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(media/fonts/teko-extra-2.woff2) format('truetype');
+}
+
+@font-face {
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(media/fonts/outfit-extra-0.woff2) format('truetype');
+}
+@font-face {
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(media/fonts/outfit-extra-1.woff2) format('truetype');
+}
+@font-face {
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(media/fonts/outfit-extra-2.woff2) format('truetype');
+}
+@font-face {
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(media/fonts/outfit-extra-3.woff2) format('truetype');
+}
+
+@font-face {
+  font-family: 'DM Serif Display';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(media/fonts/dm-serif-display-extra-0.woff2) format('truetype');
+}

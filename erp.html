@@ -424,17 +424,17 @@ svg.ch .pt{fill-opacity:.55;stroke-width:1.2}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 
 </style>
-</head>
+<link rel="stylesheet" href="site-contact.css?v=4"><script defer src="site-contact.js?v=6"></script></head>
 <body>
 <header class="top">
-<a class="lg" href="index.html">ATZ <i>MACH</i></a>
+<a class="lg" href="index.html?v=20261011e">ATZ <i>MACH</i></a>
 <span class="demo">DEMO · 가상 데이터</span>
 <div class="srch"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 18a7 7 0 1 0 0-14 7 7 0 0 0 0 14zM20 20l-4-4"/></svg><label class="sr" for="gq">전체 검색</label><input id="gq" placeholder="메뉴 · 데이터 검색" autocomplete="off"><div class="res" id="gres" hidden></div></div>
 <span class="sp"></span>
 <button class="tbtn" id="bell" type="button" aria-label="알림"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 16V11a6 6 0 1 1 12 0v5l2 2H4zM10 21h4"/></svg><span class="cnt" id="bellc" hidden></span></button>
 <button class="tbtn" id="undo" type="button" aria-label="되돌리기">↶<span class="hide-m">되돌리기</span></button>
 <button class="tbtn hide-m" id="reset" type="button">초기화</button>
-<a class="tbtn pk hide-m" id="ctaTop" href="index.html#diagnosis">우리 회사 제작 문의</a>
+<a class="tbtn pk hide-m" id="ctaTop" href="index.html?v=20261011e#diagnosis">우리 회사 제작 문의</a>
 </header>
 <nav class="rail" id="rail" aria-label="업종 선택"></nav>
 <div class="mnav"><button type="button" id="mopen"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>메뉴</button><span id="mcur"></span></div>
@@ -695,7 +695,7 @@ function countUp(root){if(matchMedia("(prefers-reduced-motion:reduce)").matches)
  $$(".an .kpi>b,.an .flw .nd>b,.an .cd .big,.an .gg>b,.an .rg>b",root).forEach(el=>{const t=el.textContent,m=t.match(/\d[\d,]*(\.\d+)?/);if(!m)return;const end=parseFloat(m[0].replace(/,/g,"")),dec=m[1]?m[1].length-1:0;if(!isFinite(end)||!end)return;
   const pre=t.slice(0,m.index),post=t.slice(m.index+m[0].length),t0=performance.now();
   (function tick(now){const p=Math.min(1,(now-t0)/700),e=1-Math.pow(1-p,3);if(p<1&&el.isConnected){el.textContent=pre+(end*e).toLocaleString("ko-KR",{minimumFractionDigits:dec,maximumFractionDigits:dec})+post;requestAnimationFrame(tick)}else el.textContent=t})(t0)})}
-function cta(){return `<div class="cta"><div><b>우리 회사에도 적용하고 싶으신가요?</b><p>방금 본 ${esc(CUR.name)} 화면을 우리 회사 업무와 데이터에 맞게 설계해 드립니다.</p></div><a href="index.html#diagnosis">맞춤 견적 받아보기</a><a class="o" href="index.html#diagnosis">필요한 기능 상담하기</a></div>`}
+function cta(){return `<div class="cta"><div><b>우리 회사에도 적용하고 싶으신가요?</b><p>방금 본 ${esc(CUR.name)} 화면을 우리 회사 업무와 데이터에 맞게 설계해 드립니다.</p></div><a href="index.html?v=20261011e#diagnosis">맞춤 견적 받아보기</a><a class="o" href="index.html?v=20261011e#diagnosis">필요한 기능 상담하기</a></div>`}
 function ctaStore(){try{localStorage.setItem("atzerp:interest",JSON.stringify({ind:CUR.name,used:ST.log.filter(l=>l.k==="run").map(l=>l.m).slice(0,5),at:Date.now()}))}catch(e){}}
 function go(to,anim){const p=String(to).split("/");VS.menu=p[0];VS.tab=+p[1]||0;VS.dr=null;$("#side").classList.remove("open");render(anim!==false);if(scrollY>$(".app").offsetTop)scrollTo(0,$(".app").offsetTop-54)}
 function swap(id){start(byId(IND,id)||IND[0]);VS.menu="home";VS.tab=0;rail();render(true);aiReset();const c=$(`[data-ind="${CUR.id}"]`);c&&c.scrollIntoView({block:"nearest",inline:"center"})}
@@ -6355,5 +6355,5 @@ a,button{-webkit-tap-highlight-color:transparent}
 <script id="qa100js">document.documentElement.lang=document.documentElement.lang||"ko";
 document.querySelectorAll("img").forEach(function(i,n){if(!i.hasAttribute("alt"))i.alt="";if(n>1&&!i.loading)i.loading="lazy";i.decoding="async"});
 </script>
-<script src="xlink.js?v=3" defer></script></body>
+<script src="xlink.js?v=20261011c" defer></script></body>
 </html>

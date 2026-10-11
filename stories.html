@@ -89,11 +89,11 @@ footer{border-top:1px solid var(--ln);padding:24px 0 40px;color:var(--dim);font-
 @keyframes tap{from{transform:scale(.4);opacity:1}to{transform:scale(2.2);opacity:0}}
 @media(max-width:640px){.scr-in{grid-template-columns:minmax(0,1fr)}.scr-nav{display:flex;overflow-x:auto;scrollbar-width:none;border-right:0;border-bottom:1px solid var(--ln);padding:8px 10px}.scr-main{padding:10px}.scr table{font-size:12px}.scr td,.scr th{padding:8px 7px}.scr-k div{padding:8px 9px}}
 @media(prefers-reduced-motion:reduce){.cs-c img{transition:none}.hit,.scr-cur.tap:after{animation:none}.scr-cur{display:none}}
-</style></head>
+</style><link rel="stylesheet" href="site-contact.css?v=4"><script defer src="site-contact.js?v=6"></script></head>
 <body>
-<header><div class="w"><a class="logo" href="index.html">ATZ <b>MACH</b></a><a class="btn btn--s" href="index.html#diagnosis">무료 시안 받기</a></div></header>
+<header><div class="w"><a class="logo" href="index.html?v=20261011e">ATZ <b>MACH</b></a><a class="btn btn--s" href="index.html?v=20261011e#diagnosis">무료 시안 받기</a></div></header>
 <main class="w" id="app"></main>
-<footer><div class="w">ATZ MACH Agent · 업종별 맞춤 업무 프로그램 제작 · <a href="privacy.html">개인정보처리방침</a> · <a href="terms.html">이용약관</a><br>보안을 위해 실제 고객 정보는 싣지 않습니다. 사진과 ERP 화면, 표시된 시간 · 업무는 업종별 설계 예시이며 실제 고객 실적이 아닙니다.</div></footer>
+<footer><div class="w">ATZ MACH Agent · 업종별 맞춤 업무 프로그램 제작 · <a href="privacy.html?v=20261011e">개인정보처리방침</a> · <a href="terms.html?v=20261011e">이용약관</a><br>보안을 위해 실제 고객 정보는 싣지 않습니다. 사진과 ERP 화면, 표시된 시간 · 업무는 업종별 설계 예시이며 실제 고객 실적이 아닙니다.</div></footer>
 <script>
 (function(){
 var ICO={
@@ -222,7 +222,7 @@ function run(fig){
 function esc(t){return String(t).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
 function card(s){return '<a class="cs-c" href="#'+s.id+'"><img src="cs/'+s.id+'.jpg" alt="'+esc(s.alt)+'" loading="lazy"><span class="cs-tag"><svg viewBox="0 0 24 24" aria-hidden="true">'+ICO[s.ico]+'</svg>'+esc(s.tag)+'</span><span class="cs-b"><span class="cs-n">'+esc(s.name)+'</span><span class="cs-m"><span><b>'+esc(s.m1[0])+'</b><small>'+esc(s.m1[1])+'</small></span><span><b>'+esc(s.m2[0])+'</b><small>'+esc(s.m2[1])+'</small></span></span></span></a>'}
 function list(){return '<span class="kw">업종별 도입 시나리오</span><h1>업종마다, 회사마다 다르게 만듭니다.</h1><p class="lede">아래는 업종별 설계 예시입니다. 우리 회사 방식으로 바꾼 1차 시안은 무료로 받아 보실 수 있습니다.</p><p class="secu">보안을 위해 실제 고객 정보는 싣지 않습니다. 사진과 ERP 화면은 예시입니다.</p><div class="cs-g">'+S.map(card).join("")+'</div>'+cta("우리 회사")}
-function cta(who){return '<section class="cta"><h2>고민은 시안을 받아 보고 해도 늦지 않습니다.</h2><p class="lede">말로 설명하시면 '+esc(who)+' 방식에 맞춘 화면을 무료로 보내 드립니다.</p><a class="btn" href="index.html#diagnosis">ATZ 무료 화면 설계 시안 받기 →</a><p class="safe">결제 정보 필요 없음 · 접수 후 1시간 목표 · 계약 전까지 0원</p></section>'}
+function cta(who){return '<section class="cta"><h2>고민은 시안을 받아 보고 해도 늦지 않습니다.</h2><p class="lede">말로 설명하시면 '+esc(who)+' 방식에 맞춘 화면을 무료로 보내 드립니다.</p><a class="btn" href="index.html?v=20261011e#diagnosis">ATZ 무료 화면 설계 시안 받기 →</a><p class="safe">결제 정보 필요 없음 · 접수 후 1시간 목표 · 계약 전까지 0원</p></section>'}
 function story(s){
  var h='<a class="back" href="#">← 모든 시나리오</a><br><span class="kw" style="margin-top:8px">'+esc(s.tag)+'</span><h1>'+esc(s.h1)+'</h1><p class="meta">설계 예시 · '+esc(s.base)+'</p><p class="secu">보안을 위해 실제 고객 정보는 싣지 않습니다. 사진과 ERP 화면은 예시입니다.</p>'+
  '<div class="big"><div><b class="g">'+esc(s.st[0])+'</b><small>'+esc(s.st[1])+' · 예시</small></div><div><b>'+esc(s.m2[0])+'</b><small>'+esc(s.m2[1])+'</small></div><div><b>14일</b><small>계약 후 완성</small></div><div><b>1시간</b><small>1차 시안 목표 · 무료</small></div></div>'+
@@ -353,7 +353,7 @@ function ui(){var h='<div class="ih"><div><small>LIVE · 3D 시공 시뮬레이�
  '</div><div class="stage"><div class="hud"><span>바닥 <b data-o="fa"></b></span><span>벽 · 천장 <b data-o="wa"></b></span></div><div class="bld">짓는 중…</div><div class="tip">드래그로 돌려 보기</div></div></div>'+
  '<div class="kp"><div><small>자재비 합계 (예시)</small><b class="ac" data-o="tot"></b></div><div><small>발주 품목</small><b data-o="cnt"></b></div><div><small>준공 예정</small><b data-o="end"></b></div><div><small>가장 급한 주문 마감</small><b data-o="first"></b></div></div>'+
  '<div class="lo"><div><h4>자재 물량 · 발주서<small>로스율 포함</small></h4><div class="tw"><table><thead><tr><th>품목</th><th>규격</th><th class="n">수량</th><th class="n">금액</th></tr></thead><tbody data-o="rows"></tbody></table></div>'+
- '<div class="go"><button type="button" class="p" data-a="po">발주서 만들기</button><a class="o" href="index.html#diagnosis">우리 현장으로 1차 시안 받기</a></div><div class="po" data-o="po"></div></div>'+
+ '<div class="go"><button type="button" class="p" data-a="po">발주서 만들기</button><a class="o" href="index.html?v=20261011e#diagnosis">우리 현장으로 1차 시안 받기</a></div><div class="po" data-o="po"></div></div>'+
  '<div><h4>공정표 · 주문 마감<small>착공일 기준 자동 계산</small></h4><div class="gt" data-o="gt"></div><div class="dl" data-o="dl"></div></div></div>'+
  '<p class="nt">단가 · 리드타임 · 로스율은 시연용 예시 값입니다. 실제 도입 시 업체 단가표와 공정 기준을 그대로 넣습니다.</p>';
  root.innerHTML=h;
@@ -690,4 +690,4 @@ a,button{-webkit-tap-highlight-color:transparent}
 <script id="qa100js">document.documentElement.lang=document.documentElement.lang||"ko";
 document.querySelectorAll("img").forEach(function(i,n){if(!i.hasAttribute("alt"))i.alt="";if(n>1&&!i.loading)i.loading="lazy";i.decoding="async"});
 </script>
-<script src="xlink.js?v=3" defer></script></body></html>
+<script src="xlink.js?v=20261011c" defer></script></body></html>

@@ -1,0 +1,138 @@
+#dirs .ux{position:relative;flex:1;min-height:0;overflow:hidden;display:flex;flex-direction:column;padding:14px 22px 27px;gap:15px}
+#dirs .ux svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.6}
+#dirs .ux header,#dirs .ux footer{display:flex;align-items:center;justify-content:space-between;flex:none}
+#dirs .ux img{width:100%;height:100%;object-fit:cover}
+#dirs .ux footer{margin-top:auto}
+#dirs .ux small{font-size:10px;font-weight:400}
+#dirs .ux h3{margin:0}
+#dirs .d3-a{font-family:'Gowun Dodum',sans-serif;--d3-f:'Fredoka','Gowun Dodum',sans-serif}
+#dirs .d3-a .d3-a-bub li,#dirs .d3-a .d3-a-sum b,#dirs .d3-a .d3-sb{font-family:'Fredoka','Gowun Dodum',sans-serif}
+#dirs .d3-b{font-family:'IBM Plex Sans KR',sans-serif;--d3-f:'Space Grotesk','IBM Plex Sans KR',sans-serif}
+#dirs .d3-c{font-family:'Black Han Sans',sans-serif;--d3-f:'Barlow Condensed','Black Han Sans',sans-serif}
+
+/* D: asymmetric magazine spread, typographic reservation ledger, circular action. */
+#dirs .dx-d{background:#f1eddf;color:#173c32;font-family:'Noto Serif KR',serif}
+#dirs .dx-d .d3-sb{font-family:'Cormorant Garamond',serif}
+#dirs .ux-editorial{gap:17px;padding-inline:20px}
+#dirs .ux-editorial header{font:600 10px 'Cormorant Garamond',serif;letter-spacing:2px;border-bottom:1px solid #173c3260;padding-bottom:10px}
+#dirs .ux-editorial header span{font-size:19px}
+#dirs .ed-lead{position:relative;min-height:143px}
+#dirs .ed-lead>span{position:absolute;right:-39px;top:65px;transform:rotate(90deg);font:500 9px 'Cormorant Garamond',serif;letter-spacing:1.5px}
+#dirs .ed-lead h3{font:500 53px/.83 'Cormorant Garamond',serif;letter-spacing:-1.4px}
+#dirs .ed-spread{display:grid;grid-template-columns:1.4fr 1fr;gap:17px}
+#dirs .ed-spread figure{height:174px;display:flex;flex-direction:column;gap:8px}
+#dirs .ed-spread img{height:150px;object-position:40% center;filter:saturate(.7)}
+#dirs .ed-spread figcaption{font-size:8px;white-space:nowrap}
+#dirs .ed-spread>div{display:flex;flex-direction:column;align-items:flex-start;gap:12px;padding-top:2px}
+#dirs .ed-spread b{font:600 22px/1.25 'Noto Serif KR',serif;letter-spacing:-1px}
+#dirs .ed-spread p{font-size:10px;line-height:1.8}
+#dirs .ed-spread strong{font:500 31px/.9 'Cormorant Garamond',serif}
+#dirs .ed-spread strong small{font-size:13px}
+#dirs .ed-book{display:grid;gap:0;border-top:1px solid #173c32;padding-top:8px}
+#dirs .ed-book>p{font:500 10px 'Cormorant Garamond',serif;letter-spacing:2px;margin-bottom:5px}
+#dirs .ed-book>div{display:grid;grid-template-columns:35px 1fr auto;align-items:center;border-bottom:1px solid #173c3230;padding:9px 0}
+#dirs .ed-book span,#dirs .ed-book em{font:400 9px 'Noto Serif KR',serif;font-style:normal}
+#dirs .ed-book b{font:500 21px/1 'Cormorant Garamond',serif}
+#dirs .ed-price{display:flex;justify-content:space-between;align-items:center}
+#dirs .ed-price b{font:600 34px/.9 'Cormorant Garamond',serif}
+#dirs .ed-price b span{font:400 10px 'Noto Serif KR',serif;margin-left:4px}
+#dirs .ux-editorial footer{font-size:12px;border-top:1px solid #173c32;padding-top:9px}
+#dirs .ux-editorial footer i{width:39px;height:39px;display:grid;place-items:center;border:1px solid #173c32;border-radius:50%}
+
+/* E: oversized time as hero, slanted photo strip, race track slots. */
+#dirs .dx-e{background:#ff5c27;color:#171611;font-family:'Do Hyeon',sans-serif}
+#dirs .dx-e .d3-sb{font-family:'Teko',sans-serif;font-size:19px}
+#dirs .ux-track{padding:10px 19px 28px;gap:12px}
+#dirs .ux-track header b{font:700 24px/.76 'Teko',sans-serif;letter-spacing:.3px}
+#dirs .ux-track header>span{font:500 12px 'Teko',sans-serif;transform:rotate(-90deg);margin-right:-17px}
+#dirs .tr-photo{height:95px;flex:none;position:relative;clip-path:polygon(4% 0,100% 0,96% 100%,0 100%)}
+#dirs .tr-photo img{filter:grayscale(1) contrast(1.1);object-position:center 60%}
+#dirs .tr-photo>span{position:absolute;bottom:0;left:8px;background:#171611;color:#ff5c27;padding:3px 9px;font-size:10px}
+#dirs .ux-track h3{font:700 italic 34px/.79 'Teko',sans-serif;letter-spacing:-.5px;border-bottom:3px solid;padding-bottom:9px}
+#dirs .tr-main{position:relative;display:flex;align-items:end;min-height:139px;border-bottom:3px solid;padding-bottom:7px}
+#dirs .tr-main>span{position:absolute;left:0;top:0;font:600 15px 'Teko',sans-serif;letter-spacing:1px}
+#dirs .tr-main strong{font:700 156px/.76 'Teko',sans-serif;letter-spacing:-5px}
+#dirs .tr-main strong small{font:600 49px 'Teko',sans-serif;letter-spacing:-2px}
+#dirs .tr-main>b{position:absolute;right:0;top:9px;font:600 18px/.9 'Teko',sans-serif;text-align:right}
+#dirs .tr-rail{display:grid;grid-template-columns:repeat(6,1fr);gap:3px}
+#dirs .tr-rail>*{display:grid;place-items:center;border-bottom:3px solid;height:40px;font:600 25px 'Teko',sans-serif;transform:skewX(-9deg)}
+#dirs .tr-rail b{background:#171611;color:#ff5c27}
+#dirs .tr-detail{display:grid;gap:2px}#dirs .tr-detail b{font:400 19px 'Do Hyeon',sans-serif}#dirs .tr-detail>span{font:500 12px 'Teko',sans-serif;letter-spacing:1px}
+#dirs .tr-price{display:flex;justify-content:space-between;align-items:center;border-block:1px solid #171611;padding:10px 0}
+#dirs .tr-price>small{font:600 17px 'Teko',sans-serif}#dirs .tr-price strong{font:600 47px/.85 'Teko',sans-serif;letter-spacing:-1px}#dirs .tr-price strong>span{font:400 13px 'Do Hyeon',sans-serif;margin-left:4px}
+#dirs .ux-track footer{background:#171611;color:#ff5c27;padding:8px 14px;transform:skewX(-7deg);font:600 italic 26px/1 'Teko',sans-serif;box-shadow:3px 3px #f6f5ef}
+#dirs .ux-track footer svg{stroke-width:2.7}
+
+/* F: calendar takes priority, compact room identity, vertical schedule. */
+#dirs .dx-f{background:#eef3ff;color:#163dce;font-family:'Noto Sans KR',sans-serif}
+#dirs .dx-f .d3-sb{font:600 14px 'Outfit',sans-serif}
+#dirs .ux-planner{padding:9px 18px 26px;gap:16px}
+#dirs .ux-planner header{font-size:13px}#dirs .ux-planner header>span{letter-spacing:2px}
+#dirs .pl-room{display:flex;align-items:center;gap:12px;background:white;padding:10px;border-radius:17px;box-shadow:0 5px 18px #164bff0a}
+#dirs .pl-room img{width:64px;height:64px;border-radius:13px}
+#dirs .pl-room>div{display:grid;gap:4px}#dirs .pl-room small{font-size:8px;color:#7588aa}
+#dirs .pl-room h3{font-size:16px;letter-spacing:-.8px}#dirs .pl-room span{font-size:9px;color:#7588aa}
+#dirs .pl-month{padding:0 6px}#dirs .pl-month>span{font:500 12px 'Outfit',sans-serif;color:#7588aa}
+#dirs .pl-month h4{font:600 32px/1.2 'Outfit',sans-serif;display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;letter-spacing:-1px}
+#dirs .pl-month h4>span{font-size:21px}
+#dirs .pl-calendar{display:grid;grid-template-columns:repeat(7,1fr);gap:8px 4px;text-align:center;align-items:center}
+#dirs .pl-calendar small{font:400 11px 'Outfit',sans-serif;color:#98a8c2;padding-bottom:4px}
+#dirs .pl-calendar b{font:500 17px 'Outfit',sans-serif;height:34px;display:grid;place-items:center;position:relative}
+#dirs .pl-calendar .chosen{background:#164bff;color:white;border-radius:11px;box-shadow:0 4px 8px #164bff33}
+#dirs .pl-slot{display:grid;grid-template-columns:48px 1fr;gap:16px;background:white;border-radius:20px;padding:16px 12px}
+#dirs .pl-slot>div{display:grid;align-content:start;justify-items:center;border-right:1px solid #164bff20;padding-right:11px}
+#dirs .pl-slot>div>span{font-size:8px;color:#7588aa}#dirs .pl-slot>div>b{font:600 37px 'Outfit',sans-serif}#dirs .pl-slot>div>small{font:500 10px 'Outfit',sans-serif}
+#dirs .pl-slot ol{display:grid;gap:15px;list-style:none;padding:0}
+#dirs .pl-slot li{display:flex;gap:10px;align-items:center;font-size:9px;position:relative}
+#dirs .pl-slot li>span{font:500 14px 'Outfit',sans-serif}#dirs .pl-slot li i{font-style:normal;font-size:9px;color:#98a8c2}
+#dirs .pl-slot li.chosen{color:#164bff}#dirs .pl-slot li.chosen::before{content:'';position:absolute;width:4px;height:29px;border-radius:3px;background:#164bff;left:-9px}
+#dirs .ux-planner footer{gap:12px}#dirs .ux-planner footer>div{display:grid;gap:4px}#dirs .ux-planner footer small{font-size:9px;color:#7588aa}#dirs .ux-planner footer b{font:600 29px 'Outfit',sans-serif;letter-spacing:-.8px}#dirs .ux-planner footer b>span{font:500 11px 'Noto Sans KR',sans-serif;margin-left:3px}
+#dirs .ux-planner footer>strong{display:flex;align-items:center;gap:14px;background:#164bff;color:white;padding:15px 16px;border-radius:15px;font-size:12px}
+
+/* G: photographic retreat, analog duration dial, no rectangular slot buttons. */
+#dirs .dx-g{background:#f2e5d6;color:#764637;font-family:'Hahmlet',serif}
+#dirs .dx-g .d3-sb{font:400 14px 'DM Serif Display',serif}
+#dirs .ux-retreat{padding:0 0 24px;gap:0}
+#dirs .ux-retreat header{padding:3px 24px 12px}#dirs .ux-retreat header>b{font:400 34px/1 'DM Serif Display',serif;letter-spacing:-1.5px}
+#dirs .re-scene{position:relative;height:235px;flex:none}#dirs .re-scene img{object-position:center;filter:sepia(.16) brightness(.88)}
+#dirs .re-scene>span{position:absolute;left:24px;top:20px;color:#fff;font:400 23px/1.45 'Hahmlet',serif;text-shadow:0 2px 14px #0004;letter-spacing:-.8px}
+#dirs .re-panel{position:relative;flex:1;background:#f2e5d6;border-radius:32px 32px 0 0;margin-top:-33px;padding:19px 24px 0;display:flex;flex-direction:column;align-items:center;gap:10px}
+#dirs .re-name{text-align:center}#dirs .re-name h3{font:500 20px/1.3 'Hahmlet',serif;letter-spacing:-1px}#dirs .re-name>span{font-size:8px;opacity:.7}
+#dirs .re-clock{position:relative;width:158px;height:158px;margin-top:2px}
+#dirs .re-clock svg{width:158px;height:158px;stroke:#764637;stroke-width:1}
+#dirs .re-clock .clock-face{fill:#fff3;stroke:#76463744;stroke-dasharray:1 6;stroke-width:4}
+#dirs .re-clock .clock-range{stroke:#a66d53;stroke-width:9;stroke-linecap:round}
+#dirs .re-clock .clock-hand{stroke:#764637;stroke-width:2;stroke-linecap:round}
+#dirs .re-clock svg>circle:last-child{fill:#764637}
+#dirs .re-clock>span{position:absolute;top:86px;left:0;width:100%;text-align:center;font:400 24px/1 'DM Serif Display',serif}
+#dirs .re-clock small{display:block;font:400 7px 'Hahmlet',serif;margin-top:5px}
+#dirs .re-date{display:flex;justify-content:space-between;gap:20px;align-items:center;width:100%;padding-bottom:10px;border-bottom:1px solid #76463730;font-size:8px}
+#dirs .re-date>b{font:400 14px 'DM Serif Display',serif}
+#dirs .ux-retreat footer{width:100%;gap:20px}#dirs .ux-retreat footer>div{display:grid;gap:5px}#dirs .ux-retreat footer small{font-size:8px}#dirs .ux-retreat footer b{font:400 33px/.9 'DM Serif Display',serif;letter-spacing:-.7px}#dirs .ux-retreat footer b>span{font:400 10px 'Hahmlet',serif;margin-left:4px}
+#dirs .ux-retreat footer i{width:49px;height:49px;display:grid;place-items:center;border-radius:50%;color:#f2e5d6;background:#764637}
+
+/* H: technical room plan, segmented access meter, console numerals. */
+#dirs .dx-h{background:#171a20;color:#d4e0ea;font-family:'Gothic A1',sans-serif}
+#dirs .dx-h .d3-sb{font:500 12px 'JetBrains Mono',monospace}
+#dirs .ux-console{padding:11px 20px 28px;gap:19px}
+#dirs .ux-console header{font:500 9px 'JetBrains Mono',monospace;letter-spacing:1px;border-bottom:1px solid #d4e0ea35;padding-bottom:12px}
+#dirs .ux-console header i{color:#c9dbde;font-style:normal;box-shadow:0 0 15px #c9dbde50;border-radius:50%}
+#dirs .co-name{display:grid;gap:7px}#dirs .co-name>small{font:400 8px 'JetBrains Mono',monospace;letter-spacing:1.3px;color:#7f939e}
+#dirs .co-name h3{font:500 38px/1.03 'JetBrains Mono',monospace;letter-spacing:-2px}
+#dirs .co-name>span{font:500 10px 'Gothic A1',sans-serif;color:#7f939e}
+#dirs .co-plan{border:1px solid #d4e0ea25;background:repeating-linear-gradient(0deg,transparent,transparent 14px,#d4e0ea05 15px),repeating-linear-gradient(90deg,transparent,transparent 14px,#d4e0ea05 15px);padding:9px}
+#dirs .co-plan svg{width:100%;height:142px;stroke:#aebfc8;stroke-width:1}
+#dirs .co-plan .plan-wall{stroke-width:3}#dirs .co-plan .plan-thin{stroke-width:.7}#dirs .co-plan .plan-window{stroke-width:3;stroke:#eaf6ff}
+#dirs .co-plan text{fill:#aebfc8;stroke:none;font:9px 'JetBrains Mono',monospace}
+#dirs .co-plan>div{display:flex;justify-content:space-between;align-items:end;border-top:1px solid #d4e0ea25;padding-top:8px}
+#dirs .co-plan>div>span{font:400 7px 'JetBrains Mono',monospace;color:#7f939e}#dirs .co-plan b{font:500 23px/.8 'JetBrains Mono',monospace}#dirs .co-plan b>small{font:400 7px 'JetBrains Mono',monospace;margin-left:6px}
+#dirs .co-schedule{display:grid;gap:8px}#dirs .co-schedule>span{font:400 8px 'JetBrains Mono',monospace;letter-spacing:1px;color:#7f939e}
+#dirs .co-schedule>b{font:400 26px 'JetBrains Mono',monospace;letter-spacing:-1px;display:flex;justify-content:space-between;align-items:center}#dirs .co-schedule em{font-style:normal;font-size:16px;color:#7f939e}
+#dirs .co-meter{display:grid;grid-template-columns:repeat(24,1fr);gap:3px}#dirs .co-meter i{height:19px;background:#d4e0ea15}#dirs .co-meter .lit{background:#d4e0ea}
+#dirs .co-schedule>small{font:400 8px 'JetBrains Mono',monospace;color:#7f939e}
+#dirs .co-total{border-top:1px solid #d4e0ea35;padding-top:15px;display:grid;gap:7px}#dirs .co-total>span{font:400 8px 'JetBrains Mono',monospace;color:#7f939e}#dirs .co-total b{font:500 32px/1 'JetBrains Mono',monospace;letter-spacing:-1.8px}#dirs .co-total small{font:400 10px 'JetBrains Mono',monospace;letter-spacing:0}
+#dirs .ux-console footer{border:1px solid #d4e0ea;background:#d4e0ea;color:#171a20;padding:12px 13px;font:600 10px 'JetBrains Mono',monospace;letter-spacing:.2px}
+
+#dirs .ux-editorial{gap:9px;padding-top:8px;padding-bottom:23px} #dirs .ux-track{gap:9px} #dirs .ux-console{gap:10px;padding-top:8px;padding-bottom:23px}
+
+#dirs #design-new{scroll-margin-top:100px}
