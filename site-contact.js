@@ -26,7 +26,12 @@
   function append(obj,prefix=''){for(const [key,value] of Object.entries(obj||{})){if(value==null||/password|token|secret|^hp$/i.test(key))continue;if(key==='via')continue;const label=prefix+(names[key]||key);if(Array.isArray(value))fields[label]=value.map(v=>typeof v==='object'?JSON.stringify(v):v).join(' · ')||'미선택';else if(typeof value==='object')append(value,label+' / ');else fields[label]=clean(value)||'미기재';}}
   append(p.meta);append(p.fields);fields['시안 전달 방법']='카카오채널 1:1 채팅';fields['채팅 연결 안내']='고객이 채널에 접수번호를 보내면 해당 채팅방으로 시안 전달';fields['개인정보 수집·이용 동의']=p.consent?'동의':'미동의';
 
-  try{const response=await fetch(endpoint,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(fields),signal:AbortSignal.timeout(20000)});const result=await response.json();
+  try{let response,result;const body=JSON.stringify(fields);for(let attempt=0;attempt<3;attempt++){
+   response=await fetch(endpoint,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body,signal:AbortSignal.timeout(20000)});result=await response.json();
+   if(response.status!==429||attempt===2)break;
+   const retryHeader=response.headers?.get('Retry-After');const retrySeconds=Number(retryHeader);const retryAt=Date.parse(retryHeader||'');const delay=Math.max(65000,Number.isFinite(retrySeconds)&&retrySeconds>0?retrySeconds*1000:Number.isFinite(retryAt)?retryAt-Date.now():0);
+   await new Promise(resolve=>setTimeout(resolve,delay));
+  }
    if(!response.ok||!(result.success===true||result.success==='true')){console.warn('ATZ mail service:',response.status,String(result.message||''));return {ok:false,no:id,error:'전송하지 못했습니다. 잠시 후 다시 시도하거나 카카오 채널로 문의해 주세요.'};}
    if(archive)Promise.resolve(archive({...p,no:id})).catch(()=>{});
    showKakaoReceipt(id);return {ok:true,no:id};
