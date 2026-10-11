@@ -37,7 +37,7 @@
    if(row.parentElement.querySelector(':scope > .atz-email-row'))continue;
    const label=document.createElement('label');label.className=(row.className||'fld')+' atz-email-row';
    label.innerHTML='<span>이메일 <em>필수</em></span><input data-atz-email name="email" type="email" autocomplete="email" placeholder="name@example.com" required aria-label="이메일 필수">';
-   const input=label.querySelector('input');input.className=anchor.className;input.value=sessionStorage.getItem('atz-email-draft')||'';
+   label.style.cssText='display:flex;flex-direction:column;gap:8px;grid-column:1 / -1;width:100%';const input=label.querySelector('input');input.className=anchor.className;input.style.cssText='box-sizing:border-box;width:100%;min-height:52px;padding:14px 16px;border:1px solid rgba(150,135,210,.3);border-radius:14px;background:rgba(8,6,30,.65);color:inherit;font:inherit;outline-offset:3px';input.value=sessionStorage.getItem('atz-email-draft')||'';
    input.addEventListener('input',()=>sessionStorage.setItem('atz-email-draft',input.value));row.after(label);
   }
  }
@@ -77,7 +77,8 @@
   for(const x of f.querySelectorAll('input,textarea,select')){
    if(x.disabled||['hidden','submit','button','password','file'].includes(x.type))continue;
    if(['checkbox','radio'].includes(x.type)&&!x.checked)continue;
-   const ownLabel=x.labels?.[0]?.textContent?.trim();
+   if(x.type==='checkbox'&&(/agree|consent|ok/i.test(x.id+x.name)||x.required))continue;
+   const labelElement=x.labels?.[0];const ownLabel=(labelElement?.querySelector('span')?.textContent||labelElement?.textContent)?.trim();
    const label=groupNames[x.name]||x.getAttribute('aria-label')||ownLabel||x.name||x.id;
    const val=x.type==='checkbox'?(ownLabel||x.value||'선택'):x.tagName==='SELECT'?[...x.selectedOptions].map(o=>o.textContent).join(' · '):x.value;
    if(label)fields[label]=fields[label]?fields[label]+' · '+clean(val):clean(val)||'미기재';
