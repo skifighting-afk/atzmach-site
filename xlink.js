@@ -1,10 +1,10 @@
 /* 페이지 하단 '다음으로 보기' 연결 띠. 페이지마다 이어질 곳만 다르다. */
 (function(){
   var L={
-    program:["프로그램 개발","index.html"],
+    program:["AI ERP","index.html"],
     web:["홈페이지 제작","web.html"],
-    app:["앱·플랫폼 개발","platform.html"],
-    lineup:["전체 라인업 90+","lineup.html"],
+    app:["앱플랫폼","platform.html"],
+    lineup:["포트폴리오","lineup.html"],
     academy:["ATZ 창업사관학교","academy.html"],
     erp:["업종별 ERP 체험","erp.html"]
   };
