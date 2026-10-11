@@ -15,7 +15,7 @@
   const fields={_subject:`[ATZ MACH 신규 문의] ${clean(p.type||labels[p.line]||'상담',70)} · ${clean(p.name||'문의 고객',60)}`,_template:'table',_captcha:'false',접수번호:id,접수시각:new Date().toLocaleString('ko-KR',{timeZone:'Asia/Seoul'}),이름:clean(p.name,60)||'미기재',연락처:clean(p.phone||p.contact,200),요청분야:clean(p.type||labels[p.line]||p.line,100)||'상담',업체명:clean(p.company,120)||'미기재',문의내용:clean(p.idea)||'미기재',접수페이지:location.origin+location.pathname};
   const contact=clean(p.contact);if(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact))fields._replyto=contact;
   try{const response=await fetch(endpoint,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(fields),signal:AbortSignal.timeout(20000)});const result=await response.json();
-   if(!response.ok||!(result.success===true||result.success==='true'))return {ok:false,no:id,error:'전송하지 못했습니다. 잠시 후 다시 시도하거나 카카오 채널로 문의해 주세요.'};
+   if(!response.ok||!(result.success===true||result.success==='true')){console.warn('ATZ mail service:',response.status,String(result.message||''));return {ok:false,no:id,error:'전송하지 못했습니다. 잠시 후 다시 시도하거나 카카오 채널로 문의해 주세요.'};}
    if(archive)Promise.resolve(archive({...p,no:id})).catch(()=>{});
    return {ok:true,no:id};
   }catch{return {ok:false,no:id,error:'연결이 원활하지 않습니다. 다시 시도하거나 카카오 채널로 문의해 주세요.'};}
