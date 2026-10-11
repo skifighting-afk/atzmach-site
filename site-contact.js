@@ -2,22 +2,25 @@
  'use strict';
  const EMAIL='skifighting@gmail.com',KAKAO='https://pf.kakao.com/_yynFX/chat',endpoint='https://formsubmit.co/ajax/'+EMAIL;
  const script=document.currentScript,base=new URL('.',script.src),privacy=new URL('privacy.html',base).href;
- const labels={program:'프로그램 개발',web:'홈페이지 제작',platform:'앱·플랫폼 개발',app:'앱 개발',academy:'창업 상담'};
+ const labels={program:'프로그램 개발',web:'홈페이지 제작',platform:'앱·플랫폼 개발',academy:'창업 상담'};
  const page=location.pathname.split('/').pop().replace('.html','')||'index';
  const archive=window.atzIntake,inflight=new Map();
  function clean(v,max=30000){return String(v??'').trim().slice(0,max);}
  function no(){return 'ATZ-'+new Date().toISOString().slice(0,10).replaceAll('-','')+'-'+crypto.randomUUID().slice(0,8).toUpperCase();}
  async function send(p){
   const id=p.no||no();
+  const email=clean(p.email||p.meta?.email||p.fields?.['이메일']||(typeof sessionStorage!=='undefined'?sessionStorage.getItem('atz-email-draft'):'')||(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(p.contact||'')?p.contact:''));
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))return {ok:false,no:id,error:'올바른 이메일을 입력해 주세요.'};
+  p={...p,email};
   if(p.hp)return {ok:false,no:id,error:'spam'};
   if(!p.consent)return {ok:false,no:id,error:'동의가 필요합니다.'};
   if(!clean(p.phone||p.contact))return {ok:false,no:id,error:'연락처가 필요합니다.'};
-  const fields={_subject:`[ATZ MACH 신규 문의] ${clean(p.type||labels[p.line]||'상담',70)} · ${clean(p.name||'문의 고객',60)}`,_template:'table',_captcha:'false',접수번호:id,접수시각:new Date().toLocaleString('ko-KR',{timeZone:'Asia/Seoul'}),이름:clean(p.name,60)||'미기재',연락처:clean(p.phone||p.contact,200),요청분야:clean(p.type||labels[p.line]||p.line,100)||'상담',업체명:clean(p.company,120)||'미기재',문의내용:clean(p.idea)||'미기재',접수페이지:location.origin+location.pathname};
+  const fields={_subject:`[ATZ MACH 신규 문의] ${clean(p.type||labels[p.line]||'상담',70)} · ${clean(p.name||'문의 고객',60)}`,_replyto:email,이메일:email,_template:'table',_captcha:'false',접수번호:id,접수시각:new Date().toLocaleString('ko-KR',{timeZone:'Asia/Seoul'}),이름:clean(p.name,60)||'미기재',연락처:clean(p.phone||p.contact,200),요청분야:clean(p.type||labels[p.line]||p.line,100)||'상담',업체명:clean(p.company,120)||'미기재',문의내용:clean(p.idea)||'미기재',접수페이지:location.origin+location.pathname};
   const extra=p.fields||p.meta||{};
   const names={org:'사용 대상',type:'제작 유형',via:'희망 연락 방법',want:'희망 상담 분야',industry:'업종',employees:'직원 수',fit:'진단 결과',likes:'좋아하는 것',goods:'잘하는 것',customRequirements:'제작 요청사항',contactWhen:'희망 연락 시간',tools:'사용 중인 도구',locations:'매장 수'};
   function append(obj,prefix=''){for(const [key,value] of Object.entries(obj||{})){if(value==null||/password|token|secret|^hp$/i.test(key))continue;const label=prefix+(names[key]||key);if(Array.isArray(value))fields[label]=value.map(v=>typeof v==='object'?JSON.stringify(v):v).join(' · ')||'미선택';else if(typeof value==='object')append(value,label+' / ');else fields[label]=clean(value)||'미기재';}}
   append(extra);fields['개인정보 수집·이용 동의']=p.consent?'동의':'미동의';
-  const contact=clean(p.contact);if(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact))fields._replyto=contact;
+
   try{const response=await fetch(endpoint,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(fields),signal:AbortSignal.timeout(20000)});const result=await response.json();
    if(!response.ok||!(result.success===true||result.success==='true')){console.warn('ATZ mail service:',response.status,String(result.message||''));return {ok:false,no:id,error:'전송하지 못했습니다. 잠시 후 다시 시도하거나 카카오 채널로 문의해 주세요.'};}
    if(archive)Promise.resolve(archive({...p,no:id})).catch(()=>{});
@@ -25,8 +28,30 @@
   }catch{return {ok:false,no:id,error:'연결이 원활하지 않습니다. 다시 시도하거나 카카오 채널로 문의해 주세요.'};}
  }
  window.atzIntake=p=>{const key=p.no||JSON.stringify([p.name,p.phone,p.contact,p.idea]);if(inflight.has(key))return inflight.get(key);const task=send(p).finally(()=>inflight.delete(key));inflight.set(key,task);return task;};
+ // Add a required email to each original inquiry form, including dynamically rendered steps.
+ function emailFields(){
+  const anchors=document.querySelectorAll('#lead input[type="tel"],#f input[type="tel"],#fP,#rqVal,#cVal,#dg-phone,#iq-phone,#a3-ph');
+  for(const anchor of anchors){
+   const row=anchor.closest('label')||anchor.parentElement;
+   if(row.parentElement.querySelector(':scope > .atz-email-row'))continue;
+   const label=document.createElement('label');label.className=(row.className||'fld')+' atz-email-row';
+   label.innerHTML='<span>이메일 <em>필수</em></span><input data-atz-email name="email" type="email" autocomplete="email" placeholder="name@example.com" required aria-label="이메일 필수">';
+   const input=label.querySelector('input');input.className=anchor.className;input.value=sessionStorage.getItem('atz-email-draft')||'';
+   input.addEventListener('input',()=>sessionStorage.setItem('atz-email-draft',input.value));row.after(label);
+  }
+ }
+ emailFields();new MutationObserver(emailFields).observe(document.body,{childList:true,subtree:true});
+ function checkEmail(e){
+  const form=e.target.closest('form');
+  const button=e.target.closest('button');
+  if(e.type==='click'&&(!button||!/(접수|신청|시안.*받|보내)/.test(button.textContent)))return;
+  const scope=form||e.target.closest('#diagnosis,#apply,#make')||e.target.closest('section');
+  const input=scope?.querySelector('[data-atz-email]');
+  if(input&&!input.checkValidity()){e.preventDefault();e.stopImmediatePropagation();input.reportValidity();input.focus();}
+ }
+ document.addEventListener('submit',checkEmail,true);document.addEventListener('click',checkEmail,true);
  const dock=document.createElement('aside');dock.className='atz-contact-dock';dock.setAttribute('aria-label','빠른 상담');dock.innerHTML='<button type="button" data-atz-inquiry><span class="atz-contact-icon" aria-hidden="true">↗</span>바로 문의하기</button><a href="'+KAKAO+'" target="_blank" rel="noopener"><span class="atz-contact-icon" aria-hidden="true">●</span>카카오 채널 상담</a>';document.body.append(dock);
- const targets={index:'#diagnosis',platform:'#apply',app:'#apply',academy:'#apply',web:'#make'};
+ const targets={index:'#diagnosis',platform:'#apply',academy:'#apply',web:'#make'};
  function destination(){const hash=targets[page];return hash||new URL('index.html#diagnosis',base).href;}
  async function open(){const dest=destination();if(dest.startsWith('#')){let target=document.querySelector(dest);for(let attempt=0;!target&&attempt<30;attempt++){await new Promise(resolve=>setTimeout(resolve,100));target=document.querySelector(dest);}if(!target)return;history.replaceState(null,'',dest);target.style.scrollMarginTop='130px';target.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'start'});target.setAttribute('tabindex','-1');target.focus({preventScroll:true});}else location.href=dest;}
  dock.querySelector('button').onclick=open;
@@ -58,7 +83,7 @@
   }
   if(page==='academy'&&typeof S!=='undefined'){fields['좋아하는 것']=S.likes||'미기재';fields['잘하는 것']=S.goods||'미기재';}
 
-  submit(f,{line:page,type:f.querySelector('input[name=type]:checked')?.value||labels[page==='index'?'program':page]||'상담 문의',name:value(['f-name','fN','cf_name','name','a-name']),phone:contact,contact,company:value(['cf_co','company','f-company']),idea:fields['아이디어 (1~5줄)']||fields['당신의 이야기를 들려주세요']||value(['f-idea','cf_memo']),fields,consent:true});
+  submit(f,{email:f.querySelector('[data-atz-email]')?.value,line:page,type:f.querySelector('input[name=type]:checked')?.value||labels[page==='index'?'program':page]||'상담 문의',name:value(['f-name','fN','cf_name','name','a-name']),phone:contact,contact,company:value(['cf_co','company','f-company']),idea:fields['아이디어 (1~5줄)']||fields['당신의 이야기를 들려주세요']||value(['f-idea','cf_memo']),fields,consent:true});
  },true);
  // First visit to the site in this browser session.
  let first=true;try{first=!sessionStorage.getItem('atz-welcome-v1');}catch{}
