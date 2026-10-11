@@ -3322,7 +3322,7 @@ document.addEventListener("click",e=>{const p=e.target.closest(".zx__p");const o
    - 영상을 다 받기 전에도 바로 반응: 서버가 구간 요청을 받으면 스트리밍, 못 받으면 통째로 받아 사용
    - 첫 1.6초(빛이 들어오는 장면)는 자동, 스크롤은 그 다음 장면부터 바로 이어짐 */
 (function(){const sec=document.getElementById("city");if(!sec)return;
- const SRC="media/web_city.mp4",pin=sec.firstElementChild,R=document.documentElement,IN=1.6,
+ const SRC="media/web_city.mp4?v=2",pin=sec.firstElementChild,R=document.documentElement,IN=1.6,
   small=()=>matchMedia("(max-width: 760px)").matches,calm=()=>R.classList.contains("fx-off");   // calm: 효과 끔 → 자동 재생만 생략
  let v=sec.querySelector("video"),ready=false,dur=10,cur=0,tgt=0,moved=false,t0=0,raf=0,auto=false,blob=false;
  const base=()=>calm()?0:Math.min(IN,dur-.06);
