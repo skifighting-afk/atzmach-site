@@ -225,7 +225,7 @@ footer{border-top:1px solid var(--line);padding-block:24px 40px;color:var(--dim)
 footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between}
 footer a{color:var(--mute)}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.tick__in,.fs *{animation:none!important}.lu-cd,.btn{transition:none}.mo__in{animation:none}}
-</style><link rel="stylesheet" href="site-contact.css?v=4"><script defer src="site-contact.js?v=20"></script></head><body>
+</style><link rel="stylesheet" href="site-contact.css?v=20261012-pause"><script defer src="site-contact.js?v=20261012-pause"></script></head><body>
 <a class="skip" href="#lineup">본문으로 건너뛰기</a>
 
 <header class="lu-top"><div class="wrap">
@@ -235,7 +235,7 @@ footer a{color:var(--mute)}
     <a href="platform.html?v=20261011g" style="--c:#6b93ff"><i></i><small>02</small>앱플랫폼</a>
     <a href="web.html?v=20261011e" style="--c:#ffb020"><i></i><small>03</small>홈페이지 제작</a>
     <a href="lineup.html?v=20261011e" style="--c:#2bff88" aria-current="page"><i></i><small>04</small>포트폴리오</a>
-    <a class="acad" href="academy.html?v=20261011e">✦ ATZ 창업사관학교</a>
+    
   </nav>
   <a class="btn btn--g btn--s" href="https://pf.kakao.com/_yynFX/chat" target="_blank" rel="noopener">무료 1차 시안 받기</a>
 </div></header>
@@ -278,19 +278,7 @@ footer a{color:var(--mute)}
   <h2 id="upT">실제 납품 디자인은 위 시안보다<br><b>300% 이상</b> 좋아집니다.</h2>
 </div></section>
 
-<section class="lu-br" aria-labelledby="brT"><div class="wrap lu-br__g">
-  <div>
-    <p class="lu-br__k">✦ ATZ 창업사관학교</p>
-    <h2 id="brT">이 프로그램으로<br><em>직접 돈을 벌고</em> 싶다면?</h2>
-    <p class="lu-br__p">만드는 건 저희가 합니다. 팔리는 브랜드로 키우는 법, 첫 판매까지 가는 길은 창업사관학교에서 대표가 직접 함께합니다.</p>
-    <ul class="lu-br__f"><li>한 기수 3팀</li><li>4주 8회 구축</li><li>12주 매출 실행</li></ul>
-    <div class="hero-cta">
-      <a class="btn btn--gold" href="academy.html?v=20261011e">ATZ 창업사관학교 보기 →</a>
-      <a class="btn btn--o" href="https://pf.kakao.com/_yynFX/chat" target="_blank" rel="noopener">내 아이템으로 상담받기</a>
-    </div>
-  </div>
-  <ol class="lu-mp2" id="brPath" aria-label="수익화 흐름"></ol>
-</div></section>
+
 
 <section class="end"><div class="wrap">
   <h2>목록에 없어도 만듭니다.</h2>
@@ -308,11 +296,10 @@ footer a{color:var(--mute)}
 </div></footer>
 
 <div class="mo" id="mo" hidden role="dialog" aria-modal="true" aria-labelledby="moT">
-      <button class="mo__x" id="moX" type="button" aria-label="닫기">✕</button>
   <div class="mo__in" id="moIn">
     <div class="mo__v"><div class="fone" id="moF"></div></div>
     <div class="mo__s">
-
+      <button class="mo__x" id="moX" type="button" aria-label="닫기">✕</button>
       <span class="lu-cd__i" id="moI"></span>
       <h2 id="moT"></h2>
       <p id="moD"></p>
@@ -358,8 +345,8 @@ function open(i){cur=i;var p=P[i],c=C[p[0]];
   document.getElementById("moT").textContent=p[1];
   document.getElementById("moD").textContent=p[2];
   if(mo.hidden){back=document.activeElement;mo.hidden=false;oldOverflow=document.body.style.overflow;document.body.style.overflow="hidden"}
-  document.getElementById("moIn").scrollTop=0;document.getElementById("moX").focus({preventScroll:true})}
-function close(){mo.hidden=true;document.body.style.overflow=oldOverflow;if(back&&back.focus)back.focus({preventScroll:true})}
+  document.getElementById("moX").focus()}
+function close(){mo.hidden=true;document.body.style.overflow=oldOverflow;if(back&&back.focus)back.focus()}
 function step(d){var k=shown.indexOf(cur);if(k<0)return;open(shown[(k+d+shown.length)%shown.length])}
 grid.addEventListener("click",function(e){var c=e.target.closest(".lu-cd");if(c)open(+c.getAttribute("data-k"))});
 document.getElementById("moX").addEventListener("click",close);
@@ -395,4 +382,4 @@ render();
 P.forEach(function(p){if(!LX[p[1]])console.error("no screen",p[1]);if(!C[p[0]])console.error("no industry",p[0])});
 })();
 </script>
-<script src="xlink.js?v=20261011c" defer></script><link rel="stylesheet" href="mobile.css?v=20261012h"><script src="mobile-browse.js?v=20261012g" defer></script></body></html>
+<script src="xlink.js?v=20261011c" defer></script></body></html>
