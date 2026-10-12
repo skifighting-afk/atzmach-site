@@ -1051,7 +1051,7 @@ h1,h2,h3,h4,.say span{text-wrap:balance}p,li,small,figcaption,blockquote,dd,td{t
 <style id="navfix">/* 목차는 항상 위에 보인다 */
 header.top .svc{display:flex!important}header.top #menuBtn{display:none!important}
 @media(max-width:999px){header.top .top__a{flex-wrap:wrap;height:auto!important;padding-block:6px 4px;row-gap:0;column-gap:8px}header.top .svc{order:9;width:100%;margin:0;gap:0;overflow-x:auto;scrollbar-width:none}header.top .svc::-webkit-scrollbar{display:none}header.top .svc a.zp{padding:8px 7px;font-size:13px;gap:5px}header.top .svc a.acad{margin-left:auto;padding:7px 11px;font-size:12px}}
-@media(max-width:560px){header.top .svc a.zp small{display:none}header.top .svc a.acad b{display:none}}@media(max-width:480px){header.top .svc .zpx{display:none}}@media(max-width:380px){header.top .svc a.zp i{display:none}header.top .svc a.zp{padding-inline:6px}}</style><link rel="stylesheet" href="site-contact.css?v=4"><script defer src="site-contact.js?v=18"></script></head>
+@media(max-width:560px){header.top .svc a.zp small{display:none}header.top .svc a.acad b{display:none}}@media(max-width:480px){header.top .svc .zpx{display:none}}@media(max-width:380px){header.top .svc a.zp i{display:none}header.top .svc a.zp{padding-inline:6px}}</style><link rel="stylesheet" href="site-contact.css?v=4"><script defer src="site-contact.js?v=19"></script></head>
 <body>
 <a class="skip" href="#main">본문으로 건너뛰기</a>
 <header class="top" id="top">
@@ -2009,5 +2009,5 @@ function f(v){var x=v.replace(/\D/g,""),a=x.indexOf("02")===0?2:3,r,m;x=x.slice(
  m=r.length>7||x.indexOf("010")===0?4:3; /* 가운데 자리 수: 010은 항상 4 */
  return x.slice(0,a)+"-"+(r.length>m?r.slice(0,m)+"-"+r.slice(m):r)}
 window.atzPhone=f;
-document.addEventListener("input",function(e){var t=e.target;if(!t.matches||!t.matches("input[type=tel],input[inputmode=tel]"))return;var v=f(t.value);if(v!==t.value)set.call(t,v)},true)})();</script><script src="xlink.js?v=20261011c" defer></script><link rel="stylesheet" href="mobile.css?v=20261012e"></body>
+document.addEventListener("input",function(e){var t=e.target;if(!t.matches||!t.matches("input[type=tel],input[inputmode=tel]"))return;var v=f(t.value);if(v!==t.value)set.call(t,v)},true)})();</script><script src="xlink.js?v=20261011c" defer></script><link rel="stylesheet" href="mobile.css?v=20261012f"><script src="mobile-browse.js?v=20261012f" defer></script></body>
 </html>
