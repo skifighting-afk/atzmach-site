@@ -2009,5 +2009,5 @@ function f(v){var x=v.replace(/\D/g,""),a=x.indexOf("02")===0?2:3,r,m;x=x.slice(
  m=r.length>7||x.indexOf("010")===0?4:3; /* 가운데 자리 수: 010은 항상 4 */
  return x.slice(0,a)+"-"+(r.length>m?r.slice(0,m)+"-"+r.slice(m):r)}
 window.atzPhone=f;
-document.addEventListener("input",function(e){var t=e.target;if(!t.matches||!t.matches("input[type=tel],input[inputmode=tel]"))return;var v=f(t.value);if(v!==t.value)set.call(t,v)},true)})();</script><script src="xlink.js?v=20261011c" defer></script><link rel="stylesheet" href="mobile.css?v=20261012f"><script src="mobile-browse.js?v=20261012f" defer></script></body>
+document.addEventListener("input",function(e){var t=e.target;if(!t.matches||!t.matches("input[type=tel],input[inputmode=tel]"))return;var v=f(t.value);if(v!==t.value)set.call(t,v)},true)})();</script><script src="xlink.js?v=20261011c" defer></script><link rel="stylesheet" href="mobile.css?v=20261012f"><script src="mobile-browse.js?v=20261012g" defer></script></body>
 </html>

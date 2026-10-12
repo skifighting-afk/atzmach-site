@@ -17,11 +17,13 @@
  // 2. Expand all plans for an honest side-by-side scope comparison.
  const plans=$('.pk');if(plans){const bar=tools();bar.append(button('포함 항목 모두 펼치기',e=>{const open=all('.mobile-price-details').some(x=>!x.open);all('.mobile-price-details').forEach(x=>x.open=open);e.currentTarget.textContent=open?'포함 항목 모두 접기':'포함 항목 모두 펼치기'}));plans.before(bar)}
  // 3–4. Fold advanced ERP filters and reset them in one tap.
- const filters=$('.pfx-fs');if(filters){
-  filters.classList.add('mobile-filter-fold');filters.hidden=true;
-  const toggle=button('세부 조건 펼치기',()=>{filters.hidden=!filters.hidden;toggle.textContent=filters.hidden?'세부 조건 펼치기':'세부 조건 접기';toggle.setAttribute('aria-expanded',String(!filters.hidden))});toggle.className='mobile-filter-toggle';toggle.setAttribute('aria-expanded','false');filters.before(toggle);
-  const bar=tools();bar.append(button('조건 초기화',()=>{filters.querySelectorAll('select').forEach(s=>{s.selectedIndex=0;s.dispatchEvent(new Event('change',{bubbles:true}))});const q=filters.querySelector('input');if(q){q.value='';q.dispatchEvent(new Event('input',{bubbles:true}))}const first=$('.pfx-cats button');if(first)first.click()}));filters.after(bar);
+ let filters=null,filterExpanded=false;
+ function initFilters(){const found=$('.pfx-fs');if(!found||found.dataset.mobileReady)return;filters=found;filters.dataset.mobileReady='1';
+  filters.classList.add('mobile-filter-fold');filters.hidden=!filterExpanded;
+  const toggle=button('세부 조건 펼치기',()=>{filters.hidden=!filters.hidden;filterExpanded=!filters.hidden;toggle.textContent=filters.hidden?'세부 조건 펼치기':'세부 조건 접기';toggle.setAttribute('aria-expanded',String(!filters.hidden))});toggle.className='mobile-filter-toggle';toggle.setAttribute('aria-expanded',String(filterExpanded));if(filterExpanded)toggle.textContent='세부 조건 접기';filters.before(toggle);
+  const bar=tools();bar.append(button('조건 초기화',()=>{const keys=[...filters.querySelectorAll('select')].map(s=>s.dataset.f);keys.forEach(key=>{const s=document.querySelector('.pfx-fs select[data-f="'+key+'"]');if(s){s.selectedIndex=0;s.dispatchEvent(new Event('change',{bubbles:true}))}});const q=filters.querySelector('input');if(q){q.value='';q.dispatchEvent(new Event('input',{bubbles:true}))}const first=$('.pfx-cats button');if(first)first.click()}));filters.after(bar);
  }
+ initFilters();new MutationObserver(initFilters).observe(document.body,{childList:true,subtree:true});
  // 5. Chosen categories remain visible in long horizontal chip lists.
  document.addEventListener('click',e=>{const chip=e.target.closest('.chips button,.pfx-cats button,.tabs button');if(!chip)return;const p=chip.parentElement;if(p.scrollWidth>p.clientWidth)p.scrollTo({left:chip.offsetLeft-p.offsetLeft-(p.clientWidth-chip.clientWidth)/2,behavior:reduced.matches?'auto':'smooth'})});
  // 6. Keep the active section visible in the small section navigation.
