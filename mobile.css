@@ -234,4 +234,16 @@
  html body .sub__dp{display:block!important;min-height:32px!important;font-size:10px!important}
  html body .toc__in{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:0!important;overflow:visible!important}
  html body .toc__in a{white-space:normal!important;font-size:10px!important;padding:6px 2px!important;min-width:0;text-align:center!important}
+ html body .nav .nav__one{display:none!important}
+ html body .nav:not(:has(.zx__ac)) .nav__acad{display:block!important;grid-column:1/-1;grid-row:2;justify-self:end;align-self:center;width:calc((100% - 12px)/5);text-align:center;box-sizing:border-box;line-height:1.4!important;padding:6px 2px!important;font-size:10px!important;white-space:normal!important;overflow-wrap:anywhere!important;z-index:1}
+ html body .nav:not(:has(.zx__ac)) .nav__acad i,html body .nav:not(:has(.zx__ac)) .nav__acad b{display:none!important}
+ html body nav.top{display:grid!important;grid-template-columns:1fr auto!important;gap:4px 6px!important;padding:5px 12px!important;height:auto!important;overflow:visible!important}
+ html body nav.top>.lg{grid-column:1;grid-row:1;font-size:18px!important;line-height:1.4!important;white-space:nowrap!important}
+ html body nav.top>.zx-r{grid-column:2;grid-row:1;font-size:11px!important;min-width:0!important}
+ html body nav.top>.zx-r a{font-size:11px!important;min-height:32px!important;padding:6px 9px!important}
+ html body nav.top>.zx{display:grid!important;grid-column:1/-1;grid-row:2;grid-template-columns:repeat(5,minmax(0,1fr))!important;width:100%!important;gap:3px!important;overflow:visible!important;white-space:normal!important;margin:0!important;padding:0!important}
+ html body nav.top .zx__i{min-width:0!important}
+ html body nav.top .zx .zx__p,html body nav.top .zx>a{display:block!important;font-size:10px!important;line-height:1.4!important;white-space:normal!important;text-align:center!important;padding:7px 2px!important;min-width:0!important;min-height:32px!important;box-sizing:border-box!important;overflow-wrap:anywhere!important}
+ html body nav.top .zx .zx__p small,html body nav.top .zx .zx__x{display:none!important}
+ html body nav.top .zx .zx__p i{width:4px!important;height:4px!important;display:inline-block!important;margin-right:2px!important}
 }
