@@ -126,7 +126,7 @@
 }
 @media(max-width:760px){
  html body #dirs .d3-row.fan-ready{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px!important;height:auto!important;min-height:0!important;padding:18px 0 0!important;overflow:visible!important;margin:0!important}
- html body #dirs .d3-row.fan-ready .d3-col{position:relative!important;inset:auto!important;margin:0!important;width:100%!important;max-width:100%!important;transform:none!important;opacity:1!important;visibility:visible!important;gap:12px!important;pointer-events:auto!important}
+ html body #dirs .d3-row.fan-ready .d3-col{position:relative!important;inset:auto!important;margin:0!important;width:100%!important;min-width:0!important;max-width:100%!important;display:flex!important;flex-direction:column!important;align-items:center!important;transform:none!important;opacity:1!important;visibility:visible!important;gap:12px!important;pointer-events:auto!important}
  html body #dirs .d3-row.fan-ready .d3-ph.d3-ph{zoom:.32!important;transform:none!important}
  #dirs .d3-cap b{flex-wrap:wrap;justify-content:center;font-size:11px;gap:4px}
  #dirs .d3-cap em{width:18px;height:18px;font-size:10px}#dirs .d3-sw{margin:0;gap:3px}#dirs .d3-sw i{width:10px;height:10px}

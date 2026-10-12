@@ -50,7 +50,7 @@
     "#aib{bottom:140px!important}@media(max-width:760px){#aib{bottom:calc(88px + env(safe-area-inset-bottom))!important}}" +  // 업종 체험의 MACH AI 버튼은 위젯 위로
     "@media(prefers-reduced-motion:reduce){.atzc a,.atzw a,.atzw{transition:none}}";
   css += "body:has(.mo:not([hidden])) .atzw,body:has(dialog:modal) .atzw{visibility:hidden;pointer-events:none}";
-  var mobileCSS=document.createElement("link");mobileCSS.rel="stylesheet";mobileCSS.href=new URL("mobile.css?v=20261012d",document.currentScript&&document.currentScript.src||location.href).href;document.head.appendChild(mobileCSS);
+  var mobileCSS=document.createElement("link");mobileCSS.rel="stylesheet";mobileCSS.href=new URL("mobile.css?v=20261012e",document.currentScript&&document.currentScript.src||location.href).href;document.head.appendChild(mobileCSS);
   var st = document.createElement("style"); st.id = "atzc-css"; st.textContent = css; document.head.appendChild(st);
 
   function btns(cls) {
