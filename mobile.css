@@ -246,4 +246,7 @@
  html body nav.top .zx .zx__p,html body nav.top .zx>a{display:block!important;font-size:10px!important;line-height:1.4!important;white-space:normal!important;text-align:center!important;padding:7px 2px!important;min-width:0!important;min-height:32px!important;box-sizing:border-box!important;overflow-wrap:anywhere!important}
  html body nav.top .zx .zx__p small,html body nav.top .zx .zx__x{display:none!important}
  html body nav.top .zx .zx__p i{width:4px!important;height:4px!important;display:inline-block!important;margin-right:2px!important}
+ html body .cz__wm{font-size:clamp(28px,8.5vw,36px)!important;letter-spacing:-.035em!important;white-space:normal!important;line-height:1.25!important;max-width:100%!important}
+ html body .cz__k{font-size:13px!important;white-space:normal!important;padding-inline:12px!important}
+ html body .cz__pin{top:68px!important;height:calc(100svh - 132px)!important}
 }
