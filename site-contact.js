@@ -44,11 +44,13 @@
     ".atzw .k{background:#FEE500;color:#191600}.atzw .t{background:#111018;color:#fff;border:1.5px solid " + C + "}.atzw .t svg{color:" + C + "}" +
     "body.atzc-on .atzw{opacity:0;pointer-events:none;transform:translateY(10px)}.atzw{transition:opacity .25s,transform .25s}" +
     /* 폰: 하단 꽉 찬 바 */
-    "@media(max-width:760px){.atzw{left:0;right:0;bottom:0;flex-direction:row;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(7,6,15,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid rgba(255,255,255,.08)}" +
-    ".atzw a{flex:1;justify-content:center;height:52px;padding:0 10px;border-radius:14px;box-shadow:none;font-size:15px}body{padding-bottom:calc(76px + env(safe-area-inset-bottom))!important}" +
+    "@media(max-width:760px){.atzw{left:0;right:0;bottom:0;flex-direction:row;gap:8px;padding:8px 12px calc(8px + env(safe-area-inset-bottom));background:rgba(7,6,15,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid rgba(255,255,255,.08)}" +
+    ".atzw a{flex:1;justify-content:center;height:44px;padding:0 8px;border-radius:14px;box-shadow:none;font-size:13px}body{padding-bottom:calc(66px + env(safe-area-inset-bottom))!important}" +
     "body.atzc-on .atzw{opacity:1;pointer-events:auto;transform:none}.atzc a.k,.atzc a.t{flex-basis:100%;padding:20px}}" +
     "#aib{bottom:140px!important}@media(max-width:760px){#aib{bottom:calc(88px + env(safe-area-inset-bottom))!important}}" +  // 업종 체험의 MACH AI 버튼은 위젯 위로
     "@media(prefers-reduced-motion:reduce){.atzc a,.atzw a,.atzw{transition:none}}";
+  css += "body:has(.mo:not([hidden])) .atzw,body:has(dialog[open]) .atzw{visibility:hidden;pointer-events:none}";
+  var mobileCSS=document.createElement("link");mobileCSS.rel="stylesheet";mobileCSS.href=new URL("mobile.css?v=20261012a",document.currentScript&&document.currentScript.src||location.href).href;document.head.appendChild(mobileCSS);
   var st = document.createElement("style"); st.id = "atzc-css"; st.textContent = css; document.head.appendChild(st);
 
   function btns(cls) {

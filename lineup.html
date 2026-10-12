@@ -225,7 +225,7 @@ footer{border-top:1px solid var(--line);padding-block:24px 40px;color:var(--dim)
 footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between}
 footer a{color:var(--mute)}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.tick__in,.fs *{animation:none!important}.lu-cd,.btn{transition:none}.mo__in{animation:none}}
-</style><link rel="stylesheet" href="site-contact.css?v=4"><script defer src="site-contact.js?v=14"></script></head><body>
+</style><link rel="stylesheet" href="site-contact.css?v=4"><script defer src="site-contact.js?v=15"></script></head><body>
 <a class="skip" href="#lineup">본문으로 건너뛰기</a>
 
 <header class="lu-top"><div class="wrap">
@@ -308,10 +308,11 @@ footer a{color:var(--mute)}
 </div></footer>
 
 <div class="mo" id="mo" hidden role="dialog" aria-modal="true" aria-labelledby="moT">
+      <button class="mo__x" id="moX" type="button" aria-label="닫기">✕</button>
   <div class="mo__in" id="moIn">
     <div class="mo__v"><div class="fone" id="moF"></div></div>
     <div class="mo__s">
-      <button class="mo__x" id="moX" type="button" aria-label="닫기">✕</button>
+
       <span class="lu-cd__i" id="moI"></span>
       <h2 id="moT"></h2>
       <p id="moD"></p>
@@ -357,8 +358,8 @@ function open(i){cur=i;var p=P[i],c=C[p[0]];
   document.getElementById("moT").textContent=p[1];
   document.getElementById("moD").textContent=p[2];
   if(mo.hidden){back=document.activeElement;mo.hidden=false;oldOverflow=document.body.style.overflow;document.body.style.overflow="hidden"}
-  document.getElementById("moX").focus()}
-function close(){mo.hidden=true;document.body.style.overflow=oldOverflow;if(back&&back.focus)back.focus()}
+  document.getElementById("moIn").scrollTop=0;document.getElementById("moX").focus({preventScroll:true})}
+function close(){mo.hidden=true;document.body.style.overflow=oldOverflow;if(back&&back.focus)back.focus({preventScroll:true})}
 function step(d){var k=shown.indexOf(cur);if(k<0)return;open(shown[(k+d+shown.length)%shown.length])}
 grid.addEventListener("click",function(e){var c=e.target.closest(".lu-cd");if(c)open(+c.getAttribute("data-k"))});
 document.getElementById("moX").addEventListener("click",close);
@@ -394,4 +395,4 @@ render();
 P.forEach(function(p){if(!LX[p[1]])console.error("no screen",p[1]);if(!C[p[0]])console.error("no industry",p[0])});
 })();
 </script>
-<script src="xlink.js?v=20261011c" defer></script></body></html>
+<script src="xlink.js?v=20261011c" defer></script><link rel="stylesheet" href="mobile.css?v=20261012a"></body></html>

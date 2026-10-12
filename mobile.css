@@ -1,0 +1,56 @@
+/* Mobile sizing and interaction fixes. Desktop composition stays in page styles. */
+.mo__v{isolation:isolate}
+.mo>.mo__x{position:absolute;top:max(16px,env(safe-area-inset-top));right:16px;z-index:10;width:44px;height:44px;background:#181a28;color:white;box-shadow:0 0 0 1px #ffffff30}
+.mo__in{overscroll-behavior:contain}
+@media(max-width:760px){
+ html{scrollbar-gutter:auto;scroll-padding-top:60px}
+ body{font-size:14px}
+ input,select,textarea{font-size:16px!important}
+ .wrap{padding-inline:16px}
+ .sec{--sec:44px;padding-block:44px}
+ .sec__h{gap:10px;margin-bottom:20px}
+ .sec__h h2{font-size:26px}
+ .sec__h p{font-size:14px}
+ .sub__in{min-height:42px;padding-inline:4px}
+ .sub a{font-size:12px;padding:8px;min-height:42px}
+ .sub__dp{font-size:12px;padding:0 8px}
+ .chips--lg .chip{min-height:40px;padding:0 12px;font-size:13px}
+ .chips--lg .chip small{font-size:11px}
+ #grid .mq{margin:0;transform:none;padding:8px 0;touch-action:pan-y pinch-zoom}
+ #grid .mq__t{gap:12px;padding-inline:16px}
+ #grid .mq .cc{width:min(232px,calc(100vw - 64px));transform:none!important;contain-intrinsic-size:auto 330px;will-change:auto}
+ #grid .cc__media,#grid .cc__media:has(.cc__img--mf){aspect-ratio:4/3}
+ #grid .cc__b{padding:12px;gap:6px}
+ #grid .cc__t h3{font-size:16px;line-height:1.4}
+ #grid .cc__m{font-size:12px}
+ .art{height:150px;margin-bottom:20px;border-radius:16px}
+ .cf__row{gap:8px}.cf__q{flex-basis:100%}
+ .hx--neon .hx__pin{padding:48px 0!important}
+ .hx--neon h1{font-size:clamp(29px,8vw,44px)!important;line-height:1.18}
+ .hx--neon h1 .ln>span{transform:none!important;opacity:1!important;filter:none!important;will-change:auto}
+ .hx__k{font-size:12px}
+ .cz{height:180svh;touch-action:pan-y pinch-zoom}
+ .cz__pin{position:sticky;top:42px;height:calc(100svh - 110px);min-height:0;max-height:700px;padding-bottom:12px;display:block}
+ .cz__t{padding-top:24px;gap:10px}
+ .cz__t h1,.cz__t h2{font-size:clamp(28px,8vw,40px)}
+ .cz__v{position:absolute;bottom:0;height:58%;aspect-ratio:auto;margin:0;object-fit:cover;pointer-events:none}
+ .cz__cta{position:relative;z-index:3}
+ .cd{margin:0;width:100%;height:100dvh;max-height:100dvh}
+ .cd .dlg__h{flex:none;padding:10px 12px;padding-top:max(10px,env(safe-area-inset-top));z-index:10}
+ .cd__tt{min-width:0}.cd__tt b{font-size:15px;overflow-wrap:anywhere}.cd__tt small{font-size:11px}
+ .cd__nav{flex:none;gap:4px}.cd__nav button,.cd__nav button.x{width:44px;height:44px;flex:none}
+ .cd__g{padding:12px;gap:16px;overscroll-behavior:contain}
+ .cd__ctl .seg button{padding:0 10px;font-size:13px}
+ .cd__frame{height:54dvh}.cd__frame--mo{padding:10px 8px}.cd__frame img{max-width:100%}
+ .mo{padding:66px 12px 12px;z-index:2147483100}
+ .mo__in{max-height:100%;border-radius:18px;animation:none}
+ .mo__v{padding:16px 12px 0}.mo__v .fone{max-width:260px;margin-inline:auto}
+ .mo__s{padding:16px;font-size:14px}.mo__s h2{font-size:23px}
+ .mo>.mo__x{top:max(12px,env(safe-area-inset-top));right:12px}
+ .lu-cd{padding:16px 10px 12px;gap:10px}.lu-cd .fone{max-width:210px;margin-inline:auto}
+ .atzc{padding:48px 16px!important}.atzc h2{font-size:30px!important}.atzc p{margin-bottom:24px!important}
+ .atzc a.k,.atzc a.t{padding:16px!important;border-radius:16px!important}.atzc a b{font-size:17px!important}
+ .atzw svg{width:19px;height:19px}
+}
+@media(max-width:360px){.sub__dp{display:none}.cd__nav button:not(.x){width:36px}.cd__tt b{font-size:14px}}
+@media(prefers-reduced-motion:reduce){.cz{height:auto}.cz__pin{position:relative;top:0;height:560px;max-height:75svh}}
