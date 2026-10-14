@@ -1,3 +1,31 @@
+/* One shared service directory for every marketing page. */
+(function(){
+ 'use strict';
+ function sync(){
+  const page=(location.pathname.split('/').pop()||'index.html');
+  if(['erp.html','stories.html'].includes(page)&&!document.querySelector('.atz-service-row')){const row=document.createElement('nav');row.className='atz-service-row';row.setAttribute('aria-label','ATZ 서비스');row.innerHTML='<a href="index.html">AI ERP</a><a href="platform.html">앱플랫폼</a><a href="web.html">홈페이지 제작</a><a href="lineup.html">포트폴리오</a>';const head=document.querySelector('body>header');if(head)head.after(row);}
+  const menus=document.querySelectorAll('header.nav .zx,nav.top .zx,.lu-top .lines,.top__a .svc,.atz-service-row');
+  menus.forEach(menu=>{
+   if(menu.dataset.serviceDirectory)return;menu.dataset.serviceDirectory='1';
+   const links=[...menu.querySelectorAll('a')];
+   if(!links.some(a=>(a.getAttribute('href')||'').split(/[?#]/)[0]==='brand-erp.html')){
+    const a=document.createElement('a');a.href='brand-erp.html';a.className=menu.matches('.zx')?'zx__p atz-brand-link':'atz-brand-link';a.style.setProperty('--c','#d5b787');a.innerHTML='<i aria-hidden="true"></i>통합브랜드 ERP';
+    const first=links.find(a=>/index\.html|AI/.test(a.getAttribute('href')+' '+a.textContent));
+    if(menu.matches('.zx')){const wrap=document.createElement('div');wrap.className='zx__i';wrap.append(a);(first?.closest('.zx__i'))?.after(wrap)||(!wrap.isConnected&&menu.append(wrap));}else if(first)first.after(a);else menu.prepend(a);
+   }
+   menu.querySelectorAll('a').forEach(a=>{if(/AI/.test(a.textContent)&&!/통합/.test(a.textContent)){const small=a.querySelector('small');a.replaceChildren();if(small)a.append(small);const dot=document.createElement('i');dot.setAttribute('aria-hidden','true');a.prepend(dot);a.append(document.createTextNode(' AI ERP'));}a.style.setProperty('min-height','44px');a.style.setProperty('box-sizing','border-box');const target=(a.getAttribute('href')||'').split(/[?#]/)[0];if(target===page||a.classList.contains('on'))a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});
+  });
+  const footer=document.querySelector('body>footer,body>#root footer');
+  if(footer&&!footer.querySelector('a[href="brand-erp.html"]')){const a=document.createElement('a');a.href='brand-erp.html';a.className='atz-brand-footer';a.textContent='통합브랜드 ERP';(footer.querySelector('nav')||footer).append(a);}
+  const style=document.createElement('style');style.id='atz-service-directory';if(!document.getElementById(style.id)){style.textContent=`
+  .atz-service-row{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;background:#0d0c20;padding:12px}.atz-service-row a{display:inline-flex;align-items:center;padding:8px 12px;color:#eee;text-decoration:none}.atz-brand-link{color:#d5b787!important;white-space:nowrap;text-decoration:none;display:inline-flex;align-items:center;gap:6px;padding:9px 12px;border-radius:999px}.atz-brand-link i{width:7px;height:7px;border-radius:50%;background:#d5b787;box-shadow:0 0 10px #d5b78780}.atz-brand-footer{display:inline-flex;align-items:center;min-height:44px;padding:8px 12px;color:#d5b787;text-decoration:none}
+  [data-service-directory] a:focus-visible,.atz-brand-footer:focus-visible{outline:2px solid #fff!important;outline-offset:3px!important}
+  @media(max-width:760px){html body [data-service-directory]{display:flex!important;flex-wrap:nowrap!important;overflow-x:auto!important;overflow-y:hidden!important;gap:4px!important;scrollbar-width:thin;max-width:100%!important;padding:4px 2px!important;scroll-padding-inline:8px!important}html body [data-service-directory]>.zx__i{flex:0 0 auto!important}html body [data-service-directory]>a{flex:0 0 auto!important}html body [data-service-directory] a,html body .nav .zx .zx__p,html body nav.top .zx .zx__p{font-size:12px!important;line-height:1.4!important;padding:10px 12px!important;min-height:44px!important;white-space:nowrap!important;overflow-wrap:normal!important}html body [data-service-directory] .zx__x{display:inline!important}html body [data-service-directory] .zx__ac{display:inline-flex!important}html body .nav:not(:has(.zx__ac)) .nav__acad{position:static!important;width:auto!important;grid-row:3!important;grid-column:1/-1!important} }
+  `;document.head.append(style);}
+  menus.forEach(menu=>{const active=menu.querySelector('[aria-current="page"]');if(active&&matchMedia('(max-width:760px)').matches)menu.scrollLeft=Math.max(0,active.offsetLeft-menu.offsetLeft-12);});
+ }
+ document.readyState==='loading'?document.addEventListener('DOMContentLoaded',sync):sync();
+})();
 /* 페이지 하단 '다음으로 보기' 연결 띠. 페이지마다 이어질 곳만 다르다. */
 (function(){
   var L={
@@ -35,7 +63,7 @@
     var s=document.createElement("style"); s.textContent=css; document.head.appendChild(s);
     var d=document.createElement("nav"); d.className="atzx"; d.setAttribute("aria-label","어떤 게 더 있을까요?");
     d.setAttribute('aria-label','전체 개발 라인업');
-    d.innerHTML='<i class="atzx__beam" aria-hidden="true"></i><a class="atzx__go" href="lineup.html?v=20261011e"><span>ATZ MACH 모든 개발 보러가기</span><b aria-hidden="true">↗</b></a>';
+    d.innerHTML='<a class="atz-brand-footer" href="brand-erp.html">통합브랜드 ERP ↗</a><i class="atzx__beam" aria-hidden="true"></i><a class="atzx__go" href="lineup.html?v=20261011e"><span>ATZ MACH 모든 개발 보러가기</span><b aria-hidden="true">↗</b></a>';
     var motion=document.createElement('style');
     motion.textContent=`
     .atzx{position:relative;isolation:isolate;overflow:hidden;display:grid;place-items:center;max-width:none;min-height:280px;padding:64px 24px;background:#080b10;border-block:1px solid #ffffff14}
