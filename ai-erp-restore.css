@@ -1,0 +1,27 @@
+/* Restore the original scroll-driven race film on AI ERP only. */
+html body #top.hn,html body.mc #top.hn{min-height:300vh!important;padding:0!important;overflow:clip!important;display:block!important;background:#0d0b2a!important;isolation:isolate}
+html body #top.hn:after,html body.mc #top.hn:after{display:none!important}
+html body #top .shv,html body.mc #top .shv{display:block!important;position:sticky!important;top:0!important;height:100vh!important;height:100svh!important;width:100%;z-index:0;background:#050409 var(--poster) center bottom/cover no-repeat!important}
+html body #top .shv video,html body.mc #top .shv video{display:block!important;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center bottom;opacity:1!important}
+html body #top .shv:before{display:block!important;background:linear-gradient(180deg,#0d0b2a 0%,#0d0b2a99 18%,#05040922 50%,#0d0b2a99 100%)!important}
+html body #top .shv:after{display:block!important;background:#0d0b2a!important;opacity:var(--fade,0)!important}
+html body #top .hn__in,html body.mc #top .hn__in{position:sticky!important;top:0!important;margin-top:-100vh!important;margin-top:-100svh!important;height:100vh!important;height:100svh!important;min-height:0!important;padding-top:clamp(90px,12vh,130px)!important;z-index:1;align-content:start!important;opacity:var(--txo,1)!important;transform:translateY(var(--txy,0px))!important;will-change:opacity,transform}
+html body #top .hn__cta a:first-child{background:linear-gradient(110deg,#ff5ccf,#bc74ff)!important;border:1px solid #ffc3ed!important;color:#170d2a!important;box-shadow:0 8px 35px #ff5ccf40!important}
+html body #top .hn__payment{background:#100b2480!important;border-color:#d68cff40!important;backdrop-filter:blur(7px)}
+html body #top .hn__subscription-price strong{color:#ff92dc!important}
+/* AI ERP pricing uses the site's own neon identity. */
+html body .erp-payments{background:radial-gradient(ellipse at 15% 40%,#7e236522,transparent 60%),#080817!important}
+html body .erp-payments .payment-heading>p{color:#ff8bdc}
+html body .erp-payments .payment-heading>span{color:#b9b2d4}
+html body .erp-payments .payment-monthly{background:linear-gradient(145deg,#341c49,#19132f 65%)!important;color:#f7edff!important;border-color:#f177ce80!important;box-shadow:0 14px 60px #ff5ccf10}
+html body .erp-payments .payment-card-top>span,html body .erp-payments .payment-monthly dt{color:#d39ecb!important}
+html body .erp-payments .payment-monthly .payment-price>strong{color:#ff92dc!important;text-shadow:0 0 35px #ff5ccf2a}
+html body .erp-payments .payment-monthly .payment-price>p{color:#d8cae6!important}
+html body .erp-payments .payment-monthly dl,html body .erp-payments .payment-monthly dl>div{border-color:#e6acff25!important}
+html body .erp-payments .payment-upfront{background:#131126!important;border-color:#8c79ba50!important;color:#efeaff}
+html body .erp-payments .payment-cta{background:linear-gradient(105deg,#ff5ccf,#a477ff)!important;color:#1a102b!important}
+html body .erp-payments .payment-upfront .payment-cta{background:transparent!important;border:1px solid #a58cdb80!important;color:#e3d4ff!important}
+html body .erp-payments .payment-note{background:#ffffff03;border-color:#9b79bd30}
+html body .erp-payments .payment-note>b{color:#e9b3db}html body .erp-payments .payment-note>p{color:#cfc2dd}html body .erp-payments .payment-note>small{color:#a696bb}
+@media(max-width:760px){html body.mc #top.hn{min-height:260svh!important}html body.mc #top .hn__in{padding-top:26px!important}html body.mc #top .hn__title{font-size:clamp(27px,7.7vw,38px)!important}html body.mc #top .hn__sub{font-size:14px!important;margin-top:14px!important}html body.mc #top .hn__cta{margin-top:16px!important;gap:8px!important}html body.mc #top .hn__payment{padding:14px 16px!important;margin-top:16px!important}html body.mc #top .hn__plans{display:none!important}html body.mc #top .hn__subscription{padding-bottom:4px!important}html body.mc #top .hn__subscription-price strong{font-size:44px!important}html body.mc #top .hn__subscription-price span{display:inline!important;font-size:14px!important}html body.mc #top .hn__subscription-dream{margin-top:6px!important;font-size:13px!important}html body.mc #top .hn__payment>p{font-size:11px!important}html body.mc #top .hn__safe{display:none!important}}
+@media(prefers-reduced-motion:reduce){html body #top.hn,html body.mc #top.hn{min-height:100svh!important}html body #top .shv,html body.mc #top .shv{position:absolute!important;inset:0}html body #top .hn__in,html body.mc #top .hn__in{position:relative!important;margin-top:0!important;height:auto!important;min-height:100svh!important;padding-bottom:28px!important;opacity:1!important;transform:none!important}}

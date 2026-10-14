@@ -1,0 +1,86 @@
+/* Customer mobile pass. Each numbered rule maps to the delivery checklist. */
+@media(max-width:760px){
+/* 01: Safe screen edges, including landscape notches. */
+html body.mc .wrap{padding-left:max(20px,env(safe-area-inset-left))!important;padding-right:max(20px,env(safe-area-inset-right))!important}
+/* 02: Readable Korean body copy. */
+html body.mc{font-size:16px;line-height:1.7;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+/* 03: Stable grid widths rather than cropping overflowing content. */
+html body.mc :is(main,section,.frame,.frame>.body,.hn__in,.nav__in,.pfx-list,.pk){min-width:0;max-width:100%;box-sizing:border-box}
+/* 04: Reachable two-row header with full service labels. */
+html body.mc .nav .nav__in{display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;gap:6px 12px!important;padding:10px 16px!important}
+html body.mc .nav .nav__links{grid-column:1/-1!important;width:100%!important;order:3!important}
+/* 05: Four useful services, without squeezing in a paused service. */
+html body.mc .nav .zx{display:flex!important;overflow-x:auto!important;gap:4px!important;scrollbar-width:thin;overscroll-behavior-x:contain}
+html body.mc .nav :is(.zx__ac,.nav__acad){display:none!important}
+html body.mc .nav .zx__i{flex:1 0 auto;min-width:0}
+/* 06: Service taps stay at least 44px tall. */
+html body.mc .nav .zx .zx__p{display:flex!important;align-items:center;justify-content:center;min-height:44px!important;padding:8px 10px!important;font-size:13px!important;white-space:nowrap!important;gap:3px!important}
+/* 07: AI ERP retains its complete label. */
+html body.mc .nav .zx .zx__p .zx__x{display:inline!important}
+html body.mc .nav .zx .zx__p small{display:none!important}
+/* 08: The current service is identifiable without relying on color. */
+html body.mc .nav .zx__p[aria-current=page]{font-weight:800!important;border:1px solid #de9bc9!important;background:#45283f!important}
+/* 09: Header consultation button is a full touch target. */
+html body.mc .nav .nav__cta{min-height:44px!important;padding:0 14px!important;font-size:13px!important;white-space:nowrap}
+/* 10: Remove the desktop-size empty lead-in above the title. */
+html body.mc #top.hn{padding-top:30px!important;padding-bottom:32px!important;min-height:0!important}
+/* 11: Headline scales for 320px phones without splitting Korean words. */
+html body.mc #top .hn__title{font-size:clamp(30px,8.5vw,50px)!important;line-height:1.2!important;letter-spacing:-.055em!important;word-break:keep-all;overflow-wrap:break-word}
+/* 12: Description has a comfortable reading measure. */
+html body.mc #top .hn__sub{font-size:16px!important;line-height:1.65!important;max-width:34ch!important;margin-top:18px!important;color:#d2c7df!important}
+/* 13: Primary CTA appears directly beneath the message. */
+html body.mc #top .hn__cta{display:flex!important;width:100%!important;max-width:380px!important;flex-direction:column!important;margin-top:22px!important;gap:10px!important}
+html body.mc #top .hn__cta a:first-child{min-height:56px!important;width:100%;font-size:16px!important;box-sizing:border-box}
+/* 14: Secondary case action remains easy to tap. */
+html body.mc #top .hn__cta a:nth-child(2){min-height:44px!important;justify-content:center!important;font-size:14px!important}
+/* 15: Payment options can wrap and remain legible at narrow widths. */
+html body.mc .hn__plans{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding-block:16px}
+html body.mc .hn__plan{padding-inline:5px;min-width:0}html body.mc .hn__plan strong{font-size:16px;line-height:1.5;white-space:normal}
+html body.mc .hn__plan span{font-size:12px;line-height:1.5}
+/* 16: Quote terms and fine print can actually be read. */
+html body.mc #top .hn__payment{font-size:14px!important;color:#c3b5d1!important;margin-top:24px!important}
+html body.mc #top .hn__safe{font-size:12px!important;line-height:1.6!important;color:#b7a9c5!important}
+/* 17: Section reading rhythm. */
+html body.mc :is(.sec,#main>section:not(#top,#savings)){padding-block:40px!important}
+/* 18: Meaningful section headings. */
+html body.mc :is(.sec__h h2,#main>section:not(#top) h2:not(.sr-only)){font-size:clamp(25px,6.7vw,32px)!important;line-height:1.3!important;word-break:keep-all}
+/* 19: Body explanations no longer shrink to 12–13px. */
+html body.mc :is(.lede,.sec__h p,.flow p,.mo__s,.pkc ul,.pfx-desc){font-size:15px!important;line-height:1.75!important;word-break:keep-all;overflow-wrap:anywhere}
+/* 20: Case cards use one readable column on phones. */
+html body.mc #main .pfx-list{grid-template-columns:minmax(0,1fr)!important;gap:16px!important}
+html body.mc .pfx-list :is(h3,.pfx-name){font-size:18px!important;line-height:1.4!important}
+/* 21: Horizontal categories have explicit swipe space. */
+html body.mc :is(.pfx-cats,.chips--lg,.tabs){display:flex;flex-wrap:nowrap!important;overflow-x:auto!important;gap:8px!important;scroll-padding-inline:16px;overscroll-behavior-x:contain;padding-bottom:8px}
+html body.mc :is(.chip,.pfx-cats button,.tabs button,.mobile-tools button,.mobile-filter-toggle){min-height:44px!important;flex-shrink:0;font-size:14px!important;padding:10px 14px!important}
+/* 22: FAQs have usable hit areas and answer spacing. */
+html body.mc :is(.faq summary,#fqL summary,.mobile-price-details summary){min-height:48px;padding:14px 12px!important;font-size:16px!important;line-height:1.5;cursor:pointer}
+html body.mc :is(.faq details,#fqL details){margin-bottom:10px}html body.mc :is(.faq details p,#fqL details p){font-size:15px!important;line-height:1.8!important}
+/* 23: Contact panel with prominent choices. */
+html body.mc .atzc{padding:36px 20px!important}html body.mc .atzc p{font-size:16px!important;line-height:1.7!important}
+html body.mc .atzc :is(a.k,a.t){min-height:64px!important;padding:16px!important;box-sizing:border-box}html body.mc .atzc a b{font-size:18px!important}html body.mc .atzc a small{font-size:14px!important}
+/* 24: Bottom contact bar does not cover the last line of content. */
+html body.mc{padding-bottom:calc(84px + env(safe-area-inset-bottom))!important;scroll-padding-bottom:100px}
+html body.mc .atzw{padding:10px max(16px,env(safe-area-inset-right)) calc(10px + env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left))!important;gap:10px!important}
+html body.mc .atzw a{min-height:52px!important;height:auto!important;font-size:15px!important}
+/* 25: Inputs avoid iOS auto zoom and keep labels readable. */
+html body.mc :is(input,select,textarea){font-size:16px!important;min-height:44px;max-width:100%;box-sizing:border-box}html body.mc textarea{min-height:112px}
+/* 26: Dialog close control stays accessible while scrolling. */
+html body.mc :is(.mo>.mo__x,.atz-contact-close,.cd__nav button.x){min-width:44px!important;min-height:44px!important}
+html body.mc :is(.mo__in,.cd__g,.atz-contact-dialog){overscroll-behavior:contain;max-height:calc(100dvh - 100px);overflow-y:auto}
+/* 27: Keyboard focus and readable selection. */
+html body.mc :is(a,button,summary,input,select,textarea):focus-visible{outline:3px solid #ffc7e7!important;outline-offset:4px!important}
+html body.mc ::selection{background:#f7badb;color:#251023}
+/* 28: Keep static case screenshots proportional. */
+html body.mc :is(.pfx-list img,.cc__img,.mo__v img){max-width:100%;height:auto;object-fit:contain}
+/* 29: Customer-controlled motion, without floating decorative distractions. */
+html body.mc #top :is(.hn__orb,.hn__wave,.hn__aur,.hn__dust){animation:none!important;opacity:.2!important}
+html body.mc :is(a,button){touch-action:manipulation;-webkit-tap-highlight-color:#f7badb33}
+html body.mc .mc-skip{position:fixed;left:16px;top:-100px;z-index:2147483300;padding:12px 18px;background:#f7badb;color:#251023;border-radius:8px}
+html body.mc .mc-skip:focus{top:12px}
+html body.mc :is(section[id],#portfolio,#diagnosis,#contact){scroll-margin-top:20px}
+html body.mc .mc-table-scroll{overflow:auto;max-width:100%;overscroll-behavior-x:contain}
+html body.mc .mc-table-scroll:focus-visible{outline:3px solid #ffc7e7;outline-offset:3px}
+html body.mc .mc-table-scroll table{min-width:480px}
+html body.mc .mc-gallery-note{font-size:14px!important;line-height:1.6;color:#cabbd5;margin:8px 0 14px}
+@media(prefers-reduced-motion:reduce){html body.mc *,html body.mc *::before,html body.mc *::after{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
+}
