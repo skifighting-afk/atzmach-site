@@ -8,6 +8,8 @@
 
   var KAKAO = "https://pf.kakao.com/_yynFX/chat", TEL = "tel:01048232636", TEL_TXT = "010-4823-2636";
 
+  var BASE = (document.currentScript && document.currentScript.src) || location.href;
+
   var page = (location.pathname.split("/").pop() || "index.html").replace(".html", "") || "index";
 
   if (/^(admin|inbox|notify|stats|portal)$/.test(page)) return;  // 운영자용 화면에는 넣지 않음
@@ -54,13 +56,13 @@
 
     ".atzc-host>*:not(.atzc){display:none!important}.atzc-host{min-height:0!important;height:auto!important;padding:0!important;display:block!important}" +
 
-    ".atzc{--c:" + C + ";position:relative;overflow:hidden;padding:clamp(72px,11vw,140px) 20px;text-align:center;background:radial-gradient(60% 70% at 50% 0%,color-mix(in srgb,var(--c) 26%,transparent),transparent 70%),#07060f;color:#fff;font-family:'IBM Plex Sans KR','Pretendard',system-ui,sans-serif}" +
+    ".atzc{--c:" + C + ";position:relative;overflow:hidden;padding:clamp(48px,6vw,88px) 20px;text-align:center;background:radial-gradient(60% 70% at 50% 0%,color-mix(in srgb,var(--c) 26%,transparent),transparent 70%),#07060f;color:#fff;font-family:'IBM Plex Sans KR','Pretendard',system-ui,sans-serif}" +
 
     ".atzc::before{content:'';position:absolute;inset:auto -10% -40% -10%;height:70%;background:radial-gradient(50% 50% at 50% 50%,color-mix(in srgb,var(--c) 18%,transparent),transparent 70%);pointer-events:none}" +
 
     ".atzc h2{position:relative;margin:0 0 14px;font-size:clamp(30px,5.4vw,64px);line-height:1.15;font-weight:800;letter-spacing:-.035em;word-break:keep-all}.atzc h2 em{font-style:normal;color:var(--c);display:block}" +
 
-    ".atzc p{position:relative;margin:0 auto 40px;color:rgba(255,255,255,.66);font-size:clamp(15px,1.6vw,18px)}" +
+    ".atzc p{position:relative;margin:0 auto 28px;color:rgba(255,255,255,.88);font-size:clamp(16px,1.6vw,18px);line-height:1.65}" +
 
     ".atzc__b{position:relative;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;max-width:760px;margin:0 auto}" +
 
@@ -78,9 +80,9 @@
 
     /* 위젯: PC 오른쪽 아래 */
 
-    ".atzw{position:fixed;right:20px;bottom:20px;z-index:2147483000;display:flex;flex-direction:column;gap:10px;font-family:'IBM Plex Sans KR','Pretendard',system-ui,sans-serif}" +
+    ".atzw{position:fixed!important;right:16px!important;left:auto!important;bottom:16px!important;z-index:2147483000;display:flex;flex-direction:column;gap:10px;max-width:calc(100vw - 24px);font-family:'IBM Plex Sans KR','Pretendard',system-ui,sans-serif}" +
 
-    ".atzw a{display:flex;align-items:center;gap:10px;height:54px;padding:0 20px 0 16px;border-radius:99px;text-decoration:none;font-weight:800;font-size:15px;letter-spacing:-.01em;box-shadow:0 12px 32px -8px rgba(0,0,0,.55);transition:transform .18s}" +
+    ".atzw a{display:flex;align-items:center;gap:10px;height:52px;min-height:48px;padding:0 20px 0 16px;border-radius:99px;text-decoration:none;font-weight:800;font-size:15px;letter-spacing:-.01em;box-shadow:0 12px 32px -8px rgba(0,0,0,.55);transition:transform .18s}" +
 
     ".atzw a:hover{transform:translateY(-2px)}.atzw svg{width:22px;height:22px;flex:none}" +
 
@@ -90,9 +92,9 @@
 
     /* 폰: 하단 꽉 찬 바 */
 
-    "@media(max-width:760px){.atzw{left:0;right:0;bottom:0;flex-direction:row;gap:8px;padding:8px 12px calc(8px + env(safe-area-inset-bottom));background:rgba(7,6,15,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid rgba(255,255,255,.08)}" +
+    "@media(max-width:760px){.atzw{position:fixed!important;left:0!important;right:0!important;bottom:0!important;width:100%!important;max-width:100%!important;flex-direction:row;gap:8px;padding:8px 12px calc(8px + env(safe-area-inset-bottom));background:rgba(7,6,15,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid rgba(255,255,255,.08)}" +
 
-    ".atzw a{flex:1;justify-content:center;height:44px;padding:0 8px;border-radius:14px;box-shadow:none;font-size:13px}body{padding-bottom:calc(66px + env(safe-area-inset-bottom))!important}" +
+    ".atzw a{flex:1;justify-content:center;height:48px!important;min-height:48px!important;padding:0 8px;border-radius:14px;box-shadow:none;font-size:15px!important}.atzw a b{font-size:15px!important}body{padding-bottom:calc(72px + env(safe-area-inset-bottom))!important}" +
 
     "body.atzc-on .atzw{opacity:1;pointer-events:auto;transform:none}.atzc a.k,.atzc a.t{flex-basis:100%;padding:20px}}" +
 
@@ -122,7 +124,7 @@
 
     d.innerHTML = "<h2>" + s[1] + "<em>" + s[2] + "</em></h2><p>카카오톡이나 전화 한 통이면 충분합니다.</p><div class=\"atzc__b\">" + btns(1) + "</div>" +
 
-      '<div class="atzc__tags"><span>1차 시안 무료</span><span>대표가 직접 상담</span><span>계약 전까지 0원</span></div>';
+      '<div class="atzc__tags"><span>2018년부터</span><span>14일 완성</span><span>300만원부터</span><span>1차 시안 무료</span></div>';
 
     return d;
 
@@ -156,7 +158,51 @@
 
     document.body.classList.toggle("atzc-on", on.length > 0) }, { threshold: .25 });
 
-  function run() { mount(); fixText(); panels.forEach(function (p) { if (io && p && !p._o) { p._o = 1; io.observe(p) } }) }
+  function trust() {
+
+    if (page !== "index" || document.getElementById("atz-trust")) return;
+
+    var root = document.getElementById("root"); if (!root || !root.parentNode) return;
+
+    var s = document.createElement("section"); s.id = "atz-trust"; s.className = "atz-trust"; s.setAttribute("aria-labelledby", "atz-trust-h");
+
+    s.innerHTML = '<div class="atz-trust__in"><p class="atz-trust__k">2018년부터</p><h2 id="atz-trust-h">맞춤 ERP·업무 프로그램 제작</h2><p class="atz-trust__lead">2018년부터 회사마다 다른 업무를 프로그램으로 만들어 왔습니다. 완성은 14일, 시작은 300만원부터, 1차 시안은 무료입니다.</p><ul class="atz-trust__price"><li><b>14일</b><span>완성</span></li><li><b>300만원</b><span>부터</span></li><li><b>무료</b><span>1차 시안</span></li></ul><div class="atz-trust__todo"><p class="atz-trust__tag">TODO · 소유자 확인 전</p><p><b>소스코드 소유</b> — TODO: 납품 후 소스코드의 소유 주체와 이용 범위를 소유자가 확정한 문장으로 교체합니다.</p><p><b>계약 조건</b> — TODO: 대금, 수정 범위, 인수 조건은 소유자 확인 후 이 자리에 게시합니다. 확정 전에는 견적서와 계약서가 기준입니다.</p></div><div class="atz-trust__cases" id="cases"><h3>실제 도입 사례</h3><p>고객 동의를 받은 사례만 이 자리에 올립니다.</p><div class="atz-trust__slot" data-empty="true">등록된 실제 사례가 없습니다.</div></div><p class="atz-trust__note">화면의 업종·숫자·회사명은 기능을 설명하는 예시입니다. 실제 고객 실적이 아닙니다.</p></div>';
+
+    root.parentNode.insertBefore(s, root.nextSibling);
+
+  }
+
+  function phoneBuddy() {
+
+    var cta = document.querySelector("a.nav__cta");
+
+    if (cta && cta.parentElement && !cta.parentElement.querySelector("a.atz-navtel")) {
+
+      var t = document.createElement("a"); t.className = "atz-navtel"; t.href = TEL; t.textContent = "전화 상담";
+
+      cta.insertAdjacentElement("afterend", t);
+
+    }
+
+  }
+
+  function polish() {
+
+    var l = document.getElementById("atz-polish");
+
+    if (!l) {
+
+      l = document.createElement("link"); l.id = "atz-polish"; l.rel = "stylesheet";
+
+      l.href = new URL("polish.css?v=20261015b", BASE).href;
+
+    }
+
+    (document.body || document.head).appendChild(l);
+
+  }
+
+  function run() { mount(); fixText(); trust(); phoneBuddy(); polish(); panels.forEach(function (p) { if (io && p && !p._o) { p._o = 1; io.observe(p) } }) }
 
   // 기존 '무료 시안 받기' 버튼들(폼으로 가던 링크·버튼)은 연락 패널로 보낸다. 패널이 없는 페이지는 카카오톡 채널을 연다.
 
@@ -164,9 +210,13 @@
 
   window.addEventListener("click", function (e) {
 
-    var a = e.target.closest && e.target.closest("a,button"); if (!a || a.closest(".atzc,.atzw")) return;
+    var a = e.target.closest && e.target.closest("a,button"); if (!a || a.closest(".atzc,.atzw,.atz-trust")) return;
 
-    var h = a.getAttribute("href") || "", hit = ids.indexOf(h) >= 0 || ((!h || h.charAt(0) === "#") && CTA.test(a.textContent || ""));
+    var h = a.getAttribute("href") || "";
+
+    if (/kakao\.com|^tel:/i.test(h)) return;
+
+    var hit = ids.indexOf(h) >= 0 || ((!h || h.charAt(0) === "#") && CTA.test(a.textContent || ""));
 
     if (!hit) return;
 

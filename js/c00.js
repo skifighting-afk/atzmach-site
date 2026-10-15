@@ -176,7 +176,7 @@ var ORD=[];
 function prep(){DATA.forEach(function(c){c._r=rich(c);c._pur=grp(PUR,(c.purpose||[]).join(" "));if(!c._pur.length)c._pur=["지점 비교·보고"];c._pain=grp(PAIN,c.pain_tag+" "+c.daily);if(!c._pain.length)c._pain=["지연·누락"]});ORD=order()}
 function match(c){return(!ST.cat||c.cat===ST.cat)&&(!ST.emp||c.size.employees===ST.emp)&&(!ST.pur||c._pur.indexOf(ST.pur)>=0)&&(!ST.pain||c._pain.indexOf(ST.pain)>=0)}
 var active=function(){return!!(ST.cat||ST.emp||ST.pur||ST.pain)};
-function render(){var el=ROOT;if(!DATA){el.innerHTML='<p class="pfx-lede">업종별 설계 예시를 불러오는 중입니다…</p>';return}
+function render(){var el=ROOT;if(!DATA){el.innerHTML='<p class="pfx-lede"><b>카페 · 미용실 · 학원 · 병원 · 프랜차이즈</b> 등 업종별 설계 예시를 이 자리에서 살펴봅니다.</p>';return}
  var cnt=function(k){return DATA.filter(function(c){return c.cat===k}).length};
  var opt=function(G,key,lab,all){return'<label>'+lab+'<select data-f="'+key+'"><option value="">'+all+'</option>'+G.map(function(g){var n=DATA.filter(function(c){return(key==="pur"?c._pur:c._pain).indexOf(g[0])>=0}).length;return'<option value="'+E(g[0])+'"'+(ST[key]===g[0]?" selected":"")+'>'+E(g[0])+" ("+n+")</option>"}).join("")+'</select></label>'};
  var L=ORD.filter(match),vis=active()?L:L.slice(0,ST.shown);
@@ -240,6 +240,6 @@ window.PFMount=function(el,env){if(!el||el._pf)return;el._pf=1;ROOT=el;ENV=env||
  el.addEventListener("click",function(e){var t=e.target.closest("button");if(!t)return;if(t.dataset.retry){load();return}if(t.dataset.cat!=null){ST.cat=t.dataset.cat;track("pf_filter",{k:"cat:"+(ST.cat||"all")});render();return}if(t.classList.contains("pfx-reset")){ST.cat=ST.emp=ST.pur=ST.pain="";track("pf_filter",{k:"reset"});render();return}if(t.closest(".pfx-more")){var y=t.getBoundingClientRect().top;ST.shown+=9;render();var nb=el.querySelectorAll(".pf-c")[ST.shown-9];nb&&nb.focus({preventScroll:true});return}if(t.classList.contains("pf-c")){var c=byId(t.dataset.id);c&&open(c,t)}});
  el.addEventListener("change",function(e){var s=e.target;if(s.dataset&&s.dataset.f){ST[s.dataset.f]=s.value;track("pf_filter",{k:s.dataset.f+":"+(s.value||"all")});render()}});
  if("ResizeObserver"in window){RO=new ResizeObserver(function(){sizeThumbs()});RO.observe(el)}
- if("IntersectionObserver"in window){var io=new IntersectionObserver(function(es){if(es.some(function(x){return x.isIntersecting})){io.disconnect();load()}},{rootMargin:"1200px 0px"});io.observe(el)}else load()};
+ load()};
 window.PFDebug={open:function(id,i){var c=byId(id);if(c){open(c,null);if(i)go(i)}},data:function(){return DATA},go:function(i){go(i)},zoom:setZ,screen:screen,close:function(){close()}};
 })();
