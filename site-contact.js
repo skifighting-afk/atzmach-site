@@ -124,7 +124,7 @@
 
     d.innerHTML = "<h2>" + s[1] + "<em>" + s[2] + "</em></h2><p>카카오톡이나 전화 한 통이면 충분합니다.</p><div class=\"atzc__b\">" + btns(1) + "</div>" +
 
-      '<div class="atzc__tags"><span>2018년부터</span><span>14일 완성</span><span>300만원부터</span><span>1차 시안 무료</span></div>';
+      '<div class="atzc__tags"><span>2018년부터</span><span>14일 완성</span><span>맞춤 견적</span><span>1차 시안 무료</span></div>';
 
     return d;
 
@@ -166,7 +166,7 @@
 
     var s = document.createElement("section"); s.id = "atz-trust"; s.className = "atz-trust"; s.setAttribute("aria-labelledby", "atz-trust-h");
 
-    s.innerHTML = '<div class="atz-trust__in"><p class="atz-trust__k">2018년부터</p><h2 id="atz-trust-h">맞춤 ERP·업무 프로그램 제작</h2><p class="atz-trust__lead">2018년부터 회사마다 다른 업무를 프로그램으로 만들어 왔습니다. 완성은 14일, 시작은 300만원부터, 1차 시안은 무료입니다.</p><ul class="atz-trust__price"><li><b>14일</b><span>완성</span></li><li><b>300만원</b><span>부터</span></li><li><b>무료</b><span>1차 시안</span></li></ul><div class="atz-trust__todo"><p class="atz-trust__tag">TODO · 소유자 확인 전</p><p><b>소스코드 소유</b> — TODO: 납품 후 소스코드의 소유 주체와 이용 범위를 소유자가 확정한 문장으로 교체합니다.</p><p><b>계약 조건</b> — TODO: 대금, 수정 범위, 인수 조건은 소유자 확인 후 이 자리에 게시합니다. 확정 전에는 견적서와 계약서가 기준입니다.</p></div><div class="atz-trust__cases" id="cases"><h3>실제 도입 사례</h3><p>고객 동의를 받은 사례만 이 자리에 올립니다.</p><div class="atz-trust__slot" data-empty="true">등록된 실제 사례가 없습니다.</div></div><p class="atz-trust__note">화면의 업종·숫자·회사명은 기능을 설명하는 예시입니다. 실제 고객 실적이 아닙니다.</p></div>';
+    s.innerHTML = '<div class="atz-trust__in"><p class="atz-trust__k">2018년부터</p><h2 id="atz-trust-h">맞춤 ERP·업무 프로그램 제작</h2><p class="atz-trust__lead">2018년부터 회사마다 다른 업무를 프로그램으로 만들어 왔습니다. 맞춤 견적 · 초기 0원 월 분할 협의 가능 · 1차 시안 무료입니다.</p><ul class="atz-trust__price"><li><b>14일</b><span>완성</span></li><li><b>맞춤 견적</b><span>상담 후</span></li><li><b>무료</b><span>1차 시안</span></li></ul><div class="atz-trust__todo"><p class="atz-trust__tag">TODO · 소유자 확인 전</p><p><b>소스코드 소유</b> — TODO: 납품 후 소스코드의 소유 주체와 이용 범위를 소유자가 확정한 문장으로 교체합니다.</p><p><b>계약 조건</b> — TODO: 대금, 수정 범위, 인수 조건은 소유자 확인 후 이 자리에 게시합니다. 확정 전에는 견적서와 계약서가 기준입니다.</p></div><div class="atz-trust__cases" id="cases"><h3>실제 도입 사례</h3><p>고객 동의를 받은 사례만 이 자리에 올립니다.</p><div class="atz-trust__slot" data-empty="true">등록된 실제 사례가 없습니다.</div></div><p class="atz-trust__note">화면의 업종·숫자·회사명은 기능을 설명하는 예시입니다. 실제 고객 실적이 아닙니다.</p></div>';
 
     root.parentNode.insertBefore(s, root.nextSibling);
 
