@@ -3,7 +3,7 @@
  'use strict';
  function sync(){
   const page=(location.pathname.split('/').pop()||'index.html');
-  if(['erp.html','stories.html'].includes(page)&&!document.querySelector('.atz-service-row')){const row=document.createElement('nav');row.className='atz-service-row';row.setAttribute('aria-label','ATZ 서비스');row.innerHTML='<a href="index.html">AI ERP</a><a href="platform.html">앱플랫폼</a><a href="web.html">홈페이지 제작</a><a href="lineup.html">포트폴리오</a>';const head=document.querySelector('body>header');if(head)head.after(row);}
+  if(['erp.html','stories.html'].includes(page)&&!document.querySelector('.atz-service-row')){const row=document.createElement('nav');row.className='atz-service-row';row.setAttribute('aria-label','ATZ 서비스');row.innerHTML='<a href="index.html">AI ERP</a><a href="platform.html">앱플랫폼</a><a href="web.html">홈페이지 제작</a><a href="lineup.html">프로그램 제작</a>';const head=document.querySelector('body>header');if(head)head.after(row);}
   const menus=document.querySelectorAll('header.nav .zx,nav.top .zx,.lu-top .lines,.top__a .svc,.atz-service-row');
   menus.forEach(menu=>{
    if(menu.dataset.serviceDirectory)return;menu.dataset.serviceDirectory='1';
