@@ -13,6 +13,8 @@
     const first=links.find(a=>/index\.html|AI/.test(a.getAttribute('href')+' '+a.textContent));
     if(menu.matches('.zx')){const wrap=document.createElement('div');wrap.className='zx__i';wrap.append(a);(first?.closest('.zx__i'))?.after(wrap)||(!wrap.isConnected&&menu.append(wrap));}else if(first)first.after(a);else menu.prepend(a);
    }
+   const br=[...menu.querySelectorAll('a')].find(a=>(a.getAttribute('href')||'').split(/[?#]/)[0].endsWith('brand-erp.html'));
+   if(br&&!menu.querySelector('a[href^="ax.html"]')){const x=document.createElement('a');x.href='ax.html';x.className=br.className.replace('atz-brand-link','atz-ax-link');x.style.setProperty('--c','#3ae0ff');x.style.setProperty('--dot','#3ae0ff');x.innerHTML='<i aria-hidden="true"></i>AX 전환';const wr=br.closest('.zx__i');if(wr){const w=document.createElement('div');w.className='zx__i';w.append(x);wr.after(w)}else br.after(x)}
    menu.querySelectorAll('a').forEach(a=>{if(/AI/.test(a.textContent)&&!/통합/.test(a.textContent)){const small=a.querySelector('small');a.replaceChildren();if(small)a.append(small);const dot=document.createElement('i');dot.setAttribute('aria-hidden','true');a.prepend(dot);a.append(document.createTextNode(' AI ERP'));}a.style.setProperty('min-height','44px');a.style.setProperty('box-sizing','border-box');const target=(a.getAttribute('href')||'').split(/[?#]/)[0];if(target===page||a.classList.contains('on'))a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});
   });
   const footer=document.querySelector('body>footer,body>#root footer');

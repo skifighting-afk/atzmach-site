@@ -26,9 +26,11 @@
 
     platform: [["#apply", "무엇을", "만들고 싶으세요?"]],
 
+    ax: [["#contact", "안 할 이유가", "없습니다."]],
+
   }[page] || [];
 
-  var C = { index: "#ff5ccf", web: "#ffb020", academy: "#ffd98a", app: "#6b93ff", platform: "#6b93ff", lineup: "#2bff88", erp: "#3ad6ff" }[page] || "#ff5ccf";
+  var C = { index: "#ff5ccf", web: "#ffb020", academy: "#ffd98a", app: "#6b93ff", platform: "#6b93ff", ax: "#3ae0ff", lineup: "#2bff88", erp: "#3ad6ff" }[page] || "#ff5ccf";
 
   var HIDE = ".cb,#atz-adm,.ux-bar,#mkBar,#fdock,#chat,#mcta,.mcta,#mr,a[href='#mr']";
 
@@ -122,7 +124,7 @@
 
     d.innerHTML = "<h2>" + s[1] + "<em>" + s[2] + "</em></h2><p>카카오톡이나 전화 한 통이면 충분합니다.</p><div class=\"atzc__b\">" + btns(1) + "</div>" +
 
-      '<div class="atzc__tags"><span>1차 시안 무료</span><span>대표가 직접 상담</span><span>계약 전까지 0원</span></div>';
+      '<div class="atzc__tags"><span>1차 시안 무료</span><span>대표가 직접 상담</span><span>14일 완성</span></div>';
 
     return d;
 
