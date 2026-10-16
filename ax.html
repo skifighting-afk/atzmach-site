@@ -114,6 +114,52 @@ h2{margin:0 0 18px;font-size:clamp(30px,4.8vw,60px);line-height:1.15;font-weight
 @keyframes hum{to{transform:scale(1.12);box-shadow:0 0 30px #3ae0ffcc}}@keyframes grow{to{transform:scaleX(1)}}
 @media(max-width:980px){.split,.chat{grid-template-columns:1fr;gap:36px}.feats{grid-template-columns:1fr 1fr}.f,.f:nth-child(1),.f:nth-child(2){grid-column:span 1;min-height:380px}.nums,.steps{grid-template-columns:1fr 1fr}.chat .phone{order:2}}
 @media(max-width:620px){.wrap{width:calc(100% - 32px)}.hero{padding:150px 0 50px}.feats{grid-template-columns:1fr}.f,.f:nth-child(1),.f:nth-child(2){min-height:360px}.f h3{font-size:21px}.vs div{grid-template-columns:1fr;gap:2px}.vs i{display:none}.phone__in{height:500px}.btn{flex:1 1 100%;justify-content:center}}
+
+/* 말로 ERP 수정: 영상 + 실제 ERP 화면 연출 */
+.vfilms{display:grid;grid-template-columns:1.25fr 1fr;gap:18px;margin-top:44px}.vfilm{position:relative;border-radius:24px;overflow:hidden;box-shadow:0 50px 120px -40px #ff5ccf55,0 0 0 1px #ffffff1a;background:#0b0a22}
+.vfilm video{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
+.vfilm::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#05040fdd,transparent 45%);pointer-events:none}
+.vfilm b{position:absolute;left:24px;bottom:20px;z-index:1;font-size:clamp(18px,2.2vw,28px);letter-spacing:-.03em;line-height:1.25}
+.vx{position:relative;display:grid;grid-template-columns:330px 1fr;gap:0;margin-top:22px;border-radius:24px;overflow:hidden;background:#0a0920;border:1px solid #ffffff14;box-shadow:0 40px 100px -40px #3ae0ff44}
+.vx-l{position:relative;padding:26px 24px;border-right:1px solid #ffffff12;background:radial-gradient(90% 60% at 50% 0%,#ff5ccf18,transparent 70%);display:flex;flex-direction:column;gap:16px}
+.vx-mic{display:flex;align-items:center;gap:12px;font-size:13px;color:#b9bcda}
+.vx-mic i{position:relative;width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,#ff5ccf,#9b6bff);display:grid;place-items:center;flex:none}
+.vx-mic i::before{content:"";width:10px;height:17px;border-radius:6px;border:2.5px solid #fff}
+.vx[data-s=listen] .vx-mic i::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:2px solid #ff5ccf;animation:vring 1s ease-out infinite}
+.vx-say{min-height:120px;font-size:20px;font-weight:700;line-height:1.5;letter-spacing:-.02em}
+.vx-say span{display:inline-block;margin-right:.28em;transition:transform .7s cubic-bezier(.6,-.3,.4,1.3),opacity .7s,filter .7s}
+.vx-say span.pop{animation:wpop .28s ease-out}
+.vx-say span.go{opacity:0;filter:blur(2px)}
+.vx-wave{display:flex;gap:3px;align-items:center;height:28px}.vx-wave i{flex:1;max-width:5px;height:4px;border-radius:3px;background:linear-gradient(#ff5ccf,#3ae0ff);transition:height .1s}
+.vx-ai{display:flex;align-items:center;gap:12px;margin-top:auto;padding:12px 14px;border-radius:14px;background:#12112a;border:1px solid #ffffff12;font-size:13px;color:#c9cbe3}
+.vx-orb{position:relative;width:38px;height:38px;border-radius:50%;flex:none;background:radial-gradient(circle at 35% 30%,#fff,#3ae0ff 40%,#5a3bd6 85%);box-shadow:0 0 18px #3ae0ff88}
+.vx[data-s=think] .vx-orb{animation:hum .18s infinite alternate}
+.vx[data-s=think] .vx-orb::after{content:"";position:absolute;inset:-8px;border-radius:50%;border:2px dashed #3ae0ff;animation:spin 1.2s linear infinite}
+.vx-meter{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.vx-meter div{padding:10px;border-radius:12px;background:#0f0e26;border:1px solid #ffffff10;text-align:center}
+.vx-meter b{display:block;font:italic 900 24px/1 Archivo,sans-serif;color:var(--c1)}.vx-meter small{font-size:11px;color:#8d91b8}
+.vx-r{position:relative;padding:18px 20px 22px;min-width:0}
+.vx-top{display:flex;align-items:center;gap:10px;margin-bottom:12px;font-size:12px;color:#9aa0c3}
+.vx-top b{color:#fff;font-size:14px}.vx-top em{font-style:normal;padding:3px 8px;border-radius:6px;background:#ffffff0d}.vx-top .live{margin-left:auto;color:#5effc4}
+.vx-tabs{display:flex;gap:6px;margin-bottom:12px}.vx-tabs span{padding:7px 12px;border-radius:9px;font-size:13px;color:#9aa0c3;background:#ffffff08;transition:.3s}.vx-tabs span.on{background:#3ae0ff1f;color:#fff;box-shadow:inset 0 0 0 1px #3ae0ff66}
+.vx table{width:100%;border-collapse:collapse;font-size:14px;font-variant-numeric:tabular-nums}
+.vx th{text-align:left;font-weight:600;color:#8d91b8;font-size:12px;padding:9px 10px;border-bottom:1px solid #ffffff14;white-space:nowrap}
+.vx td{padding:11px 10px;border-bottom:1px solid #ffffff0b;white-space:nowrap;transition:background .4s}
+.vx td.num{text-align:right}
+.vx tr.new td{animation:rowin .7s cubic-bezier(.2,.8,.2,1)}
+.vx td.hit{position:relative;color:#fff;background:linear-gradient(90deg,#ff5ccf33,#3ae0ff33);animation:cellhit .9s ease-out}
+.vx td.hit::after{content:"";position:absolute;inset:0;border:1.5px solid #3ae0ff;border-radius:6px;animation:fadeb 1.6s forwards}
+.vx td s{color:#7b7fa3;margin-right:6px;font-size:12px}
+.vx-toast{position:absolute;right:20px;bottom:18px;padding:10px 14px;border-radius:12px;background:#15142e;border:1px solid #3ae0ff55;font-size:13px;box-shadow:0 14px 40px -10px #000;opacity:0;transform:translateY(10px);transition:.35s}
+.vx-toast.on{opacity:1;transform:none}.vx-toast b{color:var(--c1)}
+.vx-fly{position:absolute;z-index:5;pointer-events:none;padding:3px 9px;border-radius:8px;background:linear-gradient(90deg,#ff5ccf,#9b6bff);color:#fff;font-weight:700;font-size:15px;white-space:nowrap;box-shadow:0 0 24px #ff5ccfaa;transition:transform .75s cubic-bezier(.55,-.25,.3,1.25),opacity .75s}
+.vx-beam{position:absolute;z-index:4;height:3px;transform-origin:0 50%;background:linear-gradient(90deg,#3ae0ff00,#3ae0ff,#fff);border-radius:3px;box-shadow:0 0 18px #3ae0ff;pointer-events:none;animation:beam .55s ease-out forwards}
+@keyframes vring{to{transform:scale(1.5);opacity:0}}@keyframes wpop{from{transform:translateY(8px) scale(.8);opacity:0}}
+@keyframes spin{to{transform:rotate(360deg)}}@keyframes rowin{from{opacity:0;transform:translateX(-30px);background:#3ae0ff33}}
+@keyframes cellhit{0%{transform:scale(1.18);box-shadow:0 0 30px #3ae0ff}100%{transform:none}}@keyframes fadeb{to{opacity:0}}
+@keyframes beam{0%{opacity:0;clip-path:inset(0 100% 0 0)}30%{opacity:1}100%{opacity:0;clip-path:inset(0 0 0 0)}}
+@media(max-width:980px){.vfilms{grid-template-columns:1fr}.vx{grid-template-columns:1fr}.vx-l{border-right:0;border-bottom:1px solid #ffffff12}.vx-say{min-height:84px;font-size:18px}.vx-r{overflow-x:auto}}
+@media(max-width:620px){.vx-toast{position:static;margin-top:12px;opacity:1;transform:none;min-height:40px}.vx-toast:not(.on){opacity:.25}.vfilm{border-radius:18px}.vfilm b{left:16px;bottom:14px}.vx{border-radius:18px}.vx table{font-size:13px}.vx td,.vx th{padding:9px 7px}.vx .opt{display:none}.vx-ai{display:none}}
 /* 모바일 다듬기 */
 @media(max-width:620px){
  .hd{padding:8px 0 0;gap:6px}.hd .lg{padding-left:16px}.hd .cta{display:none}
@@ -206,6 +252,35 @@ h2{margin:0 0 18px;font-size:clamp(30px,4.8vw,60px);line-height:1.15;font-weight
  </div>
 </section>
 
+<section class="sec" id="voice" style="padding-top:0" aria-labelledby="voice-t">
+ <div class="wrap">
+  <div class="rv"><span class="kick">TALK TO ERP</span>
+  <h2 id="voice-t">타이핑 0번. 클릭 0번.<br><span class="grad">말하면, ERP가 바뀝니다.</span></h2>
+  <p class="sub">“김민지 시급 올려줘.” 한마디가 AI로 빨려 들어가 표 안에 그대로 꽂힙니다. 입력·수정·추가를 메뉴 찾아 들어가지 않고 끝냅니다.</p></div>
+  <div class="vfilms rv"><figure class="vfilm" style="margin:0"><video class="vfv" muted loop playsinline preload="none" poster="https://d8j0ntlcm91z4.cloudfront.net/user_3JmZNKTZQ2jvOCOpKVIQpiy6WR9/hf_20261016_014910_79f96699-7cf4-451a-afee-476ceb516bf7.png" data-src="https://d8j0ntlcm91z4.cloudfront.net/user_3JmZNKTZQ2jvOCOpKVIQpiy6WR9/hf_20261016_021141_0a08339d-7bc0-454c-afd1-06df4b5d169e.mp4" aria-label="말한 문장이 빛의 입자가 되어 노트북 ERP 화면으로 날아가 표가 바뀌는 연출 영상"></video><b>말 한마디가<br><span class="grad">표 안으로 꽂힙니다.</span></b></figure><figure class="vfilm" style="margin:0"><video class="vfv" muted loop playsinline preload="none" poster="https://d8j0ntlcm91z4.cloudfront.net/user_3JmZNKTZQ2jvOCOpKVIQpiy6WR9/hf_20261016_014911_32a393c7-7b97-41a8-8603-dc69684d45f9.png" data-src="https://d8j0ntlcm91z4.cloudfront.net/user_3JmZNKTZQ2jvOCOpKVIQpiy6WR9/hf_20261016_021141_6da2e05f-c4e8-462a-b3df-28db9e286264.mp4" aria-label="기존 값이 부서지고 새 값이 표에 꽂히는 연출 영상"></video><b>기존 값은 부서지고,<br><span class="grad">새 값이 꽂힙니다.</span></b></figure></div>
+  <div class="vx rv" id="vx" data-s="idle" role="img" aria-label="음성 명령이 AI를 거쳐 ERP 표에 바로 반영되는 예시 화면">
+   <div class="vx-l">
+    <div class="vx-mic"><i></i><span data-vx-st>말씀하세요</span></div>
+    <div class="vx-say" data-vx-say></div>
+    <div class="vx-wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="vx-meter"><div><b data-vx-k>0</b><small>타이핑</small></div><div><b data-vx-c>0</b><small>클릭</small></div><div><b data-vx-t>0.0</b><small>초</small></div></div>
+    <div class="vx-ai"><span class="vx-orb"></span><span data-vx-ai>ATZ AI 대기 중</span></div>
+   </div>
+   <div class="vx-r">
+    <div class="vx-top"><b>온결 F&amp;B · ERP</b><em>예시 화면</em><span class="live">● 실시간 반영</span></div>
+    <div class="vx-tabs"><span data-tab="staff" class="on">직원 · 급여</span><span data-tab="client">거래처</span><span data-tab="shift" class="opt">근무표</span></div>
+    <table><thead><tr><th>이름</th><th>지점</th><th class="opt">직무</th><th class="num">시급</th><th class="num">이번 주</th></tr></thead>
+    <tbody data-vx-body>
+     <tr data-id="kim"><td>김민지</td><td>성수점</td><td class="opt">바리스타</td><td class="num" data-f="pay">12,000원</td><td class="num" data-f="hr">32시간</td></tr>
+     <tr data-id="park"><td>박도윤</td><td>성수점</td><td class="opt">홀</td><td class="num" data-f="pay">11,000원</td><td class="num" data-f="hr">24시간</td></tr>
+     <tr data-id="lee"><td>이서준</td><td>합정점</td><td class="opt">주방</td><td class="num" data-f="pay">12,500원</td><td class="num" data-f="hr">40시간</td></tr>
+     <tr data-id="choi"><td>최하은</td><td>합정점</td><td class="opt">매니저</td><td class="num" data-f="pay">13,500원</td><td class="num" data-f="hr">38시간</td></tr>
+    </tbody></table>
+    <div class="vx-toast" data-vx-toast></div>
+   </div>
+  </div>
+ </div>
+</section>
 <section class="sec" id="feats" aria-labelledby="feat-t">
  <div class="wrap">
   <div class="rv"><span class="kick">10 AI FEATURES</span>
@@ -291,6 +366,56 @@ h2{margin:0 0 18px;font-size:clamp(30px,4.8vw,60px);line-height:1.15;font-weight
  for(var i=0;i<70;i++)P.push({x:Math.random(),y:Math.random(),v:.0006+Math.random()*.0018,l:.04+Math.random()*.12,c:Math.random()<.5?'58,224,255':'255,92,207'});
  if(io)new IntersectionObserver(function(es){on=es[0].isIntersecting}).observe(cv);
  (function loop(){if(on&&!document.hidden&&!red){g.clearRect(0,0,W,H);P.forEach(function(p){p.x+=p.v;if(p.x>1.1){p.x=-.1;p.y=Math.random()}var x=p.x*W,y=p.y*H,len=p.l*W;var gr=g.createLinearGradient(x-len,y,x,y);gr.addColorStop(0,'rgba('+p.c+',0)');gr.addColorStop(1,'rgba('+p.c+',.75)');g.strokeStyle=gr;g.lineWidth=1.4*devicePixelRatio;g.beginPath();g.moveTo(x-len,y);g.lineTo(x,y);g.stroke()})}requestAnimationFrame(loop)})();
+
+ // 말로 ERP 수정 연출
+ (function(){
+  var vx=document.getElementById('vx');if(!vx)return;
+  var say=vx.querySelector('[data-vx-say]'),st=vx.querySelector('[data-vx-st]'),ai=vx.querySelector('[data-vx-ai]'),body=vx.querySelector('[data-vx-body]'),toast=vx.querySelector('[data-vx-toast]'),orb=vx.querySelector('.vx-orb'),bars=[].slice.call(vx.querySelectorAll('.vx-wave i')),tT=vx.querySelector('[data-vx-t]');
+  [].forEach.call(document.querySelectorAll('.vfv'),function(vv){if(io)new IntersectionObserver(function(es){var e=es[0];if(e.isIntersecting){if(!vv.src)vv.src=vv.dataset.src;if(!red)vv.play().catch(function(){})}else vv.pause()},{threshold:.25}).observe(vv)});
+  var S=[
+   {w:['김민지','시급','12,500원으로','올려줘'],fly:'12,500원',sel:'tr[data-id=kim] [data-f=pay]',old:'12,000원',val:'12,500원',ai:'김민지 · 시급 수정',msg:'<b>김민지</b> 시급 12,500원 반영 · 이번 달 급여 재계산 완료'},
+   {w:['박도윤','이번 주','30시간으로','바꿔줘'],fly:'30시간',sel:'tr[data-id=park] [data-f=hr]',old:'24시간',val:'30시간',ai:'박도윤 · 근무 시간 수정',msg:'<b>박도윤</b> 이번 주 30시간 · 근무표도 함께 바뀌었습니다'},
+   {w:['신입','정유나','합정점','홀로','추가해줘'],fly:'정유나',add:['정유나','합정점','홀','11,000원','0시간'],ai:'신규 직원 등록',msg:'<b>정유나</b> 등록 · 근로계약서 초안까지 만들어 뒀습니다'},
+   {w:['성수점','전원','시급','300원','올려'],fly:'+300원',many:'성수',ai:'성수점 일괄 수정',msg:'<b>성수점 2명</b> 시급 +300원 일괄 반영'}
+  ];
+  var vis=false;if(io)new IntersectionObserver(function(es){vis=es[0].isIntersecting},{threshold:.3}).observe(vx);else vis=true;
+  function w(ms){return new Promise(function(r){setTimeout(r,ms)})}
+  async function until(){while(!vis||document.hidden)await w(300)}
+  var raf=0;function wave(on){cancelAnimationFrame(raf);if(!on){bars.forEach(function(b){b.style.height='4px'});return}(function f(t){bars.forEach(function(b,i){b.style.height=(4+Math.abs(Math.sin(t/90+i*.7))*22*Math.random())+'px'});raf=requestAnimationFrame(f)})(0)}
+  function rect(el){var a=el.getBoundingClientRect(),b=vx.getBoundingClientRect();return{x:a.left-b.left,y:a.top-b.top,w:a.width,h:a.height}}
+  function setS(s,t,a){vx.dataset.s=s;st.textContent=t;if(a)ai.textContent=a}
+  function hit(td,html){td.classList.remove('hit');void td.offsetWidth;td.innerHTML=html;td.classList.add('hit')}
+  function fmt(n){return n.toLocaleString('ko-KR')+'원'}
+  var base=body.innerHTML;
+  if(red){say.textContent=S[0].w.join(' ');return}
+  (async function(){var i=0;for(;;){
+   var s=S[i++%S.length];if(i%S.length===1&&i>1){body.innerHTML=base}
+   await until();say.innerHTML='';toast.classList.remove('on');setS('listen','듣는 중…','ATZ AI 대기 중');wave(true);var t0=performance.now();
+   for(var k=0;k<s.w.length;k++){var sp=document.createElement('span');sp.textContent=s.w[k];sp.className='pop';say.appendChild(sp);await w(260)}
+   wave(false);await w(250);
+   // 단어들이 AI로 빨려 들어감
+   setS('think','AI가 이해하는 중',s.ai);
+   var o=rect(orb),spans=[].slice.call(say.children);
+   spans.forEach(function(sp,j){var r=rect(sp);var f=document.createElement('span');f.className='vx-fly';f.textContent=sp.textContent;f.style.left=r.x+'px';f.style.top=r.y+'px';vx.appendChild(f);sp.classList.add('go');
+     setTimeout(function(){f.style.transform='translate('+(o.x+o.w/2-r.x-20)+'px,'+(o.y+o.h/2-r.y-10)+'px) scale(.2)';f.style.opacity='0'},40+j*70);setTimeout(function(){f.remove()},1000+j*70)});
+   await w(900);
+   // AI → 표로 꽂힘
+   var targets=[];
+   if(s.sel)targets=[vx.querySelector(s.sel)];
+   if(s.add){var tr=document.createElement('tr');tr.className='new';tr.innerHTML='<td>'+s.add[0]+'</td><td>'+s.add[1]+'</td><td class="opt">'+s.add[2]+'</td><td class="num" data-f="pay">'+s.add[3]+'</td><td class="num" data-f="hr">'+s.add[4]+'</td>';body.appendChild(tr);targets=[tr.children[0]]}
+   if(s.many)targets=[].slice.call(body.querySelectorAll('tr')).filter(function(r){return r.children[1].textContent.indexOf(s.many)===0}).map(function(r){return r.querySelector('[data-f=pay]')});
+   targets.forEach(function(td){var r=rect(td);var b=document.createElement('div');b.className='vx-beam';var x0=o.x+o.w/2,y0=o.y+o.h/2,x1=r.x+r.w/2,y1=r.y+r.h/2;if(innerWidth<=980){x0=r.x;y0=r.y-60}b.style.left=x0+'px';b.style.top=y0+'px';b.style.width=Math.hypot(x1-x0,y1-y0)+'px';b.style.transform='rotate('+Math.atan2(y1-y0,x1-x0)+'rad)';vx.appendChild(b);setTimeout(function(){b.remove()},700)});
+   await w(380);
+   targets.forEach(function(td){
+    if(s.sel)hit(td,'<s>'+s.old+'</s>'+s.val);
+    else if(s.many){var n=parseInt(td.textContent.replace(/[^0-9]/g,''),10)||0;hit(td,'<s>'+fmt(n)+'</s>'+fmt(n+300))}
+    else td.parentElement.querySelectorAll('td').forEach(function(c){c.classList.add('hit')});
+   });
+   tT.textContent=((performance.now()-t0)/1000).toFixed(1);
+   setS('done','반영 완료');toast.innerHTML=s.msg;toast.classList.add('on');
+   await w(3200);
+  }})();
+ })();
  // 채팅 연출
  var C=[
   {q:'지난달 미수금 많은 거래처 알려줘',a:'지난달 기준 미수금 상위 3곳입니다.<br><b>① 한빛상사</b> <em>1,240만 원</em> · 45일 경과<br><b>② 대명유통</b> 860만 원 · 30일<br><b>③ 서진푸드</b> 410만 원 · 12일<div class="bar"><span><i style="width:100%"></i></span><span><i style="width:69%"></i></span><span><i style="width:33%"></i></span></div><span class="w">한빛상사에 독촉 문자 초안</span>을 만들어 둘까요?'},
