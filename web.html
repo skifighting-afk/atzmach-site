@@ -3807,11 +3807,11 @@ const IND_ORDER=["병원·의원·치과","프랜차이즈·외식","법률·세
 
 /* 캡처 점검(2026-10-05): 로딩 화면 · 빈 화면 · 접속 오류로 찍힌 캡처는 보이지 않게. p=PC 깨짐 · m=휴대폰 깨짐 · 둘 다 깨지면 목록에서 제외(다시 캡처하면 이 줄에서 지우면 됨) */
 
-const BAD_SHOT={ref00:"pm",ref05:"pm",ref35:"pm",ref38:"pm",ref16:"pm",ref14:"pm",ref26:"pm",x163:"pm",ref01:"pm",ref06:"pm",ref17:"pm",ref24:"pm",ref29:"pm",ref31:"pm",ref33:"pm",ref36:"pm",ref37:"pm",x114:"pm",x159:"pm",x179:"pm",x50:"pm",x53:"pm"};
+const BAD_SHOT={ref20:"pm",x146:"m",x178:"m",x188:"p",x92:"p",ref00:"pm",ref05:"pm",ref35:"pm",ref38:"pm",ref16:"pm",ref14:"pm",ref26:"pm",x163:"pm",ref01:"pm",ref06:"pm",ref17:"pm",ref24:"pm",ref29:"pm",ref31:"pm",ref33:"pm",ref36:"pm",ref37:"pm",x114:"pm",x159:"pm",x179:"pm",x50:"pm",x53:"pm"};
 
 /* 긴 화면만 깨진 것(스크롤 애니메이션이 안 떠서 중간이 비어 있음): 첫 화면은 그대로 두고 긴 화면만 숨김 */
 
-const BAD_LONG={ref02:"p",ref04:"p",ref12:"p",ref15:"p",ref26:"p",ref30:"p",x167:"p"};
+const BAD_LONG={x31:"pm",ref08:"m",ref21:"p",ref09:"p",ref03:"m",ref18:"p",ref02:"p",ref04:"p",ref12:"p",ref15:"p",ref26:"p",ref30:"p",x167:"p"};
 
 const CASES=SITES.filter(c=>BAD_SHOT[c.id]!=="pm").map(c=>{const b=(BAD_SHOT[c.id]||"");const bl=BAD_LONG[c.id]||"";if(!b&&!bl)return c;if(!b){const lg=c.long?Object.fromEntries(Object.entries(c.long).filter(([k])=>!bl.includes(k[0]))):null;return{...c,long:lg&&Object.keys(lg).length?lg:null}}const lg=c.long?Object.fromEntries(Object.entries(c.long).filter(([k])=>!(b+bl).includes(k[0]))):null;return{...c,pc:c.pc&&!b.includes("p"),mo:c.mo&&!b.includes("m"),long:lg&&Object.keys(lg).length?lg:null}});
 
