@@ -2494,6 +2494,12 @@ nav.top .zx__d{display:none!important}nav.top .zx__p:after{display:none}@media(m
 #grid .cc__n{font-size:19px!important;font-weight:700!important;letter-spacing:-.02em;padding:0!important;background:none;border:0;color:#fff;text-align:left;cursor:pointer}
 #grid .cc__m{grid-column:1;margin:0!important;font-size:13px!important;opacity:.6}
 #grid .cc__fx{display:none!important}
+/* PC 캡처가 없는 사례: 휴대폰 화면을 가운데 크게 + 뒤는 같은 화면을 흐리게 깔아 빈 여백 없앰 */
+html body .cc__img--mf,html body .kc__img--mf{display:block!important}html body .cc__img--mf>span,html body .kc__img--mf>span{flex:none!important;width:100%!important;height:auto!important;max-height:none!important;aspect-ratio:390/845}
+html body #grid .cc__img--mo{display:flex!important;align-items:flex-start!important;justify-content:center!important;overflow:hidden;background:#0b0c12!important}
+html body #grid .cc__img--mo>i{position:absolute;inset:-12%;filter:blur(22px) brightness(.5) saturate(1.4);transform:scale(1.1)}
+html body #grid .cc__img--mo>span{position:relative;z-index:1;width:auto!important;height:92%!important;aspect-ratio:300/650;margin-top:6%;border-radius:16px!important;box-shadow:0 0 0 4px #111,0 24px 50px -12px #000}
+
 #grid .cc__a{grid-column:2;grid-row:1/3;display:flex!important;flex-direction:column;gap:6px!important;margin:0!important}
 #grid .cc__a .btn{min-height:36px!important;padding:0 14px!important;font-size:13px!important;border-radius:10px!important;white-space:nowrap}
 @media(max-width:760px){
@@ -3845,7 +3851,7 @@ function gInit(){const cnt=k=>CASES.filter(c=>c.category===k).length;G.n=PAGE;
 
  $("#cfSrc").innerHTML=[["all","전체 "+CASES.length],["reference","디자인 참고사례 "+(CASES.length-own)],["own","제작 포트폴리오 "+own]].map(x=>`<button type="button" data-src="${x[0]}" aria-pressed="${x[0]===G.src}">${x[1]}</button>`).join("");
 
- $("#casesNote").textContent=`모두 실제 운영 중인 사이트의 화면입니다(2026-10 캡처). ‘제작 포트폴리오’는 ATZ가 지정·확인한 사이트, ‘디자인 참고사례’는 출처를 밝힌 외부 사이트로 ATZ 작업물이 아닙니다. 사이트·화면의 권리는 각 운영사에 있으며, 이 페이지는 원본을 불러오지 않고 캡처 미리보기와 원본 링크만 보여 줍니다.`;
+ $("#casesNote").textContent=`마음에 드는 사이트를 고르세요. ATZ는 그 사이트보다 더 빠르고, 더 선명하고, 문의가 더 많이 오게 만듭니다.`;
 
  gDraw()}
 
@@ -3871,7 +3877,7 @@ function gList(){const q=G.q;let L=CASES.filter(c=>(G.src==="all"||c.sourceType=
 
  if(G.sort==="rec")L.sort((a,b)=>rk(a)-rk(b)||a.o-b.o);else if(G.sort==="ind")L.sort((a,b)=>IND_ORDER.indexOf(a.category)-IND_ORDER.indexOf(b.category)||a.o-b.o);else{const k=n=>n.replace(/^\(.+?\)\s*|^(주식회사|법무법인|세무법인|노무법인)\s*/,"");L.sort((a,b)=>k(a.name).localeCompare(k(b.name),"ko"))}return L}
 
-function cMedia(c){if(SMALL()&&c.mo)return`<span class="cc__img cc__img--mf"><span data-bg="${thBg(c.t,1)}"></span></span>`;return(c.pc?`<span class="cc__img" data-bg="${thBg(c.t,0)}"></span>`:`<span class="cc__img cc__img--mo"><span data-bg="${thBg(c.t,1)}"></span></span>`)+(c.pc&&c.mo?`<span class="cc__ph" aria-hidden="true"><span data-bg="${thBg(c.t,1)}"></span></span>`:"")}
+function cMedia(c){if(SMALL()&&c.mo)return`<span class="cc__img cc__img--mf"><span data-bg="${thBg(c.t,1)}"></span></span>`;return(c.pc?`<span class="cc__img" data-bg="${thBg(c.t,0)}"></span>`:`<span class="cc__img cc__img--mo"><i data-bg="${thBg(c.t,1)}"></i><span data-bg="${thBg(c.t,1)}"></span></span>`)+(c.pc&&c.mo?`<span class="cc__ph" aria-hidden="true"><span data-bg="${thBg(c.t,1)}"></span></span>`:"")}
 
 function cCard(c){const sel=SEL.includes(c.id),fx=fnP(c).slice(0,3);
 
@@ -3883,11 +3889,11 @@ function cCard(c){const sel=SEL.includes(c.id),fx=fnP(c).slice(0,3);
 
  ${fx.length?`<ul class="cc__fx" aria-label="손님이 할 수 있는 일">${fx.map(t=>`<li>${esc(t)}</li>`).join("")}</ul>`:""}
 
- <div class="cc__a"><button type="button" class="btn btn--s" data-open="${c.id}">${c.long?"끝까지 보기":"첫 화면 보기"}</button><button type="button" class="btn btn--s cc__pick" data-pick="${c.id}" aria-pressed="${sel}">${sel?"✓ 담았어요":"이 분위기 담기"}</button></div></div></article>`}
+ <div class="cc__a"><button type="button" class="btn btn--s" data-open="${c.id}">${c.long?"끝까지 보기":"첫 화면 보기"}</button><button type="button" class="btn btn--s cc__pick" data-pick="${c.id}" aria-pressed="${sel}">${sel?"✓ 담았어요":"이보다 더 잘 만들기"}</button></div></div></article>`}
 
 /* 카드: 먼저 작은 썸네일 → 화면에 들어오면 실제 1280×800 캡처로 교체(늘리지 않고 줄여서 표시) */
 
-function hdSwap(el,c){if(!el||!c)return;const mf=el.classList.contains("cc__img--mf")||el.classList.contains("kc__img--mf");if(mf){const t=el.firstElementChild||el;shot(c,"mo").then(r=>{if(!r)return;const im=new Image();im.onload=()=>{t.style.cssText="";t.style.backgroundImage=`url(${r.src})`;t.style.backgroundSize="100% auto";t.style.backgroundPosition="top center";el.classList.add("hd")};im.src=r.src});return}if(!c.pc)return;shot(c,"pc").then(r=>{if(!r)return;const im=new Image();im.onload=()=>{el.style.backgroundImage=`url(${r.src})`;el.style.backgroundSize="cover";el.style.backgroundPosition="top center";el.classList.add("hd")};im.src=r.src})}
+function hdSwap(el,c){if(!el||!c)return;const mf=el.classList.contains("cc__img--mf")||el.classList.contains("kc__img--mf");if(mf){const t=el.firstElementChild||el;shot(c,"mo").then(r=>{if(!r)return;const im=new Image();im.onload=()=>{t.style.cssText="";t.style.backgroundImage=`url(${r.src})`;t.style.backgroundSize="100% auto";t.style.backgroundPosition="top center";el.classList.add("hd")};im.src=r.src});return}if(!c.pc){if(el.classList.contains("cc__img--mo"))shot(c,"mo").then(r=>{if(!r)return;const t=el.lastElementChild,im=new Image();im.onload=()=>{t.style.cssText=`background:url(${r.src}) top center/100% auto no-repeat`;el.classList.add("hd")};im.src=r.src});return}shot(c,"pc").then(r=>{if(!r)return;const im=new Image();im.onload=()=>{el.style.backgroundImage=`url(${r.src})`;el.style.backgroundSize="cover";el.style.backgroundPosition="top center";el.classList.add("hd")};im.src=r.src})}
 
 const LD=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;$$("[data-bg]",e.target).forEach(x=>{x.style.cssText=x.dataset.bg;x.removeAttribute("data-bg")});const c=byCase[e.target.dataset.id];if(c)hdSwap($(".cc__img",e.target),c);LD.unobserve(e.target)}),{rootMargin:"300px 0px"});
 
@@ -3953,7 +3959,7 @@ function pick(id,el){const i=SEL.indexOf(id);let on=false;if(i>=0)SEL.splice(i,1
 
  LS.set("atz_web4_sel",SEL);gDrawSel();if(typeof onCasePicked==="function")onCasePicked(id,on,el);else if(typeof drawAtt==="function")drawAtt()}
 
-function gDrawSel(){$$(".cc").forEach(el=>{const s=SEL.includes(el.dataset.id);el.classList.toggle("sel",s);const b=el.querySelector("[data-pick]");if(b){b.setAttribute("aria-pressed",s);b.textContent=s?"✓ 담았어요":"이 분위기 담기"}});const p=$("#cd [data-cdpick]");if(p&&CD.id){const s=SEL.includes(CD.id);p.setAttribute("aria-pressed",s);p.textContent=s?"✓ 담았어요 · 빼기":"이 분위기 내 홈페이지에 담기"}}
+function gDrawSel(){$$(".cc").forEach(el=>{const s=SEL.includes(el.dataset.id);el.classList.toggle("sel",s);const b=el.querySelector("[data-pick]");if(b){b.setAttribute("aria-pressed",s);b.textContent=s?"✓ 담았어요":"이보다 더 잘 만들기"}});const p=$("#cd [data-cdpick]");if(p&&CD.id){const s=SEL.includes(CD.id);p.setAttribute("aria-pressed",s);p.textContent=s?"✓ 담았어요 · 빼기":"이 사이트보다 더 잘 만들기"}}
 
 function selBar(){}
 
@@ -4003,7 +4009,7 @@ function drawCase(){const c=byCase[CD.id],i=CD.list.indexOf(CD.id),n=CD.list.len
 
  <aside class="cd__s"><h4>손님이 여기서 할 수 있는 일</h4><ul class="cd__fx">${fnP(c).map(t=>`<li>${esc(t)}</li>`).join("")||"<li>눈에 띄는 문의 동선이 적은 사이트입니다</li>"}</ul><p class="cd__d">${esc(c.desc)}</p>
 
- <div class="cd__a"><button type="button" class="btn btn--p btn--lg" data-cdpick aria-pressed="${sel}">${sel?"✓ 담았어요 · 빼기":"이 분위기 내 홈페이지에 담기"}</button><a class="btn" href="#make" data-cdgo>내 홈페이지 만들기로</a></div>
+ <div class="cd__a"><button type="button" class="btn btn--p btn--lg" data-cdpick aria-pressed="${sel}">${sel?"✓ 담았어요 · 빼기":"이 사이트보다 더 잘 만들기"}</button><a class="btn" href="#make" data-cdgo>내 홈페이지 만들기로</a></div>
 
  <details class="cd__src"><summary>출처·원본 사이트</summary><p>${c.sourceType==="own"?"ATZ가 지정·확인한 제작 포트폴리오":"외부 운영 사이트의 화면 — ATZ 작업물이 아닙니다"}${c.via?" · "+esc(c.via):""}</p><p>보이는 스타일: ${c.styles.map(esc).join(" · ")}</p><p><a href="${esc(c.originalUrl)}" target="_blank" rel="noopener noreferrer" data-ev="case_origin">원본 사이트 열기 ↗</a></p></details>
 
@@ -5265,7 +5271,7 @@ const catOf=id=>byCase[id]&&byCase[id].category;
 
 const isOther=id=>!!MK.cat&&catOf(id)!==MK.cat;
 
-function caseCard(c){const on=SEL.includes(c.id);return`<div class="kc${on?" on":""}">${SMALL()&&c.mo?`<button type="button" class="kc__img kc__img--mf" data-open-case="${c.id}" aria-label="${esc(c.name)} 크게 보기"><span style="${thBg(c.t,1)}"></span></button>`:`<button type="button" class="kc__img" data-open-case="${c.id}" aria-label="${esc(c.name)} 크게 보기" style="${thBg(c.t,0)}"></button>`}<div class="kc__b"><b>${esc(c.name)}</b></div><button type="button" class="pq pq--row" data-ref="${c.id}" aria-pressed="${on}">${pressed(on,"담았어요")}<span>${on?"빼기":"이 사례 담기"}</span></button>${on?`<button type="button" class="lnk kc__why" data-why="${c.id}">${MK.notes[c.id]?"좋았던 부분 고치기":"좋았던 부분 적기·캡처"}</button>`:""}</div>`}
+function caseCard(c){const on=SEL.includes(c.id);return`<div class="kc${on?" on":""}">${(SMALL()||!c.pc)&&c.mo?`<button type="button" class="kc__img kc__img--mf" data-open-case="${c.id}" aria-label="${esc(c.name)} 크게 보기"><span style="${thBg(c.t,1)}"></span></button>`:`<button type="button" class="kc__img" data-open-case="${c.id}" aria-label="${esc(c.name)} 크게 보기" style="${thBg(c.t,0)}"></button>`}<div class="kc__b"><b>${esc(c.name)}</b></div><button type="button" class="pq pq--row" data-ref="${c.id}" aria-pressed="${on}">${pressed(on,"담았어요")}<span>${on?"빼기":"이 사례 담기"}</span></button>${on?`<button type="button" class="lnk kc__why" data-why="${c.id}">${MK.notes[c.id]?"좋았던 부분 고치기":"좋았던 부분 적기·캡처"}</button>`:""}</div>`}
 
 function refList(){const S=seg(),fit=c=>!S.fit||S.fit.test(c.name+" "+c.functions.join(" "));const rk=c=>(fit(c)?0:4)+(c.hero?0:2)+(c.sourceType==="own"?0:1)+(c.long?0:1);return CASES.filter(c=>c.category===S.cat&&c.pc).sort((a,b)=>rk(a)-rk(b)||a.o-b.o)}
 
@@ -6365,7 +6371,7 @@ const HX=(function(){const sec=$("#hero"),stage=$("#hxStage"),wall=$("#hxWall"),
 
    f.style.setProperty("--k",k);f.style.setProperty("--ak",ak);f.classList.toggle("on",k===0);f.classList.toggle("far",ak>4);f.tabIndex=k===0?0:-1;f.setAttribute("aria-current",k===0?"true":"false");if(ak<=4)bg(i);if(ak<=2&&!flipping)hi(i)});$("#hxCnt").textContent=`${cur+1} / ${n}`;
 
-  const c=L[cur],on=SEL.includes(c.id);cap.innerHTML=`<b>${esc(c.name)}</b><small>${esc(c.category)}${c.region?" · "+esc(c.region):""}${c.sourceType==="own"?" · 제작 포트폴리오":""}</small><button type="button" class="btn btn--s" data-hopen>크게 보기</button><button type="button" class="btn btn--s btn--p" data-hpick aria-pressed="${on}">${on?"✓ 담았어요":"이 분위기 담기"}</button>`;heroScroll()}
+  const c=L[cur],on=SEL.includes(c.id);cap.innerHTML=`<b>${esc(c.name)}</b><small>${esc(c.category)}${c.region?" · "+esc(c.region):""}${c.sourceType==="own"?" · 제작 포트폴리오":""}</small><button type="button" class="btn btn--s" data-hopen>크게 보기</button><button type="button" class="btn btn--s btn--p" data-hpick aria-pressed="${on}">${on?"✓ 담았어요":"이보다 더 잘 만들기"}</button>`;heroScroll()}
 
  /* 가운데 화면: 실제 긴 화면이 있으면 천천히 내려가며 보여 줌(효과 끔·움직임 감소 시 정지) */
 
