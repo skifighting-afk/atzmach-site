@@ -1363,7 +1363,7 @@ dialog{color:var(--ink);background:var(--bg2);border:var(--bw) solid var(--line)
 
 .cd__frame img{display:block;max-width:100%;height:auto;background:#fff}
 
-.cd__frame--mo{padding:14px 0}.cd__frame--mo img{border-radius:22px;box-shadow:0 0 0 8px #15171c,0 20px 60px -20px rgba(0,0,0,.6)}
+/* 사례 첫 화면이 프레임 높이에 딱 맞게(잘리거나 작아 보이지 않게) */@media(min-width:761px){#cd .cd__frame{container-type:size}#cd .cd__frame--pc img{max-width:min(100%,160cqh)}#cd .cd__frame--pc .cd__lo{width:min(100%,160cqh)}#cd .cd__frame--mo img{max-width:min(100%,calc((100cqh - 28px)*.4615))}#cd .cd__frame--mo .cd__lo{width:min(390px,100%,calc((100cqh - 28px)*.4615))}}.cd__frame--mo{padding:14px 0}.cd__frame--mo img{border-radius:22px;box-shadow:0 0 0 8px #15171c,0 20px 60px -20px rgba(0,0,0,.6)}
 
 .cd__lo{width:100%;aspect-ratio:16/10;background-size:cover;filter:blur(.4px)}.cd__frame--mo .cd__lo{width:min(390px,100%);aspect-ratio:390/845;border-radius:22px}
 
