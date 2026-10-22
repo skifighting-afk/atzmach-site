@@ -126,7 +126,7 @@
 
     d.innerHTML = "<h2>" + s[1] + "<em>" + s[2] + "</em></h2><p>카카오톡이나 전화 한 통이면 충분합니다.</p><div class=\"atzc__b\">" + btns(1) + "</div>" +
 
-      '<div class="atzc__tags"><span>2018년부터</span><span>14일 완성</span><span>맞춤 견적</span><span>1차 시안 무료</span></div>';
+      '<div class="atzc__tags"><span>2018년부터</span><span>14일 완성</span><span>맞춤 견적</span><span>1:1 맞춤 설계</span></div>';
 
     return d;
 
@@ -169,7 +169,7 @@
 
     var s = document.createElement("section"); s.id = "atz-trust"; s.className = "atz-trust"; s.setAttribute("aria-labelledby", "atz-trust-h");
 
-    s.innerHTML = '<div class="atz-trust__in"><p class="atz-trust__k">2018년부터</p><h2 id="atz-trust-h">맞춤 ERP·업무 프로그램 제작</h2><p class="atz-trust__lead">2018년부터 회사마다 다른 업무를 프로그램으로 만들어 왔습니다. 맞춤 견적 · 초기 0원 월 분할 협의 가능 · 1차 시안 무료입니다.</p><ul class="atz-trust__price"><li><b>14일</b><span>완성</span></li><li><b>맞춤 견적</b><span>상담 후</span></li><li><b>무료</b><span>1차 시안</span></li></ul><div class="atz-trust__todo"><p class="atz-trust__tag">TODO · 소유자 확인 전</p><p><b>소스코드 소유</b> — TODO: 납품 후 소스코드의 소유 주체와 이용 범위를 소유자가 확정한 문장으로 교체합니다.</p><p><b>계약 조건</b> — TODO: 대금, 수정 범위, 인수 조건은 소유자 확인 후 이 자리에 게시합니다. 확정 전에는 견적서와 계약서가 기준입니다.</p></div><div class="atz-trust__cases" id="cases"><h3>실제 도입 사례</h3><p>고객 동의를 받은 사례만 이 자리에 올립니다.</p><div class="atz-trust__slot" data-empty="true">등록된 실제 사례가 없습니다.</div></div><p class="atz-trust__note">화면의 업종·숫자·회사명은 기능을 설명하는 예시입니다. 실제 고객 실적이 아닙니다.</p></div>';
+    s.innerHTML = '<div class="atz-trust__in"><p class="atz-trust__k">2018년부터</p><h2 id="atz-trust-h">맞춤 ERP·업무 프로그램 제작</h2><p class="atz-trust__lead">2018년부터 회사마다 다른 업무를 프로그램으로 만들어 왔습니다. 맞춤 견적으로 진행합니다.</p><ul class="atz-trust__price"><li><b>14일</b><span>완성</span></li><li><b>맞춤 견적</b><span>상담 후</span></li><li><b>1:1</b><span>맞춤 설계</span></li></ul></div>';
 
     root.parentNode.insertBefore(s, root.nextSibling);
 
@@ -197,7 +197,7 @@
 
       l = document.createElement("link"); l.id = "atz-polish"; l.rel = "stylesheet";
 
-      l.href = new URL("polish.css?v=20261015b", BASE).href;
+      l.href = new URL("polish.css?v=20261022", BASE).href;
 
     }
 
@@ -207,7 +207,7 @@
 
   function run() { mount(); fixText(); trust(); phoneBuddy(); polish(); panels.forEach(function (p) { if (io && p && !p._o) { p._o = 1; io.observe(p) } }) }
 
-  // 기존 '무료 시안 받기' 버튼들(폼으로 가던 링크·버튼)은 연락 패널로 보낸다. 패널이 없는 페이지는 카카오톡 채널을 연다.
+  // 기존 '제작 상담 받기' 버튼들(폼으로 가던 링크·버튼)은 연락 패널로 보낸다. 패널이 없는 페이지는 카카오톡 채널을 연다.
 
   var ids = SEC.map(function (s) { return s[0] }), CTA = /시안 받기|시안받기|상담 신청|상담하기|이야기 시작|문의하기|신청하기/;
 
