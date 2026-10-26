@@ -1,3 +1,15 @@
 User-agent: *
 Allow: /
+Disallow: /admin.html
+Disallow: /inbox.html
+Disallow: /notify.html
+Disallow: /stats.html
+Disallow: /portal.html
+
+User-agent: Yeti
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
 Sitemap: https://atzmach.co.kr/sitemap.xml
