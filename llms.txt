@@ -15,6 +15,9 @@
 - [홈페이지 제작](https://atzmach.co.kr/web.html): 업종에 맞춘 반응형 홈페이지와 3D 스크롤 웹사이트를 7일 안에 만듭니다.
 - [ATZ 창업사관학교](https://atzmach.co.kr/academy.html): 사업 설계부터 제작·운영까지 함께하는 창업 교육입니다.
 
+## 가이드
+- [ERP 제작 비용·기간 가이드](https://atzmach.co.kr/guide/erp-cost.html): 비용을 정하는 4가지 기준, 14일 제작 과정, 도입 전 체크리스트.
+
 ## 업종별 관리 프로그램
 - [프랜차이즈 본사](https://atzmach.co.kr/l/franchise-hq.html)
 - [음식점 가맹점](https://atzmach.co.kr/l/franchise-store.html)
